@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Phân bổ vốn thông minh • Firebase Sync</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --primary: #3498db;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg-gradient);
+    margin: 0;
+    padding: 10px;
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  }
+  header {
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  h1 { 
+    margin: 0; 
+    font-size: clamp(1.5em, 4vw, 2.2em); 
+    font-weight: 700; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+  }
+  h1 i { font-size: 1.2em; }
+  .subtitle { 
+    opacity: 0.9; 
+    font-size: clamp(0.9em, 2.5vw, 1.1em); 
+    margin-top: 5px; 
+  }
+
+  .main {
+    padding: 20px;
+  }
+  .total-input {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .total-input label {
+    font-size: clamp(1em, 3vw, 1.3em);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--dark);
+  }
+  #total {
+    width: 100%;
+    max-width: 380px;
+    padding: 16px 20px;
+    font-size: clamp(1.2em, 4vw, 2em);
+    font-weight: bold;
+    text-align: center;
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s;
+    margin: 0 auto;
+    display: block;
+  }
+  #total:focus { 
+    border-color: #2980b9; 
+    box-shadow: 0 0 0 4px rgba(52,152,219,0.2); 
+  }
+
+  .items { 
+    margin: 20px 0; 
+    display: grid; 
+    gap: 16px; 
+  }
+  .item {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+  }
+  .item:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+  }
+
+  .item-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 40px;
+  }
+  .item-name {
+    flex: 1;
+    min-width: 150px;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    outline: none;
+  }
+  .percent-display {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--primary);
+    min-width: 60px;
+    text-align: center;
+  }
+  .amount-display {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--success);
+    min-width: 120px;
+    text-align: right;
+  }
+  .delete-btn {
+    background: var(--danger);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .delete-btn:hover { 
+    background: #c0392b; 
+    transform: scale(1.05); 
+  }
+
+  .progress-container {
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), #2980b9);
+    width: 0%;
+    transition: width 0.4s ease;
+    border-radius: 4px;
+  }
+
+  .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  input[type="range"] {
+    flex: 1;
+    min-width: 150px;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(52,152,219,0.4);
+  }
+
+  .percent-input {
+    width: 60px;
+    padding: 6px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+
+  .actions {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn {
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
+  .btn-primary:hover { background: #2980b9; transform: translateY(-2px); }
+  .btn-success {
+    background: var(--success);
+    color: white;
+  }
+  .btn-success:hover { background: #219653; }
+  .btn-warning {
+    background: var(--warning);
+    color: white;
+  }
+  .btn-warning:hover { background: #e67e22; }
+
+  .summary {
+    background: var(--dark);
+    color: white;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .summary span {
+    color: #f1c40f;
+    font-size: 1.1em;
+  }
+  .perfect { color: #2ecc71 !important; }
+
+  .status {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9em;
+    padding: 8px;
+    border-radius: 6px;
+    display: none;
+  }
+  .status.success { background: #d4edda; color: #155724; }
+  .status.error { background: #f8d7da; color: #721c24; }
+
+  .loading {
+    display: none;
+    text-align: center;
+    padding: 10px;
+  }
+  .loading i { animation: spin 1s linear infinite; }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+  @media (max-width: 768px) {
+    body { padding: 5px; }
+    .main { padding: 15px; }
+    .item-header { 
+      flex-direction: column; 
+      align-items: stretch; 
+      gap: 5px; 
+    }
+    .item-name { min-width: auto; }
+    .amount-display, .percent-display { 
+      text-align: center; 
+      min-width: auto; 
+    }
+    .slider-container { 
+      flex-direction: column; 
+      align-items: stretch; 
+    }
+    input[type="range"] { min-width: auto; }
+    .percent-input { width: 100%; }
+    .actions { flex-direction: column; align-items: center; }
+    .summary { 
+      flex-direction: column; 
+      font-size: 1.1em; 
+      gap: 5px; 
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container { margin: 0; border-radius: 0; }
+    header { padding: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1><i class="fas fa-chart-pie"></i> Phân Bổ Vốn Thông Minh</h1>
+    <p class="subtitle">Sync realtime với Firebase • Không bao giờ vượt 100%</p>
+  </header>
+
+  <div class="main">
+    <div class="total-input">
+      <label><i class="fas fa-wallet"></i> Tổng số tiền cần phân bổ (VNĐ)</label>
+      <input type="number" id="total" value="93960000" placeholder="0" min="0">
+    </div>
+
+    <div class="loading" id="loading">
+      <i class="fas fa-spinner"></i> Đang đồng bộ...
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="items" id="items"></div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="addItem()">
+        <i class="fas fa-plus"></i> Thêm hạng mục mới
+      </button>
+      <button class="btn btn-success" onclick="resetDefault()">
+        <i class="fas fa-sync-alt"></i> Cài đặt lại mặc định
+      </button>
+      <button class="btn btn-warning" onclick="exportData()">
+        <i class="fas fa-download"></i> Export JSON
+      </button>
+    </div>
+
+    <div class="summary">
+      <span>Tổng cộng:</span>
+      <span id="sumPercent">0</span>%
+      <i class="fas fa-arrow-right"></i>
+      <span id="sumAmount">0 ₫</span>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+  import { getDatabase, ref, onValue, set } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+
+  // Khai báo Firebase config - chỉ cần URL (databaseURL)
+  const firebaseConfig = {
+    databaseURL: "https://unityvina-1fc51-default-rtdb.asia-southeast1.firebasedatabase.app/"
+  };
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const dataRef = ref(db, 'portfolio'); // Node lưu dữ liệu (tổng tiền + items)
+
+  // Danh sách mặc định
+  const defaultItems = [
+    {name: "Dự phòng khẩn cấp", percent: 15},
+    {name: "Bảo hiểm (sức khỏe, nhân thọ)", percent: 5},
+    {name: "Tiêu dùng bắt buộc (ăn ở, điện nước...)", percent: 30},
+    {name: "Trái phiếu / Tiết kiệm kỳ hạn", percent: 20},
+    {name: "Vàng SJC", percent: 10},
+    {name: "Cổ phiếu / Quỹ ETF", percent: 15},
+    {name: "Đầu tư bản thân (học tập, kỹ năng)", percent: 5}
+  ];
+
+  let items = [];
+  let saveTimeout; // Debounce save
+
+  function showStatus(msg, type = 'success') {
+    const status = document.getElementById('status');
+    status.textContent = msg;
+    status.className = `status ${type}`;
+    status.style.display = 'block';
+    setTimeout(() => { status.style.display = 'none'; }, 3000);
+  }
+
+  function showLoading(show = true) {
+    document.getElementById('loading').style.display = show ? 'block' : 'none';
+  }
+
+  function formatMoney(n) {
+    return n.toLocaleString('vi-VN') + ' ₫';
+  }
+
+  function getTotalPercent() {
+    return Array.from(document.querySelectorAll('.percentInput')).reduce((sum, el) => sum + (parseFloat(el.value) || 0), 0);
+  }
+
+  function limitPercentInput(input) {
+    let value = parseFloat(input.value) || 0;
+    if (value < 0) value = 0;
+    if (value > 100) value = 100;
+    
+    const currentTotal = getTotalPercent() - (parseFloat(input.dataset.oldValue) || 0);
+    if (currentTotal + value > 100) {
+      value = 100 - currentTotal;
+      if (value < 0) value = 0;
+    }
+    input.value = value.toFixed(1);
+    input.dataset.oldValue = value;
+    return value;
+  }
+
+  function updateAll() {
+    const totalMoney = parseFloat(document.getElementById("total").value) || 0;
+    let sumPercent = 0;
+    let sumAmount = 0;
+
+    document.querySelectorAll(".item").forEach(el => {
+      const percent = parseFloat(el.querySelector(".percentInput").value) || 0;
+      const amount = totalMoney * percent / 100;
+
+      sumPercent += percent;
+      sumAmount += amount;
+
+      el.querySelector(".percent-display").textContent = percent.toFixed(1) + "%";
+      el.querySelector(".amount-display").innerHTML = formatMoney(Math.round(amount));
+      el.querySelector(".progress-bar").style.width = percent + "%";
+    });
+
+    const sumP = sumPercent.toFixed(1);
+    document.getElementById("sumPercent").textContent = sumP;
+    document.getElementById("sumAmount").textContent = formatMoney(Math.round(sumAmount));
+
+    const sumEl = document.getElementById("sumPercent");
+    if (Math.abs(sumPercent - 100) < 0.2) {
+      sumEl.classList.add("perfect");
+    } else {
+      sumEl.classList.remove("perfect");
+    }
+
+    // Debounce save to Firebase
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(saveToFirebase, 1000);
+  }
+
+  function addItem(name = "", percent = 0) {
+    const remaining = 100 - getTotalPercent();
+    if (remaining <= 0 && document.querySelectorAll(".item").length > 0) {
+      showStatus("Đã đạt 100%, không thể thêm hạng mục mới!", 'error');
+      return;
+    }
+
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `
+      <div class="item-header">
+        <input type="text" class="item-name" value="${name}" placeholder="Nhập tên hạng mục">
+        <div class="percent-display">${percent}%</div>
+        <div class="amount-display">0 ₫</div>
+        <button class="delete-btn" onclick="this.closest('.item').remove(); updateAll(); saveToFirebase(); title='Xóa'" title="Xóa">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="progress-container"><div class="progress-bar"></div></div>
+      <div class="slider-container">
+        <input type="range" min="0" max="100" step="0.5" value="${percent}" class="slider">
+        <input type="number" min="0" max="100" step="0.5" class="percentInput percent-input" value="${percent}" data-old-value="${percent}">
+        <span>%</span>
+      </div>
+    `;
+
+    const slider = div.querySelector(".slider");
+    const percentInput = div.querySelector(".percentInput");
+
+    slider.oninput = function() {
+      let val = parseFloat(this.value);
+      const otherTotal = getTotalPercent() - (parseFloat(percentInput.dataset.oldValue) || 0);
+      if (otherTotal + val > 100) val = 100 - otherTotal;
+      percentInput.value = val.toFixed(1);
+      percentInput.dataset.oldValue = val;
+      updateAll();
+    };
+
+    percentInput.oninput = function() {
+      let val = limitPercentInput(this);
+      slider.value = val;
+      updateAll();
+    };
+
+    div.querySelector(".item-name").oninput = updateAll;
+
+    document.getElementById("items").appendChild(div);
+    updateAll();
+  }
+
+  // Save to Firebase
+  async function saveToFirebase() {
+    showLoading(true);
+    try {
+      const total = parseFloat(document.getElementById("total").value) || 0;
+      const itemsData = Array.from(document.querySelectorAll(".item")).map(el => ({
+        name: el.querySelector(".item-name").value,
+        percent: parseFloat(el.querySelector(".percentInput").value) || 0
+      }));
+      const data = { total, items: itemsData };
+      await set(dataRef, data);
+      showStatus("Đã lưu vào Firebase thành công!");
+    } catch (error) {
+      console.error("Firebase save error:", error);
+      showStatus("Lỗi lưu dữ liệu: " + error.message, 'error');
+    } finally {
+      showLoading(false);
+    }
+  }
+
+  // Load from Firebase
+  function loadFromFirebase() {
+    showLoading(true);
+    onValue(dataRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        document.getElementById("total").value = data.total || 0;
+        document.getElementById("items").innerHTML = "";
+        (data.items || []).forEach(item => addItem(item.name, item.percent));
+        showStatus("Đã load dữ liệu từ Firebase!");
+      } else {
+        // Nếu rỗng, load default
+        document.getElementById("items").innerHTML = "";
+        defaultItems.forEach(item => addItem(item.name, item.percent));
+        showStatus("DB rỗng, sử dụng dữ liệu mặc định.");
+      }
+      updateAll();
+      showLoading(false);
+    }, (error) => {
+      console.error("Firebase load error:", error);
+      showStatus("Lỗi kết nối Firebase: " + error.message, 'error');
+      showLoading(false);
+      // Fallback to default
+      loadDefault();
+    });
+  }
+
+  function loadDefault() {
+    document.getElementById("items").innerHTML = "";
+    defaultItems.forEach(item => addItem(item.name, item.percent));
+    updateAll();
+  }
+
+  function resetDefault() {
+    if (confirm("Bạn có chắc muốn cài đặt lại danh sách mặc định? Dữ liệu hiện tại sẽ bị mất.")) {
+      loadDefault();
+      saveToFirebase();
+    }
+  }
+
+  function exportData() {
+    const data = {
+      total: parseFloat(document.getElementById("total").value) || 0,
+      items: Array.from(document.querySelectorAll(".item")).map(el => ({
+        name: el.querySelector(".item-name").value,
+        percent: parseFloat(el.querySelector(".percentInput").value) || 0
+      }))
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'portfolio-data.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // Events
+  document.getElementById("total").addEventListener("input", updateAll);
+  document.addEventListener('DOMContentLoaded', () => {
+    loadFromFirebase();
+  });
+</script>
+
+</body>
+      </html>
