@@ -23,7 +23,6 @@
     padding: 10px;
     min-height: 100vh;
     color: #333;
-    line-height: 1.5;
   }
   .container {
     max-width: 960px;
@@ -48,274 +47,72 @@
     justify-content: center; 
     gap: 10px; 
   }
-  h1 i { font-size: 1.2em; }
-  .subtitle { 
-    opacity: 0.9; 
-    font-size: clamp(0.9em, 2.5vw, 1.1em); 
-    margin-top: 5px; 
-  }
+  .subtitle { opacity: 0.9; font-size: clamp(0.9em, 2.5vw, 1.1em); margin-top: 5px; }
 
-  .main {
-    padding: 20px;
-  }
-  .total-input {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .total-input label {
-    font-size: clamp(1em, 3vw, 1.3em);
-    font-weight: 600;
-    display: block;
-    margin-bottom: 10px;
-    color: var(--dark);
-  }
+  .main { padding: 20px; }
+  .total-input { text-align: center; margin-bottom: 20px; }
+  .total-input label { font-size: clamp(1em, 3vw, 1.3em); font-weight: 600; display: block; margin-bottom: 10px; color: var(--dark); }
   #total {
-    width: 100%;
-    max-width: 380px;
-    padding: 16px 20px;
-    font-size: clamp(1.2em, 4vw, 2em);
-    font-weight: bold;
-    text-align: center;
-    border: 3px solid var(--primary);
-    border-radius: 12px;
-    outline: none;
-    transition: all 0.3s;
-    margin: 0 auto;
-    display: block;
+    width: 100%; max-width: 380px; padding: 16px 20px; font-size: clamp(1.2em, 4vw, 2em);
+    font-weight: bold; text-align: center; border: 3px solid var(--primary); border-radius: 12px;
+    outline: none; transition: all 0.3s; margin: 0 auto; display: block;
   }
-  #total:focus { 
-    border-color: #2980b9; 
-    box-shadow: 0 0 0 4px rgba(52,152,219,0.2); 
-  }
+  #total:focus { border-color: #2980b9; box-shadow: 0 0 0 4px rgba(52,152,219,0.2); }
 
-  .items { 
-    margin: 20px 0; 
-    display: grid; 
-    gap: 16px; 
-  }
+  .items { margin: 20px 0; display: grid; gap: 16px; }
   .item {
-    background: #f8f9fa;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    gap: 12px;
+    background: #f8f9fa; border-radius: 16px; padding: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    transition: all 0.3s; position: relative; overflow: hidden; display: grid; gap: 12px;
   }
-  .item:hover { 
-    transform: translateY(-2px); 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
-  }
+  .item:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
 
-  .item-header {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    min-height: 40px;
-  }
-  .item-name {
-    flex: 1;
-    min-width: 150px;
-    font-size: 1em;
-    font-weight: 600;
-    padding: 8px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 6px;
-    outline: none;
-  }
-  .percent-display {
-    font-weight: bold;
-    font-size: 1.2em;
-    color: var(--primary);
-    min-width: 60px;
-    text-align: center;
-  }
-  .amount-display {
-    font-weight: bold;
-    font-size: 1.1em;
-    color: var(--success);
-    min-width: 120px;
-    text-align: right;
-  }
-  .delete-btn {
-    background: var(--danger);
-    color: white;
-    border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .delete-btn:hover { 
-    background: #c0392b; 
-    transform: scale(1.05); 
-  }
+  .item-header { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 40px; }
+  .item-name { flex: 1; min-width: 150px; font-size: 1em; font-weight: 600; padding: 8px; border: 1px solid #ddd; background: white; border-radius: 6px; outline: none; }
+  .percent-display { font-weight: bold; font-size: 1.2em; color: var(--primary); min-width: 60px; text-align: center; }
+  .amount-display { font-weight: bold; font-size: 1.1em; color: var(--success); min-width: 120px; text-align: right; }
+  .delete-btn { background: var(--danger); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .delete-btn:hover { background: #c0392b; transform: scale(1.05); }
 
-  .progress-container {
-    height: 8px;
-    background: #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    width: 100%;
-  }
-  .progress-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary), #2980b9);
-    width: 0%;
-    transition: width 0.4s ease;
-    border-radius: 4px;
-  }
+  .progress-container { height: 8px; background: #ddd; border-radius: 4px; overflow: hidden; }
+  .progress-bar { height: 100%; background: linear-gradient(90deg, var(--primary), #2980b9); width: 0%; transition: width 0.4s ease; }
 
-  .slider-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  input[type="range"] {
-    flex: 1;
-    min-width: 150px;
-    height: 6px;
-    border-radius: 3px;
-    background: #ddd;
-    outline: none;
-    -webkit-appearance: none;
-  }
+  .slider-container { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  input[type="range"] { flex: 1; min-width: 150px; height: 6px; border-radius: 3px; background: #ddd; outline: none; -webkit-appearance: none; }
   input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--primary);
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(52,152,219,0.4);
+    -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--primary);
+    cursor: pointer; box-shadow: 0 2px 6px rgba(52,152,219,0.4);
   }
+  .percent-input { width: 60px; padding: 6px; text-align: center; border: 2px solid #ddd; border-radius: 6px; font-weight: bold; }
 
-  .percent-input {
-    width: 60px;
-    padding: 6px;
-    text-align: center;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-weight: bold;
-  }
-
-  .actions {
-    text-align: center;
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-  .btn {
-    padding: 12px 20px;
-    font-size: 1em;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .btn-primary {
-    background: var(--primary);
-    color: white;
-  }
+  .actions { text-align: center; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .btn { padding: 12px 20px; font-size: 1em; font-weight: 600; border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+  .btn-primary { background: var(--primary); color: white; }
   .btn-primary:hover { background: #2980b9; transform: translateY(-2px); }
-  .btn-success {
-    background: var(--success);
-    color: white;
-  }
-  .btn-success:hover { background: #219653; }
-  .btn-warning {
-    background: var(--warning);
-    color: white;
-  }
-  .btn-warning:hover { background: #e67e22; }
+  .btn-success { background: var(--success); color: white; }
+  .btn-warning { background: var(--warning); color: white; }
 
   .summary {
-    background: var(--dark);
-    color: white;
-    padding: 20px;
-    border-radius: 16px;
-    text-align: center;
-    font-size: 1.3em;
-    font-weight: bold;
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    background: var(--dark); color: white; padding: 20px; border-radius: 16px; text-align: center;
+    font-size: 1.3em; font-weight: bold; margin-top: 15px; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 10px;
   }
-  .summary span {
-    color: #f1c40f;
-    font-size: 1.1em;
-  }
+  .summary span { color: #f1c40f; font-size: 1.1em; }
   .perfect { color: #2ecc71 !important; }
 
-  .status {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 0.9em;
-    padding: 8px;
-    border-radius: 6px;
-    display: none;
-  }
-  .status.success { background: #d4edda; color: #155724; }
-  .status.error { background: #f8d7da; color: #721c24; }
+  .status { text-align: center; margin: 10px 0; font-size: 0.9em; padding: 8px; border-radius: 6px; display: none; }
+  .status.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+  .status.error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
-  .loading {
-    display: none;
-    text-align: center;
-    padding: 10px;
-  }
-  .loading i { animation: spin 1s linear infinite; }
-  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  .loading { display: none; text-align: center; padding: 10px; color: var(--primary); font-weight: 600; }
+  .loading i { animation: spin 1s linear infinite; margin-right: 8px; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
   @media (max-width: 768px) {
-    body { padding: 5px; }
-    .main { padding: 15px; }
-    .item-header { 
-      flex-direction: column; 
-      align-items: stretch; 
-      gap: 5px; 
-    }
-    .item-name { min-width: auto; }
-    .amount-display, .percent-display { 
-      text-align: center; 
-      min-width: auto; 
-    }
-    .slider-container { 
-      flex-direction: column; 
-      align-items: stretch; 
-    }
-    input[type="range"] { min-width: auto; }
+    .item-header { flex-direction: column; align-items: stretch; gap: 5px; }
+    .slider-container { flex-direction: column; align-items: stretch; }
     .percent-input { width: 100%; }
     .actions { flex-direction: column; align-items: center; }
-    .summary { 
-      flex-direction: column; 
-      font-size: 1.1em; 
-      gap: 5px; 
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container { margin: 0; border-radius: 0; }
-    header { padding: 15px; }
+    .summary { flex-direction: column; font-size: 1.1em; gap: 5px; }
   }
 </style>
 </head>
@@ -323,78 +120,69 @@
 
 <div class="container">
   <header>
-    <h1><i class="fas fa-chart-pie"></i> Phân Bổ Vốn Thông Minh</h1>
-    <p class="subtitle">Sync realtime với Firebase • Không bao giờ vượt 100%</p>
+    <h1>Phân Bổ Vốn Thông Minh</h1>
+    <p class="subtitle">Đồng bộ realtime • Dữ liệu được lưu vĩnh viễn</p>
   </header>
 
   <div class="main">
     <div class="total-input">
-      <label><i class="fas fa-wallet"></i> Tổng số tiền cần phân bổ (VNĐ)</label>
+      <label>Tổng số tiền cần phân bổ (VNĐ)</label>
       <input type="number" id="total" value="93960000" placeholder="0" min="0">
     </div>
 
-    <div class="loading" id="loading">
-      <i class="fas fa-spinner"></i> Đang đồng bộ...
-    </div>
-
+    <div class="loading" id="loading">Đang kết nối Firebase...</div>
     <div class="status" id="status"></div>
 
     <div class="items" id="items"></div>
 
     <div class="actions">
-      <button class="btn btn-primary" onclick="addItem()">
-        <i class="fas fa-plus"></i> Thêm hạng mục mới
-      </button>
-      <button class="btn btn-success" onclick="resetDefault()">
-        <i class="fas fa-sync-alt"></i> Cài đặt lại mặc định
-      </button>
-      <button class="btn btn-warning" onclick="exportData()">
-        <i class="fas fa-download"></i> Export JSON
-      </button>
+      <button class="btn btn-primary" onclick="addItem()">Thêm hạng mục</button>
+      <button class="btn btn-success" onclick="resetDefault()">Cài đặt mặc định</button>
+      <button class="btn btn-warning" onclick="exportData()">Export JSON</button>
     </div>
 
     <div class="summary">
       <span>Tổng cộng:</span>
       <span id="sumPercent">0</span>%
-      <i class="fas fa-arrow-right"></i>
       <span id="sumAmount">0 ₫</span>
     </div>
   </div>
 </div>
 
-<!-- Firebase SDK -->
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-  import { getDatabase, ref, onValue, set } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+  import { getDatabase, ref, onValue, set, get } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
 
-  // Khai báo Firebase config - chỉ cần URL (databaseURL)
   const firebaseConfig = {
     databaseURL: "https://unityvina-1fc51-default-rtdb.asia-southeast1.firebasedatabase.app/"
   };
+
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const dataRef = ref(db, 'portfolio'); // Node lưu dữ liệu (tổng tiền + items)
+  const dataRef = ref(db, 'portfolio');
 
-  // Danh sách mặc định
-  const defaultItems = [
-    {name: "Dự phòng khẩn cấp", percent: 15},
-    {name: "Bảo hiểm (sức khỏe, nhân thọ)", percent: 5},
-    {name: "Tiêu dùng bắt buộc (ăn ở, điện nước...)", percent: 30},
-    {name: "Trái phiếu / Tiết kiệm kỳ hạn", percent: 20},
-    {name: "Vàng SJC", percent: 10},
-    {name: "Cổ phiếu / Quỹ ETF", percent: 15},
-    {name: "Đầu tư bản thân (học tập, kỹ năng)", percent: 5}
-  ];
+  const defaultData = {
+    total: 93960000,
+    items: [
+      {name: "Dự phòng khẩn cấp", percent: 15},
+      {name: "Bảo hiểm (sức khỏe, nhân thọ)", percent: 5},
+      {name: "Tiêu dùng bắt buộc (ăn ở, điện nước...)", percent: 30},
+      {name: "Trái phiếu / Tiết kiệm kỳ hạn", percent: 20},
+      {name: "Vàng SJC", percent: 10},
+      {name: "Cổ phiếu / Quỹ ETF", percent: 15},
+      {name: "Đầu tư bản thân (học tập, kỹ năng)", percent: 5}
+    ]
+  };
 
-  let items = [];
-  let saveTimeout; // Debounce save
+  let isFirstLoad = true;
+  let saveTimeout;
 
   function showStatus(msg, type = 'success') {
-    const status = document.getElementById('status');
-    status.textContent = msg;
-    status.className = `status ${type}`;
-    status.style.display = 'block';
-    setTimeout(() => { status.style.display = 'none'; }, 3000);
+    const el = document.getElementById('status');
+    el.textContent = msg;
+    el.className = `status ${type}`;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 4000);
   }
 
   function showLoading(show = true) {
@@ -406,7 +194,8 @@
   }
 
   function getTotalPercent() {
-    return Array.from(document.querySelectorAll('.percentInput')).reduce((sum, el) => sum + (parseFloat(el.value) || 0), 0);
+    return Array.from(document.querySelectorAll('.percentInput'))
+      .reduce((sum, el) => sum + (parseFloat(el.value) || 0), 0);
   }
 
   function limitPercentInput(input) {
@@ -414,9 +203,10 @@
     if (value < 0) value = 0;
     if (value > 100) value = 100;
     
-    const currentTotal = getTotalPercent() - (parseFloat(input.dataset.oldValue) || 0);
-    if (currentTotal + value > 100) {
-      value = 100 - currentTotal;
+    const oldValue = parseFloat(input.dataset.oldValue) || 0;
+    const otherTotal = getTotalPercent() - oldValue;
+    if (otherTotal + value > 100) {
+      value = 100 - otherTotal;
       if (value < 0) value = 0;
     }
     input.value = value.toFixed(1);
@@ -432,12 +222,11 @@
     document.querySelectorAll(".item").forEach(el => {
       const percent = parseFloat(el.querySelector(".percentInput").value) || 0;
       const amount = totalMoney * percent / 100;
-
       sumPercent += percent;
       sumAmount += amount;
 
       el.querySelector(".percent-display").textContent = percent.toFixed(1) + "%";
-      el.querySelector(".amount-display").innerHTML = formatMoney(Math.round(amount));
+      el.querySelector(".amount-display").innerText = formatMoney(Math.round(amount));
       el.querySelector(".progress-bar").style.width = percent + "%";
     });
 
@@ -452,15 +241,14 @@
       sumEl.classList.remove("perfect");
     }
 
-    // Debounce save to Firebase
+    // Auto save sau 1s không thay đổi
     clearTimeout(saveTimeout);
     saveTimeout = setTimeout(saveToFirebase, 1000);
   }
 
-  function addItem(name = "", percent = 0) {
-    const remaining = 100 - getTotalPercent();
-    if (remaining <= 0 && document.querySelectorAll(".item").length > 0) {
-      showStatus("Đã đạt 100%, không thể thêm hạng mục mới!", 'error');
+  window.addItem = function(name = "", percent = 0) {
+    if (getTotalPercent() >= 100 && document.querySelectorAll(".item").length > 0) {
+      showStatus("Đã đạt 100%, không thể thêm hạng mục!", 'error');
       return;
     }
 
@@ -468,11 +256,11 @@
     div.className = "item";
     div.innerHTML = `
       <div class="item-header">
-        <input type="text" class="item-name" value="${name}" placeholder="Nhập tên hạng mục">
+        <input type="text" class="item-name" value="${name}" placeholder="Tên hạng mục">
         <div class="percent-display">${percent}%</div>
         <div class="amount-display">0 ₫</div>
-        <button class="delete-btn" onclick="this.closest('.item').remove(); updateAll(); saveToFirebase(); title='Xóa'" title="Xóa">
-          <i class="fas fa-times"></i>
+        <button class="delete-btn" onclick="this.closest('.item').remove(); updateAll()" title="Xóa">
+          ×
         </button>
       </div>
       <div class="progress-container"><div class="progress-bar"></div></div>
@@ -486,8 +274,8 @@
     const slider = div.querySelector(".slider");
     const percentInput = div.querySelector(".percentInput");
 
-    slider.oninput = function() {
-      let val = parseFloat(this.value);
+    slider.oninput = () => {
+      let val = parseFloat(slider.value);
       const otherTotal = getTotalPercent() - (parseFloat(percentInput.dataset.oldValue) || 0);
       if (otherTotal + val > 100) val = 100 - otherTotal;
       percentInput.value = val.toFixed(1);
@@ -495,9 +283,9 @@
       updateAll();
     };
 
-    percentInput.oninput = function() {
-      let val = limitPercentInput(this);
-      slider.value = val;
+    percentInput.oninput = () => {
+      limitPercentInput(percentInput);
+      slider.value = percentInput.value;
       updateAll();
     };
 
@@ -505,69 +293,37 @@
 
     document.getElementById("items").appendChild(div);
     updateAll();
-  }
+  };
 
-  // Save to Firebase
   async function saveToFirebase() {
+    if (isFirstLoad) return; // Không lưu trong lần load đầu
     showLoading(true);
     try {
       const total = parseFloat(document.getElementById("total").value) || 0;
-      const itemsData = Array.from(document.querySelectorAll(".item")).map(el => ({
-        name: el.querySelector(".item-name").value,
+      const items = Array.from(document.querySelectorAll(".item")).map(el => ({
+        name: el.querySelector(".item-name").value.trim() || "Hạng mục mới",
         percent: parseFloat(el.querySelector(".percentInput").value) || 0
       }));
-      const data = { total, items: itemsData };
-      await set(dataRef, data);
-      showStatus("Đã lưu vào Firebase thành công!");
-    } catch (error) {
-      console.error("Firebase save error:", error);
-      showStatus("Lỗi lưu dữ liệu: " + error.message, 'error');
+      await set(dataRef, { total, items });
+      showStatus("Đã lưu thành công!");
+    } catch (err) {
+      console.error(err);
+      showStatus("Lỗi lưu dữ liệu!", 'error');
     } finally {
       showLoading(false);
     }
   }
 
-  // Load from Firebase
-  function loadFromFirebase() {
-    showLoading(true);
-    onValue(dataRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        document.getElementById("total").value = data.total || 0;
-        document.getElementById("items").innerHTML = "";
-        (data.items || []).forEach(item => addItem(item.name, item.percent));
-        showStatus("Đã load dữ liệu từ Firebase!");
-      } else {
-        // Nếu rỗng, load default
-        document.getElementById("items").innerHTML = "";
-        defaultItems.forEach(item => addItem(item.name, item.percent));
-        showStatus("DB rỗng, sử dụng dữ liệu mặc định.");
-      }
-      updateAll();
-      showLoading(false);
-    }, (error) => {
-      console.error("Firebase load error:", error);
-      showStatus("Lỗi kết nối Firebase: " + error.message, 'error');
-      showLoading(false);
-      // Fallback to default
-      loadDefault();
-    });
-  }
-
-  function loadDefault() {
-    document.getElementById("items").innerHTML = "";
-    defaultItems.forEach(item => addItem(item.name, item.percent));
-    updateAll();
-  }
-
-  function resetDefault() {
-    if (confirm("Bạn có chắc muốn cài đặt lại danh sách mặc định? Dữ liệu hiện tại sẽ bị mất.")) {
-      loadDefault();
-      saveToFirebase();
+  window.resetDefault = async () => {
+    if (confirm("Cài đặt lại danh sách mặc định?")) {
+      document.getElementById("total").value = defaultData.total;
+      document.getElementById("items").innerHTML = "";
+      defaultData.items.forEach(item => addItem(item.name, item.percent));
+      await saveToFirebase();
     }
-  }
+  };
 
-  function exportData() {
+  window.exportData = () => {
     const data = {
       total: parseFloat(document.getElementById("total").value) || 0,
       items: Array.from(document.querySelectorAll(".item")).map(el => ({
@@ -578,18 +334,39 @@
     const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url;
-    a.download = 'portfolio-data.json';
-    a.click();
+    a.href = url; a.download = 'phan-bo-von.json'; a.click();
     URL.revokeObjectURL(url);
-  }
+  };
 
-  // Events
+  // === CHỨC NĂNG CHÍNH: LOAD + GHI MẶC ĐỊNH NẾU TRỐNG ===
+  onValue(dataRef, async (snapshot) => {
+    const data = snapshot.val();
+    showLoading(false);
+
+    if (!data || !data.items || data.items.length === 0) {
+      // Nếu DB trống → GHI CỨNG DỮ LIỆU MẶC ĐỊNH
+      showStatus("Đang khởi tạo dữ liệu mặc định vào hệ thống...", "success");
+      try {
+        await set(dataRef, defaultData);
+        showStatus("Đã ghi dữ liệu mặc định thành công! Bây giờ bạn có thể dùng vĩnh viễn");
+      } catch (err) {
+        showStatus("Lỗi khởi tạo dữ liệu mặc định!", "error");
+        console.error(err);
+      }
+    }
+
+    // Load dữ liệu (dù là từ DB hay vừa ghi mặc định)
+    const finalData = data || defaultData;
+    document.getElementById("total").value = finalData.total || 0;
+    document.getElementById("items").innerHTML = "";
+    (finalData.items || defaultData.items).forEach(item => addItem(item.name, item.percent));
+    
+    isFirstLoad = false;
+    updateAll();
+  }, { onlyOnce: true }); // Chỉ lắng nghe 1 lần để tránh vòng lặp
+
+  // Sự kiện
   document.getElementById("total").addEventListener("input", updateAll);
-  document.addEventListener('DOMContentLoaded', () => {
-    loadFromFirebase();
-  });
 </script>
-
 </body>
-      </html>
+</html>
