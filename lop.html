@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mua Bán Lapcoin (LOP) - 1 LOP ≈ 1 VNĐ</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f0f0; text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        .price { font-size: 24px; color: green; margin: 20px 0; }
+        input { width: 100%; padding: 10px; margin: 10px 0; font-size: 18px; }
+        button { padding: 15px 30px; font-size: 18px; background: #007bff; color: white; border: none; cursor: pointer; margin: 10px; }
+        button:hover { background: #0056b3; }
+        #status { margin-top: 20px; font-weight: bold; }
+        .swap-box { display: flex; justify-content: space-around; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lapcoin (LOP) Swap</h1>
+        <p class="price">1 LOP = 0.00004 USD ≈ 1 VNĐ</p>
+        <p>Token Address: 0x9d475bd4f8d1b462ee4eda5aa6fa238bdd252103 (Polygon)</p>
+        
+        <div class="swap-box">
+            <div>
+                <label>Bán (Bạn trả):</label><br>
+                <input type="number" id="sellAmount" placeholder="Số lượng MATIC hoặc USDC" value="100000"><br>
+                <select id="sellToken">
+                    <option value="MATIC">MATIC</option>
+                    <option value="USDC">USDC (stablecoin)</option>
+                </select>
+            </div>
+            <div>↔</div>
+            <div>
+                <label>Nhận (LOP):</label><br>
+                <input type="text" id="receiveAmount" readonly placeholder="Sẽ tính tự động">
+            </div>
+        </div>
+        
+        <button onclick="connectWallet()">Kết nối Wallet (MetaMask)</button><br>
+        <button onclick="buyLOP()">Mua LOP</button>
+        <button onclick="sellLOP()">Bán LOP</button>
+        
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const TOKEN_ADDRESS = "0x9d475bd4f8d1b462ee4eda5aa6fa238bdd252103";
+        const USDC_ADDRESS = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; // USDC trên Polygon
+        const QUICKSWAP_ROUTER = "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff"; // Quickswap Router (tương tự Uniswap v2)
+        const FIXED_PRICE_USD = 0.00004; // Giá cố định bạn muốn
+        const VND_PER_USD = 25000; // Tỷ giá ước lượng
+
+        let web3;
+        let account;
+        let tokenContract;
+
+        async function connectWallet() {
+            if (window.ethereum) {
+                web3 = new Web3(window.ethereum);
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                account = (await web3.eth.getAccounts())[0];
+                tokenContract = new web3.eth.Contract(erc20ABI, TOKEN_ADDRESS);
+                document.getElementById('status').innerText = `Đã kết nối: ${account.substring(0,10)}...`;
+                calculateReceive();
+            } else {
+                alert("Cài MetaMask!");
+            }
+        }
+
+        function calculateReceive() {
+            const sellAmt = parseFloat(document.getElementById('sellAmount').value) || 0;
+            const sellToken = document.getElementById('sellToken').value;
+            let usdValue = sellAmt; // Giả sử dùng USDC hoặc ước lượng MATIC ≈ USD cho demo
+            if (sellToken === 'MATIC') usdValue = sellAmt * 0.5; // Giả sử giá MATIC ~0.5 USD (thay bằng API thật nếu cần)
+            const lopAmount = usdValue / FIXED_PRICE_USD;
+            document.getElementById('receiveAmount').value = lopAmount.toFixed(2);
+        }
+
+        document.getElementById('sellAmount').addEventListener('input', calculateReceive);
+        document.getElementById('sellToken').addEventListener('change', calculateReceive);
+
+        // ABI tối thiểu cho ERC20 và Router (chỉ phần cần)
+        const erc20ABI = [{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"}];
+
+        const routerABI = [{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokens","outputs":[],"stateMutability":"payable","type":"function"}]; // Ví dụ cho ETH -> Token, cần chỉnh cho trường hợp khác
+
+        async function buyLOP() {
+            if (!account) return alert("Kết nối wallet trước!");
+            // Đây là code mẫu đơn giản - thực tế cần path đúng và pool tồn tại
+            alert("Chưa có liquidity pool nên swap sẽ fail. Hãy add liquidity trước trên Quickswap!");
+            // Code swap thật sẽ ở đây (sử dụng routerContract.swapExactTokensForTokens hoặc tương tự)
+        }
+
+        async function sellLOP() {
+            // Tương tự buy
+            alert("Tương tự, cần liquidity pool để bán.");
+        }
+    </script>
+</body>
+</html>
