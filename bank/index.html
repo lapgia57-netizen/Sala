@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Tính Lãi Vay Ngân Hàng Việt Nam</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #f0f2f5; 
+            color: #333;
+        }
+        h1, h2 { text-align: center; margin: 20px 0; }
+        h1 { font-size: 1.8em; }
+        h2 { font-size: 1.4em; }
+        .container { 
+            max-width: 1000px; 
+            margin: auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+            font-size: 0.95em;
+        }
+        th, td { 
+            border: 1px solid #ddd; 
+            padding: 12px; 
+            text-align: center; 
+        }
+        th { 
+            background-color: #007bff; 
+            color: white; 
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        p, ul { line-height: 1.6; margin: 15px 0; }
+        .form-group { 
+            margin: 20px 0; 
+        }
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: bold; 
+        }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            box-sizing: border-box; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            font-size: 1em;
+        }
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background: #28a745; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 1.1em; 
+            margin-top: 10px;
+        }
+        button:hover { background: #218838; }
+        #result, #schedule { 
+            margin-top: 30px; 
+            padding: 15px; 
+            background: #f8f9fa; 
+            border-radius: 8px; 
+        }
+        #schedule table { font-size: 0.85em; }
+        #schedule { 
+            max-height: 500px; 
+            overflow-y: auto; 
+            border: 1px solid #eee;
+        }
+        @media (max-width: 768px) {
+            table, #schedule table { font-size: 0.8em; }
+            th, td { padding: 8px; }
+            h1 { font-size: 1.6em; }
+            .container { padding: 15px; }
+        }
+        @media (max-width: 480px) {
+            input, button { font-size: 1em; }
+            table { display: block; overflow-x: auto; white-space: nowrap; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Máy Tính Lãi Vay Ngân Hàng Việt Nam (Cập nhật 12/2025)</h1>
+        
+        <h2>Phạm vi lãi suất vay hiện nay</h2>
+        <table>
+            <tr><th>Loại vay</th><th>Phạm vi lãi suất (/năm)</th></tr>
+            <tr><td>Vay thế chấp (mua nhà, ô tô...)</td><td>7% - 12%</td></tr>
+            <tr><td>Vay tín chấp</td><td>16% - 45%</td></tr>
+            <tr><td>Tổng quát</td><td>5.5% - 24%</td></tr>
+        </table>
+        
+        <h2>Lãi suất ưu đãi khởi điểm một số ngân hàng</h2>
+        <table>
+            <tr><th>Ngân hàng</th><th>Lãi suất khởi điểm (/năm)</th></tr>
+            <tr><td>Agribank</td><td>Từ 7%</td></tr>
+            <tr><td>Techcombank</td><td>Từ 12.9%</td></tr>
+            <tr><td>VPBank</td><td>Từ 16%</td></tr>
+            <tr><td>TPBank</td><td>Từ 10.8%</td></tr>
+            <tr><td>ACB</td><td>Từ 17.9%</td></tr>
+            <tr><td>HDBank</td><td>Từ 13%</td></tr>
+            <tr><td>VIB</td><td>Từ 16%</td></tr>
+        </table>
+        
+        <p><strong>Lưu ý:</strong> Lãi suất thực tế phụ thuộc vào hồ sơ khách hàng, thời hạn ưu đãi (thường 6-24 tháng đầu), sau đó chuyển sang lãi suất thả nổi. Hầu hết ngân hàng áp dụng tính lãi theo <strong>dư nợ giảm dần</strong> (tiết kiệm hơn).</p>
+        
+        <h2>Công thức tính lãi vay</h2>
+        <ul>
+            <li><strong>Theo dư nợ giảm dần (phổ biến nhất):</strong><br>
+                - Gốc trả hàng tháng = Số tiền vay / Số tháng vay<br>
+                - Lãi tháng đầu = Số tiền vay × Lãi suất tháng<br>
+                - Lãi các tháng sau = Dư nợ còn lại × Lãi suất tháng<br>
+                - Tổng trả tháng = Gốc + Lãi tháng đó
+            </li>
+            <li><strong>Theo dư nợ gốc (ít phổ biến hơn):</strong><br>
+                Lãi mỗi tháng cố định = Số tiền vay × Lãi suất tháng<br>
+                (Tổng lãi cao hơn)
+            </li>
+        </ul>
+        
+        <h2>Máy tính lãi vay (theo dư nợ giảm dần)</h2>
+        <div class="form-group">
+            <label>Số tiền vay (VND):</label>
+            <input type="number" id="amount" value="100000000" min="1000000">
+        </div>
+        <div class="form-group">
+            <label>Lãi suất năm (%):</label>
+            <input type="number" id="rate" value="8" step="0.1" min="1" max="50">
+        </div>
+        <div class="form-group">
+            <label>Số tháng vay:</label>
+            <input type="number" id="months" value="120" min="1">
+        </div>
+        <button onclick="calculate()">Tính toán</button>
+        
+        <div id="result"></div>
+        <div id="schedule"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const annualRate = parseFloat(document.getElementById('rate').value);
+            const months = parseInt(document.getElementById('months').value);
+            
+            if (isNaN(amount) || isNaN(annualRate) || isNaN(months) || amount <= 0 || annualRate <= 0 || months <= 0) {
+                alert('Vui lòng nhập đầy đủ và chính xác các thông tin!');
+                return;
+            }
+            
+            const monthlyRate = annualRate / 100 / 12;
+            const monthlyPrincipal = amount / months;
+            
+            let balance = amount;
+            let totalInterest = 0;
+            let totalPayment = 0;
+            
+            let table = `<h3>Bảng lịch trả nợ</h3>
+                         <table>
+                             <tr><th>Tháng</th><th>Gốc trả</th><th>Lãi trả</th><th>Tổng trả tháng</th><th>Dư nợ còn lại</th></tr>`;
+            
+            for (let i = 1; i <= months; i++) {
+                const interest = balance * monthlyRate;
+                const payment = monthlyPrincipal + interest;
+                
+                balance -= monthlyPrincipal;
+                if (balance < 0) balance = 0;
+                
+                totalInterest += interest;
+                totalPayment += payment;
+                
+                table += `<tr>
+                    <td>${i}</td>
+                    <td>${monthlyPrincipal.toLocaleString('vi-VN', {minimumFractionDigits: 0})}</td>
+                    <td>${interest.toLocaleString('vi-VN', {minimumFractionDigits: 0})}</td>
+                    <td>${payment.toLocaleString('vi-VN', {minimumFractionDigits: 0})}</td>
+                    <td>${balance.toLocaleString('vi-VN', {minimumFractionDigits: 0})}</td>
+                </tr>`;
+            }
+            
+            table += `</table>`;
+            
+            const summary = `<h3>Kết quả tổng hợp</h3>
+                             <p><strong>Tổng tiền gốc:</strong> ${amount.toLocaleString('vi-VN')} VND</p>
+                             <p><strong>Tổng tiền lãi phải trả:</strong> ${totalInterest.toLocaleString('vi-VN', {minimumFractionDigits: 0})} VND</p>
+                             <p><strong>Tổng tiền phải trả:</strong> ${totalPayment.toLocaleString('vi-VN', {minimumFractionDigits: 0})} VND</p>
+                             <p><strong>Trả trung bình/tháng (ước tính):</strong> ${(totalPayment / months).toLocaleString('vi-VN', {minimumFractionDigits: 0})} VND</p>`;
+            
+            document.getElementById('result').innerHTML = summary;
+            document.getElementById('schedule').innerHTML = table;
+        }
+    </script>
+</body>
+</html>
