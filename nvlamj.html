@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawler Dữ Liệu Thiết Bị Kết Nối Internet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .tool-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .tool-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+        .tool-card h3 {
+            margin-top: 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .tool-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crawler Dữ Liệu Của Tất Cả Thiết Bị Kết Nối Internet</h1>![](grok_render_searched_image_card_json={"cards":[{"cardId":"a2ef88","imageId":"7","caption":"Minh họa cách hoạt động của IoT và các thiết bị kết nối internet (Nguồn: TechVidvan)","size":"LARGE"},{"cardId":"754ee5","imageId":"9","caption":"","size":"LARGE"}]})
+
+        <h2>Không thể crawl "tất cả" một cách cá nhân</h2>
+        <p>Không có công cụ nào cho phép một cá nhân tự do crawl và thu thập dữ liệu từ <strong>hàng tỷ thiết bị kết nối internet</strong> một cách hợp pháp và đầy đủ. Việc quét (scan) toàn bộ địa chỉ IP công khai (IPv4) đòi hỏi tài nguyên khổng lồ, và có thể vi phạm luật pháp (như luật chống xâm nhập mạng ở nhiều quốc gia). Các hoạt động quét lớn thường bị coi là tấn công nếu không được phép.</p>
+
+        <h2>Các công cụ chuyên dụng (IoT Search Engines)</h2>
+        <p>Có một số <strong>công cụ tìm kiếm chuyên biệt</strong> (gọi là IoT search engines hoặc device search engines) liên tục quét internet để thu thập dữ liệu từ các thiết bị công khai (open ports, banners, services). Chúng hoạt động như "crawler" cho thiết bị kết nối internet, không phải website thông thường.</p>
+
+        <div class="tool-list">
+            <div class="tool-card">
+                <h3>Shodan (shodan.io)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"d102c7","imageId":"1","caption":"","size":"LARGE"}]})
+                <p>Được gọi là "Google cho thiết bị IoT". Quét các port mở, thu thập banner, vị trí, hệ điều hành, phần mềm. Ví dụ: Tìm camera giám sát, máy chủ công nghiệp (ICS/SCADA), webcam, router lộ mật khẩu mặc định. Miễn phí hạn chế, trả phí để truy cập đầy đủ.</p>
+            </div>
+
+            <div class="tool-card">
+                <h3>Censys (censys.io)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"50e541","imageId":"3","caption":"","size":"LARGE"}]})
+                <p>Tương tự Shodan, tập trung vào chứng chỉ SSL, port mở, vulnerabilities. Dữ liệu chi tiết hơn về host và dịch vụ, thường dùng cho nghiên cứu bảo mật.</p>
+            </div>
+
+            <div class="tool-card">
+                <h3>ZoomEye (zoomeye.org)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"e6bbea","imageId":"6","caption":"","size":"LARGE"}]})
+                <p>Phổ biến ở châu Á, tương tự Shodan.</p>
+            </div>
+
+            <div class="tool-card">
+                <h3>Các công cụ khác</h3>
+                <ul>
+                    <li><strong>BinaryEdge</strong> (binaryedge.io): Thu thập dữ liệu thời gian thực, cảnh báo vulnerabilities.</li>
+                    <li><strong>FOFA</strong> (fofa.info): Một lựa chọn khác với dữ liệu lớn.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Cách sử dụng cơ bản (ví dụ Shodan)</h2>
+        <ol>
+            <li>Đăng ký tài khoản miễn phí.</li>
+            <li>Tìm kiếm bằng query: 
+                <ul>
+                    <li><code>port:554 country:VN</code> (tìm camera RTSP ở Việt Nam).</li>
+                    <li><code>os:Windows</code> (thiết bị Windows lộ ra).</li>
+                </ul>
+            </li>
+            <li>Kết quả hiển thị IP, port, banner, vị trí địa lý.</li>
+        </ol>
+
+        <div class="warning">
+            <h3>Lưu ý quan trọng</h3>
+            <ul>
+                <li><strong>Chỉ xem dữ liệu công khai</strong>: Những thiết bị này thường lộ do cấu hình sai (không firewall, mật khẩu mặc định).</li>
+                <li><strong>Mục đích chính</strong>: Nghiên cứu bảo mật, phát hiện lỗ hổng (pentesting hợp pháp), giám sát tài sản của chính mình.</li>
+                <li><strong>Không lạm dụng</strong>: Truy cập hoặc khai thác thiết bị mà không được phép là <strong>tội phạm mạng</strong> (vi phạm luật an ninh mạng Việt Nam và quốc tế).</li>
+                <li>Nếu bạn muốn kiểm tra thiết bị của mình: Sử dụng các công cụ này để search IP công khai của bạn và khắc phục nếu lộ.</li>
+            </ul>
+        </div>
+
+        <p>Nếu bạn cần hướng dẫn cụ thể hơn về một công cụ nào đó, hoặc tìm kiếm ví dụ (như thiết bị IoT ở Việt Nam), hãy cho biết thêm chi tiết!</p>
+    </div>
+</body>
+</html>
