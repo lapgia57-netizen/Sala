@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crawler Dữ Liệu Thiết Bị Kết Nối Internet</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,6 +56,38 @@
             height: auto;
             border-radius: 8px;
             margin: 10px 0;
+            display: block;
+        }
+        .login-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        #status {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
         }
         @media (max-width: 768px) {
             .container {
@@ -68,62 +101,102 @@
 </head>
 <body>
     <div class="container">
-        <h1>Crawler Dữ Liệu Của Tất Cả Thiết Bị Kết Nối Internet</h1>![](grok_render_searched_image_card_json={"cards":[{"cardId":"a2ef88","imageId":"7","caption":"Minh họa cách hoạt động của IoT và các thiết bị kết nối internet (Nguồn: TechVidvan)","size":"LARGE"},{"cardId":"754ee5","imageId":"9","caption":"","size":"LARGE"}]})
-
-        <h2>Không thể crawl "tất cả" một cách cá nhân</h2>
-        <p>Không có công cụ nào cho phép một cá nhân tự do crawl và thu thập dữ liệu từ <strong>hàng tỷ thiết bị kết nối internet</strong> một cách hợp pháp và đầy đủ. Việc quét (scan) toàn bộ địa chỉ IP công khai (IPv4) đòi hỏi tài nguyên khổng lồ, và có thể vi phạm luật pháp (như luật chống xâm nhập mạng ở nhiều quốc gia). Các hoạt động quét lớn thường bị coi là tấn công nếu không được phép.</p>
-
-        <h2>Các công cụ chuyên dụng (IoT Search Engines)</h2>
-        <p>Có một số <strong>công cụ tìm kiếm chuyên biệt</strong> (gọi là IoT search engines hoặc device search engines) liên tục quét internet để thu thập dữ liệu từ các thiết bị công khai (open ports, banners, services). Chúng hoạt động như "crawler" cho thiết bị kết nối internet, không phải website thông thường.</p>
-
-        <div class="tool-list">
-            <div class="tool-card">
-                <h3>Shodan (shodan.io)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"d102c7","imageId":"1","caption":"","size":"LARGE"}]})
-                <p>Được gọi là "Google cho thiết bị IoT". Quét các port mở, thu thập banner, vị trí, hệ điều hành, phần mềm. Ví dụ: Tìm camera giám sát, máy chủ công nghiệp (ICS/SCADA), webcam, router lộ mật khẩu mặc định. Miễn phí hạn chế, trả phí để truy cập đầy đủ.</p>
-            </div>
-
-            <div class="tool-card">
-                <h3>Censys (censys.io)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"50e541","imageId":"3","caption":"","size":"LARGE"}]})
-                <p>Tương tự Shodan, tập trung vào chứng chỉ SSL, port mở, vulnerabilities. Dữ liệu chi tiết hơn về host và dịch vụ, thường dùng cho nghiên cứu bảo mật.</p>
-            </div>
-
-            <div class="tool-card">
-                <h3>ZoomEye (zoomeye.org)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"e6bbea","imageId":"6","caption":"","size":"LARGE"}]})
-                <p>Phổ biến ở châu Á, tương tự Shodan.</p>
-            </div>
-
-            <div class="tool-card">
-                <h3>Các công cụ khác</h3>
-                <ul>
-                    <li><strong>BinaryEdge</strong> (binaryedge.io): Thu thập dữ liệu thời gian thực, cảnh báo vulnerabilities.</li>
-                    <li><strong>FOFA</strong> (fofa.info): Một lựa chọn khác với dữ liệu lớn.</li>
-                </ul>
-            </div>
+        <div class="login-section" id="loginSection">
+            <h1>Chào mừng đến với Hướng Dẫn Crawler Thiết Bị IoT</h1>![](grok_render_searched_image_card_json={"cards":[{"cardId":"fee345","imageId":"5","caption":"","size":"LARGE"}]})
+            <p>Nội dung chi tiết chỉ hiển thị sau khi kết nối ví Web3 (để chứng minh bạn là người thật và quan tâm đến bảo mật).</p>
+            <button id="connectButton">Kết Nối Ví Web3 (MetaMask hoặc tương tự)</button>
+            <p id="status">Trạng thái: Chưa kết nối</p>
         </div>
 
-        <h2>Cách sử dụng cơ bản (ví dụ Shodan)</h2>
-        <ol>
-            <li>Đăng ký tài khoản miễn phí.</li>
-            <li>Tìm kiếm bằng query: 
+        <div id="content" class="hidden">
+            <h1>Crawler Dữ Liệu Của Tất Cả Thiết Bị Kết Nối Internet</h1>![](grok_render_searched_image_card_json={"cards":[{"cardId":"4e72ce","imageId":"3","caption":"Minh họa mạng lưới thiết bị IoT kết nối internet","size":"LARGE"},{"cardId":"5742ae","imageId":"4","caption":"Ví dụ minh họa các thiết bị kết nối trong hệ sinh thái IoT","size":"LARGE"}]})
+
+            <h2>Không thể crawl "tất cả" một cách cá nhân</h2>
+            <p>Không có công cụ nào cho phép một cá nhân tự do crawl và thu thập dữ liệu từ <strong>hàng tỷ thiết bị kết nối internet</strong> một cách hợp pháp và đầy đủ. Việc quét (scan) toàn bộ địa chỉ IP công khai (IPv4) đòi hỏi tài nguyên khổng lồ, và có thể vi phạm luật pháp (như luật chống xâm nhập mạng ở nhiều quốc gia). Các hoạt động quét lớn thường bị coi là tấn công nếu không được phép.</p>
+
+            <h2>Các công cụ chuyên dụng (IoT Search Engines)</h2>
+            <p>Có một số <strong>công cụ tìm kiếm chuyên biệt</strong> (gọi là IoT search engines hoặc device search engines) liên tục quét internet để thu thập dữ liệu từ các thiết bị công khai (open ports, banners, services). Chúng hoạt động như "crawler" cho thiết bị kết nối internet, không phải website thông thường.</p>
+
+            <div class="tool-list">
+                <div class="tool-card">
+                    <h3>Shodan (shodan.io)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"e34fd6","imageId":"2","caption":"Giao diện Shodan - Công cụ tìm kiếm thiết bị IoT hàng đầu","size":"LARGE"}]})
+                    <p>Được gọi là "Google cho thiết bị IoT". Quét các port mở, thu thập banner, vị trí, hệ điều hành, phần mềm. Ví dụ: Tìm camera giám sát, máy chủ công nghiệp (ICS/SCADA), webcam, router lộ mật khẩu mặc định. Miễn phí hạn chế, trả phí để truy cập đầy đủ.</p>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Censys (censys.io)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"5395e4","imageId":"0","caption":"Logo và giao diện Censys - Tập trung vào dữ liệu chứng chỉ và vulnerabilities","size":"LARGE"}]})
+                    <p>Tương tự Shodan, tập trung vào chứng chỉ SSL, port mở, vulnerabilities. Dữ liệu chi tiết hơn về host và dịch vụ, thường dùng cho nghiên cứu bảo mật.</p>
+                </div>
+
+                <div class="tool-card">
+                    <h3>ZoomEye (zoomeye.org)</h3>![](grok_render_searched_image_card_json={"cards":[{"cardId":"5b581b","imageId":"1","caption":"Giao diện ZoomEye - Phổ biến ở châu Á","size":"LARGE"}]})
+                    <p>Phổ biến ở châu Á, tương tự Shodan.</p>
+                </div>
+
+                <div class="tool-card">
+                    <h3>Các công cụ khác</h3>
+                    <ul>
+                        <li><strong>BinaryEdge</strong> (binaryedge.io): Thu thập dữ liệu thời gian thực, cảnh báo vulnerabilities.</li>
+                        <li><strong>FOFA</strong> (fofa.info): Một lựa chọn khác với dữ liệu lớn.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Cách sử dụng cơ bản (ví dụ Shodan)</h2>
+            <ol>
+                <li>Đăng ký tài khoản miễn phí.</li>
+                <li>Tìm kiếm bằng query: 
+                    <ul>
+                        <li><code>port:554 country:VN</code> (tìm camera RTSP ở Việt Nam).</li>
+                        <li><code>os:Windows</code> (thiết bị Windows lộ ra).</li>
+                    </ul>
+                </li>
+                <li>Kết quả hiển thị IP, port, banner, vị trí địa lý.</li>
+            </ol>
+
+            <div class="warning">
+                <h3>Lưu ý quan trọng</h3>
                 <ul>
-                    <li><code>port:554 country:VN</code> (tìm camera RTSP ở Việt Nam).</li>
-                    <li><code>os:Windows</code> (thiết bị Windows lộ ra).</li>
+                    <li><strong>Chỉ xem dữ liệu công khai</strong>: Những thiết bị này thường lộ do cấu hình sai (không firewall, mật khẩu mặc định).</li>
+                    <li><strong>Mục đích chính</strong>: Nghiên cứu bảo mật, phát hiện lỗ hổng (pentesting hợp pháp), giám sát tài sản của chính mình.</li>
+                    <li><strong>Không lạm dụng</strong>: Truy cập hoặc khai thác thiết bị mà không được phép là <strong>tội phạm mạng</strong> (vi phạm luật an ninh mạng Việt Nam và quốc tế).</li>
+                    <li>Nếu bạn muốn kiểm tra thiết bị của mình: Sử dụng các công cụ này để search IP công khai của bạn và khắc phục nếu lộ.</li>
                 </ul>
-            </li>
-            <li>Kết quả hiển thị IP, port, banner, vị trí địa lý.</li>
-        </ol>
+            </div>
 
-        <div class="warning">
-            <h3>Lưu ý quan trọng</h3>
-            <ul>
-                <li><strong>Chỉ xem dữ liệu công khai</strong>: Những thiết bị này thường lộ do cấu hình sai (không firewall, mật khẩu mặc định).</li>
-                <li><strong>Mục đích chính</strong>: Nghiên cứu bảo mật, phát hiện lỗ hổng (pentesting hợp pháp), giám sát tài sản của chính mình.</li>
-                <li><strong>Không lạm dụng</strong>: Truy cập hoặc khai thác thiết bị mà không được phép là <strong>tội phạm mạng</strong> (vi phạm luật an ninh mạng Việt Nam và quốc tế).</li>
-                <li>Nếu bạn muốn kiểm tra thiết bị của mình: Sử dụng các công cụ này để search IP công khai của bạn và khắc phục nếu lộ.</li>
-            </ul>
+            <p>Nếu bạn cần hướng dẫn cụ thể hơn về một công cụ nào đó, hoặc tìm kiếm ví dụ (như thiết bị IoT ở Việt Nam), hãy cho biết thêm chi tiết!</p>
         </div>
-
-        <p>Nếu bạn cần hướng dẫn cụ thể hơn về một công cụ nào đó, hoặc tìm kiếm ví dụ (như thiết bị IoT ở Việt Nam), hãy cho biết thêm chi tiết!</p>
     </div>
+
+    <script>
+        const connectButton = document.getElementById('connectButton');
+        const status = document.getElementById('status');
+        const loginSection = document.getElementById('loginSection');
+        const content = document.getElementById('content');
+
+        connectButton.addEventListener('click', async () => {
+            if (typeof window.ethereum !== 'undefined' || typeof window.web3 !== 'undefined') {
+                try {
+                    // Yêu cầu kết nối ví (MetaMask, etc.)
+                    await ethereum.request({ method: 'eth_requestAccounts' });
+                    const web3 = new Web3(ethereum);
+                    const accounts = await web3.eth.getAccounts();
+                    if (accounts.length > 0) {
+                        status.textContent = `Đã kết nối ví: ${accounts[0].substring(0, 6)}...${accounts[0].substring(38)}`;
+                        status.style.color = 'green';
+                        connectButton.disabled = true;
+                        loginSection.style.display = 'none';
+                        content.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    status.textContent = 'Kết nối bị từ chối hoặc lỗi!';
+                    status.style.color = 'red';
+                }
+            } else {
+                status.textContent = 'Không phát hiện ví Web3! Vui lòng cài MetaMask.';
+                status.style.color = 'red';
+            }
+        });
+    </script>
 </body>
 </html>
