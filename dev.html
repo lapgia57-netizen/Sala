@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GO HOME</title>
+  <title>Sala – haha</title>
   <link rel="icon" href="https://raw.githubusercontent.com/lapgia57-netizen/gohome/main/favicon.ico" type="image/x-icon">
   <style>
     body { margin:0; font-family: system-ui; background:#0d1117; color:#c9d1d9; }
@@ -22,11 +22,12 @@
     .online-count { position:fixed; bottom:10px; right:10px; background:#238636; color:white; padding:10px 15px; border-radius:50px; font-weight:bold; }
     .refresh { font-size:12px; color:#8b949e; text-align:center; margin-top:10px; }
     .instructions { background:#21262d; padding:15px; border-radius:8px; margin:10px 0; }
+    .collapsed { display: none; }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>LCP – Chờ tại quán net</h1>
+    <h1>SALARY</h1>
     <p>Đang có <span id="online">0</span> anh em trong quán • Click file để mở tab mới • Auto cập nhật mỗi 2 phút</p>
   </div>
 
@@ -54,11 +55,11 @@
   <div class="refresh">Cập nhật lần cuối: <span id="time"></span></div>
 
   <script>
-    // === ĐÃ CẬP NHẬT: repo mới và domain mới
+    // === CẬP NHẬT: repo Sala + domain mới
     const owner = "lapgia57-netizen";
-    const repo = "Sala";                                      // ← ĐÃ THAY ĐỔI THÀNH Sala
+    const repo = "Sala";
     const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
-    const customDomain = "https://portfolio.lck.io.vn/";             // ← ĐÃ THAY ĐỔI domain mới
+    const customDomain = "https://portfolio.lck.io.vn/";
 
     async function loadRepo() {
       try {
@@ -78,68 +79,59 @@
     }
 
     function renderTree(items) {
-      const ul = document.createElement("ul");
+      const rootUl = document.createElement("ul");
+      const folders = {}; // key: full path folder như "online", "online/sub"
 
-      const folders = {};
       items.filter(item => item.type === "blob").forEach(item => {
         const parts = item.path.split('/');
-        let current = ul;
+        let currentUl = rootUl;
 
-        // Tạo folder
+        // Xử lý các folder từ cấp 1 đến cấp cuối (trừ file name)
         for (let i = 0; i < parts.length - 1; i++) {
-          const folderName = parts.slice(0, i + 1).join('/');
-          if (!folders[folderName]) {
+          const folderPath = parts.slice(0, i + 1).join('/');
+
+          if (!folders[folderPath]) {
             const folderLi = document.createElement("li");
             folderLi.className = "folder";
             folderLi.textContent = parts[i] + "/";
-            folderLi.onclick = (e) => {
-              e.stopPropagation();
-              toggleFolder(folderLi);
-            };
 
             const subUl = document.createElement("ul");
-            subUl.style.display = "none"; // collapsed mặc định
+            subUl.classList.add("collapsed");
             folderLi.appendChild(subUl);
 
-            folders[folderName] = { li: folderLi, ul: subUl };
+            folderLi.onclick = (e) => {
+              e.stopPropagation();
+              subUl.classList.toggle("collapsed");
+            };
 
+            folders[folderPath] = { li: folderLi, ul: subUl };
+
+            // Thêm vào parent tương ứng
             if (i === 0) {
-              ul.appendChild(folderLi);
+              rootUl.appendChild(folderLi);
             } else {
-              // tìm parent folder
-              const parentName = parts.slice(0, i).join('/');
-              if (folders[parentName]) {
-                folders[parentName].ul.appendChild(folderLi);
-              }
+              const parentPath = parts.slice(0, i).join('/');
+              folders[parentPath].ul.appendChild(folderLi);
             }
           }
-          current = folders[folderName].ul;
+          currentUl = folders[folderPath].ul;
         }
 
-        // Thêm file
-        const li = document.createElement("li");
-        li.className = "file";
-        li.textContent = parts[parts.length - 1];
-        li.title = item.path;
-        li.onclick = (e) => {
+        // Thêm file vào thư mục hiện tại
+        const fileLi = document.createElement("li");
+        fileLi.className = "file";
+        fileLi.textContent = parts[parts.length - 1];
+        fileLi.title = item.path;
+        fileLi.onclick = (e) => {
           e.stopPropagation();
           openFileInNewTab(item.path);
         };
-        current.appendChild(li);
-      });
-
-      // File nằm ở root
-      items.filter(item => item.type === "blob" && !item.path.includes('/')).forEach(item => {
-        const li = document.createElement("li");
-        li.className = "file";
-        li.textContent = item.path;
-        li.onclick = () => openFileInNewTab(item.path);
-        ul.appendChild(li);
+        currentUl.appendChild(fileLi);
       });
 
       const container = document.getElementById("tree");
       container.innerHTML = "";
-      container.appendChild(ul);
+      container.appendChild(rootUl);
     }
 
     function openFileInNewTab(path) {
@@ -152,23 +144,18 @@
       window.open(url, '_blank');
     }
 
-    function toggleFolder(li) {
-      const ul = li.querySelector("ul");
-      if (ul) ul.style.display = ul.style.display === "none" ? "block" : "none";
-    }
-
     function updateTime() {
       document.getElementById("time").textContent = new Date().toLocaleString("vi-VN");
     }
 
-    // Load lần đầu + auto refresh mỗi 2 phút
+    // Load + auto refresh mỗi 2 phút
     loadRepo();
     setInterval(loadRepo, 120000);
 
-    // Tìm kiếm nhanh
+    // Tìm kiếm realtime
     document.getElementById("search").addEventListener("input", (e) => {
       const term = e.target.value.toLowerCase();
-      document.querySelectorAll(".file, .folder").forEach(el => {
+      document.querySelectorAll(".tree .file, .tree .folder").forEach(el => {
         el.style.display = el.textContent.toLowerCase().includes(term) ? "" : "none";
       });
     });
