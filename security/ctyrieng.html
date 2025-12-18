@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thành Lập Công Ty Dịch Vụ Bảo Vệ Tại Việt Nam Năm 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+        .connect-wallet {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #connectButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #connectButton:hover {
+            background-color: #218838;
+        }
+        #walletAddress {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .locked-content {
+            display: none;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            header {
+                padding: 15px;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Thành Lập Công Ty Dịch Vụ Bảo Vệ Tại Việt Nam Năm 2025</h1>
+    </header>
+    <div class="container">
+        <div class="connect-wallet">
+            <p>Để xem nội dung chi tiết về vốn điều lệ và thủ tục thành lập, vui lòng kết nối ví Web3 (MetaMask hoặc tương tự).</p>
+            <button id="connectButton">Kết Nối Ví</button>
+            <div id="walletAddress"></div>
+        </div>
+
+        <div id="content" class="locked-content">
+            <h2>Vốn điều lệ khi thành lập công ty dịch vụ bảo vệ</h2>
+            <p>Theo quy định hiện hành tại Nghị định 96/2016/NĐ-CP (sửa đổi, bổ sung bởi Nghị định 56/2023/NĐ-CP), <strong>không có mức vốn pháp định (vốn điều lệ tối thiểu bắt buộc) đối với công ty dịch vụ bảo vệ Việt Nam thuần túy (không có vốn đầu tư nước ngoài)</strong>.</p>
+            <p>Doanh nghiệp có thể tự do đăng ký vốn điều lệ phù hợp với quy mô và khả năng tài chính, không có giới hạn tối thiểu hoặc tối đa. Tuy nhiên, trên thực tế:</p>
+            <ul>
+                <li>Cơ quan Công an thường ưu tiên cấp Giấy chứng nhận đủ điều kiện an ninh trật tự cho các công ty có vốn điều lệ từ <strong>2 tỷ đồng trở lên</strong>, để chứng minh năng lực tài chính (chi trả lương, đồng phục, đào tạo, thiết bị...).</li>
+                <li>Một số nguồn khuyến nghị vốn thực tế từ 200-500 triệu đồng cho công ty nhỏ, nhưng để tạo uy tín và dễ đấu thầu hợp đồng lớn, nên đăng ký cao hơn.</li>
+                <li>Đối với công ty có vốn góp nước ngoài: Phần vốn góp nước ngoài tối thiểu <strong>1.000.000 USD</strong> (chỉ dùng mua máy móc, thiết bị kỹ thuật), và phải đáp ứng thêm các điều kiện nghiêm ngặt khác.</li>
+            </ul>
+
+            <h2>Điều kiện chính để thành lập công ty bảo vệ</h2>
+            <ul>
+                <li>Là doanh nghiệp được thành lập hợp pháp theo Luật Doanh nghiệp 2020 (mã ngành 8010 - Hoạt động an ninh, điều tra).</li>
+                <li>Người chịu trách nhiệm về an ninh trật tự phải có bằng tốt nghiệp từ <strong>Cao đẳng trở lên</strong>, lý lịch rõ ràng (không tiền án, tiền sự nghiêm trọng).</li>
+                <li>Đáp ứng điều kiện về cơ sở vật chất, phòng cháy chữa cháy.</li>
+                <li>Sau khi có Giấy chứng nhận đăng ký doanh nghiệp, phải xin <strong>Giấy chứng nhận đủ điều kiện về an ninh trật tự</strong> tại Phòng Cảnh sát quản lý hành chính về trật tự xã hội (Công an tỉnh/thành phố).</li>
+            </ul>
+
+            <h2>Thủ tục thành lập (tóm tắt)</h2>
+            <ol>
+                <li>Chuẩn bị hồ sơ đăng ký doanh nghiệp tại Sở Kế hoạch và Đầu tư (online qua Cổng thông tin quốc gia về đăng ký doanh nghiệp).</li>
+                <li>Nhận Giấy chứng nhận đăng ký doanh nghiệp.</li>
+                <li>Khắc dấu, công bố mẫu dấu.</li>
+                <li>Xin Giấy chứng nhận đủ điều kiện an ninh trật tự tại Công an tỉnh.</li>
+                <li>Các thủ tục sau thành lập: Mở tài khoản ngân hàng, đăng ký thuế, hóa đơn điện tử...</li>
+            </ol>
+
+            <p><strong>Lưu ý:</strong> Đây là ngành nghề kinh doanh có điều kiện, nên cần tuân thủ nghiêm ngặt quy định pháp luật. Khuyến nghị tham khảo ý kiến luật sư hoặc dịch vụ tư vấn chuyên nghiệp để tránh rủi ro.</p>
+            <p>Nếu bạn cần hỗ trợ chi tiết hơn về hồ sơ hoặc thủ tục cụ thể, hãy liên hệ!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 - Thông Tin Thành Lập Công Ty Bảo Vệ Việt Nam</p>
+    </footer>
+
+    <script>
+        const connectButton = document.getElementById('connectButton');
+        const walletAddress = document.getElementById('walletAddress');
+        const content = document.getElementById('content');
+
+        connectButton.addEventListener('click', async () => {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const web3 = new Web3(window.ethereum);
+                    const accounts = await web3.eth.getAccounts();
+                    const address = accounts[0];
+                    walletAddress.textContent = `Đã kết nối: ${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+                    connectButton.textContent = 'Đã Kết Nối';
+                    connectButton.disabled = true;
+                    content.style.display = 'block';
+                } catch (error) {
+                    alert('Kết nối ví thất bại. Vui lòng thử lại!');
+                    console.error(error);
+                }
+            } else {
+                alert('Vui lòng cài đặt MetaMask hoặc ví Web3 tương tự để kết nối!');
+            }
+        });
+    </script>
+</body>
+</html>
