@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lich su cong ty Xe om tech</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        .timeline { position: relative; max-width: 1200px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 6px; background-color: #fff; top: 0; bottom: 0; left: 50%; margin-left: -3px; }
+        .container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+        .container::after { content: ''; position: absolute; width: 25px; height: 25px; right: -17px; background-color: #fff; border: 4px solid #FF9F55; top: 15px; border-radius: 50%; z-index: 1; }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .left::before { content: ' '; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; right: 30px; border: medium solid white; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent white; }
+        .right::before { content: ' '; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; left: 30px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+        .right::after { left: -16px; }
+        .content { padding: 20px 30px; background-color: white; position: relative; border-radius: 6px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        #hidden-content { display: none; background: #fff; padding: 20px; margin: 20px auto; max-width: 800px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
+        button#connectBtn { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .container::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+            .left::after, .right::after { left: 15px; }
+            .right { left: 0%; }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+<body>
+
+<h1 style="text-align:center;">LICH SU CONG TY XE OM TECH</h1>
+
+<div class="timeline">
+    <div class="container left">
+        <div class="content">
+            <h2>1 vt mien bac</h2>
+            <p>Noi dung lich su vi tri 1 mien bac: Bat dau hoat dong tai mien bac, mo rong dich vu xe om cong nghe tai cac tinh phia bac.</p>
+        </div>
+    </div>
+    <div class="container right">
+        <div class="content">
+            <h2>2 vt con</h2>
+            <p>Noi dung lich su vi tri 2 con: Phat trien them cac vi tri con, toi uu hoa duong chay va tang cuong doi tac tai xe.</p>
+        </div>
+    </div>
+    <div class="container left">
+        <div class="content">
+            <h2>3 unity vina</h2>
+            <p>Noi dung lich su 3 unity vina: Hop tac voi unity vina, mo rong mang luoi va cai thien cong nghe ung dung.</p>
+        </div>
+    </div>
+    <div class="container right">
+        <div class="content">
+            <h2>Xe om tech</h2>
+            <p>Tong ket lich su xe om tech: Tro thanh mot trong nhung ung dung xe om cong nghe hang dau tai viet nam.</p>
+        </div>
+    </div>
+</div>
+
+<div style="text-align:center; margin-top:50px;">
+    <button id="connectBtn">Ket noi vi Web3</button>
+    <p id="account"></p>
+</div>
+
+<div id="hidden-content">
+    <h2>Noi dung bi an chi doc duoc khi ket noi vi</h2>
+    <p>Day la noi dung chi hien thi sau khi ban ket noi vi web3 thanh cong. Cam on ban da ket noi!</p>
+</div>
+
+<script>
+    const connectBtn = document.getElementById('connectBtn');
+    const accountP = document.getElementById('account');
+    const hiddenContent = document.getElementById('hidden-content');
+
+    connectBtn.onclick = async () => {
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                const account = accounts[0];
+                accountP.textContent = `Da ket noi: ${account.substring(0,6)}...${account.substring(38)}`;
+                hiddenContent.style.display = 'block';
+                connectBtn.textContent = 'Da ket noi vi';
+                connectBtn.disabled = true;
+            } catch (error) {
+                accountP.textContent = 'Ket noi that bai';
+            }
+        } else {
+            accountP.textContent = 'Vui long cai dat MetaMask hoac vi web3 khac';
+        }
+    };
+</script>
+
+</body>
+</html>
