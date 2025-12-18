@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Digital Rain - Wake up, Neo...</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: black;
+        }
+        canvas {
+            display: block;
+        }
+        #intro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 2.5rem;
+            text-align: center;
+            text-shadow: 0 0 10px #0f0;
+            opacity: 0;
+            transition: opacity 2s;
+            pointer-events: none;
+            z-index: 10;
+        }
+        @media (max-width: 768px) {
+            #intro {
+                font-size: 1.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            #intro {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="intro">
+        Wake up, Neo...<br>
+        The Matrix has you...<br>
+        Follow the white rabbit.<br>
+        Knock, knock, Neo.
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const intro = document.getElementById('intro');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        // Ký tự Matrix (katakana + chữ cái + số)
+        const chars = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:",.<>?';
+        const fontSize = 16;
+        const columns = Math.floor(width / fontSize);
+        const drops = new Array(columns).fill(1);
+
+        function draw() {
+            // Lớp phủ trong suốt đen để tạo hiệu ứng trail
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = '#0f0';
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        // Hiển thị thông điệp "Wake up, Neo..." sau 2 giây, rồi fade out sau 10 giây
+        setTimeout(() => {
+            intro.style.opacity = 1;
+        }, 2000);
+
+        setTimeout(() => {
+            intro.style.opacity = 0;
+        }, 12000);
+
+        setInterval(draw, 50);
+
+        // Responsive: resize canvas khi thay đổi kích thước cửa sổ
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            const newColumns = Math.floor(width / fontSize);
+            // Điều chỉnh mảng drops nếu cần
+            if (newColumns > columns) {
+                for (let i = columns; i < newColumns; i++) {
+                    drops.push(1);
+                }
+            } else {
+                drops.length = newColumns;
+            }
+        });
+    </script>
+</body>
+</html>
