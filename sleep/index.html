@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm thời gian chạy từ hai mốc với ngày kết thúc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #007bff;
+        }
+        .current {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .counter {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+        .label {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .time {
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .ended {
+            color: #dc3545 !important;
+        }
+        .controls {
+            margin: 30px 0;
+        }
+        .end-date-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #e9f7ef;
+            border-radius: 8px;
+        }
+        button, input[type="date"] {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #toggleBtn {
+            background-color: #dc3545;
+            color: white;
+        }
+        #toggleBtn.running {
+            background-color: #28a745;
+        }
+        #resetBtn {
+            background-color: #6c757d;
+            color: white;
+        }
+        input[type="date"] {
+            cursor: text;
+            background: white;
+            border: 1px solid #ccc;
+        }
+        @media (max-width: 600px) {
+            .time {
+                font-size: 1.5em;
+            }
+            button, input[type="date"] {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Đồng hồ đếm thời gian chạy</h1>
+        <p class="current">Hiện tại: <span id="current-time"></span></p>
+        
+        <div class="end-date-section">
+            <div class="label">Chọn ngày kết thúc đếm:</div>
+            <input type="date" id="endDateInput">
+            <p id="endDateDisplay" style="margin-top:10px; font-weight:bold;"></p>
+        </div>
+
+        <div class="counter">
+            <div class="label">Thời gian từ 01/11/2025 đến hiện tại:</div>
+            <div class="time" id="count1">0 ngày, 0 giờ, 0 phút, 0 giây</div>
+        </div>
+        
+        <div class="counter">
+            <div class="label">Thời gian từ 25/11/2025 đến hiện tại:</div>
+            <div class="time" id="count2">0 ngày, 0 giờ, 0 phút, 0 giây</div>
+        </div>
+
+        <div class="controls">
+            <button id="toggleBtn">Tạm dừng</button>
+            <button id="resetBtn">Reset về 0</button>
+        </div>
+    </div>
+
+    <script>
+        const startDate1 = new Date('2025-11-01T00:00:00');
+        const startDate2 = new Date('2025-11-25T00:00:00');
+
+        let intervalId = null;
+        let isRunning = true;
+        let endDate = null; // Ngày kết thúc
+
+        const endDateInput = document.getElementById('endDateInput');
+        const endDateDisplay = document.getElementById('endDateDisplay');
+
+        // Load ngày kết thúc từ localStorage nếu có
+        function loadEndDate() {
+            const saved = localStorage.getItem('countdownEndDate');
+            if (saved) {
+                endDate = new Date(saved);
+                endDateInput.value = endDate.toISOString().split('T')[0];
+                endDateDisplay.textContent = `Kết thúc vào: ${endDate.toLocaleDateString('vi-VN')}`;
+            } else {
+                endDateDisplay.textContent = 'Chưa chọn ngày kết thúc';
+            }
+        }
+
+        // Lưu ngày kết thúc vào localStorage
+        function saveEndDate() {
+            if (endDate) {
+                localStorage.setItem('countdownEndDate', endDate.toISOString());
+            } else {
+                localStorage.removeItem('countdownEndDate');
+            }
+        }
+
+        // Sự kiện thay đổi ngày kết thúc
+        endDateInput.addEventListener('change', function() {
+            if (this.value) {
+                endDate = new Date(this.value + 'T23:59:59'); // Cuối ngày được chọn
+                endDateDisplay.textContent = `Kết thúc vào: ${endDate.toLocaleDateString('vi-VN')}`;
+                saveEndDate();
+            } else {
+                endDate = null;
+                endDateDisplay.textContent = 'Chưa chọn ngày kết thúc';
+                saveEndDate();
+            }
+        });
+
+        function formatTime(days, hours, minutes, seconds) {
+            return `${days} ngày, ${hours} giờ, ${minutes} phút, ${seconds} giây`;
+        }
+
+        function updateCounters() {
+            const now = new Date();
+            
+            // Hiển thị thời gian hiện tại
+            document.getElementById('current-time').textContent = now.toLocaleString('vi-VN');
+
+            // Kiểm tra nếu đã qua ngày kết thúc
+            if (endDate && now > endDate) {
+                stopCounting();
+                document.getElementById('count1').textContent = 'Đã kết thúc';
+                document.getElementById('count1').classList.add('ended');
+                document.getElementById('count2').textContent = 'Đã kết thúc';
+                document.getElementById('count2').classList.add('ended');
+                return;
+            } else {
+                document.getElementById('count1').classList.remove('ended');
+                document.getElementById('count2').classList.remove('ended');
+            }
+
+            // Tính toán cho mốc 1
+            let diff1 = now - startDate1;
+            if (diff1 < 0) diff1 = 0;
+            const days1 = Math.floor(diff1 / (1000 * 60 * 60 * 24));
+            const hours1 = Math.floor((diff1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes1 = Math.floor((diff1 % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds1 = Math.floor((diff1 % (1000 * 60)) / 1000);
+            document.getElementById('count1').textContent = formatTime(days1, hours1, minutes1, seconds1);
+            
+            // Tính toán cho mốc 2
+            let diff2 = now - startDate2;
+            if (diff2 < 0) diff2 = 0;
+            const days2 = Math.floor(diff2 / (1000 * 60 * 60 * 24));
+            const hours2 = Math.floor((diff2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes2 = Math.floor((diff2 % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds2 = Math.floor((diff2 % (1000 * 60)) / 1000);
+            document.getElementById('count2').textContent = formatTime(days2, hours2, minutes2, seconds2);
+        }
+
+        function startCounting() {
+            if (!isRunning) {
+                isRunning = true;
+                intervalId = setInterval(updateCounters, 1000);
+                document.getElementById('toggleBtn').textContent = 'Tạm dừng';
+                document.getElementById('toggleBtn').classList.add('running');
+            }
+        }
+
+        function stopCounting() {
+            if (isRunning) {
+                isRunning = false;
+                clearInterval(intervalId);
+                document.getElementById('toggleBtn').textContent = 'Tiếp tục';
+                document.getElementById('toggleBtn').classList.remove('running');
+            }
+        }
+
+        function resetCounters() {
+            stopCounting();
+            document.getElementById('count1').textContent = '0 ngày, 0 giờ, 0 phút, 0 giây';
+            document.getElementById('count2').textContent = '0 ngày, 0 giờ, 0 phút, 0 giây';
+            document.getElementById('count1').classList.remove('ended');
+            document.getElementById('count2').classList.remove('ended');
+
+            // Xóa ngày kết thúc
+            endDate = null;
+            endDateInput.value = '';
+            endDateDisplay.textContent = 'Chưa chọn ngày kết thúc';
+            localStorage.removeItem('countdownEndDate');
+
+            updateCounters(); // Cập nhật thời gian hiện tại
+        }
+
+        // Sự kiện nút tạm dừng / tiếp tục
+        document.getElementById('toggleBtn').addEventListener('click', function() {
+            if (isRunning) {
+                stopCounting();
+            } else {
+                startCounting();
+            }
+        });
+
+        // Sự kiện nút reset
+        document.getElementById('resetBtn').addEventListener('click', resetCounters);
+
+        // Khởi động
+        loadEndDate();
+        updateCounters();
+        startCounting();
+    </script>
+</body>
+</html>
