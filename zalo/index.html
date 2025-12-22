@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - Zalo Groups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ai-blue: #4361ee;
+            --ai-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: rgba(255, 255, 255, 0.15);
+            --text: #f0f0f0;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--ai-gradient);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Particle Background */
+        #particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: transparent;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* AI Header */
+        .ai-header {
+            padding: 40px 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        .ai-avatar {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+        .ai-avatar i {
+            font-size: 3rem;
+            color: var(--ai-blue);
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .ai-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Voice Button */
+        .voice-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 40px;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .voice-btn:hover { background: rgba(255,255,255,0.3); }
+        .voice-btn.recording {
+            animation: recording 1.5s infinite;
+            background: #ff3b30;
+        }
+
+        /* Group Grid */
+        .group-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-top: 30px;
+        }
+        .group-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .group-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+        .group-card:hover::before {
+            left: 100%;
+        }
+        .group-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .group-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .group-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        .join-zalo {
+            background: #00d4aa;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .join-zalo:hover {
+            background: #00b894;
+            transform: scale(1.05);
+        }
+        .join-zalo i { font-size: 1.2rem; }
+
+        /* Loading Indicator */
+        .loading {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+        .spinner {
+            width: 60px; height: 60px;
+            border: 6px solid rgba(255,255,255,0.3);
+            border-top: 6px solid #00d4aa;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(67, 97, 238, 0); } 100% { box-shadow: 0 0 0 0 rgba(67, 97, 238, 0); } }
+        @keyframes recording { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 59, 48, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 48, 0); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        footer {
+            margin-top: 60px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+
+    <div class="container">
+        <div class="ai-header">
+            <div class="ai-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1>AI Assistant</h1>
+            <p class="ai-subtitle">Chào bạn! Tôi sẽ giúp bạn tham gia các nhóm Zalo AI & IoT chỉ bằng 1 click.</p>
+            <button class="voice-btn" onclick="speakWelcome()">
+                <i class="fas fa-microphone"></i> Nói với AI
+            </button>
+        </div>
+
+        <div class="group-grid">
+            <div class="group-card" onclick="joinZaloGroup('osdmda057')">
+                <h3>AI Cơ Bản & Ứng Dụng</h3>
+                <p>Thảo luận về Machine Learning, Deep Learning, NLP...</p>
+                <button class="join-zalo"><i class="fab fa-zalo"></i> Mở trong Zalo</button>
+            </div>
+
+            <div class="group-card" onclick="joinZaloGroup('gbvlcg698')">
+                <h3>Machine Learning Việt Nam</h3>
+                <p>Chia sẻ project, tài liệu, code thực tế</p>
+                <button class="join-zalo"><i class="fab fa-zalo"></i> Mở trong Zalo</button>
+            </div>
+
+            <div class="group-card" onclick="joinZaloGroup('abgbys997')">
+                <h3>IoT Projects & Arduino</h3>
+                <p>Xây dựng thiết bị thông minh, cảm biến</p>
+                <button class="join-zalo"><i class="fab fa-zalo"></i> Mở trong Zalo</button>
+            </div>
+
+            <div class="group-card" onclick="joinZaloGroup('nermpw207')">
+                <h3>IoT Cảm Biến & ESP32</h3>
+                <p>Lập trình vi điều khiển, kết nối cloud</p>
+                <button class="join-zalo"><i class="fab fa-zalo"></i> Mở trong Zalo</button>
+            </div>
+
+            <div class="group-card" onclick="joinZaloGroup('htfvth969')">
+                <h3>Smart Home Việt Nam</h3>
+                <p>Tự động hóa nhà ở với IoT</p>
+                <button class="join-zalo"><i class="fab fa-zalo"></i> Mở trong Zalo</button>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 AI Assistant | Powered by Deep Link Technology
+        </footer>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Đang mở Zalo...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Particle Background
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        for (let i = 0; i < 80; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                speed: Math.random() * 1 + 0.5
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+                p.y -= p.speed;
+                if (p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // Voice Welcome
+        function speakWelcome() {
+            if ('speechSynthesis' in window) {
+                const msg = new SpeechSynthesisUtterance(
+                    "Chào mừng bạn đến với AI Assistant! Hãy chọn nhóm Zalo bạn muốn tham gia. Tôi sẽ mở ứng dụng Zalo ngay lập tức nếu bạn đã cài."
+                );
+                msg.lang = 'vi-VN';
+                msg.rate = 0.9;
+                speechSynthesis.speak(msg);
+            }
+            document.querySelector('.voice-btn').classList.add('recording');
+            setTimeout(() => {
+                document.querySelector('.voice-btn').classList.remove('recording');
+            }, 3000);
+        }
+
+        // Deep Link Zalo (Smart Fallback)
+        function joinZaloGroup(groupId) {
+            const deepLink = `zalo://join/g/${groupId}`;
+            const webLink = `https://zalo.me/g/${groupId}`;
+            const loading = document.getElementById('loading');
+
+            // Show loading
+            loading.style.display = 'flex';
+
+            // Try open Zalo app
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = deepLink;
+            document.body.appendChild(iframe);
+
+            // Fallback after 1.5s
+            setTimeout(() => {
+                if (document.hasFocus()) {
+                    window.open(webLink, '_blank');
+                }
+                loading.style.display = 'none';
+                setTimeout(() => document.body.removeChild(iframe), 100);
+            }, 1500);
+
+            // On PC: open web immediately
+            if (!/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+                setTimeout(() => {
+                    window.open(webLink, '_blank');
+                    loading.style.display = 'none';
+                }, 500);
+            }
+        }
+
+        // Auto speak on load (optional)
+        window.onload = () => {
+            setTimeout(speakWelcome, 1000);
+        };
+    </script>
+</body>
+</html>
