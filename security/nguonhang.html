@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TỔNG HỢP MÃ SP - CHỈ TÍNH SAU DẤU |</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; font-family: system-ui; min-height: 100vh; }
+    .card { box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: none; border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); background: rgba(255,255,255,0.95); }
+    th { background: #0d6efd; color: white; position: sticky; top: 0; z-index: 10; }
+    .summary-table th { background: #198754 !important; }
+    h1, h2 { color: #0d6efd; text-shadow: 0 2px 10px rgba(13,110,253,0.3); }
+    .qty { color: #d63384; font-weight: bold; }
+    .code { color: #198754; font-weight: bold; }
+    .search-container { position: relative; max-width: 700px; margin: 0 auto 30px; }
+    #searchInput { border-radius: 50px; padding-left: 55px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); font-size: 1.2rem; border: 2px solid #0d6efd; }
+    #searchInput:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.3rem rgba(13,110,253,0.25); }
+    .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #0d6efd; font-size: 1.4rem; }
+    .dropdown-menu { max-height: 500px; overflow-y: auto; width: 100%; border-radius: 15px; border: none; box-shadow: 0 15px 40px rgba(0,0,0,0.25); margin-top: 5px; }
+    .dropdown-item:hover { background: #0d6efd; color: white; }
+    .highlight { background-color: #fff3cd !important; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { background-color: #fff3cd; } 50% { background-color: #ffe066; } }
+    .multi-code { background: #e3f2fd; padding: 6px 10px; border-radius: 8px; font-size: 0.9em; margin: 3px; display: inline-block; font-weight: 600; border: 1px solid #90caf9; }
+    .original-cell { background: #f8f9fa; padding: 12px; border-radius: 10px; font-family: 'Courier New', monospace; white-space: pre-wrap; font-size: 0.95em; }
+    .total-badge { background: linear-gradient(45deg, #0d6efd, #0dcaf0); color: white; padding: 8px 18px; border-radius: 50px; font-weight: bold; font-size: 1.1em; }
+    .spinner-border { width: 6rem; height: 6rem; }
+    .footer { text-align: center; margin-top: 50px; color: white; font-size: 0.9em; }
+    .giang-signature { color: #ffd700; font-weight: bold; text-shadow: 0 0 10px #ffd700; animation: glow 2s infinite alternate; }
+    @keyframes glow { from { text-shadow: 0 0 10px #ffd700; } to { text-shadow: 0 0 20px #ff6b6b; } }
+    .note { background: #fff3cd; border-left: 6px solid #ffc107; padding: 15px; border-radius: 10px; margin: 20px 0; font-weight: 500; }
+    .new-feature { background: #d1f4ff; border-left: 6px solid #0dcaf0; }
+    .sheet-input { border-radius: 50px; padding-left: 45px; }
+    .sheet-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #198754; }
+    .current-sheet { font-size: 0.9em; word-break: break-all; background: #e7f3ff; padding: 8px 12px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="card">
+      <div class="card-body p-5">
+        <h1 class="text-center mb-2">TỔNG HỢP MÃ SP</h1>
+        <p class="text-center text-muted mb-4">
+          CHỈ DUY NHẤT ĐỊNH DẠNG: <code style="background:#fff; padding:2px 8px; border-radius:6px;">OK</code><br>
+          <span class="text-danger fw-bold">OK</span>
+        </p>
+
+        <div class="note text-center">
+          <i class="fas fa-exclamation-triangle text-warning"></i>
+          <strong>ĐÃ BỎ HOÀN TOÀN LOGIC LOẠI TRÙNG</strong> → Tính đủ mọi phiếu
+        </div>
+
+        <div class="note new-feature text-center">
+          <i class="fas fa-star text-info"></i>
+          <strong>CHỈ TÍNH MÃ SP SAU DẤU "|" ĐẦU TIÊN</strong><br>
+          <small>Ví dụ: <code>ABC+5 | DEF+3 | GHI+2</code> → chỉ tính <code>DEF+3</code> và <code>GHI+2</code></small>
+        </div>
+
+        <!-- THÊM TÍNH NĂNG ĐỔI SHEET -->
+        <div class="text-center mb-4">
+          <div class="position-relative d-inline-block">
+            <i class="fas fa-link sheet-icon"></i>
+            <input type="text" id="sheetUrlInput" class="form-control sheet-input" placeholder="Dán link Google Sheets mới vào đây..." value="">
+          </div>
+          <button id="changeSheetBtn" class="btn btn-success ms-3 px-4">Áp dụng Sheet mới</button>
+        </div>
+        <div class="text-center mt-2">
+          <small class="text-muted">Sheet đang dùng:</small><br>
+          <div id="currentSheetDisplay" class="current-sheet mt-1 d-inline-block">Đang tải...</div>
+        </div>
+        <!-- END THÊM TÍNH NĂNG -->
+
+        <div class="search-container mt-4">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchInput" class="form-control" placeholder="Tìm mã SP (gõ 98, 64, 82...)" autocomplete="off">
+          <div class="dropdown-menu" id="dropdownMenu"></div>
+        </div>
+
+        <div id="summary" class="mb-5"></div>
+        <div id="content" class="text-center">
+          <div class="spinner-border text-primary"></div>
+          <p class="mt-4 fs-4 text-primary">Đang quét dữ liệu từ Google Sheets...</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      Made with <i class="fas fa-heart text-danger"></i> by 
+      <span class="giang-signature">@giang20166</span> 
+      – CHỈ TÍNH SAU DẤU | + KHÔNG LOẠI TRÙNG + FIX SL + ĐỔI SHEET DỄ DÀNG | 01/12/2025
+    </div>
+  </div>
+
+  <script>
+    // ================== QUẢN LÝ SHEET ID ==================
+    const DEFAULT_SHEET_ID = '1nWNK-WWRVv_1szBImxxMOMNZgY6blGgGtbjYQnUPb4Q';
+    const STORAGE_KEY = 'customSheetId';
+
+    function getSheetId() {
+      // Ưu tiên: localStorage → URL param → default
+      const urlParams = new URLSearchParams(window.location.search);
+      const fromUrl = urlParams.get('sheet');
+      const fromStorage = localStorage.getItem(STORAGE_KEY);
+      return fromUrl || fromStorage || DEFAULT_SHEET_ID;
+    }
+
+    function setSheetId(id) {
+      localStorage.setItem(STORAGE_KEY, id);
+      document.getElementById('currentSheetDisplay').textContent = id;
+    }
+
+    function extractSheetIdFromUrl(url) {
+      const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
+      return match ? match[1] : null;
+    }
+
+    // Cập nhật hiển thị sheet hiện tại
+    document.getElementById('currentSheetDisplay').textContent = getSheetId();
+
+    // Nút đổi sheet
+    document.getElementById('changeSheetBtn').onclick = () => {
+      let input = document.getElementById('sheetUrlInput').value.trim();
+      if (!input) {
+        alert('Vui lòng dán link Google Sheets!');
+        return;
+      }
+      // Nếu người dùng chỉ dán ID thì vẫn ok
+      let sheetId = extractSheetIdFromUrl(input);
+      if (!sheetId && input.length > 30) {
+        alert('Link không đúng định dạng Google Sheets!');
+        return;
+      }
+      if (!sheetId) sheetId = input; // trường hợp dán thẳng ID
+
+      setSheetId(sheetId);
+      alert('Đã đổi sang Sheet mới! Đang tải lại dữ liệu...');
+      location.reload(); // reload để dùng Sheet mới
+    };
+
+    // Tự động điền link hiện tại vào ô input khi focus
+    document.getElementById('sheetUrlInput').addEventListener('focus', function() {
+      if (!this.value) {
+        this.value = `https://docs.google.com/spreadsheets/d/${getSheetId()}/edit`;
+      }
+    });
+
+    // ================== LOAD DATA ==================
+    const SHEET_ID = getSheetId();
+    const TAB_NAME = 'Sheet1';
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(TAB_NAME)}`;
+
+    let allRows = [];
+    let allCodes = [];
+
+    function getAfterFirstPipe(str) {
+      if (!str || typeof str !== 'string') return '';
+      const pipeIndex = str.indexOf('|');
+      return pipeIndex !== -1 ? str.substring(pipeIndex + 1).trim() : '';
+    }
+
+    function parseMaSP(raw) {
+      if (!raw || typeof raw !== 'string') return [];
+      const afterPipe = getAfterFirstPipe(raw);
+      if (!afterPipe) return [];
+
+      const results = [];
+      const parts = afterPipe.split('|').map(p => p.trim()).filter(p => p);
+
+      parts.forEach(part => {
+        const match = part.match(/^(.+?)\+([0-9]+)$/i);
+        if (match) {
+          const ma = match[1].trim().toUpperCase();
+          const sl = parseInt(match[2]);
+          if (sl > 0 && !isNaN(sl)) {
+            results.push({ ma, sl, original: part });
+          }
+        }
+      });
+      return results;
+    }
+
+    function tinhTong(rows) {
+      const map = {};
+      allCodes = [];
+
+      rows.forEach((row, i) => {
+        if (i === 0) return;
+        row.forEach(cell => {
+          if (typeof cell !== 'string') return;
+          parseMaSP(cell).forEach(({ma, sl}) => {
+            if (!map[ma]) {
+              map[ma] = { ma, total: 0 };
+              allCodes.push(ma);
+            }
+            map[ma].total += sl;
+          });
+        });
+      });
+
+      allCodes = [...new Set(allCodes)].sort((a,b) => a.localeCompare(b));
+      return Object.values(map).sort((a,b) => b.total - a.total);
+    }
+
+    function renderSummary(data) {
+      const totalAll = data.reduce((sum, x) => sum + x.total, 0);
+      let html = `
+        <div class="text-center mb-4">
+          <h2 class="mb-3">TỔNG HỢP THEO MÃ SP</h2>
+          <div>
+            <span class="total-badge me-3">${data.length} mã duy nhất</span>
+            <span class="total-badge">Tổng SL: ${totalAll.toLocaleString('vi-VN')}</span>
+          </div>
+        </div>
+        <div class="table-responsive rounded shadow-sm">
+          <table class="table table-bordered table-hover summary-table mb-0">
+            <thead><tr><th width="60">TOP</th><th>MÃ SP</th><th width="150">TỔNG SL</th></tr></thead>
+            <tbody>`;
+      data.forEach((item, idx) => {
+        const rankColor = idx === 0 ? '#ff6b6b' : idx === 1 ? '#feca57' : idx === 2 ? '#48dbfb' : '';
+        html += `<tr class="summary-row" data-code="${item.ma}" style="cursor:pointer;">
+          <td class="fw-bold text-center" style="background:${rankColor};color:white;">${idx + 1}</td>
+          <td class="code fw-bold fs-5">${item.ma}</td>
+          <td class="qty text-end fw-bold fs-4">${item.total.toLocaleString('vi-VN')}</td>
+        </tr>`;
+      });
+      html += `</tbody></table></div>`;
+      document.getElementById('summary').innerHTML = html;
+
+      document.querySelectorAll('.summary-row').forEach(row => {
+        row.onclick = () => {
+          const code = row.dataset.code;
+          document.getElementById('searchInput').value = code;
+          filter(code);
+        };
+      });
+    }
+
+    function renderTable(data, keyword = '') {
+      let html = '<div class="table-responsive rounded shadow-sm"><table class="table table-bordered table-hover" id="detailTable">';
+      
+      data.forEach((row, i) => {
+        const isHeader = i === 0;
+        html += isHeader ? '<thead><tr>' : '<tr>';
+        row.forEach((cell, j) => {
+          let display = cell || '';
+          let extra = '';
+          let rowClass = '';
+
+          if (typeof cell === 'string' && !isHeader) {
+            const parsed = parseMaSP(cell);
+            const rawDisplay = cell.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            display = `<div class="original-cell">${rawDisplay}</div>`;
+
+            if (parsed.length > 0) {
+              const codesHtml = parsed.map(item => 
+                `<span class="multi-code">${item.ma}<small class="text-muted ms-1">+${item.sl}</small></span>`
+              ).join('');
+              extra = `<div class="mt-2">${codesHtml}</div>`;
+
+              if (keyword && parsed.some(x => x.ma.toLowerCase().includes(keyword.toLowerCase()))) {
+                rowClass = 'highlight';
+              }
+            }
+          }
+
+          const tag = isHeader ? 'th' : 'td';
+          const style = isHeader ? 'background:#0d6efd;color:white;font-weight:bold;' : '';
+          html += `<${tag} style="${style}" class="${rowClass}">${display}${extra}</${tag}>`;
+        });
+        html += isHeader ? '</tr></thead><tbody>' : '</tr>';
+      });
+      html += '</tbody></table></div>';
+      document.getElementById('content').innerHTML = html;
+    }
+
+    function showDropdown(matches) {
+      const menu = document.getElementById('dropdownMenu');
+      if (matches.length === 0) return menu.style.display = 'none';
+      
+      let html = '';
+      matches.slice(0, 100).forEach(code => {
+        html += `<a class="dropdown-item py-3 px-4" href="#" data-code="${code}"><strong>${code}</strong></a>`;
+      });
+      if (matches.length > 100) html += `<div class="dropdown-item text-center text-muted">... và ${matches.length - 100} mã khác</div>`;
+      
+      menu.innerHTML = html;
+      menu.style.display = 'block';
+
+      menu.querySelectorAll('.dropdown-item').forEach(item => {
+        item.onclick = e => {
+          e.preventDefault();
+          const code = item.dataset.code;
+          document.getElementById('searchInput').value = code;
+          menu.style.display = 'none';
+          filter(code);
+        };
+      });
+    }
+
+    function filter(keyword) {
+      const lower = keyword.toLowerCase();
+      const filtered = allRows.filter((row, i) => {
+        if (i === 0) return true;
+        return row.some(cell => {
+          if (typeof cell !== 'string') return false;
+          return parseMaSP(cell).some(x => x.ma.toLowerCase().includes(lower));
+        });
+      });
+
+      renderTable(filtered, keyword);
+      document.querySelectorAll('.summary-row').forEach(tr => {
+        tr.classList.toggle('highlight', tr.dataset.code.toLowerCase().includes(lower));
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const kw = e.target.value.trim();
+      if (!kw) {
+        document.getElementById('dropdownMenu').style.display = 'none';
+        renderTable(allRows);
+        document.querySelectorAll('.summary-row, #detailTable tr').forEach(el => el.classList.remove('highlight'));
+        return;
+      }
+      const matches = allCodes.filter(c => c.toLowerCase().includes(kw.toLowerCase()));
+      showDropdown(matches);
+      filter(kw);
+    });
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.search-container')) {
+        document.getElementById('dropdownMenu').style.display = 'none';
+      }
+    });
+
+    // ================== FETCH DATA ==================
+    fetch(url)
+      .then(res => res.text())
+      .then(text => {
+        const jsonText = text.substring(47, text.length - 2);
+        const data = JSON.parse(jsonText).table;
+        const rows = data.rows || [];
+
+        if (rows.length === 0) throw new Error("No rows");
+
+        const numRows = rows.length;
+        const numCols = rows.reduce((max, row) => Math.max(max, (row.c || []).length), 0);
+
+        const cleanData = [];
+        for (let r = 0; r < numRows; r++) {
+          const row = [];
+          const cells = rows[r].c || [];
+          for (let c = 0; c < numCols; c++) {
+            const cell = cells[c];
+            const value = cell ? (cell.f !== undefined ? cell.f : cell.v) : '';
+            row.push(value === undefined ? '' : String(value));
+          }
+          if (row.some(v => v !== '')) {
+            cleanData.push(row);
+          }
+        }
+
+        if (cleanData.length === 0) throw new Error("No data found");
+
+        allRows = cleanData;
+
+        const summary = tinhTong(cleanData);
+        renderSummary(summary);
+        renderTable(cleanData);
+
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('content').innerHTML = `
+          <div class="alert alert-danger text-center p-5">
+            <h3>Không tải được dữ liệu!</h3>
+            <p>Sheet chưa được <b>Publish to web</b> hoặc ID sai!<br>
+            Sheet hiện tại: <code>${SHEET_ID}</code><br><br>
+            <button class="btn btn-primary btn-lg mt-3" onclick="location.reload()">Thử lại ngay</button></p>
+          </div>`;
+      });
+  </script>
+</body>
+  </html>
