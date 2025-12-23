@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mã Thông Báo - Token UI</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      background-size: 100% 100%;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      text-align: center;
+      background: linear-gradient(90deg, #c084fc, #6366f1, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .token-card {
+      background: var(--card);
+      border-radius: 1.2rem;
+      padding: 2rem;
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .token-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.25);
+    }
+
+    .token-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(99,102,241,0.15), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .token-card:hover::before {
+      opacity: 1;
+    }
+
+    .token-type {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--primary);
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .description {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .examples {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 0.8rem;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: #a5b4fc;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Mã Thông Báo</h1>
+    <p class="subtitle">Token - Mã xác thực, quyền truy cập & tài sản số</p>
+
+    <div class="token-grid">
+
+      <div class="token-card">
+        <span class="token-type">BẢO MẬT / XÁC THỰC</span>
+        <h2>Access Token / OTP Token</h2>
+        <p class="description">
+          Chuỗi ký tự dùng để chứng minh danh tính và cấp quyền truy cập hệ thống.<br>
+          Thường có thời hạn ngắn và chỉ dùng một lần (OTP).
+        </p>
+        <div class="examples">
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...<br>
+          483920 • Google Authenticator<br>
+          f8a2b91c-4d7e-9e1f...
+        </div>
+      </div>
+
+      <div class="token-card">
+        <span class="token-type">CRYPTO / BLOCKCHAIN</span>
+        <h2>Token (ERC-20 / BEP-20 / NFT)</h2>
+        <p class="description">
+          Đơn vị tài sản số trên blockchain, có thể là coin tiện ích, governance token<br>
+          hoặc NFT đại diện cho tài sản độc nhất.
+        </p>
+        <div class="examples">
+          USDT • BUSD • LINK • UNI<br>
+          0x... (địa chỉ contract)<br>
+          #12345 (NFT ID)
+        </div>
+      </div>
+
+      <div class="token-card">
+        <span class="token-type">GAME / APP</span>
+        <h2>In-game Token / Currency</h2>
+        <p class="description">
+          Đơn vị tiền tệ ảo trong game hoặc ứng dụng, dùng để mua vật phẩm, mở rương,<br>
+          nâng cấp nhân vật...
+        </p>
+        <div class="examples">
+          5,800 Kim Cương • 120,000 Vàng<br>
+          450 Premium Token • 3 Mythic Shard
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
