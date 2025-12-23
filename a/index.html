@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thời gian từ 16/10/2024 → 3/7/2025 | Overwatch Style</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Orbitron', sans-serif;
+      color: #e0f7ff;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+                  url('https://images.alphacoders.com/131/1311745.jpg') center/cover no-repeat fixed;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 6vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px #00d4ff, 0 0 30px #00d4ff55;
+      margin-bottom: 0.4em;
+      background: linear-gradient(90deg, #00d4ff, #ff2e82, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+      color: #a0e8ff;
+      margin-bottom: 2.5rem;
+      text-shadow: 0 0 10px #0008;
+    }
+
+    .countdown-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 18px;
+      max-width: 1100px;
+      width: 92%;
+      margin: 0 auto;
+    }
+
+    .box {
+      background: rgba(15, 25, 45, 0.75);
+      backdrop-filter: blur(10px);
+      border: 2px solid #00d4ff33;
+      border-radius: 16px;
+      padding: 20px 12px;
+      text-align: center;
+      transition: all 0.35s ease;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent, rgba(0,212,255,0.15), transparent);
+      animation: shine 6s infinite linear;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .box:hover {
+      transform: translateY(-8px);
+      border-color: #00d4ff;
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.35);
+    }
+
+    .number {
+      font-size: clamp(2.6rem, 7vw, 4.8rem);
+      font-weight: 900;
+      color: #00f6ff;
+      text-shadow: 0 0 20px #00f6ff88;
+      line-height: 1;
+    }
+
+    .label {
+      font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+      color: #b0e0ff;
+      margin-top: 8px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-family: 'Roboto', sans-serif;
+      color: #88ccff;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 500px) {
+      .countdown-container {
+        gap: 14px;
+      }
+      .box {
+        padding: 16px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>OVERWATCH COUNTDOWN</h1>
+  <div class="subtitle">Từ 16/10/2024 12:30 → 3/7/2025 12:30 (giờ Việt Nam)</div>
+
+  <div class="countdown-container">
+    <div class="box">
+      <div class="number">260</div>
+      <div class="label">NGÀY</div>
+    </div>
+    
+    <div class="box">
+      <div class="number">8</div>
+      <div class="label">THÁNG</div>
+    </div>
+
+    <div class="box">
+      <div class="number">20</div>
+      <div class="label">NGÀY DƯ</div>
+    </div>
+
+    <div class="box">
+      <div class="number">0</div>
+      <div class="label">GIỜ</div>
+    </div>
+
+    <div class="box">
+      <div class="number">0</div>
+      <div class="label">PHÚT</div>
+    </div>
+
+    <div class="box">
+      <div class="number">0</div>
+      <div class="label">GIÂY</div>
+    </div>
+  </div>
+
+  <footer>Heroes never die... nhưng thời gian thì có hạn!</footer>
+
+</body>
+</html>
