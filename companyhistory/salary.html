@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuộc vui nào cũng có lúc chia ly</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      padding: 2rem;
+      max-width: 700px;
+    }
+
+    .title {
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(90deg, #f093fb, #f6e58d, #ff9a9e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 0 30px rgba(240, 147, 251, 0.4);
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
+      color: #a0a0ff;
+      margin: 1.5rem 0 3rem;
+      line-height: 1.6;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+
+    .tear {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(45deg, #a0c4ff, #ffffff);
+      border-radius: 50% 50% 50% 0;
+      box-shadow: 0 0 15px rgba(160, 196, 255, 0.7);
+      transform: rotate(45deg);
+      opacity: 0;
+      animation: fall linear infinite;
+    }
+
+    .tear:nth-child(1) { left: 20%; animation-delay: 0.5s; animation-duration: 6s; }
+    .tear:nth-child(2) { left: 35%; animation-delay: 1.8s; animation-duration: 7.5s; }
+    .tear:nth-child(3) { left: 55%; animation-delay: 3.2s; animation-duration: 5.8s; }
+    .tear:nth-child(4) { left: 72%; animation-delay: 4.5s; animation-duration: 8s; }
+    .tear:nth-child(5) { left: 88%; animation-delay: 2.1s; animation-duration: 6.8s; }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 0;
+        transform: translateX(0) rotate(45deg) scale(0.3);
+      }
+      20% { opacity: 0.9; }
+      100% {
+        top: 110%;
+        opacity: 0;
+        transform: translateX(60px) rotate(45deg) scale(1.2);
+      }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">Cuộc vui nào</h1>
+    <h1 class="title">cũng có lúc chia ly</h1>
+
+    <p class="subtitle">
+      Cứ cười thật tươi hôm nay đi<br>
+      Vì mai sau có thể... ta chẳng còn gặp lại nhau nữa
+    </p>
+
+    <!-- Những giọt nước mắt rơi -->
+    <div class="tear"></div>
+    <div class="tear"></div>
+    <div class="tear"></div>
+    <div class="tear"></div>
+    <div class="tear"></div>
+  </div>
+
+  <div class="footer">Có những điều đẹp nhất thường cũng mong manh nhất</div>
+
+</body>
+</html>
