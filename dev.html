@@ -3,162 +3,498 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sala – haha</title>
+  <title>Sala • Cyber Netizen Lounge</title>
   <link rel="icon" href="https://raw.githubusercontent.com/lapgia57-netizen/gohome/main/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    body { margin:0; font-family: system-ui; background:#0d1117; color:#c9d1d9; }
-    .header { background:#010409; padding:20px; text-align:center; border-bottom:3px solid #f85149; }
-    h1 { margin:0; color:#f85149; }
-    .container { display:flex; height:calc(100vh - 100px); }
-    .sidebar { width:35%; background:#161b22; border-right:1px solid #30363d; overflow:auto; }
-    .content { width:65%; padding:20px; overflow:auto; }
-    .tree ul { padding-left:20px; margin:5px 0; list-style:none; }
-    .tree li { padding:6px; cursor:pointer; border-radius:6px; }
-    .tree li:hover { background:#30363d; }
-    .tree .folder::before { content:"📁 "; }
-    .tree .file::before { content:"📄 "; }
-    .search { width:100%; padding:12px; background:#0d1117; border:1px solid #30363d; color:white; box-sizing:border-box; }
-    #file-content { background:#0d1117; padding:20px; border-radius:8px; min-height:100%; }
-    .online-count { position:fixed; bottom:10px; right:10px; background:#238636; color:white; padding:10px 15px; border-radius:50px; font-weight:bold; }
-    .refresh { font-size:12px; color:#8b949e; text-align:center; margin-top:10px; }
-    .instructions { background:#21262d; padding:15px; border-radius:8px; margin:10px 0; }
-    .collapsed { display: none; }
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --text: #c9d1d9;
+      --accent: #00ffea;
+      --accent-dark: #00b3a2;
+      --danger: #f85149;
+      --glass: rgba(22, 27, 34, 0.65);
+      --border: #30363d;
+      --overlay: rgba(0,0,0,0.65);
+    }
+
+    [data-theme="light"] {
+      --bg: #f6f8fa;
+      --surface: #ffffff;
+      --text: #24292f;
+      --accent: #0969da;
+      --accent-dark: #0550ae;
+      --danger: #cf222e;
+      --glass: rgba(255,255,255,0.85);
+      --border: #d0d7de;
+      --overlay: rgba(0,0,0,0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #010409, #0a0e14);
+      padding: 0.9rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--danger);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.1rem);
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
+      margin: 0;
+    }
+
+    .status-bar {
+      font-size: 0.78rem;
+      color: #8b949e;
+      margin-top: 3px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle, .menu-toggle {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.25s;
+    }
+
+    .theme-toggle:hover, .menu-toggle:hover {
+      transform: rotate(25deg);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      inset: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      transform: translateX(-100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    /* Desktop mode > 900px */
+    @media (min-width: 901px) {
+      .sidebar {
+        position: relative;
+        transform: translateX(0);
+        width: 340px;
+        height: calc(100vh - 76px);
+      }
+
+      .menu-toggle { display: none; }
+      .overlay { display: none !important; }
+    }
+
+    .search-container {
+      padding: 1rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .tree-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.6rem;
+      -webkit-overflow-scrolling: touch; /* mượt scroll mobile */
+    }
+
+    .tree ul { list-style: none; padding-left: 1.2rem; margin: 4px 0; }
+    .tree li {
+      padding: 9px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .tree li:hover { background: rgba(48,54,61,0.5); }
+    .tree li.active { background: rgba(0,255,234,0.18); color: var(--accent); }
+
+    .folder::before { content: "\f07b"; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: 6px; color: #e2c14c; }
+    .file::before { content: "\f15b"; font-family: "Font Awesome 6 Free"; margin-right: 6px; color: #6ca0f6; }
+
+    .online-badge {
+      background: #238636;
+      color: white;
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+      padding: clamp(1rem, 4vw, 1.5rem);
+      padding-top: clamp(80px, 12vw, 90px); /* cho mobile header */
+      overflow: auto;
+      background: linear-gradient(to bottom, var(--bg), #0a0e14);
+      min-height: 100vh;
+    }
+
+    #preview-pane {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      height: 100%;
+      min-height: 70vh;
+      overflow: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .iframe-preview {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+      background: white;
+    }
+
+    /* Overlay khi sidebar mở trên mobile */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s;
+      z-index: 800;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(35,134,54,0.88);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      z-index: 700;
+      transition: transform 0.3s;
+    }
+
+    .bottom-bar:hover { transform: scale(1.07); }
+
+    /* Loading skeleton */
+    .loading-skeleton {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 1rem;
+    }
+    .skeleton-item {
+      height: 32px;
+      background: linear-gradient(90deg, #1a1f2e 0%, #242c3a 50%, #1a1f2e 100%);
+      border-radius: 6px;
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* Responsive nhỏ hơn nữa */
+    @media (max-width: 500px) {
+      .header { padding: 0.8rem 1rem; }
+      .tree li { padding: 10px 10px; font-size: 0.92rem; }
+      #preview-pane { padding: 1.2rem; }
+    }
   </style>
 </head>
-<body>
+<body data-theme="dark">
+
+  <!-- Overlay mobile -->
+  <div class="overlay" id="overlay"></div>
+
   <div class="header">
-    <h1>SALARY</h1>
-    <p>Đang có <span id="online">0</span> anh em trong quán • Click file để mở tab mới • Auto cập nhật mỗi 2 phút</p>
+    <div>
+      <h1>SALA <span style="font-size:0.58em; opacity:0.7;">CYBER LOUNGE</span></h1>
+      <div class="status-bar">
+        Đang có <span id="online">0</span> netizen đang chill • Auto sync mỗi 2 phút
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="theme-toggle" title="Chuyển theme" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="menu-toggle" aria-label="Mở menu" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
   </div>
 
-  <div class="container">
-    <div class="sidebar">
-      <input type="text" class="search" id="search" placeholder="Tìm file, nick, tin nhắn..."/>
-      <div class="tree" id="tree">Đang load repo...</div>
+  <!-- Sidebar (off-canvas mobile / fixed desktop) -->
+  <div class="sidebar" id="sidebar">
+    <div class="search-container">
+      <input type="text" class="search" id="search" placeholder="Tìm nick, file, status..."/>
     </div>
-    <div class="content">
-      <div id="file-content">
-        <h2>🖥️ Bảng điều khiển Explorer</h2>
-        <div class="instructions">
-          <strong>Chức năng mới:</strong><br>
-          - <strong>File .html:</strong> Mở tab mới tại <code>https://portfolio.lck.io.vn/[tên-file]</code> (render trực tiếp trên domain quán net).<br>
-          - <strong>File khác:</strong> Mở raw content tại GitHub trong tab mới (xem nhanh Markdown/text).<br>
-          <br>
-          <strong>Mẹo quán net:</strong> Tạo file <code>online/nick-cua-ban.html</code> với nội dung "đang cày rank" → click nó sẽ mở trang cá nhân đẹp trên domain!
+    <div class="tree-container">
+      <div class="tree" id="tree">
+        <div class="loading-skeleton">
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item" style="width:80%"></div>
+          <div class="skeleton-item"></div>
+          <div class="skeleton-item" style="width:65%"></div>
         </div>
-        <p><em>Chọn file từ cây bên trái để mở tab mới nhé!</em></p>
       </div>
     </div>
   </div>
 
-  <div class="online-count">Online: <span id="online2">0</span></div>
-  <div class="refresh">Cập nhật lần cuối: <span id="time"></span></div>
+  <div class="content">
+    <div id="preview-pane">
+      <h2 style="margin-top:0; color:var(--accent)">Chào mừng đến Cyber Netizen Lounge</h2>
+      <p>Click vào file bên trái để preview ngay hoặc mở tab mới.</p>
+      <p style="opacity:0.7">Mẹo: tạo file <code>online/tên-nick.html</code> để có profile cá nhân trên <code>https://portfolio.lck.io.vn/</code></p>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    Online: <span id="online2">0</span> netizen
+  </div>
 
   <script>
-    // === CẬP NHẬT: repo Sala + domain mới
     const owner = "lapgia57-netizen";
     const repo = "Sala";
     const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
     const customDomain = "https://portfolio.lck.io.vn/";
 
-    async function loadRepo() {
+    let currentPreviewPath = null;
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    const menuIcon = menuToggle.querySelector("i");
+
+    function toggleMenu() {
+      const isOpen = sidebar.classList.toggle("open");
+      overlay.classList.toggle("active", isOpen);
+      menuIcon.className = isOpen ? "fas fa-times" : "fas fa-bars";
+      menuToggle.setAttribute("aria-expanded", isOpen);
+    }
+
+    menuToggle.addEventListener("click", toggleMenu);
+    overlay.addEventListener("click", toggleMenu);
+
+    // Đóng menu khi click item trên mobile
+    document.getElementById("tree").addEventListener("click", (e) => {
+      if (window.innerWidth <= 900 && e.target.closest("li")) {
+        toggleMenu();
+      }
+    });
+
+    // Theme
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      body.setAttribute("data-theme", next);
+      document.querySelector(".theme-toggle i").className = 
+        next === "light" ? "fas fa-sun" : "fas fa-moon";
+    }
+
+    // Github load & render tree (giữ nguyên logic cũ)
+    async function loadRepo(silent = false) {
       try {
         const res = await fetch(api);
+        if (!res.ok) throw new Error("Repo not public or rate limit");
         const data = await res.json();
-        const files = data.tree.filter(f => f.type === "blob");
-        const onlineCount = files.filter(f => f.path.startsWith("online/")).length;
-        document.getElementById("online").textContent = onlineCount;
-        document.getElementById("online2").textContent = onlineCount;
+
+        const onlineFiles = data.tree.filter(f => f.type === "blob" && f.path.startsWith("online/"));
+        const count = onlineFiles.length;
+
+        const onlineEl = document.getElementById("online");
+        const onlineEl2 = document.getElementById("online2");
+
+        if (!silent) {
+          animateCount(onlineEl, parseInt(onlineEl.textContent), count, 1200);
+          animateCount(onlineEl2, parseInt(onlineEl2.textContent), count, 1200);
+        } else {
+          onlineEl.textContent = count;
+          onlineEl2.textContent = count;
+        }
 
         renderTree(data.tree);
-        updateTime();
       } catch (e) {
-        document.getElementById("tree").innerHTML = "Lỗi kết nối GitHub API :( <br>Repo có public không bro?";
-        console.error(e);
+        document.getElementById("tree").innerHTML = `<p style="color:#f85149;padding:1rem">Không connect được GitHub API<br>${e.message}</p>`;
       }
     }
 
-    function renderTree(items) {
-      const rootUl = document.createElement("ul");
-      const folders = {}; // key: full path folder như "online", "online/sub"
+    function animateCount(el, start, end, duration) {
+      let startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        el.textContent = Math.floor(progress * (end - start) + start);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
 
-      items.filter(item => item.type === "blob").forEach(item => {
+    function renderTree(items) {
+      const container = document.getElementById("tree");
+      container.innerHTML = "";
+
+      const rootUl = document.createElement("ul");
+      const folders = {};
+
+      const blobs = items.filter(item => item.type === "blob");
+
+      blobs.forEach(item => {
         const parts = item.path.split('/');
         let currentUl = rootUl;
 
-        // Xử lý các folder từ cấp 1 đến cấp cuối (trừ file name)
         for (let i = 0; i < parts.length - 1; i++) {
           const folderPath = parts.slice(0, i + 1).join('/');
-
           if (!folders[folderPath]) {
-            const folderLi = document.createElement("li");
-            folderLi.className = "folder";
-            folderLi.textContent = parts[i] + "/";
+            const li = document.createElement("li");
+            li.className = "folder";
+            li.innerHTML = `<span>${parts[i]}/</span>`;
+            const ul = document.createElement("ul");
+            ul.style.display = "none";
+            li.appendChild(ul);
 
-            const subUl = document.createElement("ul");
-            subUl.classList.add("collapsed");
-            folderLi.appendChild(subUl);
-
-            folderLi.onclick = (e) => {
+            li.onclick = e => {
               e.stopPropagation();
-              subUl.classList.toggle("collapsed");
+              ul.style.display = ul.style.display === "none" ? "block" : "none";
             };
 
-            folders[folderPath] = { li: folderLi, ul: subUl };
+            folders[folderPath] = { li, ul };
 
-            // Thêm vào parent tương ứng
-            if (i === 0) {
-              rootUl.appendChild(folderLi);
-            } else {
-              const parentPath = parts.slice(0, i).join('/');
-              folders[parentPath].ul.appendChild(folderLi);
-            }
+            if (i === 0) rootUl.appendChild(li);
+            else folders[parts.slice(0,i).join('/')].ul.appendChild(li);
           }
           currentUl = folders[folderPath].ul;
         }
 
-        // Thêm file vào thư mục hiện tại
         const fileLi = document.createElement("li");
         fileLi.className = "file";
-        fileLi.textContent = parts[parts.length - 1];
-        fileLi.title = item.path;
-        fileLi.onclick = (e) => {
+        fileLi.innerHTML = `<span>${parts[parts.length-1]}</span>`;
+        if (item.path.startsWith("online/")) {
+          const badge = document.createElement("span");
+          badge.className = "online-badge";
+          badge.textContent = "ONLINE";
+          fileLi.appendChild(badge);
+        }
+
+        fileLi.onclick = e => {
           e.stopPropagation();
-          openFileInNewTab(item.path);
+          highlightActive(fileLi);
+          previewFile(item.path);
         };
+
         currentUl.appendChild(fileLi);
       });
 
-      const container = document.getElementById("tree");
-      container.innerHTML = "";
       container.appendChild(rootUl);
     }
 
-    function openFileInNewTab(path) {
-      let url;
+    function highlightActive(li) {
+      document.querySelectorAll('.tree li').forEach(el => el.classList.remove('active'));
+      li.classList.add('active');
+    }
+
+    function previewFile(path) {
+      currentPreviewPath = path;
+      const pane = document.getElementById("preview-pane");
+
       if (path.endsWith('.html')) {
-        url = customDomain + path;
+        pane.innerHTML = `
+          <iframe class="iframe-preview" src="${customDomain}${path}" title="Preview ${path}"></iframe>
+        `;
       } else {
-        url = `https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`;
+        pane.innerHTML = `<p>Đang load raw content...</p>`;
+        fetch(`https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`)
+          .then(r => r.text())
+          .then(text => {
+            const escaped = text
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;");
+            pane.innerHTML = `<pre style="white-space:pre-wrap; font-family:Consolas,monospace; font-size:0.92rem;">${escaped}</pre>`;
+          })
+          .catch(() => pane.innerHTML = "<p style='color:#f85149'>Không load được raw file :(</p>");
       }
-      window.open(url, '_blank');
     }
 
-    function updateTime() {
-      document.getElementById("time").textContent = new Date().toLocaleString("vi-VN");
-    }
-
-    // Load + auto refresh mỗi 2 phút
-    loadRepo();
-    setInterval(loadRepo, 120000);
-
-    // Tìm kiếm realtime
-    document.getElementById("search").addEventListener("input", (e) => {
-      const term = e.target.value.toLowerCase();
-      document.querySelectorAll(".tree .file, .tree .folder").forEach(el => {
-        el.style.display = el.textContent.toLowerCase().includes(term) ? "" : "none";
+    // Search
+    document.getElementById("search").addEventListener("input", e => {
+      const term = e.target.value.toLowerCase().trim();
+      document.querySelectorAll(".tree li").forEach(li => {
+        const text = li.textContent.toLowerCase();
+        li.style.display = text.includes(term) || term === "" ? "" : "none";
       });
     });
+
+    // Khởi tạo
+    loadRepo();
+    setInterval(() => loadRepo(true), 120000);
   </script>
 </body>
 </html>
