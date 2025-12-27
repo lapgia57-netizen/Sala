@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phân tích lịch trực & trách nhiệm</title>
+
+<style>
+:root{
+  --bg:#0d1117;
+  --card:#161b22;
+  --text:#e6edf3;
+  --muted:#8b949e;
+  --danger:#f85149;
+  --warn:#d29922;
+  --ok:#3fb950;
+  --border:#30363d;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:16px;
+}
+
+header{
+  border-bottom:1px solid var(--border);
+  padding-bottom:12px;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:20px;
+  margin:0;
+}
+.sub{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px;
+  margin-bottom:14px;
+}
+
+.card h2{
+  font-size:16px;
+  margin:0 0 10px;
+}
+
+.alert{
+  border-left:4px solid var(--danger);
+  background:#1a0f11;
+}
+
+ul{
+  padding-left:18px;
+  margin:8px 0;
+}
+
+li{margin-bottom:6px}
+
+.tag{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:6px;
+  font-size:12px;
+  margin-right:6px;
+}
+.red{background:#da3633}
+.yellow{background:#9e6a03}
+.green{background:#238636}
+
+.footer{
+  margin-top:20px;
+  font-size:12px;
+  color:var(--muted);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+button{
+  background:#238636;
+  border:none;
+  color:white;
+  padding:8px 14px;
+  border-radius:6px;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h1>📋 Phân tích lịch trực & trách nhiệm</h1>
+  <div class="sub">Tài liệu cá nhân – dùng khi làm việc ca kíp / trực đêm</div>
+</header>
+
+<div class="card alert">
+  <h2>⚠️ Kết luận nhanh</h2>
+  <ul>
+    <li>Lịch trực thông báo quá gấp → <b>không hợp lý</b></li>
+    <li>Không có tên trong lịch → <b>không phát sinh trách nhiệm</b></li>
+    <li>Không thể quy trách nhiệm miệng sau khi công bố lịch</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>1️⃣ Thông báo lịch trực quá gấp</h2>
+  <ul>
+    <li>Không đảm bảo thời gian chuẩn bị</li>
+    <li>Gây xáo trộn ca kíp</li>
+    <li>Thể hiện quản lý thiếu kế hoạch</li>
+  </ul>
+  <span class="tag yellow">Chuẩn: ≥24–72h</span>
+</div>
+
+<div class="card">
+  <h2>2️⃣ Không có tên trong lịch</h2>
+  <ul>
+    <li>Không phải người trực</li>
+    <li>Không thể quy trách nhiệm</li>
+    <li>Không chấp nhận “bắt trực miệng”</li>
+  </ul>
+  <span class="tag green">Nguyên tắc trách nhiệm</span>
+</div>
+
+<div class="card">
+  <h2>3️⃣ Yêu cầu chịu trách nhiệm sau đó</h2>
+  <ul>
+    <li>Không đúng quy trình</li>
+    <li>Đẩy rủi ro cho người lao động</li>
+    <li>Có thể vi phạm nội quy / luật lao động</li>
+  </ul>
+  <span class="tag red">Rủi ro cao</span>
+</div>
+
+<div class="card">
+  <h2>4️⃣ Cách xử lý an toàn</h2>
+  <ul>
+    <li>Chụp & lưu lịch trực</li>
+    <li>Lưu thời gian công bố</li>
+    <li>Xác nhận bằng văn bản / tin nhắn</li>
+    <li>Không tranh cãi miệng</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <div id="time"></div>
+  <button onclick="save()">💾 Lưu ghi nhận</button>
+</div>
+
+</div>
+
+<script>
+const timeEl=document.getElementById("time");
+const now=new Date();
+timeEl.innerText="⏱ Ghi nhận lúc: "+now.toLocaleString("vi-VN");
+
+function save(){
+  localStorage.setItem("lich_truc_phan_tich",now.toISOString());
+  alert("Đã lưu ghi nhận vào thiết bị.");
+}
+</script>
+</body>
+</html>
