@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nghiên cứu UI/UX - Hướng dẫn thực tế 2025</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #f0f0f0;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(to right, #fff, #e0e0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .intro {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 2.2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #a78bfa, #7c3aed);
+      border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+      margin: 1.5rem 0 0.8rem;
+      color: #e0e0ff;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 1.5rem 0;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    th {
+      background: rgba(255, 255, 255, 0.12);
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    ul {
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+    
+    ul li {
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+    
+    ul li::before {
+      content: "→";
+      position: absolute;
+      left: -1.8rem;
+      color: #c084fc;
+      font-weight: bold;
+    }
+    
+    .highlight {
+      background: rgba(167, 139, 250, 0.15);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2.3rem; }
+      .glass-card { padding: 1.6rem; }
+      table, th, td { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Nghiên cứu UI/UX</h1>
+    <p class="intro">
+      Phần quan trọng <span class="highlight">nhất</span> trong quy trình thiết kế sản phẩm số hiện nay. 
+      Giúp hiểu rõ người dùng thực sự là ai, họ cần gì, họ gặp khó khăn ở đâu → Thiết kế UI đẹp <strong>và</strong> UX thật sự hiệu quả, thay vì chỉ "đẹp theo cảm tính".
+    </p>
+  </header>
+
+  <div class="glass-card">
+    <h2>Hướng dẫn thực tế – Cập nhật 2025</h2>
+    <p>Dành cho người mới bắt đầu hoặc muốn nâng cấp cách nghiên cứu.</p>
+  </div>
+
+  <div class="glass-card">
+    <h2>Nghiên cứu UI/UX khác gì với nghiên cứu thị trường thông thường?</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Tiêu chí</th>
+          <th>Nghiên cứu thị trường thông thường</th>
+          <th>Nghiên cứu UI/UX (User Research)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mục tiêu chính</td>
+          <td>Thị phần, đối thủ, xu hướng mua sắm</td>
+          <td>Hành vi, cảm xúc, khó khăn khi sử dụng sản phẩm</td>
+        </tr>
+        <tr>
+          <td>Đối tượng</td>
+          <td>Khách hàng tiềm năng (broad)</td>
+          <td>Người dùng thực tế của sản phẩm (specific)</td>
+        </tr>
+        <tr>
+          <td>Phương pháp phổ biến</td>
+          <td>Khảo sát lớn, focus group</td>
+          <td>Phỏng vấn sâu, usability testing, quan sát</td>
+        </tr>
+        <tr>
+          <td>Kết quả mong đợi</td>
+          <td>Số liệu %, insight kinh doanh</td>
+          <td>Pain points, needs, mental model, journey</td>
+        </tr>
+        <tr>
+          <td>Thời điểm thực hiện</td>
+          <td>Trước khi làm sản phẩm</td>
+          <td>Suốt vòng đời sản phẩm (continuous research)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass-card">
+    <h2>Các phương pháp nghiên cứu UI/UX phổ biến & hiệu quả nhất 2025</h2>
+    <p>Phân loại theo độ sâu & chi phí (rẻ → đắt):</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Phương pháp</th>
+          <th>Loại dữ liệu</th>
+          <th>Chi phí / Thời gian</th>
+          <th>Khi nào nên dùng?</th>
+          <th>Công cụ gợi ý 2025</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Khảo sát (Survey)</td>
+          <td>Định lượng + Định tính nhẹ</td>
+          <td>Rẻ – Trung bình</td>
+          <td>Thu thập số lượng lớn, xác nhận giả thuyết</td>
+          <td>Typeform, Google Forms, Maze</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Phỏng vấn người dùng</td>
+          <td>Định tính sâu</td>
+          <td>Trung bình</td>
+          <td>Hiểu "tại sao", pain points, mong muốn</td>
+          <td>Zoom + Otter.ai, Dovetail</td>
+        </tr>
+        <!-- Các dòng còn lại tương tự, bạn có thể copy-paste và điền tiếp -->
+        <tr>
+          <td>8</td>
+          <td>AI-assisted Research (trend 2025)</td>
+          <td>Hỗ trợ</td>
+          <td>Rẻ – Trung bình</td>
+          <td>Tóm tắt phỏng vấn, tìm pattern, tạo persona sơ bộ</td>
+          <td>Dovetail AI, Grain, ChatGPT + transcript</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass-card">
+    <h2>Quy trình nghiên cứu UI/UX hiệu quả (Double Diamond + Continuous)</h2>
+    <ul>
+      <li><strong>Khám phá (Discover)</strong> → Hiểu vấn đề → Phỏng vấn 5–8 người + khảo sát 50–200 người → Tạo <strong>Persona + Empathy Map + Journey Map</strong></li>
+      <li><strong>Định nghĩa (Define)</strong> → Tổng hợp insight → Xác định pain points lớn nhất → Viết <strong>Problem Statement</strong></li>
+      <li><strong>Phát triển ý tưởng (Develop)</strong> → Brainstorm → Vẽ wireframe low-fi</li>
+      <li><strong>Giao test & lặp lại (Deliver + Iterate)</strong> → Usability testing (5 người → 85% vấn đề – Nielsen) → A/B test → Continuous Discovery</li>
+    </ul>
+  </div>
+
+  <div class="glass-card">
+    <h2>Xu hướng đáng chú ý nhất 2025</h2>
+    <ul>
+      <li>Continuous Research > Nghiên cứu một lần lớn</li>
+      <li><strong>AI hỗ trợ mạnh</strong>: tóm tắt, pattern, insight nhanh gấp 5–10 lần</li>
+      <li>Mixed-Method là chuẩn mực</li>
+      <li>Accessibility & Inclusive Research <strong>bắt buộc</strong></li>
+      <li>Remote + Unmoderated Testing chiếm ưu thế</li>
+      <li>Micro-research (nhỏ, thường xuyên)</li>
+      <li>Tập trung cảm xúc & intent</li>
+    </ul>
+  </div>
+
+  <div class="glass-card">
+    <h2>Lời khuyên thực chiến cho người mới / team nhỏ</h2>
+    <ul>
+      <li>Bắt đầu bằng <strong>5 phỏng vấn + Hotjar/Maze</strong></li>
+      <li>Luôn hỏi <strong>"Tại sao?"</strong> 3–5 lần</li>
+      <li>Ghi <strong>verbatim</strong>, đừng diễn giải</li>
+      <li>Test sớm, test thường xuyên</li>
+      <li>Portfolio tập trung <strong>quy trình + insight</strong></li>
+    </ul>
+  </div>
+
+  <div class="glass-card" style="text-align:center; font-size:1.2rem; margin-top:3rem;">
+    <p>Bạn đang làm dự án gì? App, website, redesign hay sản phẩm mới?<br>
+    Đang ở giai đoạn nào? Mình sẽ gợi ý cụ thể hơn nhé! 🚀</p>
+  </div>
+</div>
+
+</body>
+</html>
