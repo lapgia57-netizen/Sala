@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tỷ Lệ Tử Vong Ở Việt Nam - Thống Kê & Phân Tích</title>
+  <style>
+    :root {
+      --primary: #1e40af;
+      --primary-dark: #1e3a8a;
+      --bg: #f8fafc;
+      --text: #1f2937;
+      --card: #ffffff;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    h2 { color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 0.5rem; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .stat-box {
+      background: #eff6ff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .stat-box:hover { transform: translateY(-8px); }
+    .stat-number { font-size: 2.8rem; font-weight: bold; color: var(--primary); }
+    .highlight { color: #dc2626; font-weight: bold; }
+    img.chart {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 1rem 0;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+    .carousel img {
+      flex: 0 0 auto;
+      width: 320px;
+      scroll-snap-align: start;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary-dark);
+      color: white;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      .stat-number { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tỷ Lệ Tử Vong Ở Việt Nam</h1>
+    <p>Mức thấp so với khu vực - Thành tựu y tế lớn, nhưng thách thức từ già hóa dân số</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Giới thiệu</h2>
+      <p>Tỷ lệ tử vong (tỷ suất tử vong) ở Việt Nam hiện duy trì ở mức <span class="highlight">thấp</span> so với nhiều nước trong khu vực Đông Nam Á, phản ánh những tiến bộ vượt bậc về y tế, chăm sóc sức khỏe bà mẹ - trẻ em và tuổi thọ trung bình.</p>
+      <p>Tuy nhiên, do dân số đang <strong>già hóa nhanh</strong>, tỷ lệ tử vong thô có xu hướng tăng nhẹ trong những năm tới.</p>
+    </div>
+
+    <div class="card">
+      <h2>Tỷ lệ tử vong thô (Crude Death Rate) - Số người chết / 1.000 dân</h2>
+      <p>Theo các nguồn cập nhật (World Bank, Macrotrends, GSO):</p>
+      <ul>
+        <li>2023: Khoảng <strong>6.58 - 6.577</strong> / 1.000 dân (World Bank & Macrotrends)</li>
+        <li>Dự báo 2024-2025: Tăng nhẹ lên khoảng <strong>6.7 - 7</strong> do già hóa dân số</li>
+      </ul>
+      <p>Mức này <strong>thấp hơn</strong> trung bình thế giới (~7.7) và thấp hơn Thái Lan, Malaysia (~9).</p>
+
+      <div class="carousel">
+        <img class="chart" src="https://cdn.statcdn.com/Statistic/1100000/1101014-blank-355.png" alt="Vietnam crude death rate trend - Statista">
+        <img class="chart" src="https://www.indexmundi.com/facts/vietnam/indicator/SP.DYN.CDRT.IN.png" alt="Crude death rate Vietnam historical">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Các chỉ số tử vong trẻ em & Tuổi thọ</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-number">11.6 - 12</div>
+          <p>Tử vong trẻ em dưới 1 tuổi (2023)</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">18.2</div>
+          <p>Tử vong trẻ em dưới 5 tuổi (2023)</p>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">74.5 - 74.6</div>
+          <p>Tuổi thọ trung bình (2023)</p>
+        </div>
+      </div>
+      <p>Tuổi thọ: Nam ~71-72 tuổi, Nữ ~76-77 tuổi. Tử vong trẻ sơ sinh vẫn cao hơn ở vùng dân tộc thiểu số và miền núi.</p>
+
+      <div class="carousel">
+        <img class="chart" src="http://cdn.statcdn.com/Infographic/images/normal/2722.jpeg" alt="Child mortality rates global">
+        <img class="chart" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Child_mortality_map_of_the_world.svg" alt="World child mortality map">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Nguyên nhân tử vong chính</h2>
+      <p>Khoảng 73-80% ca tử vong do <strong>bệnh không lây nhiễm</strong> (NCDs):</p>
+      <ul>
+        <li>Bệnh tim mạch (~200.000 ca/năm - nguyên nhân hàng đầu)</li>
+        <li>Ung thư</li>
+        <li>Đái tháo đường</li>
+        <li>Bệnh phổi mạn tính</li>
+      </ul>
+      <p>Khác: Tai nạn thương tích (~30.000-33.000 ca/năm, chủ yếu tai nạn giao thông, đuối nước).</p>
+
+      <div class="carousel">
+        <img class="chart" src="https://media.licdn.com/dms/image/v2/D4D12AQGa5h-nutuQRw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1662440922134?e=2147483647&v=beta&t=VbOm2it4ljeserj7wMQj10Hlk0rJ5Psnzo88fSWstOM" alt="Non-communicable diseases pie chart">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Tóm tắt & Thách thức</h2>
+      <p>Việt Nam đã giảm mạnh tỷ lệ tử vong trẻ em và bà mẹ (giảm 4-5 lần so với 1990). Thành tựu lớn!</p>
+      <p>Thách thức hiện nay: 
+        <strong>Giảm bệnh không lây nhiễm</strong>, tai nạn (đặc biệt giao thông), và chênh lệch vùng miền.
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Dữ liệu tham khảo: World Bank, GSO, Macrotrends, WHO (cập nhật đến 2025) | Thiết kế đơn giản cho mục đích thông tin</p>
+  </footer>
+
+</body>
+</html>
