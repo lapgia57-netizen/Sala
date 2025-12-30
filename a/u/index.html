@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nỗi Nhớ Vô Hạn - Thanh Hưng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: #e0e0e0;
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #f5f5f5, #c9c9c9, #f5f5f5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(200,200,255,0.15);
+    }
+
+    .artist {
+      margin-top: 0.8rem;
+      font-size: 1.3rem;
+      color: #a0a0c0;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .lyrics-box {
+      background: rgba(20, 20, 50, 0.45);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 2rem 0 4rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lyrics-box::before {
+      content: "Nỗi Nhớ Vô Hạn";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      font-size: 12rem;
+      font-weight: bold;
+      color: rgba(180,180,255,0.03);
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .verse {
+      margin: 1.8rem 0;
+      line-height: 1.75;
+      font-size: 1.15rem;
+      color: #d8d8e8;
+    }
+
+    .chorus {
+      margin: 2.5rem 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      font-weight: 400;
+      color: #f0f0ff;
+      font-size: 1.22rem;
+    }
+
+    .highlight {
+      color: #c7c7ff;
+      font-weight: 500;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem 0 5rem;
+      color: #777799;
+      font-size: 0.95rem;
+    }
+
+    /* Hiệu ứng nhẹ nhàng khi scroll */
+    .lyrics-box {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.2s ease;
+    }
+
+    .lyrics-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 3.8rem; }
+      .lyrics-box { padding: 1.8rem; }
+      .verse, .chorus { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Nỗi Nhớ Vô Hạn</h1>
+      <div class="artist">Thanh Hưng</div>
+    </header>
+
+    <div class="lyrics-box" id="lyrics">
+      <div class="verse">
+        Từng yêu cả một thành phố, vì nơi đó có một người<br>
+        Từng rất ghét hy vọng, gặp em mới thôi vô vọng
+      </div>
+
+      <div class="verse">
+        Từng nhớ cả trời mưa gió, trên phố mình đứng chung ô<br>
+        Nhưng đến cuối cùng, còn lại anh giữa đời bão giông
+      </div>
+
+      <div class="chorus">
+        <span class="highlight">Chắc vì mình yêu lâu</span> nhưng anh chưa nói đến sau này<br>
+        Tháng ngày của thanh xuân ngắn anh biết mà<br>
+        Nhưng đi với nhau suốt đời yêu thương sao bền khi còn tay trắng
+      </div>
+
+      <div class="chorus highlight">
+        Từng ngày anh thiêu đốt chính mình để sưởi ấm cuộc tình<br>
+        Giờ thành người thứ ba trong chính yêu thương mình vun đắp<br>
+        Dẫu anh là người đến trước nhưng không gần em để thấu hiểu được<br>
+        Khoảng cách quyết định thời gian của chuyện tình
+      </div>
+
+      <div class="verse">
+        Một ngày lặng lẽ kẻ thua cuộc lại tìm đến nơi quen thuộc<br>
+        Vì nỗi nhớ luôn ràng buộc người cũ chưa buông
+      </div>
+
+      <div class="chorus">
+        Em ơi giờ thành phố ấy em đi mà kỷ niệm vẫn còn đây<br>
+        Cảm xúc khi vơi khi đầy chuyện hôm ấy...<br><br>
+        <span class="highlight">Xa em nỗi nhớ vô hạn... nước mắt khô cạn...</span>
+      </div>
+
+      <div class="verse" style="text-align:center; margin-top:3rem; opacity:0.7;">
+        ─────── ⋆⋅☆⋅⋆ ───────
+      </div>
+    </div>
+
+    <div class="footer">
+      "Xa em... nỗi nhớ vô hạn..."<br>
+      © Thanh Hưng • 2024
+    </div>
+  </div>
+
+  <script>
+    // Hiệu ứng fade-in khi scroll đến lyrics
+    window.addEventListener('scroll', () => {
+      const lyrics = document.getElementById('lyrics');
+      const rect = lyrics.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.75) {
+        lyrics.classList.add('visible');
+      }
+    });
+
+    // Trigger lần đầu nếu đã ở giữa trang
+    window.dispatchEvent(new Event('scroll'));
+  </script>
+</body>
+</html>
