@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thụ Phấn Chéo - Cross Pollination</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #4caf50;
+      --bg: #f5f8f5;
+      --text: #1b5e20;
+      --gray: #555;
+      --light: #fff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .intro {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    th {
+      background: var(--primary);
+      color: white;
+    }
+    tr:nth-child(even) { background: #f9fff9; }
+    .agents {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .agent-item {
+      background: #e8f5e9;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .agent-item:hover { transform: translateY(-5px); }
+    .agent-item i { font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .images-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+    .images-carousel img {
+      width: 320px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+      scroll-snap-align: center;
+    }
+    .tips { background: #fffde7; border-left: 5px solid #fbc02d; padding: 1rem; margin: 1.5rem 0; border-radius: 8px; }
+    @media (max-width: 768px) {
+      table, th, td { font-size: 0.9rem; padding: 10px; }
+      .images-carousel img { width: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Thụ Phấn Chéo (Cross-Pollination)</h1>
+  
+  <div class="intro">
+    <p>Thụ phấn chéo là quá trình phấn hoa từ hoa đực (nhị đực) của một cây/bông hoa này được chuyển đến nhụy (cơ quan cái) của một bông hoa khác trên cùng loài (thường là cây khác nhau). Đây là một trong hai hình thức thụ phấn chính trong thực vật có hoa.</p>
+  </div>
+
+  <div class="card">
+    <h2>So sánh Thụ phấn chéo và Thụ phấn tự</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Đặc điểm</th>
+          <th>Thụ phấn chéo (Cross-pollination)</th>
+          <th>Thụ phấn tự (Self-pollination)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nguồn phấn hoa</td>
+          <td>Từ cây/bông hoa khác</td>
+          <td>Từ chính bông hoa đó hoặc cùng cây</td>
+        </tr>
+        <tr>
+          <td>Đa dạng di truyền</td>
+          <td>Cao (con lai có tổ hợp gen mới)</td>
+          <td>Thấp (giống hệt hoặc rất gần với bố mẹ)</td>
+        </tr>
+        <tr>
+          <td>Khả năng thích nghi</td>
+          <td>Tốt hơn, dễ thích nghi với môi trường thay đổi</td>
+          <td>Kém hơn trong môi trường biến động</td>
+        </tr>
+        <tr>
+          <td>Ưu điểm</td>
+          <td>Tăng sức sống, sức đề kháng, đa dạng kiểu hình</td>
+          <td>Đảm bảo đậu quả khi không có côn trùng, gió</td>
+        </tr>
+        <tr>
+          <td>Nhược điểm</td>
+          <td>Phụ thuộc vào tác nhân trung gian</td>
+          <td>Dễ tích lũy đột biến có hại (suy giảm sức sống do cận huyết)</td>
+        </tr>
+        <tr>
+          <td>Ví dụ cây điển hình</td>
+          <td>Táo, lê, cherry, dưa hấu, bí đỏ, cà tím, hướng dương, bắp (ngô)</td>
+          <td>Lúa, đậu, đậu tương, cà chua, ớt, lạc, hoa violet</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Các tác nhân thụ phấn chéo phổ biến</h2>
+    <div class="agents">
+      <div class="agent-item">
+        <i class="fas fa-bug"></i>
+        <h3>Côn trùng (Entomophily) ← phổ biến nhất</h3>
+        <p>Ong mật, ong hoang, bướm, ruồi, bọ cánh cứng<br>Hoa: màu sắc sặc sỡ, mùi thơm, mật hoa, phấn dính</p>
+      </div>
+      <div class="agent-item">
+        <i class="fas fa-wind"></i>
+        <h3>Gió (Anemophily)</h3>
+        <p>Ngô (bắp), lúa, cỏ, thông, sồi, bạch dương<br>Hoa: nhỏ, không màu, không mùi, phấn nhẹ và nhiều</p>
+      </div>
+      <div class="agent-item">
+        <i class="fas fa-dove"></i>
+        <h3>Chim (Ornithophily)</h3>
+        <p>Chim hút mật (vùng nhiệt đới), chim sẻ...<br>Hoa: màu đỏ, cam, hình ống dài</p>
+      </div>
+      <div class="agent-item">
+        <i class="fas fa-bat"></i>
+        <h3>Dơi (Chiropterophily)</h3>
+        <p>Nhiều loài cây nhiệt đới (chuối rừng, xương rồng khổng lồ…)</p>
+      </div>
+      <div class="agent-item">
+        <i class="fas fa-water"></i>
+        <h3>Nước (Hydrophily) – khá hiếm</h3>
+        <p>Một số cây thủy sinh (rong, cỏ biển)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Hình ảnh minh họa thụ phấn chéo</h2>
+    <p style="text-align:center; color:#555;">Dưới đây là các sơ đồ và hình ảnh thực tế về quá trình thụ phấn chéo (kéo ngang để xem thêm):</p>
+    <div class="images-carousel">
+      <img src="https://cdn1.byjus.com/wp-content/uploads/2019/04/Pollination-cross-pollination.png" alt="Sơ đồ thụ phấn chéo">
+      <img src="https://microbenotes.com/wp-content/uploads/2025/01/Cross-Pollination-of-Plants.jpeg" alt="Minh họa thụ phấn chéo giữa các cây">
+      <img src="https://cdn.britannica.com/88/95388-050-3C841D57/process-cross-pollination-animal-pollinator.jpg" alt="Quá trình thụ phấn bởi côn trùng">
+      <img src="https://media.istockphoto.com/id/491230304/photo/bee-on-the-flower.jpg" alt="Ong thụ phấn hoa">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Tại sao thụ phấn chéo lại quan trọng?</h2>
+    <ul>
+      <li>Tạo ra **đa dạng di truyền** → giúp loài cây dễ thích nghi hơn với bệnh, sâu, biến đổi khí hậu</li>
+      <li>Là nền tảng của **lai tạo giống hiện đại** (hybrid) → tạo giống năng suất cao, kháng bệnh tốt (ngô lai, dưa hấu không hạt, táo lai…)</li>
+      <li>Nhiều cây ăn quả ngon (**táo, lê, cherry, xoài**…) **bắt buộc** phải thụ phấn chéo mới đậu quả tốt</li>
+    </ul>
+  </div>
+
+  <div class="card tips">
+    <h2>Một số mẹo thực tế cho người trồng cây</h2>
+    <ul>
+      <li>Trồng nhiều giống khác nhau gần nhau (ví dụ: 2–3 giống táo khác nhau trong vườn)</li>
+      <li>Không tỉa cành quá mức, giữ mật độ ong tốt</li>
+      <li>Tránh phun thuốc trừ sâu vào lúc hoa nở</li>
+      <li>Với một số cây (**dưa hấu, bí đỏ**), có thể **thụ phấn thủ công** bằng cách lấy phấn từ hoa đực bôi vào nhụy hoa cái</li>
+    </ul>
+  </div>
+
+  <p style="text-align:center; margin-top:2rem; color:#555;">
+    Bạn đang quan tâm đến thụ phấn chéo trong trường hợp cụ thể nào (trồng cây ăn quả, làm giống, hay chỉ tìm hiểu chung) để mình hỗ trợ chi tiết hơn nhé? 🌱🐝
+  </p>
+</div>
+
+</body>
+</html>
