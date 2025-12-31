@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giày Quân Nhu / Quân Đội</title>
+
+<style>
+:root{
+  --bg:#0d1117;
+  --panel:#161b22;
+  --card:#1f2937;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#22c55e;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  background:linear-gradient(180deg,#0d1117,#020617);
+  color:var(--text);
+}
+
+header{
+  padding:32px 20px;
+  text-align:center;
+  background:radial-gradient(circle at top,#14532d,#020617);
+}
+
+header h1{
+  margin:0;
+  font-size:2rem;
+  letter-spacing:1px;
+}
+
+header p{
+  margin-top:8px;
+  color:var(--muted);
+  max-width:700px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:24px;
+}
+
+.section{
+  margin-top:48px;
+}
+
+.section h2{
+  font-size:1.4rem;
+  margin-bottom:16px;
+  border-left:4px solid var(--accent);
+  padding-left:12px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:linear-gradient(180deg,var(--card),#020617);
+  border:1px solid #1f2937;
+  border-radius:16px;
+  padding:20px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+  box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+.card h3{
+  margin-top:0;
+  font-size:1.1rem;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.tag{
+  display:inline-block;
+  margin-top:12px;
+  padding:4px 10px;
+  font-size:.75rem;
+  border-radius:999px;
+  background:rgba(34,197,94,.15);
+  color:var(--accent);
+}
+
+.info{
+  background:linear-gradient(180deg,#020617,#020617);
+  border:1px dashed #1f2937;
+  border-radius:16px;
+  padding:20px;
+  line-height:1.6;
+  color:#d1d5db;
+}
+
+footer{
+  margin-top:60px;
+  padding:20px;
+  text-align:center;
+  font-size:.85rem;
+  color:var(--muted);
+  border-top:1px solid #1f2937;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🥾 Giày Quân Nhu / Quân Đội</h1>
+  <p>Tổng hợp các mẫu giày phong cách quân đội – từ quân nhu truyền thống đến combat boot hiện đại.</p>
+</header>
+
+<div class="container">
+
+  <!-- PHẦN 1 -->
+  <section class="section">
+    <h2>🪖 Phong cách quân đội / quân nhu</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Giày kiểu quân đội – đen cổ cao</h3>
+        <p>Dây da chắc chắn, phù hợp huấn luyện, thực hành, dã ngoại hoặc môi trường kỷ luật cao.</p>
+        <span class="tag">Quân nhu</span>
+      </div>
+
+      <div class="card">
+        <h3>Bốt rằn ri cổ cao</h3>
+        <p>Màu camouflage truyền thống, đậm chất quân đội, phù hợp cosplay hoặc huấn luyện ngoài trời.</p>
+        <span class="tag">Rằn ri</span>
+      </div>
+
+      <div class="card">
+        <h3>Combat boots tactical</h3>
+        <p>Thiết kế hiện đại, đế bám tốt, phù hợp hoạt động mạnh, leo núi, đi rừng.</p>
+        <span class="tag">Tactical</span>
+      </div>
+
+      <div class="card">
+        <h3>Giày quân nhu tiêu chuẩn</h3>
+        <p>Thiết kế đơn giản, ưu tiên độ bền và sự ổn định khi di chuyển liên tục.</p>
+        <span class="tag">Bền bỉ</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHẦN 2 -->
+  <section class="section">
+    <h2>👞 Phong cách quân đội “nâng cấp”</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Bốt leo núi – quân đội</h3>
+        <p>Chất lượng cao, phù hợp phượt, trekking nhưng vẫn giữ chất quân sự.</p>
+        <span class="tag">Outdoor</span>
+      </div>
+
+      <div class="card">
+        <h3>Boot da thật quân đội</h3>
+        <p>Có thể phối cùng streetwear, quân phục cải tiến hoặc phong cách tactical fashion.</p>
+        <span class="tag">Street + Military</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- THÔNG TIN -->
+  <section class="section">
+    <h2>🧠 Thông tin thêm</h2>
+
+    <div class="info">
+      <p>
+        <strong>Giày quân đội chuẩn</strong> (ví dụ <em>Jungle Boots</em>) thường có cấu trúc
+        <strong>canvas + da</strong> cùng <strong>đế Panama</strong> – thiết kế để hoạt động trong
+        môi trường rừng rậm, bùn lầy, khí hậu nhiệt đới.
+      </p>
+
+      <p>
+        Jungle boots từng được sử dụng phổ biến trong thời chiến tranh Việt Nam
+        và hiện nay vẫn được bán dưới dạng hàng surplus hoặc phiên bản tái bản.
+      </p>
+
+      <p>
+        👉 Bạn có thể lựa chọn:
+        <br>• Giày <strong>dùng thực tế ngoài trời</strong>
+        <br>• Hoặc giày <strong>phong cách quân đội để phối đồ</strong>
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2025 • Military / Tactical UI • HTML UI/UX Demo
+</footer>
+
+</body>
+</html>
