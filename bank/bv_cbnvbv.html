@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quản lý lương nhân viên bảo vệ - 2026 trở đi</title>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+
+  <style>
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3f37c9;
+      --success: #4cc9f0;
+      --danger: #f72585;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e9ecef 100%);
+      color: var(--dark);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { color: var(--primary-dark); text-align: center; margin-bottom: 0.5em; font-size: 2.1rem; }
+    .subtitle { text-align: center; color: var(--gray); margin-bottom: 2rem; }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+    label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #444; }
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(67,97,238,0.15);
+    }
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .salary-list { margin-top: 2rem; }
+    .salary-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 10px;
+      background: #f8f9fa;
+      margin-bottom: 0.8rem;
+      transition: all 0.2s;
+    }
+    .salary-item:hover { background: #e9ecef; transform: translateX(4px); }
+    .salary-month { font-weight: bold; font-size: 1.1rem; color: var(--primary-dark); }
+    .salary-amount { font-size: 1.3rem; font-weight: 700; color: #2d6a4f; }
+    .loading, .error { text-align: center; padding: 2rem; color: var(--gray); }
+    .error { color: var(--danger); }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Quản lý lương NVBV</h1>
+  <p class="subtitle">Bắt đầu từ năm 2026</p>
+
+  <div class="card">
+    <div class="form-grid">
+      <div>
+        <label for="year">Năm</label>
+        <select id="year">
+          <option value="2026" selected>2026</option>
+          <option value="2027">2027</option>
+          <option value="2028">2028</option>
+          <option value="2029">2029</option>
+          <option value="2030">2030</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="month">Tháng</label>
+        <select id="month">
+          <option value="01">Tháng 1</option>
+          <option value="02">Tháng 2</option>
+          <option value="03">Tháng 3</option>
+          <option value="04">Tháng 4</option>
+          <option value="05">Tháng 5</option>
+          <option value="06">Tháng 6</option>
+          <option value="07">Tháng 7</option>
+          <option value="08">Tháng 8</option>
+          <option value="09">Tháng 9</option>
+          <option value="10">Tháng 10</option>
+          <option value="11">Tháng 11</option>
+          <option value="12">Tháng 12</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="amount">Số tiền lương (VNĐ)</label>
+      <input type="text" id="amount" placeholder="Ví dụ: 8,500,000" autocomplete="off"/>
+    </div>
+
+    <div style="margin-top: 1.5rem; text-align: center;">
+      <button class="btn btn-primary" id="btnSave">Lưu lương tháng này</button>
+    </div>
+  </div>
+
+  <div class="card salary-list">
+    <h3>Danh sách lương đã nhập</h3>
+    <div id="salaryList">Đang tải dữ liệu...</div>
+  </div>
+
+  <div id="message" style="text-align:center; margin-top:1.5rem; min-height:24px;"></div>
+</div>
+
+<script>
+  // ==================== CẤU HÌNH FIREBASE ====================
+  const firebaseConfig = {
+    databaseURL: "https://project-doidoi-default-rtdb.asia-southeast1.firebasedatabase.app"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+  const salariesRef = db.ref('luong_nvbv');
+
+  // ==================== DOM Elements ====================
+  const yearSelect = document.getElementById('year');
+  const monthSelect = document.getElementById('month');
+  const amountInput = document.getElementById('amount');
+  const btnSave = document.getElementById('btnSave');
+  const salaryListDiv = document.getElementById('salaryList');
+  const messageDiv = document.getElementById('message');
+
+  // ==================== HÀM ĐỊNH DẠNG TIỀN ====================
+  function formatMoney(value) {
+    if (!value) return '';
+    // Loại bỏ mọi ký tự không phải số
+    let num = value.toString().replace(/[^\d]/g, '');
+    // Thêm dấu phẩy mỗi 3 số
+    return num.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function unformatMoney(str) {
+    return parseInt(str.replace(/[^\d]/g, '')) || 0;
+  }
+
+  // ==================== XỬ LÝ NHẬP TIỀN REAL-TIME ====================
+  let lastValidValue = '';
+
+  amountInput.addEventListener('input', function(e) {
+    const cursorPos = this.selectionStart;
+    const originalLength = this.value.length;
+    
+    // Format lại giá trị
+    const formatted = formatMoney(this.value);
+    
+    // Tính vị trí con trỏ mới
+    const newCursorPos = cursorPos + (formatted.length - originalLength);
+    
+    this.value = formatted;
+    this.setSelectionRange(newCursorPos, newCursorPos);
+    
+    lastValidValue = formatted;
+  });
+
+  // Ngăn người dùng nhập ký tự không hợp lệ
+  amountInput.addEventListener('keypress', function(e) {
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault();
+    }
+  });
+
+  // Xử lý paste
+  amountInput.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const pastedData = (e.clipboardData || window.clipboardData).getData('text');
+    const cleaned = pastedData.replace(/[^\d]/g, '');
+    this.value = formatMoney(cleaned);
+  });
+
+  // ==================== HÀM HIỂN THỊ DANH SÁCH ====================
+  function renderSalaries(data) {
+    if (!data) {
+      salaryListDiv.innerHTML = '<p style="color:#6c757d;text-align:center;">Chưa có dữ liệu lương nào</p>';
+      return;
+    }
+
+    let html = '';
+    const entries = Object.entries(data)
+      .map(([key, value]) => ({ key, ...value }))
+      .sort((a,b) => b.yearMonth.localeCompare(a.yearMonth));
+
+    entries.forEach(item => {
+      const [year, month] = item.yearMonth.split('-');
+      html += `
+        <div class="salary-item">
+          <div>
+            <span class="salary-month">${month}/${year}</span>
+          </div>
+          <div class="salary-amount">${formatMoney(item.amount)} ₫</div>
+        </div>
+      `;
+    });
+
+    salaryListDiv.innerHTML = html || '<p style="color:#6c757d;text-align:center;">Chưa có dữ liệu</p>';
+  }
+
+  // Lấy dữ liệu realtime
+  salariesRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    renderSalaries(data);
+  }, (error) => {
+    salaryListDiv.innerHTML = `<p class="error">Lỗi kết nối Firebase: ${error.message}</p>`;
+  });
+
+  // ==================== LƯU DỮ LIỆU ====================
+  btnSave.addEventListener('click', () => {
+    const year = yearSelect.value;
+    const month = monthSelect.value;
+    const rawAmount = unformatMoney(amountInput.value);
+
+    if (rawAmount < 100000) {
+      showMessage('Vui lòng nhập số tiền hợp lệ (tối thiểu 100.000 ₫)!', 'error');
+      return;
+    }
+
+    const yearMonth = `${year}-${month}`;
+
+    const data = {
+      yearMonth: yearMonth,
+      amount: rawAmount,           // Lưu số nguyên, không có dấu phẩy
+      updatedAt: new Date().toISOString()
+    };
+
+    salariesRef.child(yearMonth).set(data)
+      .then(() => {
+        showMessage(`Đã lưu lương tháng ${month}/${year}: ${formatMoney(rawAmount)} ₫`, 'success');
+        amountInput.value = '';
+      })
+      .catch(err => {
+        showMessage('Lưu thất bại: ' + err.message, 'error');
+      });
+  });
+
+  function showMessage(text, type = 'success') {
+    messageDiv.textContent = text;
+    messageDiv.style.color = type === 'success' ? '#2d6a4f' : '#dc3545';
+    messageDiv.style.fontWeight = '500';
+
+    setTimeout(() => messageDiv.textContent = '', 4500);
+  }
+</script>
+</body>
+</html>
