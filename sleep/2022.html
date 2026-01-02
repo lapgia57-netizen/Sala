@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kỷ Niệm Một Năm Ngày Thương Nhớ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 680px;
+      background: rgba(20, 20, 45, 0.75);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 40px 25px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #d4af37;
+      font-size: 2.8rem;
+      margin-bottom: 0.4em;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      color: #bbb;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .date-info {
+      font-size: 1.4rem;
+      margin: 1.8rem 0;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      color: #ffdb70;
+      font-weight: 600;
+      font-size: 1.6rem;
+    }
+
+    .time-passed {
+      margin: 2.5rem 0;
+      padding: 25px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,55,0.2);
+    }
+
+    .years {
+      font-size: 4.2rem;
+      font-weight: bold;
+      color: #d4af37;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .small-text {
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+
+    .candle {
+      font-size: 5rem;
+      margin: 1.5rem 0 2rem;
+      animation: flicker 3s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.95; }
+      50% { opacity: 0.7; }
+    }
+
+    .prayer {
+      font-style: italic;
+      color: #c9c9c9;
+      margin-top: 2.5rem;
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 520px) {
+      .years { font-size: 3.4rem; }
+      h1 { font-size: 2.3rem; }
+      .candle { font-size: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Kỷ Niệm Một Năm</h1>
+    <div class="subtitle">Ngày thương nhớ - Tháng 8 năm 2022</div>
+
+    <div class="candle">🕯️</div>
+
+    <div class="date-info">
+      Đã trôi qua <span class="highlight">kể từ ngày</span><br>
+      <strong>tháng 8 năm 2022</strong>
+    </div>
+
+    <div class="time-passed">
+      <div class="years" id="years">...</div>
+      <div class="small-text">năm tháng ngày đã trôi qua</div>
+    </div>
+
+    <div class="prayer">
+      "Người ra đi để lại trong tim chúng con<br>
+      nỗi nhớ thương khôn nguôi và những kỷ niệm đẹp mãi mãi."
+    </div>
+  </div>
+
+  <script>
+    function calculateTimeSince() {
+      // Ngày mất - thay đổi ngày chính xác nếu bạn muốn (nếu biết ngày cụ thể)
+      const lostDate = new Date(2022, 7, 15); // Ví dụ: 15/08/2022 → tháng bắt đầu từ 0
+
+      const now = new Date();
+      const diffMs = now - lostDate;
+
+      const years = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 365.25));
+      const monthsTotal = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 30.4375));
+      const months = monthsTotal - years * 12;
+
+      const days = Math.floor((diffMs % (1000 * 60 * 60 * 24 * 30.4375)) / (1000 * 60 * 60 * 24));
+
+      const yearsEl = document.getElementById('years');
+      
+      if (years === 0) {
+        yearsEl.textContent = `${months} tháng ${days} ngày`;
+      } else if (years === 1) {
+        yearsEl.textContent = `1 năm ${months} tháng`;
+      } else {
+        yearsEl.textContent = `${years} năm ${months} tháng`;
+      }
+    }
+
+    // Chạy lần đầu
+    calculateTimeSince();
+
+    // Cập nhật mỗi 6 tiếng (vì không cần realtime quá chính xác)
+    setInterval(calculateTimeSince, 1000 * 60 * 60 * 6);
+  </script>
+</body>
+</html>
