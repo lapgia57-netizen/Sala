@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tưởng Nhớ Người Thương - Tháng 6/2022</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(circle at 25% 15%, rgba(80,80,120,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 75% 85%, rgba(100,80,120,0.06) 0%, transparent 60%);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3.2rem;
+    color: #c9c1e0;
+    margin-bottom: 0.4em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(140,130,180,0.4);
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+    color: #777799;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .date-info {
+    font-size: 1.5rem;
+    color: #a08ab8;
+    margin: 2rem 0;
+    line-height: 1.6;
+  }
+
+  .time-passed {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #d4bfff;
+    margin: 1.5rem 0;
+    text-shadow: 0 0 25px rgba(180,140,255,0.35);
+  }
+
+  .candle-area {
+    margin: 50px 0;
+    position: relative;
+    height: 220px;
+  }
+
+  .candle {
+    position: absolute;
+    width: 80px;
+    height: 180px;
+    background: linear-gradient(#ffe4b5, #ffd700, #ffcc00);
+    border-radius: 40px 40px 8px 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 
+      0 0 30px rgba(255,215,0,0.7),
+      inset 0 20px 40px rgba(255,255,200,0.4);
+  }
+
+  .flame {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 80px;
+    background: radial-gradient(circle at 50% 30%, #fff 0%, #ffeb3b 30%, #ff9800 60%, transparent 90%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker 3s infinite alternate;
+    box-shadow: 0 0 40px #ffb300, 0 0 80px #ff6d00;
+  }
+
+  .wick {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 30px;
+    background: #333;
+    border-radius: 4px;
+  }
+
+  @keyframes flicker {
+    0%   { transform: translateX(-50%) scale(1.0) rotate(2deg); }
+    25%  { transform: translateX(-50%) scale(1.05) rotate(-1deg); }
+    50%  { transform: translateX(-50%) scale(0.98) rotate(1.5deg); }
+    75%  { transform: translateX(-50%) scale(1.03) rotate(-2deg); }
+    100% { transform: translateX(-50%) scale(1.0) rotate(1deg); }
+  }
+
+  .memory {
+    margin-top: 60px;
+    font-size: 1.2rem;
+    color: #9e9eb8;
+    line-height: 1.8;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heart {
+    color: #e066ff;
+    font-size: 1.4em;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="title">TƯỞNG NHỚ</h1>
+  <div class="subtitle">Người thương đã ra đi mãi mãi</div>
+
+  <div class="date-info">
+    Tháng 6 năm 2022
+  </div>
+
+  <div class="time-passed" id="timePassed"></div>
+
+  <div class="candle-area">
+    <div class="candle">
+      <div class="wick"></div>
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <div class="memory">
+    Đã <span id="years">...</span> năm trôi qua...<br>
+    Nhưng nỗi nhớ vẫn nguyên vẹn như ngày đầu<br>
+    Cảm giác như chỉ mới hôm qua thôi...<br>
+    <br>
+    Người vẫn ở đây, trong từng nhịp tim này.<span class="heart"> ♡</span>
+  </div>
+</div>
+
+<script>
+function updateTimePassed() {
+  const lostDate = new Date(2022, 5, 15); // Bạn có thể sửa ngày chính xác hơn
+  const now = new Date();
+  
+  let years = now.getFullYear() - lostDate.getFullYear();
+  let months = now.getMonth() - lostDate.getMonth();
+  let days = now.getDate() - lostDate.getDate();
+
+  if (months < 0 || (months === 0 && days < 0)) {
+    years--;
+  }
+
+  // Tính tổng số ngày trôi qua (khoảng)
+  const diffTime = Math.abs(now - lostDate);
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  const yearsEl = document.getElementById('years');
+  const timePassedEl = document.getElementById('timePassed');
+
+  yearsEl.textContent = years;
+
+  if (years === 0) {
+    timePassedEl.textContent = `${diffDays} ngày`;
+  } else if (years === 1) {
+    timePassedEl.textContent = `1 năm ${months > 0 ? months + ' tháng' : ''}`;
+  } else {
+    timePassedEl.textContent = `${years} năm`;
+  }
+
+  // Cập nhật tiêu đề nhỏ hơn nếu cần
+  setTimeout(updateTimePassed, 1000 * 60 * 60); // cập nhật mỗi giờ
+}
+
+updateTimePassed();
+</script>
+</body>
+</html>
