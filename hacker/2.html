@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hàn Quốc 2026 – Đại Hàn Dân Quốc</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #003478; /* Xanh dương Hàn Quốc */
+      --accent: #c8102e;
+      --light: #f0f4f8;
+    }
+    body { font-family: 'Noto Sans KR', sans-serif; margin: 0; background: var(--light); color: #222; }
+    header { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1600x900/?seoul,night') center/cover; height: 70vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    header h1 { font-size: 3.8rem; margin: 0; }
+    .tabs { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; }
+    .tab { padding: 1rem 2rem; background: white; border-radius: 50px; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .tab:hover, .tab.active { background: var(--primary); color: white; transform: scale(1.05); }
+    .section { max-width: 1100px; margin: 0 auto; padding: 2rem; display: none; }
+    .section.active { display: block; }
+    .highlight { background: white; border-radius: 12px; padding: 2rem; margin: 1.5rem 0; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+    @media (max-width: 768px) { header h1 { font-size: 2.5rem; } .tabs { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hàn Quốc 2026<br>Hiện Đại & Sức Mạnh Mềm</h1>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showSection('overview')">Tổng Quan</div>
+    <div class="tab" onclick="showSection('culture')">Văn Hóa & Hallyu</div>
+    <div class="tab" onclick="showSection('economy')">Kinh Tế 2026</div>
+  </div>
+
+  <div id="overview" class="section active">
+    <div class="highlight">
+      <h2>Dân số ~51-52 triệu | GDP xếp hạng ~13 thế giới</h2>
+      <p>Thủ đô Seoul – Thành phố công nghệ cao bậc nhất thế giới. Tăng trưởng dự kiến 1.8-2.2%.</p>
+    </div>
+  </div>
+
+  <div id="culture" class="section">
+    <div class="highlight">
+      <h2>Kết hợp truyền thống & hiện đại</h2>
+      <p>Hanbok, Kimchi, K-pop (BTS, BLACKPINK, NewJeans), K-drama, phim Oscar như Parasite.</p>
+    </div>
+  </div>
+
+  <div id="economy" class="section">
+    <div class="highlight">
+      <h2>Dưới thời Tổng thống Lee Jae-myung</h2>
+      <p>Mục tiêu "đại chuyển hóa kinh tế", tập trung AI, bán dẫn, Hallyu. Ngân sách kỷ lục!</p>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
