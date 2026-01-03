@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thái Lan – Vùng Đất Chùa Vàng | Du Lịch 2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f9f5f0;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                  url('https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&q=80') center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    header p {
+      font-size: 1.6rem;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #d4a373;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .btn:hover {
+      background: #b8860b;
+      transform: translateY(-3px);
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #b8860b;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.4s;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+    }
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .card:hover img {
+      transform: scale(1.12);
+    }
+    .card-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .news {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin: 60px auto;
+    }
+    .news ul {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+    .news li {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    footer {
+      background: #1a1a1a;
+      color: #ddd;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    @media (max-width: 768px) {
+      header h1 { font-size: 3rem; }
+      header p { font-size: 1.3rem; }
+      h2 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Thái Lan – Vùng Đất Chùa Vàng</h1>
+    <p>Nụ cười thân thiện, những trải nghiệm khó quên và thiên đường nhiệt đới đang chờ bạn vào năm 2026!</p>
+    <a href="#content" class="btn">Khám Phá Ngay</a>
+  </header>
+
+  <section id="content">
+    <h2>Những Điểm Đến "Must-Visit" Kinh Điển</h2>
+    <div class="gallery">
+      <!-- Phuket Beach -->
+      <div class="card">
+        <img src="https://i.pinimg.com/736x/0c/11/9b/0c119b7b81355dfa2525b983d5583d46.jpg" alt="Bãi biển Phuket">
+        <div class="card-caption">Bãi biển tuyệt đẹp ở Phuket – Thiên đường nhiệt đới với nước trong xanh và hoàng hôn lãng mạn</div>
+      </div>
+
+      <!-- Grand Palace -->
+      <div class="card">
+        <img src="https://petnahafricatours.com/wp-content/uploads/2025/03/Grand-Palace-and-The-Temple-of-The-Emerald-Buddha-2.jpg" alt="Grand Palace Bangkok">
+        <div class="card-caption">Cung điện Hoàng gia Grand Palace – Biểu tượng văn hóa lộng lẫy ở Bangkok</div>
+      </div>
+
+      <!-- Street Food -->
+      <div class="card">
+        <img src="https://img1.wsimg.com/isteam/ip/1facb119-cb41-46b2-8162-7d18848ac029/pexels-chait-goli-4318360.jpg/:/rs=w:1280" alt="Ẩm thực đường phố Bangkok">
+        <div class="card-caption">Ẩm thực đường phố Bangkok – Pad Thai, Som Tam, Mango Sticky Rice siêu ngon & rẻ</div>
+      </div>
+
+      <!-- Floating Market -->
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Understanding_the_%22floating_market%22_%2815801439261%29.jpg" alt="Chợ nổi Damnoen Saduak">
+        <div class="card-caption">Chợ nổi Damnoen Saduak – Trải nghiệm văn hóa độc đáo trên thuyền</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news">
+    <h2>Tin Tức Nổi Bật Đầu Năm 2026</h2>
+    <ul>
+      <li>📅 **Chính trị**: Tổng tuyển cử dự kiến 8/2/2026, kèm trưng cầu dân ý về hiến pháp mới.</li>
+      <li>💰 **Kinh tế & Du lịch**: Đồng Baht mạnh → Thái Lan hơi "đắt đỏ" hơn, nhưng dịch vụ tốt và an toàn vẫn rất đáng giá!</li>
+      <li>🛡️ **Biên giới**: Căng thẳng Thái Lan – Campuchia đã ổn định, du khách không bị ảnh hưởng.</li>
+      <li>🌍 **Sự kiện lớn**: Hội nghị IMF – World Bank tháng 10/2026 tại Bangkok – cơ hội quảng bá hình ảnh quốc gia.</li>
+    </ul>
+    <p style="text-align:center; margin-top:2rem; font-size:1.3rem;">Mục tiêu năm 2026: 36-37 triệu lượt khách, tập trung du lịch bền vững & trải nghiệm cao cấp!</p>
+  </section>
+
+  <footer>
+    <p>Bạn đang lên kế hoạch đi Thái Lan để nghỉ dưỡng biển, ăn uống thả ga hay tham quan văn hóa? Cứ hỏi mình nhé – mình tư vấn chi tiết luôn! 🇹🇭✨</p>
+  </footer>
+
+</body>
+</html>
