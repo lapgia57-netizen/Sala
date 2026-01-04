@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kỳ thi Đại học 2014 - Năm cuối cùng của "Ba chung"</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;    /* xanh đậm kỷ niệm */
+      --secondary: #dc2626;  /* đỏ nổi bật */
+      --bg: #f9fafb;
+      --text: #111827;
+      --card: #ffffff;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, var(--bg), #e5e7eb);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .intro {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+    .section {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 25px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: var(--primary);
+      border-bottom: 3px solid var(--secondary);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    ul.blocks {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .block {
+      background: #eff6ff;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 5px solid var(--primary);
+      font-weight: 500;
+    }
+    .highlight {
+      background: #fef2f2;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 5px solid var(--secondary);
+      margin: 15px 0;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    .gallery img {
+      max-width: 320px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .container { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Kỳ thi Đại học - Cao đẳng 2014</h1>
+    <p class="intro">Năm cuối cùng của kỳ thi "ba chung" trước khi chuyển sang Kỳ thi THPT Quốc gia (2015)</p>
+  </header>
+
+  <div class="container">
+
+    <div class="section">
+      <h2>Đặc điểm chính của kỳ thi năm 2014</h2>
+      <ul>
+        <li>Vẫn tách biệt hoàn toàn với kỳ thi tốt nghiệp THPT (thi tốt nghiệp đầu tháng 6, thi đại học riêng vào tháng 7).</li>
+        <li>Thí sinh thi để lấy điểm xét tuyển vào ĐH/CĐ.</li>
+        <li>Không khí cực kỳ căng thẳng – "địa ngục luyện thi" vẫn còn rất mạnh.</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Năm 2014 có khoảng 1,4 triệu hồ sơ đăng ký</strong> (trung bình mỗi thí sinh nộp ~1,7 hồ sơ).  
+        Đề Toán khối A được đánh giá phân hóa cao, đặc biệt phần giá trị lớn nhất/nhỏ nhất và hình học không gian.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Các khối thi phổ biến</h2>
+      <ul class="blocks">
+        <li class="block">Khối A: Toán – Lý – Hóa</li>
+        <li class="block">Khối A1: Toán – Lý – Anh</li>
+        <li class="block">Khối B: Toán – Hóa – Sinh</li>
+        <li class="block">Khối C: Ngữ văn – Lịch sử – Địa lý</li>
+        <li class="block">Khối D: Toán – Ngữ văn – Anh (và ngoại ngữ khác)</li>
+        <li class="block">Các khối năng khiếu (H, M, T, V, R...)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Hình thức làm bài & Thời gian</h2>
+      <ul>
+        <li><strong>Tự luận (180 phút)</strong>: Toán, Ngữ văn, Lịch sử, Địa lý</li>
+        <li><strong>Trắc nghiệm (90 phút)</strong>: Lý, Hóa, Sinh, Ngoại ngữ</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Lịch thi chính thức (đợt chung Bộ tổ chức)</h2>
+      <ul>
+        <li><strong>Đợt 1 (4-5/7/2014)</strong>: Khối A, A1 và V</li>
+        <li><strong>Đợt 2 (9-10/7/2014)</strong>: Khối B, C, D và năng khiếu</li>
+        <li><strong>Đợt 3 (15-16/7/2014)</strong>: Cao đẳng các khối</li>
+        <li>Thi năng khiếu kéo dài đến ~21/7</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Không khí thi cử năm ấy</h2>
+      <p>Khoảng 62 trường được thi/tuyển riêng, còn lại tham gia "ba chung". Học sinh chạy đua 2 kỳ thi lớn trong một mùa hè, căng như dây đàn...</p>
+
+      <!-- Hình ảnh minh họa không khí thi cử 2014 -->
+      <div class="gallery">
+        <img src="https://c8.alamy.com/comp/2RMAE1T/140704-ho-chi-minh-city-july-4-2014-xinhua-parents-wait-for-their-children-during-a-session-of-the-national-college-entrance-exams-in-ho-chi-minh-city-vietnam-july-4-2014-every-year-in-early-july-thousands-of-vietnamese-high-school-graduates-troop-to-take-the-college-entrance-exams-over-595000-vietnamese-students-attended-the-first-phase-of-the-2014-national-college-entrance-exams-which-runs-from-july-4-to-july-5-according-to-vietnam-s-ministry-of-education-and-training-xinhuanguyen-le-huyen-vietnam-ho-chi-minh-city-college-entrance-exam-first-phase-publicationxnotxinxc-2RMAE1T.jpg" alt="Phụ huynh chờ con thi đại học 2014">
+        <img src="https://cdn.giaoducthoidai.vn/images/b4508baace0d9fe4c8bbd296e259642edee77cbd7863725e41eb6b3959799e400d38973e6e4b9327cb200cf579426ee7/5_YUQS.JPG" alt="Thí sinh làm bài thi 2014">
+        <img src="https://kenh14cdn.com/thumb_w/600/YFMU4phyIeiN1VQB5zBGRZ768aPI9/Image/2014/07/Thi-DH/IMG_2875-994bc.jpg" alt="Đề thi Toán khối A 2014">
+        <img src="https://media-cdn-v2.laodong.vn/Storage/newsportal/2018/6/4/610899/1.jpg" alt="Phụ huynh chờ ngoài cổng trường thi">
+      </div>
+    </div>
+
+    <div class="section highlight">
+      <h2>Điểm khác biệt lớn so với hiện nay</h2>
+      <p>Năm 2014 là năm **cuối cùng** thi đại học tách biệt với thi tốt nghiệp THPT. Từ 2015 trở đi gộp thành Kỳ thi THPT Quốc gia → giảm tải rất nhiều cho học sinh.</p>
+      <p style="font-style: italic; text-align: center; margin-top: 20px;">
+        Nếu bạn thi năm 2014... chắc vẫn còn nhớ cảm giác "căng như dây đàn" đúng không? Bạn thi khối nào vậy?
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    Hoài niệm về một thời... &copy; 2026 - Thi đại học 2014
+  </footer>
+
+</body>
+</html>
