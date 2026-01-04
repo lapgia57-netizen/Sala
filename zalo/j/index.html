@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HackerRank - Nền Tảng Luyện Code & Phỏng Vấn Hàng Đầu 2026</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #2ec4b6;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --bg: #ffffff;
+      --text: #1e293b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --text: #e2e8f0;
+      }
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+    h1 {
+      color: var(--primary);
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: var(--gray);
+    }
+    section {
+      margin: 40px 0;
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary);
+      padding-left: 15px;
+    }
+    ul, ol {
+      padding-left: 25px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .highlight {
+      background: rgba(46, 196, 182, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--primary);
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      font-size: 1.05rem;
+    }
+    th, td {
+      padding: 14px 12px;
+      text-align: center;
+      border: 1px solid #cbd5e1;
+    }
+    th {
+      background: var(--primary);
+      color: white;
+    }
+    tr:nth-child(even) {
+      background: rgba(46, 196, 182, 0.05);
+    }
+    .stars {
+      color: #fbbf24;
+      font-size: 1.4rem;
+    }
+    .cta {
+      text-align: center;
+      margin: 60px 0;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .images-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .images-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.3rem; }
+      h2 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>HackerRank</h1>
+      <p class="subtitle">Một trong những nền tảng luyện code + phỏng vấn kỹ thuật phổ biến nhất thế giới (vẫn cực mạnh tính đến 2026!)</p>
+    </header>
+
+    <div class="images-gallery">
+      <!-- Logo & giao diện chính -->
+      <img src="https://www.hackerrank.com/wp-content/uploads/2023/06/Black-Social-Share.png" alt="HackerRank Logo">
+      <img src="https://cdn.prod.website-files.com/66b6d7fd4d3e9cef94717176/6741fef1ba10dbc08fa26cee_HackerRank%20Screen%20Transcode-poster-00001.jpg" alt="HackerRank Dashboard">
+      <img src="https://miro.medium.com/v2/resize:fit:1400/1*n9NTeFKKIlxxVfnlvDvY0g.png" alt="30 Days of Code Challenge">
+    </div>
+
+    <section>
+      <h2>Nó có gì hay và đáng để bạn dành thời gian?</h2>
+      <p>Đây là tổng hợp những điểm chính mà mọi người thường quan tâm nhất (cập nhật 2026):</p>
+
+      <h3>1. Luyện thuật toán & Problem Solving (mục đích phổ biến nhất)</h3>
+      <ul>
+        <li>Hàng nghìn bài tập từ <strong>Easy → Medium → Hard → Expert</strong></li>
+        <li>Các chủ đề kinh điển: Array, String, Sorting, Searching, Graph, Dynamic Programming, Greedy, Bit Manipulation, v.v.</li>
+        <li>Hỗ trợ ~40 ngôn ngữ: Python, Java, C++, JS, Go, Rust, Kotlin, Swift, C#, PHP…</li>
+        <li>Test case ẩn → buộc viết code sạch, xử lý tốt edge case</li>
+        <li>Discussion sau mỗi bài → học cách giải của top coder (rất bổ ích!)</li>
+      </ul>
+
+      <h3>2. Các track học có lộ trình rõ ràng (rất hợp người mới)</h3>
+      <ul>
+        <li><strong>30 Days of Code</strong> (cực kỳ nổi tiếng với newbie)</li>
+        <li>10 Days of Statistics</li>
+        <li>30 Days of JavaScript</li>
+        <li>Problem Solving (Basic → Intermediate → Advanced)</li>
+        <li>Các track chuyên sâu: SQL, Python, Java, React, Angular, Node.js, v.v.</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Tip cho newbie:</strong> Bắt đầu ngay với "30 Days of Code" là lựa chọn vàng!
+      </div>
+
+      <h3>3. Chuẩn bị phỏng vấn công ty lớn (điểm mạnh nhất 2025-2026)</h3>
+      <p>Nhiều công ty FAANG / Big Tech / Unicorn Việt Nam & quốc tế dùng HackerRank vòng đầu:</p>
+      <ul>
+        <li>Shopee, TikTok, Grab, Tiki, VNG, Axon, Techcombank, MB Bank…</li>
+        <li>Google, Amazon, Meta, Goldman Sachs, Atlassian, Databricks, v.v.</li>
+      </ul>
+      <p>Có cả bài tập kiểu **Project** (multi-file, giống làm thật): React, Spring Boot, Django, Node.js, Angular…</p>
+
+      <h3>4. Các tính năng hay khác (tính đến 2026)</h3>
+      <ul>
+        <li>HackerRank SkillUp → học & lấy chứng chỉ (add vào CV/LinkedIn đẹp)</li>
+        <li>HackerRank for Companies → làm tốt → profile nổi bật với nhà tuyển dụng</li>
+        <li>AI-powered: phát hiện copy code, proctoring, cảnh báo leak đề</li>
+        <li>Code Repository questions → fix bug, add feature giống công việc thật</li>
+        <li>Certificates → hoàn thành track nào cũng có chứng nhận, cực đẹp cho fresher</li>
+      </ul>
+
+      <div class="images-gallery">
+        <img src="https://blog.hackerrank.com/wp-content/uploads/certificate-example.png" alt="HackerRank Certificate Example">
+      </div>
+
+    </section>
+
+    <section>
+      <h2>So sánh nhanh với các nền tảng khác (2026)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nền tảng</th>
+            <th>Thuật toán khó</th>
+            <th>Project thực tế</th>
+            <th>Chuẩn bị phỏng vấn công ty</th>
+            <th>Dễ cho newbie</th>
+            <th>Certificates đẹp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>HackerRank</strong></td>
+            <td class="stars">★★★★</td>
+            <td class="stars">★★★★</td>
+            <td class="stars">★★★★★</td>
+            <td class="stars">★★★★</td>
+            <td class="stars">★★★★</td>
+          </tr>
+          <tr>
+            <td>LeetCode</td>
+            <td class="stars">★★★★★</td>
+            <td class="stars">★★</td>
+            <td class="stars">★★★★</td>
+            <td class="stars">★★★</td>
+            <td class="stars">★★★</td>
+          </tr>
+          <tr>
+            <td>Codeforces</td>
+            <td class="stars">★★★★★</td>
+            <td class="stars">★</td>
+            <td class="stars">★★</td>
+            <td class="stars">★★</td>
+            <td class="stars">★</td>
+          </tr>
+          <tr>
+            <td>AtCoder</td>
+            <td class="stars">★★★★★</td>
+            <td class="stars">★</td>
+            <td class="stars">★★★</td>
+            <td class="stars">★★</td>
+            <td class="stars">★</td>
+          </tr>
+          <tr>
+            <td>CodeSignal</td>
+            <td class="stars">★★★</td>
+            <td class="stars">★★★★</td>
+            <td class="stars">★★★★</td>
+            <td class="stars">★★★★</td>
+            <td class="stars">★★★</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Tóm lại: Nên dùng HackerRank khi nào?</h2>
+      <ul>
+        <li>Bạn mới học code → muốn có lộ trình rõ ràng</li>
+        <li>Muốn luyện phỏng vấn công ty tech Việt Nam & nước ngoài</li>
+        <li>Muốn có chứng chỉ + profile đẹp để apply fresher/junior</li>
+        <li>Muốn luyện cả thuật toán lẫn project kiểu thực tế</li>
+      </ul>
+      <p><strong>Còn nếu bạn chỉ muốn "đánh boss thuật toán siêu khó"</strong> thì sau khi vững ở HackerRank, hãy chuyển sang LeetCode/Codeforces nhé!</p>
+    </section>
+
+    <div class="cta">
+      Bạn đang ở level nào rồi? <br>
+      Comment bên dưới mình recommend track phù hợp cho bạn luôn! 🚀
+    </div>
+
+  </div>
+</body>
+</html>
