@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tính tiền tiết kiệm - 1 triệu/tháng</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.18);
+      text-align: center;
+    }
+    h1 { font-size: 2.4rem; margin-bottom: 0.6rem; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .subtitle { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2.5rem; }
+    .card {
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 20px 0;
+      backdrop-filter: blur(8px);
+    }
+    .number {
+      font-size: 3.8rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      margin: 10px 0;
+    }
+    .label { font-size: 1.2rem; opacity: 0.85; margin-top: 8px; }
+    .from-to { font-size: 1.3rem; margin: 1.5rem 0; font-weight: 500; }
+    footer { margin-top: 2.5rem; font-size: 0.95rem; opacity: 0.8; }
+    @media (max-width: 500px) {
+      .container { padding: 30px 20px; }
+      h1 { font-size: 2rem; }
+      .number { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Tiết kiệm 1 triệu/tháng</h1>
+  <div class="subtitle">Từ tháng 9/2021 đến hiện tại</div>
+
+  <div class="card">
+    <div class="from-to">
+      09/2021 → <span id="current-date"></span>
+    </div>
+    
+    <div class="label">Đã tiết kiệm được</div>
+    <div class="number" id="total-money">53.000.000</div>
+    <div class="label">VNĐ</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Số tháng hoàn thành</div>
+    <div class="number" id="month-count">53</div>
+    <div class="label">tháng</div>
+  </div>
+
+  <footer>Cập nhật tự động • Mỗi tháng tính 1.000.000 VNĐ</footer>
+</div>
+
+<script>
+function updateSavings() {
+  const startYear = 2021;
+  const startMonth = 9; // tháng 9
+
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth() + 1; // JS đếm tháng từ 0 → 11
+
+  // Tính tổng số tháng (bao gồm cả tháng bắt đầu và tháng hiện tại)
+  let months = (currentYear - startYear) * 12 + (currentMonth - startMonth) + 1;
+
+  // Nếu chưa tới ngày 1 tháng 9/2021 thì về 0 (trường hợp hiếm)
+  if (months < 1) months = 0;
+
+  const total = months * 1000000;
+
+  // Format tiền kiểu Việt Nam
+  const formattedMoney = total.toLocaleString('vi-VN');
+
+  // Cập nhật giao diện
+  document.getElementById('month-count').textContent = months;
+  document.getElementById('total-money').textContent = formattedMoney;
+  
+  // Hiển thị tháng/năm hiện tại
+  document.getElementById('current-date').textContent = 
+    now.toLocaleDateString('vi-VN', { month: '2-digit', year: 'numeric' });
+}
+
+// Chạy ngay khi load trang
+updateSavings();
+
+// Tự động cập nhật khi sang tháng mới (kiểm tra mỗi 1 tiếng)
+setInterval(() => {
+  const now = new Date();
+  // Chỉ update nếu đã sang ngày mới hoặc giờ mới (tối ưu hơn)
+  updateSavings();
+}, 60 * 60 * 1000); // 1 tiếng
+</script>
+
+</body>
+</html>
