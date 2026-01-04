@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disconnect to Connect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100dvh;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      color: #f0f0f5;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+    }
+
+    .content {
+      max-width: 780px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .phrase {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 0.92;
+      background: linear-gradient(90deg, #e0e0ff, #a5b4fc, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.2rem;
+    }
+
+    .subtitle {
+      font-size: clamp(1.25rem, 4vw, 1.8rem);
+      color: #a0a0c0;
+      font-weight: 300;
+      margin-bottom: 3rem;
+      line-height: 1.45;
+    }
+
+    .meaning {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #d1d1e0;
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.92;
+    }
+
+    .highlight {
+      color: #c084fc;
+      font-weight: 500;
+    }
+
+    .vietnamese-ways {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(192,132,252,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .vietnamese-ways h3 {
+      color: #c084fc;
+      font-size: 1.4rem;
+      margin-bottom: 1.6rem;
+      font-weight: 500;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .tag {
+      padding: 0.65rem 1.4rem;
+      background: rgba(192,132,252,0.1);
+      border-radius: 50px;
+      border: 1px solid rgba(192,132,252,0.25);
+      color: #d1d1e0;
+      font-size: 0.95rem;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      background: rgba(192,132,252,0.2);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    /* Hiệu ứng nền nhẹ */
+    .bg-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(168,85,247,0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 70% 80%, rgba(139,92,246,0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @media (max-width: 640px) {
+      .vietnamese-ways {
+        padding: 1.5rem;
+      }
+      .tag {
+        font-size: 0.9rem;
+        padding: 0.55rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="container">
+  <div class="content">
+    <h1 class="phrase">Disconnect<br>to Connect</h1>
+    
+    <p class="subtitle">Ngắt kết nối ảo để kết nối thật</p>
+
+    <p class="meaning">
+      Càng <span class="highlight">connect</span> với màn hình,<br>
+      chúng ta càng <span class="highlight">disconnect</span> với chính mình và người bên cạnh.
+    </p>
+
+    <div class="vietnamese-ways">
+      <h3>Cách nói quen thuộc trong tiếng Việt</h3>
+      <div class="tag-list">
+        <span class="tag">Ngắt kết nối ảo để kết nối thật</span>
+        <span class="tag">Bỏ điện thoại xuống để gần nhau hơn</span>
+        <span class="tag">Tắt mạng để bật đời</span>
+        <span class="tag">Offline để onlife</span>
+        <span class="tag">Cất máy, mở lòng</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
