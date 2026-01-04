@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lứa 9X Cuối Cùng - 1999</title>
+  <style>
+    :root {
+      --primary: #e91e63;
+      --primary-dark: #c2185b;
+      --bg: #0f0f1a;
+      --card: #1a1a2e;
+      --text: #e0e0ff;
+      --light-text: #a0a0ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0f1a 0%, #141429 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin: 40px 0 60px;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #ff6ec7, #7873f5, #03dac6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: var(--light-text);
+      margin-top: 12px;
+      font-weight: 300;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(233,30,99,0.12) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .year-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .year-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: center;
+      position: relative;
+    }
+
+    .year-item::before {
+      content: "";
+      position: absolute;
+      left: 60px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+    }
+
+    .year-badge {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 6px 20px rgba(233,30,99,0.35);
+      z-index: 2;
+      border: 4px solid rgba(255,255,255,0.1);
+    }
+
+    .year-content {
+      background: rgba(255,255,255,0.03);
+      padding: 20px 24px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .highlight {
+      color: #ff79d6;
+      font-weight: 600;
+    }
+
+    .nostalgia {
+      text-align: center;
+      font-size: 1.4rem;
+      font-style: italic;
+      margin: 60px 0 40px;
+      color: #a0a0ff;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 600px) {
+      .header h1 { font-size: 2.6rem; }
+      .year-item { grid-template-columns: 1fr; }
+      .year-badge { margin: 0 auto; }
+      .year-item::before { left: 50%; transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>Lứa 9X Cuối Cùng</h1>
+    <div class="subtitle">1999 – Thế hệ cuối cùng của thập niên 90</div>
+  </div>
+
+  <div class="card">
+    <p>Sinh năm <span class="highlight">1999</span> (thường gọi vui là <strong>lứa 99</strong> hoặc <strong>9X đời cuối</strong>) đã thi kỳ thi THPT Quốc gia năm <span class="highlight">2017</span>.</p>
+    <p>Năm đó các bạn đang học lớp 12 (năm học 2016-2017). Kỳ thi diễn ra vào khoảng tháng 6/2017, vừa để xét tốt nghiệp THPT, vừa để xét tuyển đại học, cao đẳng (lúc đó gọi chung là <strong>"thi THPT quốc gia"</strong> hoặc đơn giản là <strong>"thi đại học"</strong>).</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-bottom: 28px; color: #ff79d6;">Lộ trình 12 năm học phổ thông của lứa 99</h3>
+
+    <div class="year-timeline">
+      <div class="year-item">
+        <div class="year-badge">2005</div>
+        <div class="year-content">Lớp 1 – Bắt đầu hành trình 12 năm đèn sách</div>
+      </div>
+
+      <div class="year-item">
+        <div class="year-badge">2010</div>
+        <div class="year-content">Lớp 6 – Bước vào cấp 2, áo dài trắng, kỷ niệm tuổi mới lớn</div>
+      </div>
+
+      <div class="year-item">
+        <div class="year-badge">2013</div>
+        <div class="year-content">Lớp 9 – Thi tốt nghiệp THCS, lần đầu biết mùi áp lực thi cử</div>
+      </div>
+
+      <div class="year-item">
+        <div class="year-badge">2014</div>
+        <div class="year-content">Lớp 10 – Chính thức bước vào cấp 3, thời áo dài bay bay</div>
+      </div>
+
+      <div class="year-item">
+        <div class="year-badge">2017</div>
+        <div class="year-content">
+          <strong>Lớp 12 & thi THPT Quốc gia</strong><br>
+          <span style="color:#ff79d6">Năm định mệnh – năm chia tay tuổi học trò</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nostalgia">
+    Năm 2017 được cộng đồng mạng gọi vui là <strong>"lứa 9X cuối cùng"</strong> thi đại học,<br>
+    vì từ lứa 2000 trở đi đã chính thức sang thế hệ <strong>2K</strong> rồi ạ~ ♡
+  </div>
+
+  <div style="text-align:center; margin:60px 0; font-size:1.5rem; opacity:0.9;">
+    Chúc bạn nếu đang ôn thi hay chỉ vô tình nhớ lại...<br>
+    một chút hoài niệm tuổi trẻ thật đẹp nhé! ✿
+  </div>
+
+</div>
+
+</body>
+</html>
