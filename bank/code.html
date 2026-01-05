@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bài viết chi tiết về cách dùng Grok để code review hiệu quả năm 2026" />
+  
+  <!-- Performance & Modern best practices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Chỉ dùng Google Fonts nếu cần variable fonts, còn lại ưu tiên system-ui -->
+  
+  <title>Cách dùng Grok (xAI) để code review cực hiệu quả 2026</title>
+  
+  <script>
+    // Dark mode theo system preference (rất phổ biến 2025+)
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+      --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+      
+      --color-bg: 255 255 255;
+      --color-text: 15 23 42;
+      --color-primary: 59 130 246;
+      --color-muted: 107 114 128;
+      
+      --max-width: 75ch;          /* Khoảng 65–80 ký tự/line → dễ đọc nhất */
+      --line-height: 1.65;
+      --spacing-base: 1.5rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: 15 23 42;
+        --color-text: 241 245 249;
+        --color-muted: 148 163 184;
+      }
+    }
+
+    [data-theme="dark"] {
+      --color-bg: 15 23 42;
+      --color-text: 241 245 249;
+      --color-muted: 148 163 184;
+    }
+
+    html {
+      font-size: 100%;           /* 16px base */
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: rgb(var(--color-bg));
+      color: rgb(var(--color-text));
+      line-height: var(--line-height);
+      margin: 0;
+      padding: 0;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Responsive typography – dùng clamp + fluid scaling */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      line-height: 1.2;
+      margin-top: 2.5em;
+      margin-bottom: 0.8em;
+      font-weight: 700;
+      color: rgb(var(--color-text));
+    }
+
+    h1 { font-size: clamp(2.25rem, 5vw + 1rem, 3.5rem); }
+    h2 { font-size: clamp(1.875rem, 4vw + 0.75rem, 2.75rem); }
+    h3 { font-size: clamp(1.5rem, 3.2vw + 0.5rem, 2rem); }
+    h4 { font-size: clamp(1.25rem, 2.5vw + 0.4rem, 1.5rem); }
+
+    p, li, blockquote {
+      font-size: clamp(1.0625rem, 2vw + 0.5rem, 1.1875rem);
+      margin-bottom: 1.4em;
+    }
+
+    /* Code blocks – rất quan trọng cho content tech */
+    pre {
+      background: rgba(0,0,0,0.05);
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      overflow-x: auto;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      background: rgba(0,0,0,0.07);
+      padding: 0.2em 0.4em;
+      border-radius: 0.25rem;
+      font-size: 0.95em;
+    }
+
+    .dark pre { background: rgba(255,255,255,0.08); }
+    .dark code { background: rgba(255,255,255,0.12); }
+
+    /* Links */
+    a {
+      color: rgb(var(--color-primary));
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      transition: all 0.15s ease;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    /* Tables – thường dùng trong content so sánh */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2em 0;
+    }
+
+    th, td {
+      border: 1px solid rgba(0,0,0,0.1);
+      padding: 0.75em 1em;
+      text-align: left;
+    }
+
+    .dark th, .dark td { border-color: rgba(255,255,255,0.15); }
+
+    /* Improve list readability */
+    ul, ol {
+      padding-left: 1.5em;
+      margin-bottom: 1.4em;
+    }
+
+    li + li {
+      margin-top: 0.6em;
+    }
+
+    /* Quote */
+    blockquote {
+      border-left: 4px solid rgb(var(--color-primary));
+      padding-left: 1.25rem;
+      color: var(--color-muted);
+      font-style: italic;
+      margin: 2em 0;
+    }
+
+    /* Footer / meta info */
+    .meta {
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      margin: 3rem 0 1rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 1.5rem;
+    }
+
+    .dark .meta { border-color: rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+
+  <header class="container py-12 md:py-16">
+    <p class="text-[var(--color-muted)] text-sm md:text-base">
+      Published on January 5, 2026
+    </p>
+    <h1>Cách dùng Grok (xAI) để code review cực hiệu quả 2025–2026</h1>
+    <p class="lead text-xl md:text-2xl text-[var(--color-muted)] mt-4">
+      Kết hợp AI + con người – chiến lược review code tốt nhất hiện nay
+    </p>
+  </header>
+
+  <main class="container prose prose-slate dark:prose-invert max-w-none">
+    <article>
+      <h2>Tại sao semantic HTML lại quan trọng hơn bao giờ hết?</h2>
+      <p>Năm 2025–2026, semantic HTML không chỉ là best practice cho accessibility, mà còn là yếu tố sống còn cho:</p>
+      <ul>
+        <li>AI crawler (Google SGE, Bing AI, Perplexity…)</li>
+        <li>WCAG 3.0 & European Accessibility Act</li>
+        <li>SEO rich results & voice search</li>
+      </ul>
+
+      <h3>Cấu trúc cơ bản nên dùng cho content page</h3>
+      <pre><code>&lt;header&gt;
+  &lt;h1&gt;Tiêu đề chính&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Section quan trọng&lt;/h2&gt;
+    &lt;p&gt;Nội dung...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;!-- Meta, author, related posts --&gt;
+&lt;/footer&gt;</code></pre>
+
+      <!-- Tiếp tục nội dung bài viết của bạn ở đây -->
+
+      <h2>Bảng so sánh các prompt review code tốt nhất</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Prompt mẫu</th>
+            <th>Mục đích</th>
+            <th>Hữu ích</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Review đoạn code theo clean code, SOLID, performance...</td>
+            <td>Review toàn diện</td>
+            <td>★★★★★</td>
+          </tr>
+          <!-- Thêm các dòng khác -->
+        </tbody>
+      </table>
+    </article>
+  </main>
+
+  <footer class="container meta">
+    <p>Author: Senior Dev | Đăng bởi team xAI lovers • 2026</p>
+  </footer>
+
+</body>
+</html>
