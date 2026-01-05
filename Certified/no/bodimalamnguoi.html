@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neo - The One | The Matrix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --matrix-green: #00ff41;
+      --dark-bg: #0d0d0d;
+      --code-bg: #000;
+      --text-light: #e0e0e0;
+      --text-muted: #888;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--dark-bg);
+      color: var(--text-light);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+        url('https://images.alphacoders.com/135/1353319.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--matrix-green);
+      font-size: 3.8rem;
+      text-shadow: 0 0 20px var(--matrix-green);
+      letter-spacing: 4px;
+      margin-bottom: 0.8rem;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: #00cc33;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .content {
+      background: rgba(10, 10, 10, 0.65);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0, 255, 65, 0.18);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 255, 65, 0.08);
+    }
+
+    h2 {
+      color: var(--matrix-green);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.1rem;
+      margin: 2.5rem 0 1rem;
+      border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+      padding-bottom: 0.6rem;
+    }
+
+    p {
+      margin-bottom: 1.3rem;
+      font-size: 1.08rem;
+      color: #d0d0d0;
+    }
+
+    .highlight {
+      color: var(--matrix-green);
+      font-weight: 500;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 10px 30px rgba(0, 255, 65, 0.25);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      padding: 1.2rem 1rem 0.8rem;
+      color: white;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .quote {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--matrix-green);
+      text-align: center;
+      margin: 4rem 0;
+      padding: 2rem;
+      border-left: 4px solid var(--matrix-green);
+      border-right: 4px solid var(--matrix-green);
+      background: rgba(0, 255, 65, 0.06);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      h2 { font-size: 1.8rem; }
+      .content { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>NEO</h1>
+      <div class="subtitle">The One – Người Được Chọn</div>
+    </header>
+
+    <div class="content">
+      <p><strong>Neo</strong> (tên thật: <span class="highlight">Thomas A. Anderson</span>) là nhân vật chính trong loạt phim <strong>The Matrix</strong> – biểu tượng của điện ảnh khoa học viễn tưởng hiện đại.</p>
+      <p>Anh được thủ vai bởi <strong>Keanu Reeves</strong> và là <span class="highlight">"The One"</span> – người có khả năng thay đổi quy luật của Ma Trận, cứu nhân loại khỏi sự kiểm soát của máy móc.</p>
+
+      <h2>Hình ảnh kinh điển</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <!-- Thay bằng link ảnh thật của bạn -->
+          <img src="https://images.alphacoders.com/135/1353319.jpg" alt="Neo trench coat classic">
+          <div class="caption">Neo với áo khoác trench coat đen biểu tượng</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://wallpapercave.com/wp/wp5126192.jpg" alt="Matrix code rain">
+          <div class="caption">Nền mã code xanh đặc trưng của Ma Trận</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images7.alphacoders.com/135/1353320.jpg" alt="Neo awakening">
+          <div class="caption">Cảnh tỉnh dậy kinh điển trong kén nhân tạo</div>
+        </div>
+      </div>
+
+      <h2>Hành trình của Neo</h2>
+      <p><strong>Ban đầu:</strong> Một lập trình viên bình thường ban ngày, hacker bí mật ban đêm với biệt danh <span class="highlight">Neo</span> (tên này là anagram của "One").</p>
+      <p>Sau khi uống <strong>viên thuốc đỏ</strong> từ tay Morpheus, anh tỉnh dậy trong thế giới thực – nơi cơ thể con người bị máy móc nuôi như pin, còn toàn bộ cuộc đời trước đó chỉ là mô phỏng ảo (<strong>Ma Trận</strong>).</p>
+
+      <p><strong>Neo dần nhận ra sức mạnh của mình:</strong> né đạn (<em>bullet time</em> – cảnh quay chậm huyền thoại), dừng đạn, bay, nhìn thấy mã code của Ma Trận, thậm chí hồi sinh từ cõi chết nhờ tình yêu của Trinity.</p>
+
+      <h2>Ý nghĩa sâu xa</h2>
+      <p>Neo không chỉ là anh hùng hành động, mà còn mang nhiều lớp ý nghĩa triết học:</p>
+      <ul style="margin: 1.2rem 0 1.2rem 1.8rem; line-height: 1.8;">
+        <li>Biểu tượng của <strong>sự giác ngộ</strong> (từ ảo tưởng sang hiện thực)</li>
+        <li>So sánh với <strong>Chúa Jesus</strong> (người cứu thế, chết rồi sống lại)</li>
+        <li>Đại diện cho khát khao <strong>tự do lựa chọn</strong> và sức mạnh của niềm tin vào bản thân</li>
+        <li>Ẩn dụ về hành trình chuyển giới (được các đạo diễn Wachowski tiết lộ)</li>
+      </ul>
+
+      <div class="quote">
+        "Bạn có muốn biết sự thật không?"
+      </div>
+
+      <p style="text-align:center; margin-top: 2.5rem; font-size: 1.1rem; opacity: 0.9;">
+        Đến <strong>The Matrix Resurrections (2021)</strong>, Neo vẫn là trung tâm – dù đã bị đưa trở lại Ma Trận và phải "tỉnh thức" lần nữa.
+      </p>
+
+      <p style="text-align:center; font-weight: bold; margin-top: 3rem; color: var(--matrix-green); font-size: 1.3rem;">
+        Neo – một trong những nhân vật biểu tượng nhất lịch sử điện ảnh.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
