@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>So sánh GNU Licenses 2025–2026</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #1a1a1a;
+      --card: #ffffff;
+      --border: #e0e0e0;
+      --accent: #2e7d32;
+      --accent-light: #4caf50;
+      --muted: #616161;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --card: #161b22;
+      --border: #30363d;
+      --accent: #4caf50;
+      --accent-light: #66bb6a;
+      --muted: #8b949e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacC, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1.5rem;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 100;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.08);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 1.6rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .card h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.97rem;
+      margin: 1.5rem 0;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: rgba(46, 125, 50, 0.1);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: rgba(76, 175, 80, 0.05);
+    }
+
+    .stars {
+      color: #ffb300;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+    }
+
+    .advice {
+      background: linear-gradient(135deg, rgba(46,125,50,0.08), rgba(76,175,80,0.05));
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2.5rem 0;
+    }
+
+    .advice h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      table { font-size: 0.92rem; }
+      th, td { padding: 0.7rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" title="Chuyển theme">☀️</button>
+
+  <div class="container">
+    <header>
+      <h1>GNU Licenses So Sánh 2025–2026</h1>
+      <p class="subtitle">Hướng dẫn chọn giấy phép phù hợp cho dự án của bạn</p>
+    </header>
+
+    <div class="grid">
+
+      <!-- Bảng phiên bản chính -->
+      <div class="card">
+        <h2>Các phiên bản GNU chính</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Phiên bản</th>
+              <th>Năm</th>
+              <th>Còn dùng?</th>
+              <th>Copyleft</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>GPL v1</td><td>1989</td><td>Rất hiếm</td><td>Mạnh</td></tr>
+            <tr><td>GPL v2</td><td>1991</td><td>Vẫn phổ biến</td><td>Mạnh</td></tr>
+            <tr><td>GPL v3</td><td>2007</td><td>Phổ biến nhất</td><td>Rất mạnh</td></tr>
+            <tr><td>LGPL v2.1</td><td>1999</td><td>Rất phổ biến</td><td>Yếu</td></tr>
+            <tr><td>LGPL v3</td><td>2007</td><td>Phổ biến</td><td>Yếu</td></tr>
+            <tr><td>AGPL v3</td><td>2007</td><td>Ngày càng tăng</td><td>Cực mạnh</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- So sánh nhanh -->
+      <div class="card">
+        <h2>So sánh nhanh (2025–2026)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Tiêu chí</th>
+              <th>GPL v3</th>
+              <th>AGPL v3</th>
+              <th>LGPL v3</th>
+              <th>MIT/BSD/Apache</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Mở source khi phân phối</td><td>Có</td><td>Có</td><td>Có (linh hoạt)</td><td>Không</td></tr>
+            <tr><td>Mở source khi chạy server</td><td>Không</td><td>Có</td><td>Không</td><td>Không</td></tr>
+            <tr><td>Dùng trong phần mềm thương mại</td><td>Có (phải GPL)</td><td>Có (phải AGPL)</td><td>Có (proprietary ok)</td><td>Rất thoải mái</td></tr>
+            <tr><td>Tương thích ngược GPL v2</td><td>Không</td><td>Không</td><td>Không</td><td>Có</td></tr>
+            <tr><td>Phổ biến 2025–2026</td><td><span class="stars">★★★★</span></td><td><span class="stars">★★★★</span> (web/server)</td><td><span class="stars">★★★★</span> (thư viện)</td><td><span class="stars">★★★★★</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="advice">
+      <h3>Lời khuyên thực tế đầu 2026</h3>
+      <ul>
+        <li><strong>Muốn bảo vệ tự do người dùng tối đa + chống cloud độc quyền</strong> → <strong>AGPLv3</strong></li>
+        <li><strong>Copyleft mạnh, tương thích tốt với phần mềm cũ</strong> → <strong>GPLv2</strong> hoặc <strong>GPLv2+</strong></li>
+        <li><strong>Viết thư viện, muốn được dùng trong sản phẩm thương mại</strong> → <strong>LGPLv3</strong> (hoặc MPL 2.0)</li>
+        <li><strong>Tối đa hóa khả năng được sử dụng & adoption</strong> → <strong>MIT</strong> / <strong>Apache 2.0</strong></li>
+      </ul>
+    </div>
+
+    <footer>
+      Cập nhật xu hướng tháng 01/2026 • Chọn license phù hợp với mục tiêu dự án của bạn!
+    </footer>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    // Check saved theme or system preference
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.setAttribute('data-theme', 'dark');
+      toggle.textContent = '🌙';
+    }
+
+    toggle.addEventListener('click', () => {
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        toggle.textContent = '☀️';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggle.textContent = '🌙';
+      }
+    });
+  </script>
+</body>
+</html>
