@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Người Tài Việt Nam 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8f9ff;
+      --text: #1a1a2e;
+      --text-secondary: #4b5563;
+      --accent: #6366f1;
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      --card-bg: rgba(255, 255, 255, 0.7);
+      --border: rgba(226, 232, 240, 0.8);
+      --shadow: 0 10px 30px -15px rgba(99, 102, 241, 0.25);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --card-bg: rgba(30, 41, 59, 0.65);
+      --border: rgba(59, 69, 92, 0.6);
+      --shadow: 0 10px 30px -15px rgba(99, 102, 241, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100dvh;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 5rem 0 3rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.8rem;
+    }
+
+    .intro {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 1.5rem auto 0;
+    }
+
+    .section {
+      margin: 5rem 0;
+    }
+
+    .section h2 {
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      width: 40%;
+      height: 4px;
+      bottom: -10px;
+      left: 0;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+    }
+
+    .talent-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+    }
+
+    .talent-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px -20px rgba(99, 102, 241, 0.4);
+    }
+
+    .card-media {
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .talent-card:hover .card-media img {
+      transform: scale(1.08);
+    }
+
+    .card-content {
+      padding: 1.75rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-content p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1rem 0;
+      scrollbar-width: thin;
+    }
+
+    .gallery img {
+      width: 240px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      flex-shrink: 0;
+      transition: transform 0.4s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 1.3rem;
+      z-index: 100;
+      transition: all 0.3s;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 0 2rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 1.5rem 1rem; }
+      header { padding: 4rem 0 2.5rem; }
+      .section { margin: 4rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" aria-label="Toggle theme">☀️</button>
+
+  <div class="container">
+    <header>
+      <h1>Người Tài Việt Nam</h1>
+      <p class="intro">
+        Việt Nam không hề thiếu nhân tài. Từ khoa học, kinh doanh, nghệ thuật đến công nghệ và thể thao — chúng ta có truyền thống sản sinh ra những cá nhân xuất chúng, dù môi trường đôi khi chưa thực sự "nuôi dưỡng" hết tiềm năng.
+      </p>
+    </header>
+
+    <section class="section">
+      <h2>Khoa học & Toán học</h2>
+      <div class="card-grid">
+        <div class="talent-card">
+          <div class="card-media">
+            <img src="https://taipy.io/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F12yo38rb%2Fproduction%2Fe0241478dc5751fc9bba8c700bd79fb1f9c14979-1747x1240.jpg%3Fw%3D1456%26fit%3Dmax%26auto%3Dformat&w=3840&q=75" alt="GS Ngô Bảo Châu">
+          </div>
+          <div class="card-content">
+            <h3>Giáo sư Ngô Bảo Châu</h3>
+            <p>Người Việt Nam đầu tiên và duy nhất nhận <strong>Huy chương Fields</strong> (Nobel Toán học) năm 2010 — biểu tượng trí tuệ Việt trên trường quốc tế.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery" style="margin-top: 2rem;">
+        <img src="https://mediasvc.eurekalert.org/Api/v1/Multimedia/043dd17d-15c7-4872-b795-0c5a3de78010/Rendition/low-res/Content/Public" alt="Ngo Bao Chau 1">
+        <img src="https://taipy.io/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F12yo38rb%2Fproduction%2Fe0241478dc5751fc9bba8c700bd79fb1f9c14979-1747x1240.jpg%3Fw%3D1456%26fit%3Dmax%26auto%3Dformat&w=3840&q=75" alt="Ngo Bao Chau 2">
+        <img src="https://i.ytimg.com/vi/hINrTNfBqZI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDQCB79vxRGR34FT847sItEAHkjOw" alt="Ngo Bao Chau 3">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Kinh doanh & Công nghệ</h2>
+      <div class="card-grid">
+        <div class="talent-card">
+          <div class="card-media">
+            <img src="https://i.ex-cdn.com/theinvestor.vn/files/content/2025/04/12/vingroup-the-investor-0958.jpg" alt="Phạm Nhật Vượng">
+          </div>
+          <div class="card-content">
+            <h3>Phạm Nhật Vượng</h3>
+            <p>Người giàu nhất Việt Nam (tài sản ước tính ~30 tỷ USD cuối 2025 theo Forbes). Chủ tịch Vingroup — tập đoàn lớn nhất với xe điện VinFast, Vinhomes, Vinmec, Vinschool...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery" style="margin-top: 2rem;">
+        <img src="https://cdn.motor1.com/images/mgl/koBQEe/239:0:1440:1081/2025-vinfast-vf3-exterior-front-quarter-view.webp" alt="VinFast VF3">
+        <img src="https://vcdn1-english.vnecdn.net/2025/12/26/PNV23691704512127-1704517272-8-4883-5038-1766717759.png?w=680&h=0&q=100&dpr=2&fit=crop&s=fchotw68iddXgCT7jMWtJA" alt="Phạm Nhật Vượng">
+        <img src="https://mediaen.vietnamplus.vn/images/3ce06c6eb7f427ada213a8bd125598b5f0a4d0fa316238a4a904df654a02eafa564ed77f79dc0a95efef44c128976209/pham-nhat-vuong.jpg" alt="Phạm Nhật Vượng 2">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Các lĩnh vực khác</h2>
+      <div class="card-grid">
+        <div class="talent-card">
+          <div class="card-media">
+            <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1012284877566435" alt="Sơn Tùng M-TP">
+          </div>
+          <div class="card-content">
+            <h3>Âm nhạc & Giải trí</h3>
+            <p>Mỹ Tâm, Sơn Tùng M-TP, Đức Phúc (giành giải quốc tế 2025), Hoa Minzy (neo-folk đột phá)...</p>
+          </div>
+        </div>
+
+        <div class="talent-card">
+          <div class="card-media">
+            <img src="https://imageio.forbes.com/specials-images/imageserve/680f407a5ba6103e7e9a1852/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="Gen Z Talent">
+          </div>
+          <div class="card-content">
+            <h3>Công nghệ & Startup trẻ</h3>
+            <p>Nhiều gương mặt Gen Z/Gen T 2025: Nguyễn Khánh Linh (AI Google Developer Expert), founder AI, blockchain, carbon tracking...</p>
+          </div>
+        </div>
+
+        <div class="talent-card">
+          <div class="card-media">
+            <img src="https://asiasociety.org/sites/default/files/styles/1200w/public/2025-12/2026%20Future%20of%20U.S.%20%26%20China%20Speaker%20Collage%20%2812%29.png" alt="Vietnamese Talents Collage">
+          </div>
+          <div class="card-content">
+            <h3>Thể thao & Doanh nhân khác</h3>
+            <p>Nguyễn Thùy Vinh (bắn súng), Nguyễn Thị Oanh (điền kinh), Nguyễn Thị Phương Thảo (VietJet), Trần Đình Long (Hòa Phát)...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Việt Nam không thiếu người tài — chỉ cần môi trường tốt hơn để họ tỏa sáng ngay trên chính quê hương.</p>
+      <p style="margin-top: 1rem; opacity: 0.7;">Cập nhật đầu năm 2026</p>
+    </footer>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    // Check saved theme or system preference
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.setAttribute('data-theme', 'dark');
+      toggle.textContent = '🌙';
+    }
+
+    toggle.addEventListener('click', () => {
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        toggle.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        toggle.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+                                                                        </html>
