@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Đại Lộ Khẩu Nghiệp - Toxic Việt Nam Collection</title>
+    <style>
+        :root {
+            --bg: #0d0d17;
+            --card: #161624;
+            --text: #e5e5ff;
+            --accent: #f72585;
+            --accent-glow: rgba(247, 37, 133, 0.35);
+            --warning: #ffdd57;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(247,37,133,0.09) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(125,59,255,0.07) 0%, transparent 60%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0 35px;
+        }
+
+        h1 {
+            font-size: clamp(2.3rem, 6vw, 3.8rem);
+            color: var(--accent);
+            letter-spacing: -1px;
+            text-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .subtitle {
+            font-size: 1.35rem;
+            opacity: 0.85;
+            margin-top: 10px;
+        }
+
+        .big-warning {
+            background: rgba(255,221,87,0.13);
+            border: 3px solid var(--warning);
+            color: var(--warning);
+            padding: 1.4rem 2rem;
+            border-radius: 14px;
+            margin: 30px 0 50px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.18rem;
+            box-shadow: 0 0 25px rgba(255,221,87,0.15);
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 2rem;
+            margin: 60px 0 30px;
+            padding-left: 18px;
+            border-left: 6px solid var(--accent);
+        }
+
+        .quote {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin: 24px 0;
+            border-left: 6px solid var(--accent);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+            transition: all 0.28s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 50px rgba(247,37,133,0.28);
+        }
+
+        .quote::before {
+            content: "“";
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            font-size: 9rem;
+            opacity: 0.07;
+            color: var(--accent);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 1.32rem;
+            margin-bottom: 14px;
+        }
+
+        .quote-meta {
+            color: #b0b0ff;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .short-trends {
+            background: rgba(247,37,133,0.12);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+        }
+
+        .short-trends ul {
+            list-style: none;
+        }
+
+        .short-trends li {
+            margin: 14px 0;
+            padding-left: 26px;
+            position: relative;
+        }
+
+        .short-trends li::before {
+            content: "→";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .mantra {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #6eff9d;
+            margin: 70px 0 50px;
+            text-shadow: 0 0 20px rgba(110,255,157,0.5);
+            letter-spacing: 1.5px;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            font-size: 0.95rem;
+            margin-top: 80px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ĐẠI LỘ KHẨU NGHIỆP</h1>
+        <div class="subtitle">Tuyển tập những câu toxic kinh điển & viral nhất MXH Việt</div>
+    </header>
+
+    <div class="big-warning">
+        ⚠️ CỰC KỲ NẶNG NỀ – ĐỘC HẠI – CÓ THỂ GÂY TỔN THƯƠNG TÂM LÝ NGHIÊM TRỌNG<br>
+        Chỉ xem để hiểu độ kinh khủng của khẩu nghiệp mạng xã hội<br>
+        TUYỆT ĐỐI KHÔNG SỬ DỤNG TRONG ĐỜI THỰC hay online!
+    </div>
+
+    <h2 class="section-title">Kinh điển mọi thời đại</h2>
+
+    <div class="quote">
+        <div class="quote-text">Mày sống sót tới giờ chắc cũng nhờ tổ tiên mày cõng nhiều lắm rồi đấy con đĩ</div>
+        <div class="quote-meta">→ Drama gia đình + anti-fanwar kinh điển</div>
+    </div>
+
+    <div class="quote">
+        <div class="quote-text">Tiền rách dán lại còn có giá trị, chứ nhân cách thối nát thì chó cũng đéo thèm gặm</div>
+        <div class="quote-meta">→ Level max nhân cách chó</div>
+    </div>
+
+    <div class="quote">
+        <div class="quote-text">Tao không ghét mày, tao chỉ ghét cái cách mày tồn tại</div>
+    </div>
+
+    <div class="quote">
+        <div class="quote-text">Trời sinh mày chắc để cảnh báo cho nhân loại về mức độ thất bại của tạo hóa</div>
+    </div>
+
+    <h2 class="section-title">Trend viral 2024–2025</h2>
+
+    <div class="short-trends">
+        <ul>
+            <li>Ăn nói xà lơ</li>
+            <li>ABC chửi um sùm bển kìa</li>
+            <li>Giảm sức mạnh con tướng này giúp em</li>
+            <li>Flop quá thì ghi tên anh vào</li>
+            <li>Cái quái đản gì thế</li>
+        </ul>
+    </div>
+
+    <div class="mantra">
+        TÍCH ĐỨC × 3<br>
+        KHÔNG KHẨU NGHIỆP × 3
+    </div>
+
+    <footer>
+        Lời nói là nghiệp • Hãy giữ tâm thiện • Tắt mạng khi nóng giận
+    </footer>
+</div>
+
+</body>
+</html>
