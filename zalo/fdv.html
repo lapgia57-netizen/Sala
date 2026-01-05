@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FDV trong Crypto là gì?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      color: #e0e0e0;
+      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: rgba(25, 25, 50, 0.75);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid rgba(100, 100, 255, 0.18);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      color: #00d4ff;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.4rem;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      color: #a78bfa;
+      margin-top: 2rem;
+      border-left: 4px solid #7c3aed;
+      padding-left: 12px;
+      font-size: 1.6rem;
+    }
+
+    .highlight {
+      color: #ff6bcb;
+      font-weight: 600;
+    }
+
+    .formula {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid #00d4ff;
+      margin: 1.2rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(40, 40, 80, 0.6);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    th {
+      background: rgba(100, 100, 255, 0.25);
+      color: #c4c4ff;
+    }
+
+    .warning {
+      background: rgba(255, 71, 87, 0.18);
+      border-left: 4px solid #ff4757;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin: 1.8rem 0;
+      color: #ffccd5;
+    }
+
+    .conclusion {
+      background: rgba(0, 212, 255, 0.12);
+      border-left: 4px solid #00d4ff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+
+    code {
+      background: #1a1a2e;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      color: #64ffda;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>FDV trong Crypto là gì?</h1>
+
+  <p>
+    <strong>FDV</strong> là viết tắt của <span class="highlight">Fully Diluted Valuation</span><br>
+    (hay còn gọi là <strong>Vốn hóa pha loãng hoàn toàn</strong> / <strong>Định giá pha loãng hoàn toàn</strong>)
+  </p>
+
+  <p>
+    Đây là chỉ số thể hiện <strong>tổng giá trị vốn hóa thị trường</strong> của một dự án crypto <strong>nếu tất cả token đều được phát hành và lưu hành</strong> (đạt 100% nguồn cung tối đa).
+  </p>
+
+  <h2>Công thức tính FDV</h2>
+  <div class="formula">
+    FDV = Giá token hiện tại × Tổng nguồn cung tối đa (Max Supply)
+  </div>
+
+  <h2>Ví dụ thực tế</h2>
+  <p>Token XYZ:</p>
+  <ul>
+    <li>Giá hiện tại: <strong>$2</strong></li>
+    <li>Circulating Supply: <strong>100 triệu</strong> token → Market Cap = $200 triệu</li>
+    <li>Max Supply: <strong>1 tỷ</strong> token</li>
+  </ul>
+
+  <div class="formula">
+    FDV = $2 × 1,000,000,000 = <strong style="color:#ff6bcb">$2 tỷ</strong>
+  </div>
+
+  <p>Nghĩa là: Nếu giá vẫn giữ $2 và unlock hết token còn lại → giá trị toàn bộ dự án sẽ là <strong>2 tỷ đô</strong>.</p>
+
+  <h2>So sánh nhanh Market Cap vs FDV</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Chỉ số</th>
+        <th>Ý nghĩa</th>
+        <th>Công thức</th>
+        <th>Khi nào FDV cao hơn Market Cap nhiều?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Market Cap</strong></td>
+        <td>Giá trị hiện tại (chỉ tính token đang lưu hành)</td>
+        <td>Giá × Circulating Supply</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><strong>FDV</strong></td>
+        <td>Giá trị tiềm năng nếu unlock hết 100%</td>
+        <td>Giá × Max Supply</td>
+        <td>Nhiều token còn lock/vesting/unreleased</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Tại sao FDV quan trọng khi đầu tư crypto?</h2>
+  <ul>
+    <li>Giúp đánh giá mức độ <strong>pha loãng (dilution)</strong> trong tương lai</li>
+    <li>Dự án có <strong>FDV cao gấp 10–50× Market Cap</strong> → <strong>rủi ro dump mạnh</strong> khi unlock (đặc biệt memecoin, project mới)</li>
+    <li>Dự án FDV thấp hoặc gần bằng Market Cap → thường <strong>an toàn hơn</strong></li>
+    <li>Dùng để so sánh các dự án cùng loại (Layer 1, AI coin, memecoin...) xem cái nào đang <strong>overvalued</strong> hay <strong>undervalued</strong> theo góc nhìn dài hạn</li>
+  </ul>
+
+  <div class="warning">
+    ⚠️ Khi thấy một coin mới hype mà <strong>FDV lên tới vài tỷ đô</strong> dù mới unlock có <strong>5–10% supply</strong> → <strong>nên cực kỳ cẩn thận</strong>!
+  </div>
+
+  <div class="conclusion">
+    Tóm lại:<br>
+    → Nhìn <strong>Market Cap</strong> để biết giá trị <strong>hiện tại</strong>.<br>
+    → Nhìn <strong>FDV</strong> để biết “cái giá thực sự” có thể đạt được... và cả <strong>rủi ro pha loãng</strong> trong tương lai.
+  </div>
+</div>
+
+</body>
+</html>
