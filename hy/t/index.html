@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Một ngày không có gì để sao chép</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #e0e0e0;
+      --accent: #00d4ff;
+      --card: #171717;
+      --border: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(90deg, #00d4ff, #ff00aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #888;
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .section:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 212, 255, 0.08);
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    p, li {
+      color: #d0d0d0;
+      font-size: 1.07rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 1.2rem 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .highlight {
+      color: #ffdd57;
+      font-weight: 500;
+    }
+
+    .ending {
+      text-align: center;
+      font-style: italic;
+      color: #aaa;
+      font-size: 1.15rem;
+      margin: 4rem 0 2rem;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 1.5rem; }
+      h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Một ngày<br>không có gì để sao chép</h1>
+  <div class="subtitle">Khi copy-paste mode bị crash... thì sao?</div>
+
+  <div class="section">
+    <h2>1. Ngày của dân content / copywriter</h2>
+    <p>Mở Notion, lướt khắp Drive, X, TikTok, Reddit… mà <span class="highlight">trắng tinh</span>.</p>
+    <p>Cả thế giới đột nhiên… hết content hay.</p>
+    <ul>
+      <li>Ngồi chịu trận writer's block</li>
+      <li>Hoặc tự tạo ra cái gì đó (dù dở tệ cũng được, miễn là có)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. Ngày của học sinh/sinh viên "chuyên gia chép bài"</h2>
+    <p>Đến lớp, nhìn quanh, phát hiện:</p>
+    <ul>
+      <li>Thằng giỏi nhất hôm nay nghỉ học</li>
+      <li>Cô giảng nhanh như tua video 2x</li>
+      <li>Hoặc đơn giản là… hôm nay <strong>chả ai cho chép nữa</strong></li>
+    </ul>
+    <p class="highlight" style="margin-top:1.5rem;">→ Lúc đó mới thấm: Không có gì để copy mới là nỗi sợ lớn nhất của một kẻ lười học.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Phiên bản người lớn (triết lý thật sự)</h2>
+    <p>Một ngày bạn thức dậy và nhận ra mình đã sống bằng copy-paste quá lâu:</p>
+    <ul>
+      <li>Copy phong cách sống của người khác</li>
+      <li>Copy mục tiêu của bạn bè</li>
+      <li>Copy cả cảm xúc từ TikTok, X, Instagram Reels…</li>
+    </ul>
+    <p style="margin: 1.8rem 0;">Rồi nhìn vào gương và tự hỏi:</p>
+    <blockquote style="border-left: 4px solid var(--accent); padding-left: 1.2rem; font-style: italic; color: #bbb;">
+      “Còn gì là của mình nữa không? Hay mình chỉ là một bản sao lỗi của nhiều người khác?”
+    </blockquote>
+  </div>
+
+  <div class="ending">
+    Cái ngày “không có gì để sao chép” thật ra là ngày <strong>rất quý giá</strong>.<br>
+    Nó buộc bạn phải:<br>
+    <strong style="color:var(--accent)">Tự nghĩ → Tự làm → Tự sai → Và cuối cùng… tự trở thành bản gốc</strong><br>
+    (dù bản gốc đó có hơi méo mó, lởm chởm đi chăng nữa)
+  </div>
+
+  <div class="cta">
+    <a href="#" class="btn">Đang copy-paste hay đã bắt đầu sáng tạo?</a>
+  </div>
+</div>
+
+</body>
+</html>
