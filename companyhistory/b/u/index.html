@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Công ty TNHH KB Tech - Giới thiệu</title>
+  <style>
+    :root {
+      --primary: #0066cc;
+      --primary-dark: #004c99;
+      --light: #f8f9fa;
+      --dark: #2d3748;
+      --gray: #718096;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 4rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .logo-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+    }
+
+    h2 {
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .info-item {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 5px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: #e2edff;
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .note {
+      background: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 1.2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      color: #5c3e00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      color: var(--gray);
+      font-size: 0.95rem;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .logo-title { font-size: 2.3rem; }
+      header { padding: 3.5rem 0 4.5rem; }
+      .section { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo-title">CÔNG TY TNHH KB TECH</h1>
+      <p class="subtitle">KB TECH COMPANY LIMITED</p>
+      <p style="margin-top: 1.2rem; font-size: 1.1rem;">Mã số thuế: <strong>2301356902</strong></p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="section">
+      <h2>Thông tin cơ bản</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>Loại hình doanh nghiệp</strong>
+          Công ty TNHH hai thành viên trở lên (không thuộc sở hữu nhà nước)
+        </div>
+        <div class="info-item">
+          <strong>Người đại diện pháp luật</strong>
+          Ông Đào Đức Phúc
+        </div>
+        <div class="info-item">
+          <strong>Ngày thành lập</strong>
+          21/08/2025
+        </div>
+        <div class="info-item">
+          <strong>Tình trạng</strong>
+          Đang hoạt động (cập nhật đầu năm 2026)
+        </div>
+        <div class="info-item">
+          <strong>Cơ quan thuế</strong>
+          Cục Thuế Tỉnh Bắc Ninh
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Địa chỉ & Lĩnh vực hoạt động</h2>
+      <div class="info-item" style="margin-bottom: 1.5rem;">
+        <strong>Trụ sở chính</strong>
+        Lô D, Khu công nghiệp Quế Võ, Phường Nam Sơn, Tỉnh Bắc Ninh, Việt Nam
+      </div>
+
+      <h2 style="margin: 2rem 0 1rem;">Ngành nghề chính</h2>
+      <p style="margin-bottom: 1rem; font-size: 1.1rem; color: #2d3748;">
+        <strong>Mã ngành 2610</strong> — Sản xuất linh kiện điện tử
+      </p>
+      <div class="tag-list">
+        <span class="tag">Điện thoại di động</span>
+        <span class="tag">Máy tính & Laptop</span>
+        <span class="tag">Đồng hồ thông minh</span>
+        <span class="tag">Thiết bị gia dụng thông minh</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Công nghệ & Quy trình sản xuất chính</h2>
+      <div class="tag-list" style="margin-bottom: 1.5rem;">
+        <span class="tag">Phun thẳng đứng (vỏ, khung, phụ kiện)</span>
+        <span class="tag">CNC & Laser</span>
+        <span class="tag">Sơn - Painting</span>
+        <span class="tag">Mạ & Anodizing</span>
+      </div>
+      <p style="color: #4a5568;">
+        Công ty chuyên gia công, lắp ráp linh kiện cho: điện thoại, máy tính bảng, smartwatch, thiết bị gia dụng thông minh, camera, robot...
+      </p>
+    </div>
+
+    <div class="section note">
+      <strong>Lưu ý quan trọng:</strong><br><br>
+      Công ty còn khá mới (thành lập 2025) nên hiện tại chưa có nhiều thông tin công khai về vốn điều lệ, website chính thức hoặc các dự án nổi bật. <br><br>
+      <strong>Không nhầm lẫn</strong> với các công ty khác có tên tương tự như "KB Tech Việt Nam" (mã số thuế 2301111074) hoặc KBTECH trong lĩnh vực phần mềm/website.
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Thông tin tham khảo từ cổng tra cứu mã số thuế & nguồn công khai • Cập nhật: Tháng 01/2026</p>
+  </footer>
+
+</body>
+</html>
