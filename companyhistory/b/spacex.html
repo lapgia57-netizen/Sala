@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Giới thiệu Công ty TNHH SAMEUN ELECTRONICS VINA</title>
+    <style>
+        :root {
+            --primary: #004080;
+            --primary-light: #0066cc;
+            --accent: #e67e22;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #2c3e50;
+            --gray: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #004080 0%, #0066cc 100%);
+            color: white;
+            padding: 50px 40px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-light);
+            margin-top: 2rem;
+        }
+
+        .company-info {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 12px 24px;
+            margin: 1.5rem 0;
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .company-info strong {
+            color: var(--primary);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+        }
+
+        ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .warning-list li::before {
+            content: "⚠";
+            color: var(--accent);
+        }
+
+        .summary {
+            margin-top: 2.5rem;
+            padding: 25px;
+            background: #e8f5e9;
+            border-radius: 12px;
+            border-left: 5px solid #27ae60;
+        }
+
+        .summary p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 25px; }
+            .company-info { grid-template-columns: 1fr; gap: 8px; }
+            .header { padding: 40px 20px 30px; }
+            .header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>CÔNG TY TNHH SAMEUN ELECTRONICS VINA</h1>
+        <p class="subtitle">Nhà cung cấp linh kiện điện tử cho Samsung – 100% vốn Hàn Quốc</p>
+    </div>
+
+    <div class="content">
+        <h2>Thông tin cơ bản</h2>
+        <div class="company-info">
+            <strong>Tên công ty:</strong>               <span>CÔNG TY TNHH SAMEUN ELECTRONICS VINA</span>
+            <strong>Tên tiếng Anh:</strong>            <span>SAMEUN ELECTRONICS VINA COMPANY LIMITED</span>
+            <strong>Mã số thuế:</strong>               <span>2400843907</span>
+            <strong>Ngày thành lập:</strong>           <span>26/07/2018</span>
+            <strong>Đại diện pháp luật:</strong>       <span>Ông YUN SEUNG KILL</span>
+            <strong>Địa chỉ:</strong>                  <span>Lô FJ-16, FJ-17, KCN Song Khê - Nội Hoàng (khu phía Nam), Phường Tiền Phong, TP. Bắc Giang, Tỉnh Bắc Giang</span>
+            <strong>Lĩnh vực chính:</strong>           <span>Sản xuất linh kiện điện tử (mã 2610) – Sơn, gia công & xử lý bề mặt vỏ linh kiện điện thoại</span>
+        </div>
+
+        <h2>Điểm mạnh nổi bật</h2>
+        <ul>
+            <li><strong>Vốn 100% Hàn Quốc</strong>: Công nghệ hiện đại, quy trình chuẩn quốc tế</li>
+            <li><strong>Liên kết trực tiếp với Samsung</strong>: Nhà cung cấp sơn vỏ linh kiện – hưởng lợi từ chuỗi cung ứng lớn</li>
+            <li><strong>Vị trí chiến lược</strong>: Bắc Giang – gần các trung tâm điện tử miền Bắc (Bắc Ninh, Thái Nguyên)</li>
+            <li>Hoạt động ổn định, thường xuyên tuyển dụng hàng trăm lao động từ 2018</li>
+            <li>Thuộc ngành điện tử – một trong những ngành xuất khẩu tăng trưởng mạnh nhất Việt Nam</li>
+        </ul>
+
+        <h2>Điểm yếu & Rủi ro cần lưu ý</h2>
+        <ul class="warning-list">
+            <li><strong>Phụ thuộc lớn vào Samsung</strong>: Doanh thu dễ bị ảnh hưởng nếu đơn hàng giảm hoặc thay đổi nhà cung cấp</li>
+            <li>Chuyên môn hẹp (chủ yếu sơn/phủ bề mặt) → cạnh tranh cao, khó đa dạng hóa</li>
+            <li>Làm việc ca kíp (bao gồm ca đêm), áp lực chất lượng cao → tỷ lệ nghỉ việc thường cao hơn trung bình</li>
+            <li>Thiếu thông tin công khai về môi trường làm việc & phúc lợi</li>
+            <li>Rủi ro chuỗi cung ứng nguyên liệu (chủ yếu nhập từ Trung Quốc)</li>
+        </ul>
+
+        <div class="summary">
+            <h3>Tổng kết & Lời khuyên</h3>
+            <p>SAMEUN ELECTRONICS VINA là doanh nghiệp FDI điển hình trong ngành gia công điện tử tại Việt Nam, nổi bật với sự ổn định nhờ liên kết chặt chẽ với Samsung và công nghệ Hàn Quốc.</p>
+            <p>Đây là cơ hội tốt cho lao động phổ thông muốn làm việc trong môi trường sản xuất hiện đại, nhưng cần cân nhắc tính chất công việc ca kíp và mức độ phụ thuộc vào một khách hàng lớn.</p>
+            <p><strong>Lời khuyên:</strong> Nếu đang cân nhắc ứng tuyển, hãy tìm hiểu thêm qua nhân viên hiện tại hoặc các nhóm tuyển dụng để nắm rõ điều kiện làm việc thực tế.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
