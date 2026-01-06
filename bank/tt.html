@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tài tụ nhân tán - Tài tán nhân tụ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #b8860b;         /* Vàng cổ điển - sang trọng */
+      --primary-dark: #8b6914;
+      --text: #1f2937;
+      --text-light: #4b5563;
+      --bg: #fdfaf7;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      color: white;
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+    }
+
+    .header .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .quote-block {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      margin: 2rem 0 2.5rem;
+      line-height: 1.3;
+      position: relative;
+    }
+
+    .quote-block::before,
+    .quote-block::after {
+      content: '“';
+      font-size: 4.5rem;
+      opacity: 0.15;
+      position: absolute;
+      color: var(--primary);
+    }
+
+    .quote-block::before { left: -20px; top: -20px; }
+    .quote-block::after { right: -20px; bottom: -40px; transform: scaleX(-1); }
+
+    h2 {
+      color: var(--primary-dark);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin: 2.2rem 0 1rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    p {
+      margin-bottom: 1.3rem;
+      color: var(--text-light);
+      font-size: 1.07rem;
+    }
+
+    .highlight {
+      background: rgba(184, 134, 11, 0.08);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+      margin: 1.8rem 0;
+      font-style: italic;
+    }
+
+    .example {
+      background: #f9f5ef;
+      padding: 1.6rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border: 1px solid #f0e9d9;
+    }
+
+    .example strong {
+      color: var(--primary-dark);
+    }
+
+    .conclusion {
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 50px 25px 40px; }
+      .content { padding: 30px 25px; }
+      .header h1 { font-size: 2.4rem; }
+      .quote-block { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Tài tụ nhân tán<br>Tài tán nhân tụ</h1>
+    <div class="subtitle">財聚人散，財散人聚</div>
+  </div>
+
+  <div class="content">
+    <div class="quote-block">
+      Tài tụ nhân tán<br>Tài tán nhân tụ
+    </div>
+
+    <p>Đây là một trong những triết lý kinh điển sâu sắc nhất của văn hóa Trung Hoa, được sử dụng rất phổ biến ở Việt Nam khi nói về <strong>kinh doanh</strong>, <strong>lãnh đạo</strong>, <strong>quản lý nhân sự</strong> và <strong>cách ứng xử với tiền bạc</strong>.</p>
+
+    <h2>Ý nghĩa cốt lõi</h2>
+    <p><strong>Tài tụ nhân tán</strong> → Khi tiền tài, của cải tích tụ quá nhiều vào một người (hoặc một nhóm nhỏ), keo kiệt, không chịu chia sẻ → những người tài giỏi, nhân tài xung quanh sẽ dần rời bỏ → dẫn đến cô lập, mất đoàn kết.</p>
+    
+    <p><strong>Tài tán nhân tụ</strong> → Khi biết phân tán, chia sẻ tiền tài một cách hào phóng, công bằng (thưởng, đầu tư cho người khác, giúp đỡ cấp dưới, cộng đồng) → nhân tài, người giỏi sẽ tự nhiên tụ họp về bên mình.</p>
+
+    <div class="highlight">
+      Nói cách khác: <strong>Muốn giữ người tài, thu hút người giỏi</strong> thì đừng cố gắng "ôm" hết tiền vào túi mình. Hãy biết <strong>"tán tài"</strong> thì mới <strong>"tụ nhân"</strong>.
+    </div>
+
+    <h2>Ví dụ lịch sử điển hình</h2>
+    <div class="example">
+      <strong>Hạng Vũ (Tây Sở Bá Vương)</strong><br>
+      Rất giỏi thu hút nhân tài ban đầu, nhưng khi có công trạng thì keo kiệt, cầm ngọc ấn xoay đi xoay lại mãi không nỡ ban thưởng → cuối cùng các tướng tài dần bỏ đi, dẫn đến thất bại thảm hại trước Lưu Bang.
+    </div>
+
+    <div class="example">
+      <strong>Ngược lại – các lãnh đạo/doanh nhân thành công</strong><br>
+      Nhiều ông chủ doanh nghiệp lớn ở Trung Quốc & Việt Nam: lương thưởng hào phóng, chia cổ phần, hỗ trợ nhân viên phát triển → đội ngũ gắn bó, nhân tài kéo về rất đông.
+    </div>
+
+    <h2>Triết lý liên quan</h2>
+    <ul style="margin: 1.2rem 0 1.2rem 1.8rem; color: var(--text-light); font-size: 1.05rem;">
+      <li>"Tham nhân hiếu tụ tài, tài đa hoàn hại kỷ"<br>(Người tham lam thích gom tiền → tiền nhiều cuối cùng lại hại mình)</li>
+      <li>Câu chuyện <strong>Phùng Hoan mua nghĩa</strong> cho Mạnh Thường Quân: tán tài mua lòng dân → cuối cùng cứu được cả chủ.</li>
+    </ul>
+
+    <div class="conclusion">
+      Tiền có thể kiếm lại, nhưng người tài mất đi thì rất khó tìm lại.<br><br>
+      Biết <strong>"tán tài"</strong> đúng lúc, đúng người chính là cách thông minh nhất để <strong>"tụ nhân"</strong> và xây dựng sự nghiệp bền vững.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
