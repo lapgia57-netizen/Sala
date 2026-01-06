@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tristar Catering - Công ty Dịch vụ Ăn uống Ba Sao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #d32f2f;       /* Đỏ đặc trưng Ba Sao */
+      --primary-dark: #b71c1c;
+      --text: #1a1a1a;
+      --text-light: #444;
+      --bg: #f8f9fa;
+      --light: #ffffff;
+      --gray: #e0e0e0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+      padding: 60px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    header .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
+      border: 1px solid var(--gray);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .list-check {
+      list-style: none;
+      margin-top: 1.2rem;
+    }
+
+    .list-check li {
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 0.9rem;
+    }
+
+    .list-check li::before {
+      content: "✔";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      justify-content: center;
+    }
+
+    .stat-item {
+      text-align: center;
+      min-width: 160px;
+    }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 0;
+      margin-top: 3rem;
+    }
+
+    .website-link {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.3s;
+    }
+
+    .website-link:hover {
+      border-bottom-color: white;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.9rem; }
+      .stat-number { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Tristar Catering</h1>
+      <div class="subtitle">Công ty TNHH Dịch vụ Ăn uống Ba Sao</div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="section">
+      <h2>Giới thiệu chung</h2>
+      <p>Đơn vị hàng đầu miền Bắc chuyên cung cấp <span class="highlight">suất ăn công nghiệp</span>, dịch vụ catering cho nhà máy, khu công nghiệp và bếp ăn tập thể với hơn <span class="highlight">20 năm kinh nghiệm</span>.</p>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">2005</div>
+          <div class="stat-label">Năm thành lập</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">250K+</div>
+          <div class="stat-label">Suất ăn/ngày</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">60+</div>
+          <div class="stat-label">Địa điểm phục vụ</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Thông tin pháp lý</h2>
+      <div class="info-grid">
+        <div class="card">
+          <h3>Mã số thuế</h3>
+          <p class="highlight">0101606703</p>
+        </div>
+        <div class="card">
+          <h3>Ngày thành lập</h3>
+          <p><strong>04/02/2005</strong> (đã hoạt động hơn 20 năm)</p>
+        </div>
+        <div class="card">
+          <h3>Trạng thái</h3>
+          <p class="highlight">Đang hoạt động bình thường</p>
+        </div>
+        <div class="card">
+          <h3>Loại hình</h3>
+          <p>Công ty TNHH hai thành viên trở lên</p>
+        </div>
+        <div class="card">
+          <h3>Người đại diện PL</h3>
+          <p><strong>Nguyễn Thị Ngân</strong></p>
+        </div>
+        <div class="card">
+          <h3>Quản lý bởi</h3>
+          <p>Cục Thuế Thành phố Hà Nội</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Trụ sở & Chi nhánh</h2>
+      <div class="card">
+        <h3>Trụ sở chính</h3>
+        <p>Lô CX14 - Khu đô thị mới Linh Đàm, Phường Hoàng Liệt, Quận Hoàng Mai, Hà Nội</p>
+        
+        <h3 style="margin-top: 1.8rem;">Các khu vực phục vụ chính</h3>
+        <ul class="list-check">
+          <li>Thái Nguyên (Samsung Electronics VN...)</li>
+          <li>Bắc Ninh</li>
+          <li>Hải Phòng</li>
+          <li>Phú Thọ</li>
+          <li>Văn phòng đại diện tại TP. Hồ Chí Minh</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Lĩnh vực kinh doanh & Điểm mạnh</h2>
+      <div class="card">
+        <ul class="list-check" style="font-size: 1.05rem;">
+          <li>Cung cấp suất ăn công nghiệp theo hợp đồng (nhà máy, KCN)</li>
+          <li>Dịch vụ tiệc, hội nghị, sự kiện</li>
+          <li>Nhà hàng tại Hà Nội: New York Sports Bar, Fenghuang...</li>
+          <li>Cam kết <strong>an toàn thực phẩm</strong> - ISO quản lý</li>
+          <li>Bữa ăn tươi ngon, đa dạng, phù hợp nhiều đối tượng</li>
+          <li>Sử dụng công nghệ thông tin tối ưu hóa dịch vụ</li>
+          <li>Đội ngũ chuyên nghiệp, linh hoạt</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Website chính thức: 
+        <a href="https://tristarvn.com.vn" target="_blank" class="website-link">
+          tristarvn.com.vn
+        </a>
+      </p>
+      <p style="margin-top: 1rem; opacity: 0.9;">
+        © 2005 - 2026 Công ty TNHH Dịch vụ Ăn uống Ba Sao
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
