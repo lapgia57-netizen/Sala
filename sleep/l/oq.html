@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tuyển dụng Bảo vệ - Công ty Long Hải Securitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .highlight {
+      color: #ffd700;
+      font-weight: 700;
+    }
+
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #1e3c72;
+      margin-bottom: 24px;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: #ffd700;
+      border-radius: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: #f8f9ff;
+      border: 1px solid #e0e7ff;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(30,60,114,0.15);
+      border-color: #c3d4ff;
+    }
+
+    .card h3 {
+      color: #1e3c72;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .salary {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #e65100;
+      margin: 12px 0;
+    }
+
+    .benefits-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 1.05rem;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .benefits-list li::before {
+      content: "✔";
+      color: #28a745;
+      font-weight: bold;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 48px 0;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #e65100;
+      color: white;
+      padding: 16px 48px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(230,81,0,0.3);
+    }
+
+    .cta-btn:hover {
+      background: #c43e00;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(230,81,0,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: #666;
+      font-size: 0.95rem;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      header { padding: 50px 15px; }
+      .section { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Công ty Bảo vệ <span class="highlight">Long Hải Securitas</span></h1>
+      <p>Hơn 30 năm uy tín – Hơn 3000 nhân viên – Đơn vị bảo vệ hàng đầu Việt Nam</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="section">
+      <h2>Công việc cụ thể</h2>
+      <ul class="benefits-list">
+        <li>Tuần tra, giám sát, bảo đảm an ninh khu vực được phân công</li>
+        <li>Quản lý hàng hóa, người ra vào (nhân viên, nhà cung cấp, khách hàng)</li>
+        <li>Ca làm việc linh hoạt theo nguyện vọng:
+          <br>• 8 giờ/ca/ngày
+          <br>• 12 giờ/ca/ngày
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Mức thu nhập hấp dẫn</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Ca 8 tiếng</h3>
+          <div class="salary">5.230.000đ</div>
+          <p>26 công/tháng</p>
+        </div>
+        <div class="card">
+          <h3>Ca 8 tiếng</h3>
+          <div class="salary">6.685.000đ</div>
+          <p>30 công/tháng</p>
+        </div>
+        <div class="card">
+          <h3>Ca 12 tiếng</h3>
+          <div class="salary">8.777.000đ</div>
+          <p>26 công/tháng</p>
+        </div>
+        <div class="card">
+          <h3>Ca 12 tiếng</h3>
+          <div class="salary">10.960.000đ</div>
+          <p>30 công/tháng</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Quyền lợi nổi bật</h2>
+      <ul class="benefits-list">
+        <li>Nhà ở miễn phí cho nhân viên</li>
+        <li>Lương chuyển khoản đúng hạn ngày 5 hàng tháng (không nợ, không chậm)</li>
+        <li>Đầy đủ BHXH, BHYT, BHTN</li>
+        <li>Thưởng tháng 13 + thưởng thi đua theo quy chế công ty</li>
+        <li>14 ngày phép/năm</li>
+        <li>Chế độ hiếu hỷ, sinh nhật, quà công đoàn...</li>
+        <li>Cơ hội thăng tiến nhanh lên vị trí <strong>Ca trưởng / Chỉ huy</strong></li>
+      </ul>
+    </div>
+
+    <div class="cta">
+      <a href="tel:0123456789" class="cta-btn">Ứng tuyển ngay hôm nay!</a>
+      <p style="margin-top: 16px; color: #555;">Liên hệ ngay để được tư vấn chi tiết</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 1995 - 2026 Công ty Bảo vệ Long Hải Securitas • Đơn vị uy tín 30+ năm</p>
+  </footer>
+
+</body>
+</html>
