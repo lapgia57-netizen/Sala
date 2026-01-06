@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sơn Tây - Vùng Đất Kỷ Niệm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #f8f1e9 0%, #e6d9c6 100%);
+      color: #3a2f1f;
+      line-height: 1.7;
+      background-image: 
+        radial-gradient(circle at 25% 15%, rgba(210, 180, 140, 0.12) 0%, transparent 8%),
+        radial-gradient(circle at 75% 85%, rgba(210, 180, 140, 0.1) 0%, transparent 10%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 25px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      color: #4a3c1e;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.12);
+    }
+
+    .header::after {
+      content: "Vùng đất ngàn năm - Hồn Việt còn đây";
+      display: block;
+      font-size: 1.1rem;
+      color: #8b6f47;
+      margin-top: 12px;
+      font-style: italic;
+      letter-spacing: 1.5px;
+    }
+
+    .content-card {
+      background: #fffef7;
+      border: 2px solid #c19a6b;
+      border-radius: 12px;
+      padding: 45px;
+      margin-bottom: 40px;
+      box-shadow: 
+        0 12px 35px rgba(139, 111, 71, 0.18),
+        inset 0 0 25px rgba(210, 180, 140, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(210,180,140,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      color: #5c4424;
+      font-size: 2.1rem;
+      margin: 0 0 25px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #d4a373;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "✦";
+      position: absolute;
+      right: -35px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #c19a6b;
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 1.08rem;
+      color: #3f2e1a;
+      margin-bottom: 1.4em;
+    }
+
+    .highlight {
+      background: rgba(210, 180, 140, 0.18);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: 500;
+      color: #5c4424;
+    }
+
+    .tips {
+      background: #fdf8f0;
+      border-left: 5px solid #b8860b;
+      padding: 25px 30px;
+      margin: 35px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.95rem;
+      color: #7a5e3a;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2.8rem; }
+      .content-card { padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Sơn Tây</h1>
+    </div>
+
+    <div class="content-card">
+      <h2 class="section-title">Vùng đất lịch sử ngàn năm</h2>
+      <p>
+        Sơn Tây – cách trung tâm Hà Nội khoảng <span class="highlight">40-50 km</span> về phía Tây Bắc, 
+        là một trong những vùng đất cổ kính nhất miền Bắc. Nơi đây từng là thủ phủ tỉnh Sơn Tây thời Pháp thuộc, 
+        đồng thời là một trong <span class="highlight">Tứ trấn</span> bảo vệ Thăng Long xưa.
+      </p>
+
+      <p>
+        Thành cổ Sơn Tây – <strong>thành đá ong duy nhất còn sót lại</strong> ở Việt Nam, xây dựng năm 1822 dưới thời vua Minh Mạng, 
+        mang kiến trúc Vauban kiểu Pháp kết hợp hài hòa với truyền thống Việt Nam.
+      </p>
+
+      <h2 class="section-title">Làng cổ Đường Lâm</h2>
+      <p>
+        Làng cổ hơn <span class="highlight">400 năm tuổi</span>, nơi sinh ra hai vị vua anh hùng: 
+        <strong>Phùng Hưng</strong> và <strong>Ngô Quyền</strong>. Những ngôi nhà cổ, giếng nước, đình làng vẫn giữ 
+        nguyên nét đẹp truyền thống, như một bảo tàng sống giữa lòng đồng bằng Bắc Bộ.
+      </p>
+
+      <div class="tips">
+        <strong>Gợi ý du lịch cuối tuần:</strong><br>
+        • Xe máy/ô tô: 1 – 1.5 giờ từ trung tâm Hà Nội qua Quốc lộ 32<br>
+        • Thời gian đẹp nhất: Tháng 3-4 (xuân) hoặc 9-11 (thu)<br>
+        • Kết hợp thêm: Núi Ba Vì, đền Và, chùa Mía, hồ Đồng Mô
+      </div>
+
+      <h2 class="section-title">Sơn Tây – Hồn cốt Việt</h2>
+      <p>
+        Dù thời gian trôi qua, Sơn Tây vẫn giữ được nét thanh bình, cổ kính và đậm chất hồn Việt. 
+        Một nơi để trở về, để nhớ, và để cảm nhận rằng cội nguồn dân tộc vẫn đang sống rất thật giữa đời thường.
+      </p>
+    </div>
+
+    <div class="footer-note">
+      ✦ Kỷ niệm một miền ký ức – Sơn Tây, tháng 01 năm 2026 ✦
+    </div>
+  </div>
+
+</body>
+</html>
