@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Công ty TNHH Điện tử Sung Gwang</title>
+    <style>
+        :root {
+            --primary: #004aad;
+            --primary-dark: #003380;
+            --light: #f8f9fa;
+            --dark: #2d3748;
+            --gray: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            margin-bottom: 8px;
+        }
+
+        header .en-name {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2.3rem;
+            margin-bottom: 1.4em;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 5px;
+            background: var(--primary);
+            bottom: -12px;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.09);
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1.2em;
+            font-size: 1.5rem;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 14px;
+            font-size: 1.05rem;
+        }
+
+        .info-row strong {
+            min-width: 195px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .activities-box {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.09);
+            padding: 40px;
+        }
+
+        .activities-list {
+            list-style: none;
+            font-size: 1.08rem;
+        }
+
+        .activities-list li {
+            padding: 14px 0 14px 32px;
+            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .activities-list li:last-child {
+            border-bottom: none;
+        }
+
+        .activities-list li::before {
+            content: "✔";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+        }
+
+        .highlight-box {
+            background: #ebf4ff;
+            border-left: 5px solid var(--primary);
+            padding: 28px;
+            margin: 40px 0;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        .summary {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #f8f9fa, #edf2f7);
+        }
+
+        .summary p {
+            font-size: 1.25rem;
+            max-width: 860px;
+            margin: 0 auto;
+            color: #2d3748;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 60px 15px 40px; }
+            .section { padding: 50px 0; }
+            h2 { font-size: 2rem; }
+            .card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>CÔNG TY TNHH ĐIỆN TỬ SUNG GWANG</h1>
+        <div class="en-name">SUNG GWANG ELECTRONIC COMPANY LIMITED</div>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <h2>Thông tin cơ bản</h2>
+
+        <div class="info-grid">
+            <div class="card">
+                <h3>Thông tin pháp lý</h3>
+                <div class="info-row"><strong>Mã số thuế:</strong> 2400629477</div>
+                <div class="info-row"><strong>Ngày thành lập:</strong> 13/12/2012</div>
+                <div class="info-row"><strong>Tình trạng:</strong> Đang hoạt động</div>
+                <div class="info-row"><strong>Người đại diện:</strong> LEE MYOUNG SOO</div>
+            </div>
+
+            <div class="card">
+                <h3>Thông tin doanh nghiệp</h3>
+                <div class="info-row"><strong>Quốc gia đầu tư:</strong> Hàn Quốc</div>
+                <div class="info-row"><strong>Loại hình:</strong> Công ty TNHH ngoài nhà nước</div>
+                <div class="info-row"><strong>Địa chỉ:</strong> Lô C1, Khu công nghiệp Đình Trám, Phường Nếnh, Thị xã Việt Yên, Tỉnh Bắc Giang</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background:#f7f9fc;">
+    <div class="container">
+        <h2>Lĩnh vực hoạt động chính</h2>
+
+        <div class="activities-box">
+            <p style="margin-bottom:1.4em; font-size:1.15rem; color:#2d3748;">
+                Công ty chuyên sản xuất và gia công linh kiện điện tử, trọng tâm là các sản phẩm liên quan đến điện thoại di động và thiết bị điện tử.
+            </p>
+
+            <ul class="activities-list">
+                <li>Gia công linh kiện điện tử</li>
+                <li>Lắp ráp chi tiết vỏ điện thoại di động</li>
+                <li>Gia công dây sạc điện thoại di động</li>
+                <li>Gia công dây dẫn cáp cắm USB cho điện thoại di động</li>
+                <li>Lắp ráp dây điện, dây cáp cho ô tô, ti vi, tủ lạnh</li>
+                <li>Lắp ráp modun đèn LED</li>
+                <li>Lắp ráp linh kiện thiết bị tủ lạnh hoặc máy bắt muỗi</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Điểm nổi bật:</strong> Là doanh nghiệp quy mô lớn, từng tuyển dụng đến 15.000 lao động. Nhà xưởng sạch sẽ, hiện đại, có hỗ trợ xe đưa đón công nhân từ nhiều địa phương.
+        </div>
+    </div>
+</section>
+
+<section class="summary">
+    <div class="container">
+        <h2>Tóm tắt</h2>
+        <p>
+            Sung Gwang là một trong những nhà máy gia công linh kiện điện tử tiêu biểu của các doanh nghiệp Hàn Quốc tại Việt Nam, đóng vai trò quan trọng trong chuỗi cung ứng linh kiện và phụ kiện cho ngành điện thoại thông minh & thiết bị điện tử dân dụng.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
