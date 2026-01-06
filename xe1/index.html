@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Harry Potter và Phòng chứa Bí mật</title>
+    <style>
+        :root {
+            --primary: #4a2c0d;
+            --accent: #673ab7;
+            --light: #fff3e0;
+            --bg: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background-color: var(--bg);
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            padding: 35px;
+            margin-bottom: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .book-covers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .book-covers img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transition: all 0.35s ease;
+        }
+
+        .book-covers img:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .scene {
+            background: #fffaf0;
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(74,44,13,0.08);
+        }
+
+        .highlight {
+            background-color: var(--light);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .media-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2.5rem 0;
+        }
+
+        .media-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .media-item img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .tags {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin: 0 6px 10px;
+        }
+
+        .youtube-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .youtube-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: #f0e8ff;
+            border-radius: 12px;
+            font-style: italic;
+            color: #444;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Harry Potter và Phòng chứa Bí mật</h1>
+        <p><strong>Tựa gốc:</strong> Harry Potter and the Chamber of Secrets</p>
+        <p>Phần thứ hai trong bộ truyện nổi tiếng của J.K. Rowling – đầy bí ẩn và kịch tính!</p>
+    </div>
+
+    <h2>Một số bìa sách đẹp của các phiên bản khác nhau</h2>
+    <div class="book-covers">
+        <img src="https://m.media-amazon.com/images/I/81u9c4XlxLL._AC_UF1000,1000_QL80_.jpg" alt="Bìa Bloomsbury Anh">
+        <img src="https://m.media-amazon.com/images/I/51DH3H8J6AL.jpg" alt="Bìa Scholastic Mỹ">
+        <img src="https://m.media-amazon.com/images/I/81x+3iH6bIL._AC_UF1000,1000_QL80_.jpg" alt="Bìa MinaLima đặc biệt">
+        <img src="https://m.media-amazon.com/images/I/71N4+8K7HQL._AC_UF1000,1000_QL80_.jpg" alt="Bìa kỷ niệm 20 năm">
+    </div>
+
+    <h2>Tóm tắt nội dung chính (không spoiler nặng đầu truyện)</h2>
+    <div class="scene">
+        <p>Năm học thứ hai của Harry tại Hogwarts bắt đầu đầy rắc rối. Cậu bị mắc kẹt ở nhà Dursley, rồi bất ngờ được một gia tinh tên <span class="highlight">Dobby</span> cảnh báo không nên quay lại trường vì có nguy hiểm rình rập.</p>
+        
+        <p>Khi trở lại Hogwarts, những chuyện kỳ lạ liên tục xảy ra:</p>
+        <ul>
+            <li>Thông điệp bí ẩn viết bằng máu: <q>"Phòng chứa Bí mật đã mở ra. Kẻ thù của người thừa kế, hãy cẩn thận."</q></li>
+            <li>Nhiều học sinh (đặc biệt gốc Muggle) bị <strong>hóa đá</strong></li>
+            <li>Harry nghe thấy tiếng thì thầm kỳ lạ trong tường...</li>
+            <li>Và phát hiện mình có khả năng <span class="highlight">nói chuyện với rắn</span> (Parseltongue) – khả năng thường gắn với phù thủy hắc ám</li>
+        </ul>
+    </div>
+
+    <h2>Khoảnh khắc Harry nói tiếng Parseltongue (rất ấn tượng!)</h2>
+    <div class="youtube-embed">
+        <iframe src="https://www.youtube.com/embed/1bq0qffuQTs" title="Harry nói tiếng Parseltongue" allowfullscreen></iframe>
+    </div>
+
+    <div class="scene">
+        <p>Cùng Ron và Hermione, Harry cố gắng điều tra bí ẩn về <span class="highlight">Phòng chứa Bí mật</span> – căn phòng huyền thoại do chính <strong>Salazar Slytherin</strong> tạo ra, chứa một con quái vật kinh hoàng chỉ người thừa kế Slytherin mới điều khiển được.</p>
+    </div>
+
+    <h3>Một số vật phẩm & sinh vật quan trọng</h3>
+    <div class="media-grid">
+        <div class="media-item">
+            <img src="https://www.harrypotter.com/sites/default/files/styles/article_full_width/public/2021-07/tom-riddle-diary.png?itok=2v5vX8z-" alt="Nhật ký Tom Riddle">
+            <p><strong>Nhật ký cũ của Tom Riddle</strong><br><small>Vật phẩm then chốt trong series</small></p>
+        </div>
+        <div class="media-item">
+            <img src="https://www.harrypotter.com/sites/default/files/styles/article_full_width/public/2021-07/basilisk.png?itok=5zXhY9z-" alt="Tử Xà Basilisk">
+            <p><strong>Tử Xà Basilisk</strong><br><small>Con quái vật đáng sợ nhất phần này</small></p>
+        </div>
+    </div>
+
+    <div class="scene">
+        <p>Cuốn sách đầy những tình tiết <strong>gay cấn</strong>, <strong>hài hước</strong> (nhờ Gilderoy Lockhart siêu tự luyến), <strong>tình bạn keo sơn</strong>, và hé lộ nhiều bí mật lớn về quá khứ của Voldemort cũng như Harry.</p>
+
+        <div class="tags">
+            <span class="tag">Bí ẩn</span>
+            <span class="tag">Kịch tính</span>
+            <span class="tag">Hài hước</span>
+            <span class="tag">Huyền thoại Hogwarts</span>
+            <span class="tag">Parseltongue</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>Nếu bạn đang đọc lần đầu thì cực kỳ cuốn!<br>
+        Còn nếu đã đọc rồi, đây là phần làm nền tảng cực kỳ quan trọng cho các tập sau!</p>
+        <p><strong>Bạn muốn mình kể chi tiết hơn (có spoiler) hay muốn so sánh sách với phim không?</strong></p>
+    </div>
+</div>
+
+</body>
+</html>
