@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Giới thiệu Công ty TNHH M-TECH VINA</title>
+    <style>
+        :root {
+            --primary: #0052cc;
+            --primary-dark: #003d99;
+            --secondary: #f5f7fa;
+            --text: #333;
+            --light-text: #555;
+            --border: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 70px 0 45px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.92;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 22px;
+            font-size: 1.85rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .info-card {
+            background: var(--secondary);
+            padding: 22px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-size: 1.28rem;
+        }
+
+        ul {
+            padding-left: 22px;
+            list-style: square;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background-color: #e6f0ff;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .contact {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            border: 2px dashed var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.3rem; }
+            header { padding: 50px 0 35px; }
+            .section { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>CÔNG TY TNHH M-TECH VINA</h1>
+            <p class="subtitle">Nhà sản xuất & gia công linh kiện điện tử chất lượng cao tại Bắc Ninh</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <h2>Thông tin cơ bản</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Tên công ty</h3>
+                    <p>CÔNG TY TNHH M-TECH VINA</p>
+                    <p>M-TECH VINA COMPANY LIMITED</p>
+                    <p class="highlight">MTECH VINA CO.,LTD (viết tắt)</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Mã số thuế</h3>
+                    <p class="highlight">2300999812</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Ngày thành lập</h3>
+                    <p>20/11/2017</p>
+                    <p>Đang hoạt động</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Đại diện pháp luật</h3>
+                    <p>Ông LEE CHEOL JIN</p>
+                    <p>(Quốc tịch Hàn Quốc)</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Địa chỉ trụ sở</h3>
+                    <p>Số 10, Đường Lý Thần Tông</p>
+                    <p>Phường Võ Cường, TP. Bắc Ninh</p>
+                    <p>Tỉnh Bắc Ninh, Việt Nam</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Lĩnh vực hoạt động chính</h2>
+            <p>Công ty chuyên sản xuất, gia công linh kiện cho thiết bị điện tử, đặc biệt là phụ kiện cho điện thoại thông minh và thiết bị tiêu dùng.</p>
+            
+            <ul>
+                <li><strong>Sản xuất sản phẩm từ nhựa:</strong> Vỏ, khung, bộ phận plastic cho điện thoại, smartwatch, tablet, smart TV...</li>
+                <li><strong>Sản xuất sản phẩm từ thủy tinh:</strong> Cửa sổ camera, mặt lưng kính cường lực</li>
+                <li><strong>Gia công cơ khí & xử lý bề mặt kim loại:</strong> Sơn vỏ, gia công nhôm, thép không gỉ (SUS), cắt CNC, đột dập</li>
+                <li><strong>Sản xuất khuôn mẫu:</strong> NC JIG cho gia công và lắp ráp kim loại</li>
+                <li>Xuất nhập khẩu, phân phối hóa chất (sơn, mực, vecni...)</li>
+                <li>Cho thuê máy móc (CNC), kinh doanh bất động sản</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Vị trí trong chuỗi cung ứng</h2>
+            <p>M-TECH VINA là nhà cung cấp linh kiện (supplier) quan trọng trong ngành công nghiệp điện tử tại Việt Nam, đặc biệt tại khu vực Bắc Ninh – trung tâm của nhiều doanh nghiệp FDI Hàn Quốc.</p>
+            <p>Công ty có khả năng hỗ trợ sản xuất cho các tập đoàn lớn về thiết bị di động và điện tử tiêu dùng.</p>
+        </div>
+
+        <div class="contact">
+            <h2>Liên hệ</h2>
+            <p>Điện thoại: <strong>0222 369 9413</strong></p>
+            <p>Quản lý bởi: Cục Thuế tỉnh Bắc Ninh</p>
+            <p style="margin-top: 15px; font-style: italic;">Hiện chưa có website chính thức công khai</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
