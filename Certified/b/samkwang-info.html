@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samkwang Vina - Thông tin nhanh cho Bảo vệ</title>
+  <style>
+    :root {
+      --primary: #004aad;
+      --primary-dark: #003580;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+      --danger: #c82333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(to bottom, #e9f1ff, #ffffff);
+      color: #222;
+      min-height: 100vh;
+      padding: 12px;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: var(--primary);
+      color: white;
+      padding: 16px;
+      border-radius: 12px 12px 0 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .header p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      margin: 16px 0;
+      overflow: hidden;
+    }
+
+    .section-title {
+      background: #f0f4ff;
+      color: var(--primary);
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #e0e8ff;
+    }
+
+    .content {
+      padding: 16px;
+      line-height: 1.55;
+      font-size: 0.97rem;
+    }
+
+    .info-row {
+      display: flex;
+      margin: 10px 0;
+      gap: 12px;
+    }
+
+    .info-row .label {
+      width: 140px;
+      font-weight: 600;
+      color: var(--gray);
+      flex-shrink: 0;
+    }
+
+    .highlight {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .warning {
+      background: #fff5f5;
+      border-left: 4px solid var(--danger);
+      padding: 12px 16px;
+      margin: 16px;
+      border-radius: 6px;
+      color: #5c0000;
+    }
+
+    .btn-copy {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin: 16px;
+      width: calc(100% - 32px);
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn-copy:hover {
+      background: var(--primary-dark);
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.82rem;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="card">
+    <div class="header">
+      <h1>Samkwang Vina</h1>
+      <p>Thông tin nhanh dành cho bảo vệ (cập nhật 01/2026)</p>
+    </div>
+
+    <div class="section-title">Thông tin cơ bản</div>
+    <div class="content">
+      <div class="info-row">
+        <div class="label">Tên đầy đủ:</div>
+        <div>Công ty TNHH Samkwang Vina</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Quốc gia:</div>
+        <div><span class="highlight">100% vốn Hàn Quốc</span></div>
+      </div>
+      <div class="info-row">
+        <div class="label">Thuộc tập đoàn:</div>
+        <div>Samkwang Co., Ltd. (từ 1974)</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Website:</div>
+        <div>www.samkwang.com</div>
+      </div>
+    </div>
+
+    <div class="section-title">Địa chỉ & Vị trí</div>
+    <div class="content">
+      <strong>Lô U, Khu công nghiệp Quang Châu</strong><br>
+      Phường Quang Châu, thị xã Việt Yên, tỉnh Bắc Giang
+    </div>
+
+    <div class="section-title">Sản phẩm chính</div>
+    <div class="content">
+      Linh kiện nhựa cao cấp cho điện tử:<br>• Vỏ điện thoại, máy tính bảng<br>• Đồng hồ thông minh<br>• Bút S Pen Samsung<br>• Tai nghe<br>• Linh kiện ô tô<br>• Linh kiện thuốc lá điện tử (e-cigarette)
+    </div>
+
+    <div class="section-title">Quan hệ đối tác</div>
+    <div class="content">
+      Nhà cung cấp cấp 1 (Tier 1) quan trọng cho <strong>Samsung Electronics</strong>
+    </div>
+
+    <div class="section-title">Cảnh báo quan trọng</div>
+    <div class="warning">
+      <strong>Năm 2025:</strong> Công ty bị phạt 320 triệu đồng và tạm đình chỉ một phần hoạt động do vấn đề giấy phép môi trường (đã khắc phục).<br><br>
+      Một số vụ tai nạn lao động cũ (trước 2020) từng xảy ra.
+    </div>
+  </div>
+
+  <button class="btn-copy" onclick="copyAllInfo()">
+    📋 Copy toàn bộ thông tin
+  </button>
+
+  <div class="footer">
+    Dành cho mục đích nội bộ bảo vệ • Không chia sẻ ra ngoài
+  </div>
+
+</div>
+
+<script>
+function copyAllInfo() {
+  const text = `Samkwang Vina - Thông tin nhanh cho bảo vệ (01/2026)
+
+Tên đầy đủ: Công ty TNHH Samkwang Vina
+100% vốn Hàn Quốc - Tập đoàn Samkwang Co., Ltd. (từ 1974)
+Website: www.samkwang.com
+
+Địa chỉ: Lô U, KCN Quang Châu, P. Quang Châu, TX Việt Yên, Bắc Giang
+
+Sản phẩm chính:
+- Vỏ điện thoại, tablet, smartwatch
+- Bút S Pen Samsung
+- Tai nghe
+- Linh kiện ô tô
+- Linh kiện thuốc lá điện tử
+
+Quan hệ: Nhà cung cấp cấp 1 cho Samsung
+
+Cảnh báo:
+- 2025: Phạt 320 triệu + tạm đình chỉ một phần do môi trường (đã khắc phục)
+- Có tai nạn lao động cũ (trước 2020)`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Đã copy toàn bộ thông tin vào bộ nhớ tạm!");
+  }).catch(() => {
+    alert("Copy không thành công, vui lòng thử thủ công");
+  });
+}
+</script>
+
+</body>
+</html>
