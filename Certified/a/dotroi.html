@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ngòi Nổ - Nghĩa Đen & Nghĩa Bóng</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #1a1a1a;
+      --card: #ffffff;
+      --accent: #e63946;
+      --accent-dark: #b32d38;
+      --gray: #6c757d;
+      --border: #dee2e6;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --card: #161b22;
+      --accent: #f87171;
+      --accent-dark: #ef4444;
+      --gray: #8b949e;
+      --border: #30363d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin: 3rem 0 4rem;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #e63946, #f48c06);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.6rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      background: var(--card);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.15);
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 1.4rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 1.2rem 0;
+    }
+
+    li {
+      margin: 1rem 0;
+      padding-left: 2.2rem;
+      position: relative;
+    }
+
+    li::before {
+      content: '\f1e2';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+
+    .highlight {
+      background: rgba(230, 57, 70, 0.12);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      border-left: 4px solid var(--accent);
+      margin: 1.2rem 0;
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      padding: 1.1rem 1.2rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(230, 57, 70, 0.04);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6rem; }
+      .section { padding: 1.8rem; }
+      table { font-size: 0.92rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Ngòi Nổ</h1>
+    <p class="subtitle">Từ kỹ thuật quân sự đến ngôn ngữ đời thường</p>
+    <div class="theme-toggle" id="themeToggle" title="Chuyển theme">
+      <i class="fas fa-moon"></i>
+    </div>
+  </header>
+
+  <div class="section">
+    <h2>1. Nghĩa đen (Kỹ thuật - Quân sự)</h2>
+    <p>Ngòi nổ là bộ phận (hay cơ cấu) dùng để <strong>châm lửa</strong>, truyền ngọn lửa hoặc xung kích nổ vào khối thuốc nổ chính, làm cho nó phát nổ.</p>
+    <p>Còn được gọi là: <strong>kíp nổ</strong>, <em>detonator</em> (tiếng Anh), hoặc <em>fuse</em> trong một số ngữ cảnh.</p>
+
+    <h3>Các loại ngòi nổ phổ biến:</h3>
+    <ul>
+      <li><strong>Ngòi nổ thường (dây cháy chậm)</strong>: Dùng dây cháy chậm châm lửa → truyền dần đến thuốc nổ.</li>
+      <li><strong>Ngòi nổ điện</strong>: Dùng điện kích hoạt (kíp điện + dây dẫn + nguồn điện).</li>
+      <li><strong>Ngòi chạm nổ (contact fuze)</strong>: Nổ khi va chạm trực tiếp vào mục tiêu.</li>
+      <li><strong>Ngòi nổ hẹn giờ (time fuze)</strong>: Được cài đặt thời gian trước khi nổ.</li>
+      <li><strong>Ngòi nổ cận đích (proximity fuze)</strong>: Hiện đại nhất, tự động nổ khi đủ gần mục tiêu → tăng hiệu quả sát thương <strong>gấp 5–10 lần</strong> so với loại cũ.</li>
+    </ul>
+
+    <div class="highlight">
+      Việc <strong>châm ngòi nổ</strong> là công đoạn cực kỳ nguy hiểm, đòi hỏi kỹ thuật chuyên môn cao và tuân thủ nghiêm ngặt quy trình an toàn.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Nghĩa bóng (Đời thường - Chính trị - Xã hội)</h2>
+    <p>Ngòi nổ thường được dùng để chỉ <strong>tác nhân</strong>, <strong>mầm mống</strong> hoặc <strong>yếu tố then chốt</strong> có thể gây ra xung đột, bùng nổ lớn, khủng hoảng, tranh cãi hoặc sự kiện quan trọng.</p>
+
+    <h3>Các cách dùng phổ biến:</h3>
+    <ul>
+      <li><strong>Châm ngòi nổ</strong> = kích hoạt, gây ra một sự việc lớn (thường tiêu cực)<br>
+        → "Bài phát biểu của ông ấy đã <strong>châm ngòi nổ</strong> cho cuộc biểu tình."</li>
+      <li><strong>Tháo ngòi nổ</strong> = giải quyết, làm dịu đi tình hình căng thẳng<br>
+        → "Chính phủ đang cố gắng <strong>tháo ngòi nổ</strong> cho các vấn đề nóng trong khu vực."</li>
+      <li><strong>Ngòi nổ chính trị / xã hội</strong>: Các vấn đề dân chủ, nhân quyền, dân tộc - tôn giáo… đôi khi bị gọi là "ngòi nổ" để gây bất ổn.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Tóm tắt so sánh</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nghĩa</th>
+          <th>Ý nghĩa chính</th>
+          <th>Ví dụ cụm từ phổ biến</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nghĩa đen</strong></td>
+          <td>Bộ phận kích nổ thuốc nổ</td>
+          <td>Châm ngòi nổ, ngòi nổ điện, ngòi cận đích</td>
+        </tr>
+        <tr>
+          <td><strong>Nghĩa bóng</strong></td>
+          <td>Yếu tố gây ra xung đột/bùng nổ lớn</td>
+          <td>Châm ngòi nổ chiến tranh, tháo ngòi nổ căng thẳng</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  // Check saved theme or system preference
+  if (localStorage.getItem('theme') === 'dark' ||
+      (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    body.setAttribute('data-theme', 'dark');
+    toggle.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  toggle.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+  });
+</script>
+</body>
+</html>
