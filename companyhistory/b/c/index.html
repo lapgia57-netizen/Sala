@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CÔNG TY CỔ PHẦN VINAHAN</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004d99;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #666;
+            --success: #28a745;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 70px 20px 50px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+        }
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.92;
+            margin: 12px 0 8px;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            padding: 32px;
+            margin: 35px 0;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 10px;
+            margin: 0 0 24px;
+            font-size: 1.9rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 24px;
+            margin: 28px 0;
+        }
+        .info-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 22px;
+            border-left: 6px solid var(--primary);
+            transition: transform 0.2s;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        .info-card h3 {
+            margin: 0 0 10px;
+            color: var(--primary-dark);
+        }
+        ul {
+            padding-left: 22px;
+            margin: 12px 0;
+        }
+        .highlight {
+            background: rgba(0,102,204,0.1);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .summary {
+            text-align: center;
+            background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+            padding: 40px 20px;
+            border-radius: 12px;
+        }
+        .summary p {
+            font-size: 1.25rem;
+            max-width: 820px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+        .footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: var(--gray);
+            border-top: 1px solid #ddd;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.4rem; }
+            header { padding: 60px 15px 40px; }
+            .section { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>CÔNG TY CỔ PHẦN VINAHAN</h1>
+        <p class="subtitle">VINAHAN JOINT STOCK COMPANY</p>
+        <p>Thành lập: 03/11/2010 — Mã số thuế: <strong>2400528831</strong></p>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Thông tin cơ bản</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Mã số thuế</h3>
+                <p class="highlight">2400528831</p>
+            </div>
+            <div class="info-card">
+                <h3>Trụ sở chính</h3>
+                <p>Ngõ 43, đường Thân Khuê, Xã Song Mai (hoặc Phường Đa Mai), TP. Bắc Giang, tỉnh Bắc Giang</p>
+            </div>
+            <div class="info-card">
+                <h3>Người đại diện pháp luật</h3>
+                <p>Ông Thân Văn Khoa</p>
+            </div>
+            <div class="info-card">
+                <h3>Trạng thái</h3>
+                <p style="color: var(--success); font-weight: bold;">Đang hoạt động bình thường</p>
+            </div>
+            <div class="info-card">
+                <h3>Website chính thức</h3>
+                <p><a href="https://vinahan.com.vn" target="_blank" rel="noopener">vinahan.com.vn</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Lĩnh vực kinh doanh chính</h2>
+        <p>Công ty tập trung mạnh vào hai mảng sản xuất chủ lực:</p>
+        <ul>
+            <li><strong>Ngành may mặc</strong> (may trang phục, trừ trang phục từ da lông thú) – ngành nghề chính, chủ yếu xuất khẩu</li>
+            <li><strong>Sản xuất linh kiện điện tử</strong> – gia công lắp ráp vỏ điện thoại, thiết bị điện tử, bếp từ, sản phẩm điện dân dụng cao cấp</li>
+        </ul>
+        <p>Ngoài ra đăng ký nhiều ngành nghề bổ sung:</p>
+        <ul>
+            <li>Sản xuất sản phẩm từ gỗ, tre, nứa</li>
+            <li>Sản xuất mỹ phẩm, xà phòng</li>
+            <li>Sản xuất sản phẩm kim loại & thiết bị điện</li>
+            <li>Bán buôn/bán lẻ, vận tải, dịch vụ lưu trú, ăn uống, bất động sản...</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Quy mô & Cơ cấu tổ chức</h2>
+        <p>Hệ thống nhà máy và chi nhánh:</p>
+        <ul>
+            <li>Bắc Giang (trụ sở chính + Nhà máy số 3)</li>
+            <li>Chi nhánh Lục Nam và Tân Yên (Bắc Giang)</li>
+            <li>Hà Nam</li>
+            <li>Văn phòng đại diện tại Hà Nội</li>
+        </ul>
+        <p>Quy mô lao động: từ vài trăm đến gần 2.000 người (tùy nhà máy). Công ty chú trọng môi trường làm việc văn minh, tổ chức nhiều hoạt động đoàn thể, sự kiện cộng đồng.</p>
+    </div>
+
+    <div class="section">
+        <h2>Tầm nhìn & Giá trị cốt lõi</h2>
+        <blockquote>
+            Hướng tới trở thành doanh nghiệp lớn mạnh, chuyên nghiệp trong lĩnh vực 
+            <span class="highlight">linh kiện điện tử</span> và <span class="highlight">may mặc</span>, 
+            khẳng định vị thế trên thị trường trong nước và quốc tế.
+        </blockquote>
+        <p>Công ty luôn đặt mục tiêu mang lại giá trị tích cực cho nhân viên: không chỉ là nơi làm việc kiếm tiền, mà còn là môi trường đào tạo, nâng cao tay nghề và kỹ năng sống.</p>
+    </div>
+
+    <div class="summary">
+        <h2>Tóm tắt</h2>
+        <p>
+            Vinahan là doanh nghiệp sản xuất nội địa điển hình của miền Bắc Việt Nam, phát triển đa ngành nhưng thế mạnh rõ nét ở 
+            <strong>may mặc xuất khẩu</strong> và <strong>gia công linh kiện điện tử</strong>.
+        </p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>Thông tin tổng hợp đến tháng 01/2026 • Để cập nhật mới nhất, vui lòng truy cập <a href="https://vinahan.com.vn">vinahan.com.vn</a></p>
+</div>
+
+</body>
+</html>
