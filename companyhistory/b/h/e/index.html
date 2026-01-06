@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Thông tin Công ty TNHH Đông Myeong (Dong Myeong Co., Ltd)</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;       /* xanh đậm Hàn Quốc */
+            --secondary: #dc2626;     /* đỏ nổi bật */
+            --light: #f1f5f9;
+            --dark: #0f172a;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(to bottom, var(--light), #e2e8f0);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px 15px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 35px 30px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.65rem;
+            margin: 2rem 0 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 18px 30px;
+            margin: 1.8rem 0;
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .highlight {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--secondary);
+            font-size: 1.6rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .note {
+            background: #fef3c7;
+            border-left: 5px solid #d97706;
+            padding: 18px 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            font-size: 0.98rem;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .header {
+                padding: 30px 20px;
+            }
+            .content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Công ty TNHH Đông Myeong</h1>
+        <div class="subtitle">Dong Myeong Co., Ltd</div>
+    </div>
+
+    <div class="content">
+        <h2>Thông tin cơ bản</h2>
+        <div class="info-grid">
+            <div class="info-label">Mã số thuế:</div>
+            <div><span class="highlight">2300999812</span></div>
+
+            <div class="info-label">Ngày thành lập:</div>
+            <div>20/11/2017 (hoạt động hơn 8 năm)</div>
+
+            <div class="info-label">Đại diện pháp luật:</div>
+            <div>Ông Lee Cheol Jin (Hàn Quốc)</div>
+
+            <div class="info-label">Trụ sở chính:</div>
+            <div>Số 10, Đường Lý Thần Tông, Phường Võ Cường,<br>TP. Bắc Ninh, Tỉnh Bắc Ninh</div>
+
+            <div class="info-label">Loại hình:</div>
+            <div>Công ty TNHH (100% vốn đầu tư nước ngoài - Hàn Quốc)</div>
+        </div>
+
+        <h2>Lĩnh vực hoạt động</h2>
+        <ul>
+            <li><strong>Ngành chính:</strong> 82990 - Hoạt động dịch vụ hỗ trợ kinh doanh khác</li>
+            <li><strong>Ngành phụ:</strong> 2592 - Gia công cơ khí; xử lý và tráng phủ kim loại</li>
+        </ul>
+
+        <h2>Thực tế sản xuất & gia công</h2>
+        <p>Công ty chuyên sản xuất và gia công linh kiện nhựa & kim loại cho:</p>
+        <ul>
+            <li>Vỏ, khung, khuôn, bộ phận nhựa cho:
+                <ul>
+                    <li>Điện thoại di động</li>
+                    <li>Smartwatch & thiết bị đeo tay</li>
+                    <li>Máy tính bảng</li>
+                    <li>TV thông minh</li>
+                    <li>Phụ kiện tai nghe, quai đeo...</li>
+                </ul>
+            </li>
+            <li>Linh kiện ô tô (tấm chắn pin xe điện, bánh răng, trục vít, xi lanh...)</li>
+            <li>Công suất: hàng triệu sản phẩm/năm</li>
+        </ul>
+
+        <h2>Dự án nổi bật</h2>
+        <p><strong>Nhà máy Dong Myeong Bắc Giang</strong> (KCN Vân Trung, Bắc Giang)<br>
+        Được cấp Giấy chứng nhận đăng ký đầu tư năm 2022, tập trung sản xuất linh kiện nhựa điện tử & linh kiện ô tô.</p>
+
+        <h2>Vị trí trong chuỗi cung ứng</h2>
+        <p>Doanh nghiệp gia công điển hình trong cụm công nghiệp điện tử & ô tô<br>
+        Khu vực Bắc Ninh - Bắc Giang – trung tâm thu hút đầu tư Hàn Quốc & Nhật Bản.</p>
+
+        <div class="note">
+            <strong>Lưu ý quan trọng:</strong><br>
+            Thông tin dựa trên dữ liệu công khai (có thể cập nhật lần cuối cách đây 1-2 năm).<br>
+            Để kiểm tra tình trạng hoạt động mới nhất, vui lòng tra cứu Cổng thông tin quốc gia về đăng ký doanh nghiệp hoặc liên hệ trực tiếp công ty.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
