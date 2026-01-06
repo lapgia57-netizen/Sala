@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JA Solar Việt Nam - Thông tin công ty</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #666;
+            --success: #28a745;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 70px 20px 50px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        header .subtitle {
+            font-size: 1.35rem;
+            opacity: 0.92;
+            margin-top: 12px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            margin: 35px 0;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 18px 28px;
+            font-size: 1.45rem;
+            font-weight: 600;
+        }
+        .card-body {
+            padding: 28px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .info-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.2s;
+        }
+        .info-item:hover {
+            background: #eef4ff;
+        }
+        .info-item h3 {
+            margin: 0 0 12px;
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+        }
+        .highlight {
+            color: var(--success);
+            font-weight: bold;
+        }
+        ul {
+            padding-left: 22px;
+            margin: 12px 0;
+        }
+        li {
+            margin-bottom: 9px;
+        }
+        .footer {
+            text-align: center;
+            padding: 40px 0 30px;
+            color: var(--gray);
+            font-size: 0.95rem;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.4rem; }
+            header .subtitle { font-size: 1.15rem; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>JA Solar Việt Nam</h1>
+            <p class="subtitle">Công ty TNHH JA Solar Việt Nam - Nhà máy sản xuất pin năng lượng mặt trời hàng đầu tại Bắc Giang</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card-header">Thông tin cơ bản</div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>Tên công ty</h3>
+                        <p>CÔNG TY TNHH JA SOLAR VIỆT NAM<br>
+                        (JA Solar Viet Nam Company Limited - JAVN)</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Mã số thuế</h3>
+                        <p>2400807049</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Ngày thành lập & hoạt động</h3>
+                        <p>31/12/2016</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Trạng thái</h3>
+                        <p class="highlight">Đang hoạt động (Active)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Địa chỉ & Đại diện pháp luật</div>
+            <div class="card-body">
+                <p><strong>Trụ sở chính:</strong><br>
+                Lô G, Khu công nghiệp Quang Châu, Phường Quang Châu, Thị xã Việt Yên, Tỉnh Bắc Giang, Việt Nam</p>
+                <p><em>(Lưu ý: Một số tài liệu cũ ghi Bắc Ninh do thay đổi hành chính)</em></p>
+                
+                <p style="margin-top: 25px;"><strong>Người đại diện pháp luật:</strong><br>
+                GAO NINGXIN<br>
+                <small>(Một số tài liệu cập nhật ghi Fan Jing Chao hoặc Fan Yu Hong)</small></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Ngành nghề chính & Hoạt động</div>
+            <div class="card-body">
+                <p><strong>Mã ngành chính: 2790</strong> - Sản xuất thiết bị điện khác</p>
+                <ul>
+                    <li>Sản xuất thỏi silic đa tinh thể và thanh silic đơn tinh thể</li>
+                    <li>Sản xuất tấm silic đa tinh thể và đơn tinh thể</li>
+                    <li>Sản xuất tấm pin mặt trời (solar cells/modules) đa tinh thể và đơn tinh thể</li>
+                </ul>
+                
+                <p style="margin-top: 25px;"><strong>Hoạt động khác:</strong> Xuất khẩu sản phẩm (mã 8299)<br>
+                <span class="highlight">Gần 100% sản phẩm xuất khẩu</span> sang Mỹ, Trung Quốc, Malaysia, EU...</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Quy mô & Vốn đầu tư</div>
+            <div class="card-body">
+                <p><strong>Vốn đầu tư ban đầu:</strong> Khoảng 280 triệu USD</p>
+                <p><strong>Vốn điều chỉnh hiện tại:</strong> Lên đến khoảng <span class="highlight">969 triệu USD</span> (cho toàn bộ các dự án JA Solar tại Bắc Giang)</p>
+                
+                <p style="margin-top: 25px;">
+                    Là một trong những nhà máy sản xuất pin mặt trời lớn nhất của JA Solar tại nước ngoài.<br>
+                    Tạo việc làm cho hàng nghìn lao động địa phương.<br>
+                    Sử dụng công nghệ tiên tiến trong sản xuất wafer, cell và module pin năng lượng mặt trời.
+                </p>
+            </div>
+        </div>
+
+        <div class="card" style="background: #e8f4ff; border: 1px solid var(--primary);">
+            <div class="card-header" style="background: var(--primary-dark);">Vị thế chiến lược</div>
+            <div class="card-body">
+                <p>JA Solar Việt Nam là một phần quan trọng trong chiến lược mở rộng toàn cầu của Tập đoàn JA Solar (Trung Quốc) – một trong những nhà sản xuất pin năng lượng mặt trời hàng đầu thế giới (thành lập 2005, niêm yết tại Trung Quốc).</p>
+                <p>Việt Nam đóng vai trò then chốt trong chuỗi cung ứng năng lượng tái tạo toàn cầu nhờ:</p>
+                <ul>
+                    <li>Giảm chi phí sản xuất</li>
+                    <li>Tối ưu hóa chuỗi cung ứng</li>
+                    <li>Tăng thị phần quốc tế</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Thông tin được tổng hợp đến tháng 01/2026 | Liên hệ để cập nhật thông tin mới nhất</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
