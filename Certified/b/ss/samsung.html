@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Samsung Việt Nam 2017–2024: Thành tựu & Thách thức</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #0057B8;    /* Màu xanh Samsung chính */
+      --primary-dark: #004494;
+      --success: #00C853;
+      --warning: #FF6D00;
+      --danger: #D32F2F;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+      --dark: #212529;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section {
+      margin: 3rem 0;
+      padding: 2.5rem;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 4px solid;
+      display: inline-block;
+    }
+
+    .success .section-title {
+      color: var(--success);
+      border-bottom-color: var(--success);
+    }
+
+    .danger .section-title {
+      color: var(--danger);
+      border-bottom-color: var(--danger);
+    }
+
+    .highlight {
+      background-color: rgba(0,200,83,0.08);
+      border-left: 5px solid var(--success);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .warning-box {
+      background-color: rgba(255,109,0,0.08);
+      border-left: 5px solid var(--warning);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.8rem;
+    }
+
+    ul li::before {
+      content: "\f058"; /* check-circle */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--success);
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+
+    .danger ul li::before {
+      content: "\f059"; /* exclamation-circle */
+      color: var(--danger);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+      border: 1px solid #d0e0ff;
+      border-radius: 12px;
+      padding: 1.6rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+
+    .stat-label {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      .section { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Samsung Việt Nam 2017–2024</h1>
+    <p>Một trong những câu chuyện thành công lớn nhất của đầu tư nước ngoài (FDI) tại Việt Nam</p>
+  </header>
+
+  <div class="container">
+
+    <!-- THÀNH TỰU -->
+    <div class="section success">
+      <h2 class="section-title"><i class="fas fa-trophy"></i> Điểm tốt – Thành tựu nổi bật</h2>
+      
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number">23,2 tỷ USD</div>
+          <div class="stat-label">Tổng vốn đầu tư đến cuối 2024</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">~15–25%</div>
+          <div class="stat-label">Tỷ trọng xuất khẩu cả nước</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">>2 tỷ</div>
+          <div class="stat-label">Điện thoại sản xuất (tích lũy)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">160.000–200.000</div>
+          <div class="stat-label">Việc làm trực tiếp</div>
+        </div>
+      </div>
+
+      <ul>
+        <li>Doanh thu 2023–2024 ~62,5 tỷ USD | Xuất khẩu ~54,4 tỷ USD (chiếm ~13–16% tổng XK Việt Nam)</li>
+        <li>Sản xuất 50% sản lượng điện thoại toàn cầu của Samsung (bao gồm dòng cao cấp Galaxy S, Z Fold/Flip)</li>
+        <li>Trở thành cứ điểm sản xuất + R&D chiến lược toàn cầu</li>
+        <li>Trung tâm R&D lớn nhất Đông Nam Á tại Hà Nội (>220 triệu USD)</li>
+        <li>Chương trình CSR: "Ngôi trường Hy vọng Samsung" hỗ trợ >5.000 trẻ em khó khăn</li>
+        <li>Thúc đẩy công nghiệp hóa, chuyển giao công nghệ và nâng cao vị thế Việt Nam trong chuỗi giá trị toàn cầu</li>
+      </ul>
+    </div>
+
+    <!-- THÁCH THỨC -->
+    <div class="section danger">
+      <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Điểm xấu – Khó khăn & Vấn đề</h2>
+      
+      <div class="warning-box">
+        <strong>Lợi nhuận giảm dần dù doanh thu ổn định/tăng nhẹ:</strong><br>
+        • 9 tháng 2024: Lợi nhuận 4 nhà máy chính giảm 23,6%<br>
+        • Cả năm 2024: Giảm 11,4% còn khoảng 3,2–4,66 tỷ USD
+      </div>
+
+      <ul>
+        <li>Cạnh tranh gay gắt, chi phí nguyên liệu cao, suy thoái kinh tế toàn cầu, biến động tỷ giá</li>
+        <li>Vấn đề lao động & môi trường (báo cáo quốc tế & whistleblower): tiếp xúc hóa chất, xả thải, làm thêm giờ quá mức (giai đoạn 2012–2021, một phần kéo dài)</li>
+        <li>Nữ công nhân gặp vấn đề sức khỏe (chóng mặt, ngất, sảy thai – khảo sát 2017)</li>
+        <li>Tỷ lệ nội địa hóa còn thấp → doanh nghiệp Việt chưa tham gia sâu chuỗi cung ứng</li>
+        <li>Rủi ro phụ thuộc lớn: nếu Samsung gặp khó khăn toàn cầu → ảnh hưởng mạnh đến kinh tế Việt Nam</li>
+      </ul>
+    </div>
+
+    <div class="section" style="text-align:center; font-style:italic; color:var(--gray);">
+      <p>Tổng thể: Giai đoạn 2017–2024 là thời kỳ thịnh vượng vượt trội về kinh tế,<br>
+      dù vẫn còn những vấn đề về lợi nhuận và trách nhiệm xã hội cần cải thiện liên tục.</p>
+      <p style="margin-top:1rem; font-weight:bold;">Samsung vẫn cam kết coi Việt Nam là cứ điểm chiến lược dài hạn.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Dữ liệu tổng hợp đến năm 2024 • Thiết kế tham khảo cho mục đích trình bày thông tin</p>
+  </footer>
+
+</body>
+</html>
