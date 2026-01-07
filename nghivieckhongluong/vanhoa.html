@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Văn Hóa Việt Nam - Bản Sắc & Giá Trị</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #c0392b;       /* Đỏ gạch văn hóa */
+      --secondary: #27ae60;     /* Xanh lá tre */
+      --light: #f9f6f2;
+      --dark: #2c3e50;
+      --gold: #d4a373;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, var(--light), #fff);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem 4rem;
+      background: linear-gradient(rgba(192, 57, 43, 0.85), rgba(192, 57, 43, 0.7)), url('https://images.unsplash.com/photo-1580130718646-9f694209b207?auto=format&fit=crop&q=80') center/cover;
+      background-blend-mode: overlay;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: -4rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+
+    .intro-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+      padding: 3rem 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .intro-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      text-align: center;
+      margin: 3rem 0 2rem;
+      font-size: 2.8rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transition: all 0.35s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .card-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .card-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65), transparent 60%);
+    }
+
+    .card-content {
+      padding: 2rem 1.8rem;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      background: var(--secondary);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.8rem; }
+      .intro-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Văn Hóa Việt Nam</h1>
+    <p>Bản sắc dân tộc – Sống động qua ngàn năm lịch sử và đang tiếp tục tỏa sáng trong thời đại hội nhập</p>
+  </header>
+
+  <div class="container">
+
+    <div class="intro-card">
+      <h2>Văn hóa là gì?</h2>
+      <p>Theo UNESCO: Văn hóa là tổng thể sống động các hoạt động và sáng tạo trong quá khứ và hiện tại, hình thành hệ thống giá trị, truyền thống, thị hiếu đặc trưng của mỗi dân tộc.</p>
+      
+      <blockquote>
+        “Vì lẽ sinh tồn cũng như mục đích của cuộc sống, loài người mới sáng tạo và phát minh ra ngôn ngữ, chữ viết, đạo đức, pháp luật, khoa học, tôn giáo, văn học, nghệ thuật, những công cụ sinh hoạt hằng ngày... Toàn bộ những sáng tạo và phát minh đó tức là văn hóa.”  
+        — Chủ tịch Hồ Chí Minh
+      </blockquote>
+      
+      <p>Nói đơn giản: Văn hóa là tất cả những gì con người sáng tạo để sống, thích nghi, giao tiếp, thể hiện bản thân và truyền lại cho đời sau – từ vật chất đến tinh thần.</p>
+    </div>
+
+    <h2>Những nét đặc trưng nổi bật của văn hóa Việt Nam</h2>
+
+    <div class="features">
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1565071559768-2f0031e129f9?auto=format&fit=crop&q=80');"></div>
+        <div class="card-content">
+          <h3>Tính cộng đồng, làng xã</h3>
+          <p>Người Việt rất coi trọng “làng nước”, “xóm giềng” – hàng xóm láng giềng như anh em trong gia đình.</p>
+          <div class="tags">
+            <span class="tag">Làng xã</span>
+            <span class="tag">Đoàn kết</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1550258980-1f1d7b8f4d9f?auto=format&fit=crop&q=80');"></div>
+        <div class="card-content">
+          <h3>Lòng yêu nước & tinh thần dân tộc</h3>
+          <p>Xuyên suốt lịch sử, từ các cuộc kháng chiến đến đời sống thường nhật.</p>
+          <div class="tags">
+            <span class="tag">Yêu nước</span>
+            <span class="tag">Bất khuất</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1564507592333-cfacce0c714d?auto=format&fit=crop&q=80');"></div>
+        <div class="card-content">
+          <h3>Lòng nhân ái, thương người</h3>
+          <p>“Thương người như thể thương thân” – sẵn sàng giúp đỡ nhau trong khó khăn.</p>
+          <div class="tags">
+            <span class="tag">Nhân ái</span>
+            <span class="tag">Đồng cảm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80');"></div>
+        <div class="card-content">
+          <h3>Tôn trọng gia đình, tổ tiên</h3>
+          <p>Thờ cúng tổ tiên, kính trọng người lớn tuổi, chữ hiếu là giá trị cốt lõi.</p>
+          <div class="tags">
+            <span class="tag">Gia đình</span>
+            <span class="tag">Hiếu thảo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Biểu tượng văn hóa sống động</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 3rem; font-size:1.1rem;">
+      Ẩm thực (phở, bún chả, bánh mì…), trang phục (áo dài), lễ hội (Tết, hội Lim, hội Gióng…), nghệ thuật truyền thống (hát quan họ, đờn ca tài tử, múa rối nước, tranh Đông Hồ…) đang tiếp tục được gìn giữ và lan tỏa trong thời đại mới.
+    </p>
+
+  </div>
+
+  <footer>
+    <p>Văn hóa Việt Nam – Gìn giữ bản sắc, tiếp thu tinh hoa thế giới</p>
+    <p style="margin-top:0.8rem; opacity:0.8; font-size:0.95rem;">© 2026 - Nâng tầm giá trị Việt</p>
+  </footer>
+
+</body>
+</html>
