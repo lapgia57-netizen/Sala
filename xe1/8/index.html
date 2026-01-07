@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chè Tân Cương Thái Nguyên - Đệ Nhất Danh Trà Việt Nam</title>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --primary-light: #4caf50;
+      --text: #333;
+      --light-bg: #f8f9fa;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--light-bg);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://www.asiakingtravel.com/cuploads/files/image-20240510143701-4.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      color: var(--primary);
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--primary-light);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .intro-text {
+      font-size: 1.15rem;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item figcaption {
+      padding: 14px;
+      background: white;
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .tea-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border-left: 5px solid var(--primary);
+    }
+
+    .card:hover {
+      border-left-color: var(--primary-light);
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .how-to-brew {
+      background: #e8f5e9;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .conclusion {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.4rem; }
+      header { padding: 90px 20px; }
+      h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Chè Tân Cương Thái Nguyên</h1>
+      <p>Đệ nhất danh trà - Hương cốm non, thoảng hoa bưởi, hậu ngọt sâu lắng</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <p class="intro-text">
+        Chè Tân Cương (Trà Tân Cương) là một trong những đặc sản trà xanh nổi tiếng nhất Việt Nam, được mệnh danh là <strong>"đệ nhất danh trà"</strong> của đất nước. Được trồng và chế biến chủ yếu tại vùng Tân Cương (TP. Thái Nguyên và các xã lân cận), với khí hậu mát mẻ, đất bazan màu mỡ và sương mù bao phủ quanh năm, tạo nên hương vị đặc trưng khó lẫn.
+      </p>
+
+      <h2>Vùng đồi chè Tân Cương tuyệt đẹp</h2>
+      <div class="gallery">
+        <figure class="gallery-item">
+          <img src="https://www.asiakingtravel.com/cuploads/files/image-20240510143604-2.jpeg" alt="Đồi chè Tân Cương xanh mướt">
+          <figcaption>Đồi chè xanh bất tận</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://visitvietnam.org.vn/backend/public/Things-to-do/Thai-Nguyen/Stroll-through-the-Verdant-Tea-Hills-of-Tan-Cuong-Thai-Nguyen-4.jpg" alt="Cảnh đồi chè Tân Cương">
+          <figcaption>Tranh vẽ thiên nhiên</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://www.asiakingtravel.com/cuploads/files/image-20240510143701-4.jpeg" alt="Tea hills Tân Cương">
+          <figcaption>Check-in đồi chè nổi tiếng</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Các loại chè Tân Cương nổi tiếng</h2>
+      <div class="tea-types">
+        <div class="card">
+          <h3>Chè Đinh (Hảo hạng nhất)</h3>
+          <p>Làm từ búp non nhất, cuộn chặt như đinh, mang hương vị tinh tế bậc nhất.</p>
+        </div>
+        <div class="card">
+          <h3>Chè Tôm Nõn</h3>
+          <p>Búp và lá non, hình dáng đẹp, thơm ngon đậm đà.</p>
+        </div>
+        <div class="card">
+          <h3>Chè Móc Câu</h3>
+          <p>Lá cuộn cong như móc câu, phổ biến và dễ uống nhất.</p>
+        </div>
+      </div>
+
+      <h2>Lá trà khô chuẩn vị Tân Cương</h2>
+      <div class="gallery">
+        <figure class="gallery-item">
+          <img src="https://unimall.vn/public/uploads/images/tra-tan-cuong-thai-nguyen-cach-lua-chon-va-thuong-thuc-tra-ngon-03.jpg" alt="Chè khô Tân Cương">
+          <figcaption>Chè khô Tân Cương</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://m.media-amazon.com/images/I/514mw6nP3dL._AC_UF1000,1000_QL80_.jpg" alt="Trà xanh khô Tân Cương">
+          <figcaption>Trà khô cao cấp</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://cdn11.bigcommerce.com/s-qzq8dm5/images/stencil/1280x1280/products/24229/362407/C1119_5__11389.1634534059.JPG?c=2" alt="Lá trà Tân Cương">
+          <figcaption>Chè Đinh & Tôm Nõn</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Quá trình hái chè thủ công</h2>
+      <div class="gallery">
+        <figure class="gallery-item">
+          <img src="https://footprint.vn/wp-content/uploads/2024/12/vietnam-thai-nguyen-tea-affair-local.jpg" alt="Nông dân hái chè Tân Cương">
+          <figcaption>Hái chè bằng tay buổi sáng sớm</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://visitvietnam.org.vn/backend/public/Things-to-do/Thai-Nguyen/Stroll-through-the-Verdant-Tea-Hills-of-Tan-Cuong-Thai-Nguyen-3.jpg" alt="Hái trà thủ công">
+          <figcaption>1 búp + 2-3 lá non</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="how-to-brew">
+      <h2>Cách pha trà Tân Cương đúng chuẩn</h2>
+      <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.1rem;">
+        Dùng nước sôi khoảng <strong>80-90°C</strong>, ấm sứ hoặc gốm. Ngập nước rồi rót ra ngay. Có thể pha lại 3-4 lần vẫn giữ được hương vị tuyệt hảo!
+      </p>
+      <div class="gallery">
+        <figure class="gallery-item">
+          <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=5217954338297895" alt="Pha trà Tân Cương">
+          <figcaption>Trà xanh Tân Cương thơm lừng</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=3896683127010719" alt="Pha trà truyền thống">
+          <figcaption>Thưởng thức đúng điệu</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="conclusion">
+      <p>Uống trà Tân Cương không chỉ là thưởng thức mà còn tốt cho sức khỏe: thanh nhiệt, hỗ trợ tiêu hóa, chống oxy hóa và giúp tỉnh táo tự nhiên.</p>
+      <p style="margin-top: 20px; font-weight: bold; font-size: 1.3rem;">
+        Khi mua, hãy chọn sản phẩm có tem chỉ dẫn địa lý "Tân Cương" từ các thương hiệu uy tín như Lộc Tân Cương, Tân Cương Xanh, Hảo Đạt...
+      </p>
+      <p style="margin-top: 30px; font-style: italic;">
+        Bạn đã từng thưởng thức loại trà này chưa? Hãy chia sẻ cảm nhận của bạn nhé!
+      </p>
+    </section>
+
+  </div>
+
+</body>
+</html>
