@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kem Merino - Thương Hiệu Kem Quốc Dân Việt Nam</title>
+  <style>
+    :root {
+      --primary: #e91e63;     /* Màu hồng kem đặc trưng */
+      --secondary: #ff9800;   /* Cam tươi mát */
+      --light: #fff5f8;
+      --dark: #2d1b3f;
+      --gray: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #fff5f8 0%, #f8e1e9 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
+    .content {
+      padding: 2.5rem 2rem;
+    }
+
+    h2, h3 {
+      color: var(--primary);
+      margin: 1.8rem 0 1rem;
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      border-bottom: 3px solid var(--secondary);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #d81b60;
+    }
+
+    p.intro {
+      font-size: 1.15rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+
+    .product-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 1.6rem;
+      border: 1px solid #ffebee;
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(233,30,99,0.15);
+      border-color: var(--primary);
+    }
+
+    .product-card h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+    }
+
+    .price-tag {
+      font-weight: bold;
+      color: #e65100;
+      margin: 0.8rem 0;
+      font-size: 1.1rem;
+    }
+
+    .flavor-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .flavor-list li {
+      padding: 8px 0;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .flavor-list li::before {
+      content: "🍦";
+      position: absolute;
+      left: 0;
+      font-size: 1.3rem;
+    }
+
+    .highlight {
+      background: #fff3e0;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+      border-left: 5px solid var(--secondary);
+    }
+
+    .highlight p {
+      margin: 0.6rem 0;
+      font-weight: 500;
+    }
+
+    footer {
+      background: #f8e1e9;
+      text-align: center;
+      padding: 1.8rem;
+      color: #c2185b;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.1rem; }
+      .content { padding: 2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Kem Merino</h1>
+    <p>Thương hiệu kem quốc dân – Yêu thích nhất Việt Nam</p>
+  </header>
+
+  <div class="content">
+    <p class="intro">
+      Kem Merino là một trong những thương hiệu kem nổi tiếng và được yêu thích nhất tại Việt Nam, thuộc Công ty KIDO (trước đây là Wall's). 
+      Ra đời từ năm 2003, Merino chuyên sản xuất kem que, kem ốc quế (kem ly) và kem hộp với hương vị đa dạng từ truyền thống Việt Nam đến hiện đại.
+    </p>
+
+    <h2>Điểm nổi bật của Merino</h2>
+    <p>Chất kem mềm mịn, mát lạnh • Béo ngậy từ sữa tươi • Độ ngọt vừa phải • Nhiều vị đặc trưng người Việt: sầu riêng, đậu xanh, đậu đỏ, khoai môn...</p>
+
+    <h2>Các loại kem Merino phổ biến nhất (cập nhật 2025-2026)</h2>
+
+    <div class="product-grid">
+      <!-- Kem que -->
+      <div class="product-card">
+        <h4>1. Kem que (kem cây)</h4>
+        <div class="price-tag">Giá: 10.000 – 15.000 VNĐ/que</div>
+        <p>Dòng "quốc dân" bán chạy ở siêu thị, tạp hóa, xe kem rong</p>
+
+        <h3>Merino X Plus (phủ socola + ngũ cốc)</h3>
+        <ul class="flavor-list">
+          <li>Sầu riêng</li>
+          <li>Đậu xanh</li>
+          <li>Đậu đỏ</li>
+          <li>Khoai môn</li>
+        </ul>
+
+        <h3>Merino Yeah! / Kool</h3>
+        <ul class="flavor-list">
+          <li>Cacao socola (phủ yến mạch giòn)</li>
+          <li>Chuối truyền thống (đậu phộng + dừa)</li>
+          <li>Chè Thái (thạch trái cây + thạch dừa + sầu riêng)</li>
+        </ul>
+
+        <h3>Funny Face (dành cho trẻ em)</h3>
+        <ul class="flavor-list">
+          <li>Vani</li>
+          <li>Socola</li>
+        </ul>
+      </div>
+
+      <!-- Kem ốc quế -->
+      <div class="product-card">
+        <h4>2. Kem ốc quế (kem ly / Teen / Super Teen)</h4>
+        <div class="price-tag">Giá: 12.000 – 18.000 VNĐ</div>
+        <p>Phủ socola giòn tan, cực kỳ hấp dẫn</p>
+
+        <ul class="flavor-list">
+          <li>Teen sầu riêng</li>
+          <li>Ốc teen socola</li>
+          <li>Ốc teen vani</li>
+        </ul>
+      </div>
+
+      <!-- Kem hộp -->
+      <div class="product-card">
+        <h4>3. Kem hộp (gia đình)</h4>
+        <p>Dung tích phổ biến: 330ml, 500ml, 1L</p>
+
+        <h3>Các vị bán chạy</h3>
+        <ul class="flavor-list">
+          <li>Vani dâu</li>
+          <li>Vani socola</li>
+          <li>Sầu riêng sữa dừa</li>
+          <li>Khoai môn</li>
+          <li>Đậu xanh / Đậu đỏ</li>
+        </ul>
+        <p style="margin-top:1rem;">Nhiều nơi bán bộ 8 hương vị 500ml để thử đa dạng</p>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <h3>Top vị được đánh giá ngon nhất (theo người dùng Việt)</h3>
+      <p>1. Sầu riêng<br>2. Đậu xanh X Plus<br>3. Chè Thái<br>4. Chuối truyền thống<br>5. Cacao socola phủ yến mạch</p>
+    </div>
+
+    <h2 style="text-align:center; margin-top:2.5rem;">Bạn thích vị nào nhất? 🍦</h2>
+    <p style="text-align:center; font-size:1.2rem; color:#555;">
+      Comment ngay bên dưới hoặc hỏi mình chi tiết vị nào bạn đang tò mò nhé!
+    </p>
+  </div>
+
+  <footer>
+    Merino – Ngọt ngào từng khoảnh khắc • Thuộc Tập đoàn KIDO
+  </footer>
+</div>
+
+</body>
+</html>
