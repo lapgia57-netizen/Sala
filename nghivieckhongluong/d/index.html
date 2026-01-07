@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uniswap V4 - Pool Manager (Polygon)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f0f17;
+      --bg-card: #161b22;
+      --text: #e6e6ff;
+      --text-secondary: #a0a0cc;
+      --accent: #e91e63;
+      --accent-dark: #c2185b;
+      --border: #2a2a40;
+      --code-bg: #0d1117;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8f9ff;
+      --bg-card: #ffffff;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a6a;
+      --accent: #d81b60;
+      --accent-dark: #ad1457;
+      --border: #e0e0ff;
+      --code-bg: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #ff6ec7, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    .meta-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .meta-item {
+      background: var(--bg-card);
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .meta-item strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    section {
+      margin: 3rem 0;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    p, li {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .address-box {
+      background: var(--code-bg);
+      color: #ff79c6;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.2rem 1.5rem;
+      border-radius: 10px;
+      word-break: break-all;
+      border: 1px solid #444;
+      margin: 1.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .link {
+      color: #8be9fd;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+      color: #50fa7b;
+    }
+
+    .code-block {
+      background: var(--code-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: 'JetBrains Mono', monospace;
+      color: #f8f8f2;
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      color: #ff79c6;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    @media (max-width: 768px) {
+      .meta-info {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">☀️ / 🌙</button>
+
+  <div class="container">
+    <header>
+      <h1>Uniswap V4</h1>
+      <div class="subtitle">Pool Manager • Polygon Mainnet</div>
+    </header>
+
+    <div class="address-box">
+      0x67366782805870060151383f4bbff9dab53e5cd6
+    </div>
+
+    <div class="meta-info">
+      <div class="meta-item">
+        <strong>Tên hợp đồng</strong>
+        PoolManager
+      </div>
+      <div class="meta-item">
+        <strong>Label</strong>
+        Uniswap V4: Pool Manager
+      </div>
+      <div class="meta-item">
+        <strong>Compiler</strong>
+        Solidity 0.8.26+commit.8a97fa7a
+      </div>
+      <div class="meta-item">
+        <strong>Optimization</strong>
+        Enabled (runs: 44444444)
+      </div>
+      <div class="meta-item">
+        <strong>Status</strong>
+        Source code verified on PolygonScan
+      </div>
+    </div>
+
+    <section>
+      <h2>Giới thiệu</h2>
+      <p>
+        Đây là <strong>hợp đồng cốt lõi</strong> của Uniswap V4 – phiên bản mới nhất và tiên tiến nhất của Uniswap (tính đến tháng 1/2026).
+      </p>
+      <p>
+        Uniswap V4 mang đến nhiều cải tiến vượt trội: <span class="highlight">hooks</span>, <span class="highlight">dynamic fees</span>, <span class="highlight">singleton architecture</span>, transient storage (EIP-1153), và nhiều tính năng tối ưu gas khác.
+      </p>
+    </section>
+
+    <section>
+      <h2>Nguồn code</h2>
+      <ul>
+        <li><strong>PolygonScan (verified + flattened):</strong> 
+          <a href="https://polygonscan.com/address/0x67366782805870060151383f4bbff9dab53e5cd6#code" target="_blank" class="link">
+            Xem trực tiếp trên PolygonScan →
+          </a>
+        </li>
+        <li><strong>Repository chính thức Uniswap V4:</strong> 
+          <a href="https://github.com/Uniswap/v4-core" target="_blank" class="link">
+            https://github.com/Uniswap/v4-core
+          </a>
+        </li>
+      </ul>
+      <p>File chính: <code>src/PoolManager.sol</code> (kết hợp với các thư viện trong <code>src/libraries</code>, <code>src/types</code>, <code>src/interfaces</code>…)</p>
+    </section>
+
+    <section>
+      <h2>Chức năng chính</h2>
+      <div class="code-block">
+        <code>
+          • Singleton contract → tất cả pools trong <span class="highlight">1 hợp đồng duy nhất</span> (tiết kiệm gas lớn)<br>
+          • Hỗ trợ <span class="highlight">Hooks</span> (custom logic trước/sau swap, add/remove liquidity)<br>
+          • <span class="highlight">Dynamic fees</span> (phí linh hoạt theo điều kiện)<br>
+          • Tick-based concentrated liquidity (giống V3)<br>
+          • Transient storage (EIP-1153) tối ưu gas<br>
+          • Quản lý protocol fees, donate, take, settle, sync...
+        </code>
+      </div>
+    </section>
+
+    <section>
+      <h2>Các hàm quan trọng</h2>
+      <ul>
+        <li><code>initialize(PoolKey calldata key, uint160 sqrtPriceX96, bytes calldata hookData)</code></li>
+        <li><code>modifyLiquidity(...)</code></li>
+        <li><code>swap(...)</code></li>
+        <li><code>donate(...)</code></li>
+        <li><code>take(...), settle(...), sync(...)</code></li>
+        <li><code>setProtocolFee(...)</code></li>
+      </ul>
+    </section>
+
+    <footer>
+      Dữ liệu cập nhật đến tháng 01/2026 • Uniswap Labs & Community
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+
+</body>
+  </html>
