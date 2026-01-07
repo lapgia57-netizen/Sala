@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Bug Bounty Targets DeFi Smart Contract - Tháng 1/2026</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #e0e0e0;
+      background-color: #121212;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    h1, h2, h3 {
+      color: #00d4ff;
+    }
+    h1 {
+      text-align: center;
+      border-bottom: 2px solid #00d4ff;
+      padding-bottom: 10px;
+    }
+    .highlight {
+      background: #0d3b4a;
+      padding: 15px;
+      border-left: 5px solid #00d4ff;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .warning {
+      background: #3a1f1f;
+      border-left: 5px solid #ff4d4d;
+      padding: 15px;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+    th {
+      background: #2a2a2a;
+      color: #00d4ff;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Top Bug Bounty Targets DeFi Smart Contract – Tháng 1/2026</h1>
+  <p style="text-align:center; font-style:italic;">Hướng dẫn săn bug bounty chất lượng cao trong DeFi: phần thưởng lớn, repo active, code phức tạp → tiềm năng bug nghiêm trọng cao.</p>
+
+  <div class="section">
+    <h2>Target Số 1: Uniswap v4-core & Periphery</h2>
+    <div class="highlight">
+      <strong>Tổng bounty pool:</strong> Lên đến $44.4M (aggregate maximum payouts)<br>
+      <strong>Max payout cho 1 bug Critical:</strong> <strong style="font-size:1.3em;">$15.5 triệu USD</strong> – Lớn nhất lịch sử DeFi!<br>
+      <strong>Nền tảng:</strong> Cantina.xyz (hybrid contest + bounty)
+    </div>
+
+    <p><strong>Scope chính:</strong></p>
+    <ul>
+      <li>Uniswap/v4-core (PoolManager, libraries, hooks interface, flash accounting...)</li>
+      <li>Periphery contracts</li>
+      <li>Hooks (custom hooks do third-party deploy) – thường không nằm trong bounty chính, nhưng nếu ảnh hưởng core thì qualify</li>
+    </ul>
+
+    <p><strong>Trạng thái 2026:</strong> Vẫn active (v4 live từ ~Jan 2025). Code singleton + hooks cực kỳ phức tạp → vẫn còn nhiều tiềm năng bug ẩn (reentrancy, delta accounting sai, hook callback abuse, overflow trong TickMath...).</p>
+
+    <p><strong>Tại sao đáng săn nhất?</strong></p>
+    <ul>
+      <li>Phần thưởng khủng – có thể "đổi đời" với 1 bug critical</li>
+      <li>Code chất lượng cao nhưng rất mới & sáng tạo → dễ có bug logic</li>
+      <li>Nhiều audit nhưng hooks extensibility vẫn là điểm yếu tiềm ẩn</li>
+    </ul>
+
+    <p><strong>Repo để đọc:</strong> <a href="https://github.com/Uniswap/v4-core" target="_blank">https://github.com/Uniswap/v4-core</a></p>
+    <p><strong>Tips săn:</strong> Tập trung PoolManager.unlock() flow, delta settlement, hook callbacks (before/after swap/position), edge case native ETH.</p>
+  </div>
+
+  <div class="section">
+    <h2>Các Target DeFi Bug Bounty Khác Đáng Chú Ý (Top 2026)</h2>
+    <p>Dựa trên quy mô bounty, độ active và tiềm năng reward (Immunefi, Cantina, HackenProof, Sherlock...)</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Dự án/Protocol</th>
+          <th>Max Bounty (Critical)</th>
+          <th>Tổng pool ước tính</th>
+          <th>Nền tảng chính</th>
+          <th>Ghi chú nổi bật (2026)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Uniswap v4</td>
+          <td>$15.5M</td>
+          <td>$44.4M (aggregate)</td>
+          <td>Cantina / Uniswap</td>
+          <td>Lớn nhất lịch sử, vẫn hot</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Euler Finance</td>
+          <td>~$7.5M+</td>
+          <td>Cao</td>
+          <td>Immunefi</td>
+          <td>Lending protocol, nhiều audit, reward lớn</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Aave / Spark</td>
+          <td>$2M–$5M</td>
+          <td>Cao</td>
+          <td>Immunefi</td>
+          <td>Perpetual bounty, multi-chain</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Compound</td>
+          <td>$1M+</td>
+          <td>Tăng dần</td>
+          <td>Immunefi</td>
+          <td>Mới launch bounty lớn 2024–2025</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Various L2/L1 bridges</td>
+          <td>$1M–$10M</td>
+          <td>Cao</td>
+          <td>Immunefi</td>
+          <td>Wormhole, LayerZero, Across...</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Perpetual Protocol</td>
+          <td>$500k–$2M</td>
+          <td>Trung bình</td>
+          <td>Immunefi</td>
+          <td>Perpetual DEX, tương tự Uniswap</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Sherlock contests</td>
+          <td>$100k–$1M/contest</td>
+          <td>Biến động</td>
+          <td>Sherlock</td>
+          <td>Audit contest + bounty, payout khủng nếu thắng</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Nền Tảng Để Bắt Đầu Săn (2026)</h2>
+    <ul>
+      <li><strong>Immunefi.com</strong> → Tập trung hầu hết DeFi bounty lớn (<a href="https://immunefi.com/bug-bounty/" target="_blank">/bug-bounty/</a>)</li>
+      <li><strong>Cantina.xyz</strong> → Nền tảng mới nổi, chuyên contest + bounty cho Uniswap v4</li>
+      <li><strong>HackenProof</strong> → Danh sách web3 programs</li>
+      <li><strong>Sherlock</strong> → Audit contest (cạnh tranh cao nhưng payout khủng)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Lời Khuyên Săn Hiệu Quả (Đặc biệt Uniswap v4)</h2>
+    <ul>
+      <li>Đọc kỹ docs: <a href="https://docs.uniswap.org/contracts/v4/overview" target="_blank">https://docs.uniswap.org/contracts/v4/overview</a></li>
+      <li>Setup local env: Foundry + fork mainnet (Unichain/Base/Arbitrum)</li>
+      <li>Fuzz test: Hooks lifecycle + delta accounting (Echidna/Foundry fuzz)</li>
+      <li>Bug class phổ biến cần săn:
+        <ul>
+          <li>Reentrancy qua hook</li>
+          <li>Incorrect delta settlement</li>
+          <li>Hook permission abuse</li>
+          <li>Tick overflow/underflow</li>
+          <li>Flash accounting race condition</li>
+        </ul>
+      </li>
+      <li>Submit qua kênh chính thức (Cantina/Immunefi/blog Uniswap) để tránh reject</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>Chú ý quan trọng:</strong> $15.5M là maximum cho một bug critical duy nhất (nếu exploit drain toàn hệ thống). Đây là cơ hội "đổi đời" nếu bạn tìm được bug xịn trên v4-core!
+    </div>
+  </div>
+
+  <footer style="text-align:center; margin-top:40px; color:#888;">
+    <p>Cập nhật: Tháng 1/2026 | Dựa trên thông tin chính thức từ Uniswap Labs, Cantina.xyz & Immunefi</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
