@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gia Truyền Bệnh Tật - Bệnh Di Truyền</title>
+  <style>
+    :root {
+      --primary: #2c7be5;
+      --primary-dark: #1e5bb8;
+      --text: #2d3748;
+      --light-bg: #f7fafc;
+      --gray: #718096;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacC, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--light-bg);
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .content {
+      padding: 2.5rem 2rem;
+    }
+
+    h2 {
+      color: var(--primary-dark);
+      font-size: 1.65rem;
+      margin: 2.2rem 0 1rem;
+      border-left: 5px solid var(--primary);
+      padding-left: 1rem;
+    }
+
+    h3 {
+      color: #2d3748;
+      font-size: 1.35rem;
+      margin: 1.8rem 0 0.9rem;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+    }
+
+    ul, ol {
+      margin: 1rem 0 1.5rem 1.8rem;
+    }
+
+    li {
+      margin-bottom: 0.7rem;
+    }
+
+    .disease-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem;
+      margin: 1.3rem 0;
+      transition: all 0.2s ease;
+    }
+
+    .disease-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(44,123,229,0.12);
+      transform: translateY(-3px);
+    }
+
+    .disease-card h4 {
+      color: var(--primary-dark);
+      margin-bottom: 0.7rem;
+      font-size: 1.22rem;
+    }
+
+    .highlight {
+      background: #ebf4ff;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+
+    .note {
+      background: #fefcbf;
+      border-left: 5px solid #d69e2e;
+      padding: 1.2rem 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+
+    footer {
+      background: #2d3748;
+      color: white;
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8rem; }
+      .content { padding: 2rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Gia Truyền Bệnh Tật</h1>
+    <p>Bệnh di truyền – Hiểu biết để bảo vệ thế hệ tương lai</p>
+  </header>
+
+  <div class="content">
+    <p class="intro">
+      <strong>"Gia truyền bệnh tật"</strong> (hay còn gọi là bệnh di truyền) là những bệnh lý, rối loạn hoặc dị tật được truyền từ thế hệ này sang thế hệ khác trong gia đình, chủ yếu do <span class="highlight">đột biến gen</span> hoặc <span class="highlight">bất thường nhiễm sắc thể</span> được thừa hưởng từ cha mẹ (hoặc ông bà).
+    </p>
+
+    <p>Những bệnh này có thể biểu hiện ngay từ khi sinh ra hoặc khởi phát sau này. Không phải tất cả đều di truyền 100% – một số chỉ làm <strong>tăng nguy cơ</strong>, và yếu tố môi trường cũng đóng vai trò quan trọng.</p>
+
+    <h2>Phân loại chính các bệnh di truyền</h2>
+    <ul>
+      <li><strong>Di truyền đơn gen</strong> (do đột biến 1 gen): Bệnh máu khó đông, mù màu, thalassemia...</li>
+      <li><strong>Di truyền nhiễm sắc thể</strong> (thừa/thiếu NST): Hội chứng Down...</li>
+      <li><strong>Di truyền đa gen</strong> (nhiều gen + yếu tố môi trường): Bệnh tim mạch, ung thư di truyền, tiểu đường type 2...</li>
+    </ul>
+
+    <h2>Một số bệnh di truyền phổ biến ở người Việt</h2>
+
+    <div class="disease-card">
+      <h4>Hội chứng Down (tam nhiễm 21)</h4>
+      <p>Thừa một nhiễm sắc thể 21.<br>
+      <strong>Biểu hiện:</strong> Mặt đặc trưng (mắt xếch, mũi dẹt), chậm phát triển trí tuệ, vấn đề tim bẩm sinh, thị giác/thính giác.<br>
+      <strong>Tỷ lệ:</strong> Khoảng 1/700 – 1/1000 trẻ sinh ra.</p>
+    </div>
+
+    <div class="disease-card">
+      <h4>Bệnh tan máu bẩm sinh Thalassemia</h4>
+      <p>Rất <strong>phổ biến ở Việt Nam</strong> và Đông Nam Á.<br>
+      <strong>Nặng:</strong> Thiếu máu trầm trọng, cần truyền máu suốt đời<br>
+      <strong>Nhẹ:</strong> Chỉ mang gen, không biểu hiện<br>
+      <strong>Nguy cơ cao</strong> nếu cả bố lẫn mẹ đều mang gen → con có thể mắc thể nặng.</p>
+    </div>
+
+    <div class="disease-card">
+      <h4>Bệnh máu khó đông (Hemophilia)</h4>
+      <p>Thiếu yếu tố đông máu (thường liên kết NST X).<br>
+      Chủ yếu ở <strong>nam giới</strong>. Chảy máu kéo dài khi bị thương, dễ xuất huyết nội.</p>
+    </div>
+
+    <div class="disease-card">
+      <h4>Bệnh mù màu</h4>
+      <p>Khó phân biệt màu sắc (đỏ-xanh phổ biến nhất).<br>
+      Di truyền liên kết giới tính X → <strong>nam mắc nhiều hơn nữ</strong>.</p>
+    </div>
+
+    <div class="disease-card">
+      <h4>Các bệnh tim mạch di truyền</h4>
+      <p>Cơ tim phì đại, cơ tim giãn, hội chứng Brugada, bệnh mạch vành sớm.<br>
+      Nếu gia đình có người thân mắc bệnh tim <strong>trẻ tuổi</strong> → nguy cơ cao.</p>
+    </div>
+
+    <h2>Làm gì nếu gia đình có tiền sử bệnh gia truyền?</h2>
+    <ol>
+      <li><strong>Tư vấn di truyền</strong>: Khám bác sĩ chuyên khoa di truyền (Vinmec, Từ Dũ, Nhi Đồng, Hùng Vương...)</li>
+      <li><strong>Xét nghiệm gen</strong> trước hôn nhân hoặc trước mang thai (đặc biệt thalassemia, hemophilia...)</li>
+      <li><strong>Sàng lọc trước sinh</strong>: Siêu âm, Double/Triple test, NIPT, chọc ối...</li>
+      <li><strong>Sàng lọc phôi</strong> (khi làm IVF): Chọn phôi không mang gen bệnh</li>
+    </ol>
+
+    <div class="note">
+      Hiểu biết về bệnh di truyền giúp chúng ta <strong>chủ động hơn</strong> trong việc lập kế hoạch gia đình và chăm sóc sức khỏe. Nếu gia đình bạn có tiền sử bệnh cụ thể nào, hãy chia sẻ thêm để được giải thích chi tiết hơn nhé!
+    </div>
+  </div>
+
+  <footer>
+    <p>Thông tin tham khảo – Không thay thế tư vấn y khoa chuyên nghiệp</p>
+  </footer>
+</div>
+
+</body>
+</html>
