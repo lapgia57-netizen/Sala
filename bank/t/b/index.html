@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hướng Dẫn Lắp Ráp Smartphone Android Từ Linh Kiện Rời</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacC, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .content {
+      padding: 2rem;
+    }
+
+    h2, h3 {
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-left: 5px solid var(--primary);
+      padding-left: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.98rem;
+    }
+
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #eff6ff;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .highlight {
+      background-color: #ecfdf5;
+      padding: 1.4rem;
+      border-radius: 12px;
+      border-left: 5px solid #10b981;
+      margin: 1.5rem 0;
+    }
+
+    .warning {
+      background-color: #fef2f2;
+      border-left: 5px solid #ef4444;
+    }
+
+    ul.checklist {
+      list-style: none;
+      margin: 1.2rem 0;
+    }
+
+    ul.checklist li {
+      padding: 0.6rem 0 0.6rem 2.2rem;
+      position: relative;
+    }
+
+    ul.checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-top: 2.5rem;
+      color: #334155;
+    }
+
+    .price-note {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .content { padding: 1.5rem; }
+      .header { padding: 2rem 1.5rem; }
+      table { font-size: 0.92rem; }
+      th, td { padding: 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Hướng Dẫn Lắp Ráp Smartphone Android<br>Từ Linh Kiện Rời (2025-2026)</h1>
+    <p>Cách build máy "tái chế + ghép" phổ biến ở chợ linh kiện & các thợ sửa chữa chuyên nghiệp</p>
+  </div>
+
+  <div class="content">
+
+    <h2>1. Linh kiện chính cần chuẩn bị</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Linh kiện</th>
+          <th>Ghi chú quan trọng</th>
+          <th>Giá tham khảo (2025-2026)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Mainboard (bo mạch chủ)</td><td>Linh kiện quan trọng nhất, quyết định cấu hình</td><td>2.5 - 8 triệu</td></tr>
+        <tr><td>2</td><td>Màn hình (LCD/OLED + Digitizer)</td><td>Phải đúng model, có khung hoặc không khung</td><td>1.5 - 6 triệu</td></tr>
+        <tr><td>3</td><td>Vỏ máy (housing)</td><td>Full bộ (khung + nắp lưng + các nút)</td><td>300k - 2 triệu</td></tr>
+        <tr><td>4</td><td>Pin + keo dán pin</td><td>Dung lượng chuẩn hoặc lớn hơn</td><td>300k - 1.2 triệu</td></tr>
+        <tr><td>5</td><td>Camera trước + sau</td><td>Thường bán bộ (cụm sau + flex)</td><td>400k - 3 triệu</td></tr>
+        <tr><td>6</td><td>Loa ngoài, loa thoại, rung</td><td>3 món riêng hoặc combo</td><td>150k - 600k</td></tr>
+        <tr><td>7</td><td>Các flex cable (dây nối)</td><td>Sạc, nút nguồn, âm lượng, anten, màn hình...</td><td>100k - 400k/món</td></tr>
+        <tr><td>8</td><td>Các ốc vít, keo dán, băng keo</td><td>Keo dán màn hình, keo tản nhiệt, băng đồng...</td><td>100k - 300k tổng</td></tr>
+        <tr><td>9</td><td>Kính cường lực</td><td>Tùy chọn - dán sau khi hoàn thiện</td><td>100k - 500k</td></tr>
+      </tbody>
+    </table>
+    <p class="price-note">* Giá mang tính tham khảo, tùy model và nguồn hàng (chợ Nhật Tảo, Thâm Quyến, group linh kiện)</p>
+
+    <h2>2. Dụng cụ cần chuẩn bị (bắt buộc!)</h2>
+    <ul class="checklist">
+      <li>Bộ tua vít 4-6 đầu (Pentalobe, Phillips, Tri-wing...)</li>
+      <li>Nhíp chống tĩnh điện</li>
+      <li>Miếng gạt nhựa, dao tách keo</li>
+      <li>Máy sấy nhiệt (heat gun) hoặc iSesamo opener</li>
+      <li>Keo B7000 / keo UV / keo tản nhiệt</li>
+      <li>Dung dịch cồn isopropyl 99% + khăn lau</li>
+    </ul>
+
+    <h2>3. Quy trình lắp ráp cơ bản (thứ tự phổ biến nhất)</h2>
+
+    <h3>Bước 1: Lắp các linh kiện nhỏ lên mainboard (giai đoạn quan trọng nhất)</h3>
+    <ul>
+      <li>Gắn camera trước + camera sau</li>
+      <li>Gắn loa thoại (earpiece)</li>
+      <li>Gắn cảm biến ánh sáng & tiệm cận</li>
+      <li>Gắn loa ngoài (bottom speaker) & motor rung</li>
+      <li>Gắn các flex cable: sạc, nút nguồn + âm lượng, anten...</li>
+      <li><strong>Kiểm tra cẩn thận từng kết nối, không cắm ngược!</strong></li>
+    </ul>
+
+    <h3>Bước 2: Dán & kết nối pin</h3>
+    <p>Dán 2 mặt keo chuyên dụng → kết nối dây pin vào main (cực kỳ cẩn thận, tránh chập mạch)</p>
+
+    <h3>Bước 3: Lắp mainboard vào khung vỏ</h3>
+    <p>Đặt main vào housing → vặn ốc cố định (thường 10-20 con) → gắn nút vật lý nếu cần</p>
+
+    <h3>Bước 4: Lắp màn hình</h3>
+    <ul>
+      <li>Dán keo (UV hoặc B7000) quanh viền khung</li>
+      <li>Kết nối flex màn hình + cảm ứng</li>
+      <li>Ép khít, lau sạch bụi trước khi dán</li>
+      <li>Để khô 12-24h (tùy keo)</li>
+    </ul>
+
+    <h3>Bước 5: Lắp nắp lưng & hoàn thiện</h3>
+    <p>Dán keo nắp lưng → gắn camera sau (nếu tháo rời) → vặn ốc nếu có</p>
+
+    <h3>Bước 6: Kiểm tra & test máy</h3>
+    <ul class="checklist">
+      <li>Cắm sạc thử (không lên → kiểm tra flex sạc/pin)</li>
+      <li>Bật máy → logo</li>
+      <li>Test: cảm ứng, loa, micro, camera, wifi, 4G/5G, sạc nhanh, vân tay/mặt...</li>
+      <li>Nếu lỗi → tháo lại kiểm tra từng flex, lau chân cắm bằng cồn</li>
+    </ul>
+
+    <div class="highlight">
+      <strong>Lưu ý thực tế từ dân "lắp máy" chuyên nghiệp:</strong><br>
+      • Khó nhất: Gắn đúng flex, không đứt chân cáp, không cong main<br>
+      • Dễ hỏng nhất: Flex sạc, màn hình (dán lệch/bụi), pin (ngắn mạch)<br>
+      • Máy đẹp, chắc tay: Dùng keo tốt + ép màn hình thật khít<br>
+      • Tiết kiệm: Mua combo main + màn + vỏ từ shop uy tín<br>
+      • Thời gian: Người mới 3-8 tiếng, thợ pro 30-90 phút/máy
+    </div>
+
+    <h2>Ví dụ build phổ biến ở Việt Nam</h2>
+    <ul>
+      <li>Build lại iPhone 13/14 (main zin + màn zin Trung Quốc + vỏ zin)</li>
+      <li>Build Android tầm trung: Xiaomi, Samsung A series, Oppo (main zin + linh kiện thay thế)</li>
+      <li>Build máy "chơi": ghép main flagship cũ + vỏ mới đẹp lung linh</li>
+    </ul>
+
+    <div class="highlight warning">
+      <strong>Lời khuyên cho người mới:</strong><br>
+      Nên luyện tay bằng cách tháo lắp máy rẻ cũ trước (Redmi Note 8, Samsung A10/A20...) rồi mới chơi máy xịn nhé!
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
