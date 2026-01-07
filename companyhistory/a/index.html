@@ -1,192 +1,234 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Thông tin Công ty TNHH TK TECH VINA</title>
-    <style>
-        :root {
-            --primary: #1e40af;
-            --primary-dark: #1e3a8a;
-            --warning: #c2410c;
-            --warning-bg: #fffbeb;
-            --bg: #f8fafc;
-            --card: #ffffff;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg);
-            color: #1f2937;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        .container {
-            max-width: 920px;
-            margin: 0 auto;
-            background: var(--card);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 2.5rem 2rem;
-            text-align: center;
-        }
-        .header h1 {
-            margin-bottom: 0.5rem;
-            font-size: 2.1rem;
-        }
-        .header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        .content {
-            padding: 2.5rem;
-        }
-        h2 {
-            color: var(--primary-dark);
-            font-size: 1.6rem;
-            margin: 2rem 0 1rem;
-            position: relative;
-            padding-left: 1rem;
-        }
-        h2::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.3em;
-            height: 1.2em;
-            width: 5px;
-            background: var(--primary);
-            border-radius: 3px;
-        }
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        .label {
-            font-weight: 700;
-            background: #f1f5f9;
-            padding: 0.9rem;
-            border-radius: 8px;
-            color: #334155;
-        }
-        .value {
-            background: #f8fafc;
-            padding: 0.9rem;
-            border-radius: 8px;
-        }
-        .status-box {
-            background: var(--warning-bg);
-            border: 2px solid #fcd34d;
-            color: var(--warning);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            text-align: center;
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-        .status-box .detail {
-            font-size: 1rem;
-            font-weight: normal;
-            margin-top: 0.6rem;
-            color: #7c2d12;
-        }
-        .note {
-            background: #e0f2fe;
-            border-left: 5px solid var(--primary);
-            padding: 1.3rem;
-            margin: 2rem 0;
-            border-radius: 0 10px 10px 0;
-        }
-        .footer-note {
-            text-align: center;
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-top: 2.5rem;
-            padding: 1.5rem 0;
-            border-top: 1px solid #e2e8f0;
-        }
-        @media (max-width: 600px) {
-            .info-grid { grid-template-columns: 1fr; }
-            .header h1 { font-size: 1.8rem; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CÔNG TY TNHH ĐẦU TƯ VÀ PHÁT TRIỂN TK VINA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #2d3748;
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: white;
+      padding: 50px 40px 40px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.1rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .header .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      color: #1e40af;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background: #3b82f6;
+      border-radius: 3px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 16px 24px;
+      align-items: start;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .info-value {
+      color: #1f2937;
+    }
+
+    .highlight {
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+
+    .status {
+      display: inline-block;
+      background-color: #d1fae5;
+      color: #065f46;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .industry-list {
+      margin-top: 12px;
+      padding-left: 20px;
+      list-style: none;
+    }
+
+    .industry-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+    }
+
+    .industry-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .contact-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .header {
+        padding: 40px 25px 30px;
+      }
+      .content {
+        padding: 30px 25px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
     <div class="header">
-        <h1>CÔNG TY TNHH TK TECH VINA</h1>
-        <div class="subtitle">TK TECH VINA Limited Liability Company</div>
+      <h1>CÔNG TY TNHH ĐẦU TƯ VÀ PHÁT TRIỂN TK VINA</h1>
+      <div class="subtitle">Mã số thuế: 2400999189</div>
     </div>
 
     <div class="content">
-        <h2>Thông tin cơ bản</h2>
+
+      <div class="section">
+        <h2 class="section-title">Thông tin cơ bản</h2>
         <div class="info-grid">
-            <div class="label">Mã số thuế</div>
-            <div class="value">2400883924</div>
+          <div class="info-label">Tên đầy đủ:</div>
+          <div class="info-value highlight">CÔNG TY TNHH ĐẦU TƯ VÀ PHÁT TRIỂN TK VINA</div>
 
-            <div class="label">Ngày thành lập</div>
-            <div class="value">09/03/2020 (hoạt động ~5-6 năm)</div>
+          <div class="info-label">Mã số thuế:</div>
+          <div class="info-value">2400999189</div>
 
-            <div class="label">Người đại diện</div>
-            <div class="value">Đỗ Văn Trường</div>
+          <div class="info-label">Địa chỉ trụ sở:</div>
+          <div class="info-value">Tổ dân phố Kiểu, Phường Bích Động, Thị xã Việt Yên, Tỉnh Bắc Giang, Việt Nam</div>
 
-            <div class="label">Địa chỉ</div>
-            <div class="value">Tổ dân phố Kiểu (Thôn Kiểu), Phường Bích Động, Thị xã Việt Yên, Tỉnh Bắc Giang</div>
+          <div class="info-label">Người đại diện:</div>
+          <div class="info-value">Ông Đỗ Văn Trường</div>
 
-            <div class="label">Loại hình</div>
-            <div class="value">Công ty TNHH (có thể là TNHH một thành viên)</div>
+          <div class="info-label">Ngày thành lập:</div>
+          <div class="info-value">20/09/2024 <span style="color:#dc2626;">(công ty mới ~1 năm)</span></div>
 
-            <div class="label">Ngành nghề chính</div>
-            <div class="value">Sản xuất linh kiện điện tử (Manufacturing of electronic components)</div>
+          <div class="info-label">Trạng thái:</div>
+          <div><span class="status">Đang hoạt động bình thường</span></div>
 
-            <div class="label">Cơ quan thuế</div>
-            <div class="value">Chi cục Thuế khu vực Việt Yên - Hiệp Hòa</div>
+          <div class="info-label">Loại hình DN:</div>
+          <div class="info-value">Công ty TNHH ngoài nhà nước</div>
+
+          <div class="info-label">Cơ quan thuế:</div>
+          <div class="info-value">Thuế cơ sở 2 tỉnh Bắc Ninh</div>
         </div>
+      </div>
 
-        <h2>Trạng thái hiện tại (01/2026)</h2>
-        <div class="status-box">
-            NGƯNG HOẠT ĐỘNG KINH DOANH
-            <div class="detail">Chưa hoàn thành thủ tục chấm dứt hiệu lực mã số thuế</div>
-        </div>
-
-        <p>Theo masothue.com (cập nhật 05/01/2026): Công ty đã <strong>ngừng hoạt động thực tế</strong>, nhưng thủ tục giải thể/chấm dứt mã số thuế <strong>vẫn chưa hoàn tất</strong>.</p>
-
-        <div class="note">
-            <strong>Lưu ý:</strong> Một số trang khác có thể vẫn hiển thị "Đang hoạt động" do dữ liệu chưa đồng bộ. 
-            Thông tin từ masothue.com hiện là nguồn chính thức và mới nhất.
-        </div>
-
-        <h2>Thông tin bổ sung</h2>
-        <ul>
-            <li>Không có tin tức/tuyển dụng/hoạt động mới gần đây</li>
-            <li>Giai đoạn đầu có thể liên quan đến cơ quan thuế tỉnh Bắc Ninh</li>
-            <li>Chuyên sản xuất và lắp ráp linh kiện điện tử</li>
+      <div class="section">
+        <h2 class="section-title">Ngành nghề kinh doanh</h2>
+        <p><strong>Ngành nghề chính:</strong> <span class="highlight">Sản xuất linh kiện điện tử</span></p>
+        
+        <p><strong>Một số ngành nghề phụ:</strong></p>
+        <ul class="industry-list">
+          <li>Đại lý, môi giới, đấu giá (trừ đấu giá hàng hóa)</li>
+          <li>Bán buôn thiết bị và linh kiện điện tử, viễn thông</li>
+          <li>Bán buôn nhiên liệu rắn, lỏng, khí và các sản phẩm liên quan</li>
+          <li>Bán buôn vật liệu, thiết bị lắp đặt khác trong xây dựng</li>
+          <li>Bán lẻ đồ ngũ kim, sơn, kính và thiết bị lắp đặt khác trong xây dựng</li>
+          <li>Kinh doanh bất động sản, quyền sử dụng đất thuộc chủ sở hữu, chủ sử dụng hoặc đi thuê</li>
         </ul>
+      </div>
 
-        <div class="note">
-            <strong>Khuyến nghị:</strong> Để xác nhận chính xác nhất, vui lòng liên hệ:<br>
-            • Chi cục Thuế khu vực Việt Yên - Hiệp Hòa<br>
-            • Cổng thông tin quốc gia về đăng ký doanh nghiệp
+      <div class="section">
+        <h2 class="section-title">Thông tin liên hệ</h2>
+        <div class="contact-box">
+          <p><strong>Điện thoại:</strong> <a href="tel:0984695168" style="color:#1d4ed8; text-decoration:none; font-weight:600;">0984 695 168</a></p>
+          <p><strong>Ghi chú:</strong> Vốn điều lệ không công khai trên dữ liệu tra cứu miễn phí</p>
         </div>
+      </div>
 
-        <div class="footer-note">
-            Thông tin mang tính tham khảo từ nguồn công khai • Cập nhật: Tháng 01/2026
-        </div>
+      <div class="footer-note">
+        Công ty mới thành lập tại Bắc Giang, tập trung sản xuất linh kiện điện tử và các hoạt động thương mại liên quan.<br>
+        Cập nhật: Tháng 01/2026 • Tra cứu chi tiết tại <a href="https://masothue.com/2400999189-cong-ty-tnhh-dau-tu-va-phat-trien-tk-vina" target="_blank" style="color:#3b82f6;">masothue.com</a>
+      </div>
+
     </div>
-</div>
+  </div>
 
 </body>
 </html>
