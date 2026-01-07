@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uniswap v4-core • Phân tích Repository (Tháng 1/2026)</title>
+  <style>
+    :root {
+      --bg: #0f0f1a;
+      --text: #e0e0ff;
+      --accent: #ff0099;
+      --accent-dark: #c5006f;
+      --card: #161b2e;
+      --border: #2a334f;
+      --muted: #a0a0c0;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8f9ff;
+        --text: #1a1a3a;
+        --card: #ffffff;
+        --border: #e0e0ff;
+        --muted: #5a5a8a;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, #ff0099, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .meta-item {
+      background: rgba(255,0,153,0.08);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,0,153,0.15);
+    }
+
+    .meta-item strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 1rem 1.2rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: rgba(255,0,153,0.12);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hook-points {
+      background: rgba(0,212,255,0.08);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border-left: 4px solid #00d4ff;
+    }
+
+    .highlight {
+      color: #00ff9d;
+      font-weight: 600;
+    }
+
+    .conclusion {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 1.8rem; }
+      h1 { font-size: 2rem; }
+      table, th, td { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Uniswap v4-core Repository Analysis</h1>
+  <p style="text-align:center; color:var(--muted); margin-bottom:2.5rem;">
+    Tính đến đầu tháng 1/2026 • Core smart contracts của Uniswap phiên bản tiên tiến nhất
+  </p>
+
+  <h2>Tổng quan Repository (gần nhất)</h2>
+  <div class="meta">
+    <div class="meta-item">
+      <strong>Stars</strong> ≈ 2.4k
+    </div>
+    <div class="meta-item">
+      <strong>Forks</strong> ≈ 1.2k
+    </div>
+    <div class="meta-item">
+      <strong>Contributors</strong> 77 người
+    </div>
+    <div class="meta-item">
+      <strong>Ngôn ngữ chính</strong> Solidity (~96%)
+    </div>
+    <div class="meta-item">
+      <strong>Commit cuối</strong> 23/10/2025
+    </div>
+    <div class="meta-item">
+      <strong>Tổng commits (main)</strong> > 1.500
+    </div>
+    <div class="meta-item">
+      <strong>License</strong> BUSL-1.1 → MIT
+    </div>
+    <div class="meta-item">
+      <strong>Trạng thái</strong> Active • Đang ổn định
+    </div>
+  </div>
+
+  <h2>Trạng thái triển khai thực tế (Tháng 1/2026)</h2>
+  <ul>
+    <li>Deploy chính thức Ethereum mainnet & nhiều L2 từ <strong>~22/01/2025</strong></li>
+    <li>Live trên: Ethereum • Base • Unichain • Arbitrum • Optimism • Polygon • v.v.</li>
+    <li>Bug Bounty: <strong class="highlight">$15.5 triệu</strong> (một trong những bounty lớn nhất lịch sử DeFi)</li>
+    <li>Hệ sinh thái <strong>Hooks</strong> đang phát triển rất mạnh mẽ</li>
+  </ul>
+
+  <h2>Điểm sáng tạo lớn nhất của Uniswap v4 (so sánh với v3)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tính năng</th>
+        <th>Uniswap v3</th>
+        <th>Uniswap v4</th>
+        <th>Lợi ích chính</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cấu trúc contract</td>
+        <td>Mỗi pool = 1 contract riêng</td>
+        <td>Singleton – tất cả pools trong <strong>PoolManager</strong></td>
+        <td>Tiết kiệm gas cực lớn khi tạo pool</td>
+      </tr>
+      <tr>
+        <td>Gas khi swap/liquidity</td>
+        <td>Cao khi nhiều hành động</td>
+        <td>Flash Accounting + unlock() + delta</td>
+        <td>Giảm <strong>30–99%</strong> tùy trường hợp</td>
+      </tr>
+      <tr>
+        <td>Tùy chỉnh logic</td>
+        <td>Gần như không có</td>
+        <td><strong>Hooks</strong> (8 lifecycle points)</td>
+        <td>Dynamic fee, oracle, limit-order, TWAMM...</td>
+      </tr>
+      <tr>
+        <td>Native token hỗ trợ</td>
+        <td>Không</td>
+        <td>Hỗ trợ native ETH trực tiếp</td>
+        <td>Không cần WETH nữa</td>
+      </tr>
+      <tr>
+        <td>Dynamic fee</td>
+        <td>Cố định khi tạo pool</td>
+        <td>Thay đổi động qua hook</td>
+        <td>Linh hoạt hơn rất nhiều</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Hooks là gì và tại sao quan trọng?</h2>
+  <p>Hooks là contract riêng mà liquidity provider/creator có thể gắn vào pool khi khởi tạo.</p>
+
+  <div class="hook-points">
+    <strong>Các lifecycle points mà hook được gọi:</strong><br><br>
+    • beforeInitialize / afterInitialize<br>
+    • beforeModifyPosition / afterModifyPosition<br>
+    • beforeSwap / afterSwap<br>
+    • beforeDonate / afterDonate
+  </div>
+
+  <p style="margin-top:1.2rem;">
+    → Cho phép triển khai gần như <strong>mọi ý tưởng DeFi</strong>:<br>
+    • Dynamic fee theo volatility<br>
+    • On-chain limit order<br>
+    • TWAMM<br>
+    • Custom oracle<br>
+    • Fee switch về DAO<br>
+    • Volatility-based range order<br>
+    • ...
+  </p>
+
+  <h2 style="margin-top:2.5rem;">Đánh giá tổng thể (Tháng 1/2026)</h2>
+  <ul>
+    <li>Code chất lượng cao, nhiều lần audit</li>
+    <li>Test coverage tốt (Foundry + Echidna + invariant tests)</li>
+    <li>Đã chuyển từ giai đoạn early draft → production-ready</li>
+    <li>Phát triển chậm lại → dấu hiệu tốt (tập trung stability & ecosystem)</li>
+    <li>Một trong những repo <strong>quan trọng nhất DeFi</strong> nếu bạn muốn nghiên cứu:
+      <ul style="margin-top:0.6rem;">
+        <li>AMM thế hệ mới</li>
+        <li>Gas optimization cực đoan</li>
+        <li>Singleton + Flash Accounting design pattern</li>
+        <li>Hook-based extensibility</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="conclusion">
+    Nếu bạn định build hook hoặc nghiên cứu sâu Uniswap v4 — đây là repo <strong>bắt buộc phải đọc</strong>.<br>
+    Bạn muốn đi sâu vào phần nào? (unlock(), hook lifecycle, gas benchmark, PoolManager, một hook cụ thể...)
+  </div>
+</div>
+
+</body>
+</html>
