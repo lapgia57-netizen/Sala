@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bánh Mochi - Món Ngọt "Nghiện" Của Người Việt</title>
+  <style>
+    :root {
+      --primary: #ff6b81;
+      --dark: #2d2d2d;
+      --light: #fff;
+      --gray: #f5f5f5;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--gray);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      background: var(--light);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .intro {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin-bottom: 50px;
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding: 10px 0;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+    .gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+    .gallery::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    .gallery-item {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .highlight {
+      background: #fff5f5;
+      padding: 20px;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .gallery-item {
+        flex: 0 0 280px;
+      }
+      .gallery-item img {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Bánh Mochi – Món Ngọt "Nghiện" Nhất Hiện Nay!</h1>
+    <p class="intro">Một trong những món bánh ngọt khiến nhiều người Việt "mê mẩn" chính là bánh mochi – loại bánh gạo nếp dẻo dai, mềm mịn, cắn một miếng là "đã" ngay từ lần đầu!</p>
+
+    <div class="section">
+      <h2>Mochi Truyền Thống Nhật Bản</h2>
+      <p>Người Nhật làm mochi bằng cách hấp gạo nếp (mochigome) rồi dùng chày gỗ giã nhuyễn đến khi dẻo mịn, sau đó nặn thành hình tròn hoặc vuông. Mochi thường xuất hiện trong các dịp lễ Tết, cúng thần linh, tượng trưng cho sự may mắn và đoàn viên.</p>
+      
+      <h3>Quy trình giã mochi truyền thống (Mochitsuki)</h3>
+      <div class="gallery">
+        <div class="gallery-item"><img src="https://cdn.shopify.com/s/files/1/0068/0394/7579/files/23098319_m_600x600.jpg?v=1645698761" alt="Mochitsuki truyền thống"></div>
+        <div class="gallery-item"><img src="https://blog.sakura.co/wp-content/uploads/2025/12/mochitsuki-thumbnail.webp" alt="Giã mochi bằng chày gỗ"></div>
+        <div class="gallery-item"><img src="https://blog.sakura.co/wp-content/uploads/2021/06/shutterstock_1595554171-thumbnail.jpg" alt="Nghệ thuật làm mochi Nhật Bản"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Mochi Nhân Đậu Đỏ (Anko) – Kinh Điển Không Thể Bỏ Lỡ!</h2>
+      <p>Ở Việt Nam, mọi người mê nhất là mochi nhân đậu đỏ ngọt ngào, dẻo dai cực đã!</p>
+      
+      <div class="gallery">
+        <div class="gallery-item"><img src="https://pisangsusu.com/wp-content/uploads/Mochi-open.jpg" alt="Mochi đậu đỏ mở ra"></div>
+        <div class="gallery-item"><img src="https://www.thespruceeats.com/thmb/qu7zrtlUHDvlB6cHTaTRecXFp2A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/japanese-daifuku-recipe-2031114-hero-06-baa1cd041b4e4a32a483a359a6a6b426.jpg" alt="Daifuku mochi đậu đỏ"></div>
+        <div class="gallery-item"><img src="https://img.foodsimp.com/recipe-images/daifuku-with-red-bean-61cf8b9f.webp" alt="Mochi nhân đậu đỏ đẹp mắt"></div>
+        <div class="gallery-item"><img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/ab19b99a19334924b0f72db94fe33f78/BFV90361_Tasty101_Mochi_SO_051222_16x9_V6.jpg?resize=1200:*&output-format=jpg&output-quality=auto" alt="Red Bean Daifuku Mochi"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Mochi Ice Cream – Phiên Bản "Hot Hit" Siêu Lạnh Mát</h2>
+      <p>Vỏ mochi mỏng dẻo bao bọc kem lạnh tan chảy trong miệng. Nhìn dãy màu sắc cầu vồng này là muốn "xỉu ngang" luôn!</p>
+      
+      <div class="gallery">
+        <div class="gallery-item"><img src="https://thumbs.dreamstime.com/b/assorted-japanese-mochi-ice-cream-desserts-wooden-plate-culinary-delights-343610458.jpg" alt="Mochi ice cream nhiều vị"></div>
+        <div class="gallery-item"><img src="https://thumbs.dreamstime.com/b/colorful-japanese-mochi-ice-cream-balls-sit-wooden-plate-dusted-sugar-one-dessert-cut-half-showing-vibrant-fruit-center-410799796.jpg" alt="Mochi ice cream cắt đôi"></div>
+        <div class="gallery-item"><img src="https://thumbs.dreamstime.com/b/close-up-delicious-colorful-mochi-dessert-balls-sprinkled-grated-coconut-dark-plate-chopsticks-386255148.jpg" alt="Mochi ice cream rắc dừa"></div>
+        <div class="gallery-item"><img src="https://thumbs.dreamstime.com/b/mouthwatering-citrus-mochi-vibrant-japanese-dessert-photography-showcase-dark-background-food-blogs-indulge-356305202.jpg" alt="Mochi citrus tươi mát"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Trà Sữa Mochi – Xu Hướng Mới "Làm Mưa Làm Gió"</h2>
+      <p>Topping mochi dai giòn cho trà sữa, hoặc kem mochi vị trà sữa – lạ miệng mà "đỉnh của chóp" luôn!</p>
+      
+      <div class="gallery">
+        <div class="gallery-item"><img src="https://taipec.com/wp-content/uploads/2025/01/Choose-perfect-topping-7.png" alt="Mochi topping trà sữa"></div>
+        <div class="gallery-item"><img src="https://www.azcentral.com/gcdn/presto/2023/05/16/PPHX/753fe50a-c272-4535-9c90-0691e5fc7a77-Mochi_Fresh_22.JPG?crop=2586,1940,x0,y0" alt="Trà sữa mochi homemade"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <p>Mochi nhân matcha, socola, trái cây, sầu riêng... còn nhiều phiên bản đang chờ bạn khám phá!</p>
+    </div>
+
+    <p class="cta">Bạn thích mochi kiểu nào nhất? Đậu đỏ truyền thống, mochi kem nhiều màu, hay muốn thử làm handmade ở nhà?<br>Nếu muốn công thức siêu dễ làm bằng bột năng + lò vi sóng thì bảo mình nha, mình chỉ liền! 🍡✨</p>
+  </div>
+
+</body>
+</html>
