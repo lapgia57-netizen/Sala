@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường Đại học Công nghiệp Hà Nội - HaUI 2026</title>
+    <style>
+        :root {
+            --primary: #004d99;
+            --primary-dark: #003366;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background-color: var(--light);
+        }
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            margin-bottom: 0.6rem;
+        }
+        header p {
+            font-size: 1.35rem;
+            opacity: 0.92;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .section {
+            padding: 4rem 0 3rem;
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 2.3rem;
+            margin-bottom: 1.6rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 90px;
+            height: 5px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+            border-radius: 3px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.09);
+            padding: 2.2rem;
+            margin-bottom: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        .highlight {
+            background-color: #e6f0ff;
+            border-left: 6px solid var(--primary);
+            padding: 1.6rem;
+            margin: 1.8rem 0;
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: all 0.3s;
+        }
+        .stat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,77,153,0.15);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+        table.score-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.8rem 0;
+            font-size: 1.05rem;
+        }
+        .score-table th, .score-table td {
+            padding: 1.2rem 1.4rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .score-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        .score-table tr:nth-child(even) {
+            background: #f9fcff;
+        }
+        footer {
+            background: var(--dark);
+            color: #ddd;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+        }
+        footer a {
+            color: #66b0ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            header { padding: 3rem 0 2.5rem; }
+            h2 { font-size: 1.9rem; }
+            .card { padding: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>ĐẠI HỌC CÔNG NGHIỆP HÀ NỘI</h1>
+            <p>Hanoi University of Industry (HaUI) – Định hướng ứng dụng – Thực hành mạnh mẽ</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="section">
+            <h2>Thông tin cơ bản (cập nhật đến 2026)</h2>
+            <div class="card">
+                <p><strong>Tên chính thức:</strong> Đại học Công nghiệp Hà Nội</p>
+                <p><strong>Tên tiếng Anh:</strong> Hanoi University of Industry (HaUI)</p>
+                <p><strong>Lịch sử:</strong> Truyền thống hơn 123 năm (từ thời Pháp thuộc) – Thành đại học năm 2005 – Nâng cấp mô hình đại học mới cuối năm 2025</p>
+                <p><strong>Trụ sở chính:</strong> Số 298 đường Cầu Diễn, phường Tây Tựu, quận Bắc Từ Liêm, Hà Nội</p>
+                <p><strong>Cơ sở khác:</strong> Ninh Bình và một số địa điểm tại Hà Nội</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Đặc điểm nổi bật</h2>
+            <div class="card">
+                <ul>
+                    <li>Trường định hướng <strong>ứng dụng – thực hành</strong> hàng đầu Việt Nam</li>
+                    <li>Tỷ lệ có việc làm sau tốt nghiệp: <strong>thường 90–95%</strong></li>
+                    <li>Hợp tác thực tập với các tập đoàn lớn: Samsung, Canon, LG, VinFast,...</li>
+                    <li>Năm 2025: Tuyển sinh khoảng <strong>8.000 chỉ tiêu</strong> với hơn 60 ngành/chương trình</li>
+                </ul>
+                <div class="highlight">
+                    <strong>Rất phù hợp</strong> với các bạn yêu thích kỹ thuật, công nghệ, thực hành và muốn nhanh chóng hòa nhập môi trường doanh nghiệp!
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Ngành "hot" & Điểm chuẩn tham khảo (2025)</h2>
+            <div class="card">
+                <table class="score-table">
+                    <thead>
+                        <tr>
+                            <th>Ngành học</th>
+                            <th>Điểm chuẩn tham khảo (2025)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Công nghệ Kỹ thuật Điều khiển & Tự động hóa</td><td>~26–27 điểm</td></tr>
+                        <tr><td>Công nghệ Thông tin / Kỹ thuật Cơ điện tử / Kỹ thuật Cơ khí</td><td>24–26 điểm</td></tr>
+                        <tr><td>Ngôn ngữ Anh / Ngôn ngữ Trung Quốc</td><td>~21–24 điểm</td></tr>
+                        <tr><td>Kinh tế / Kế toán</td><td>~21–24 điểm</td></tr>
+                        <tr><td>Các ngành kỹ thuật khác</td><td>thường 20–24 điểm</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Môi trường sinh viên</h2>
+            <div class="card">
+                <p>HaUI có môi trường học tập rất năng động, thực hành nhiều, các CLB kỹ thuật phát triển mạnh (robot, lập trình, IoT, xe điện...).</p>
+                <p>Phong trào sinh viên sôi nổi, nhiều cơ hội tham gia dự án thực tế cùng doanh nghiệp.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">90-95%</div>
+                        <div>Có việc làm sau tốt nghiệp</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">60+</div>
+                        <div>Ngành/chương trình đào tạo</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">~8.000</div>
+                        <div>Chỉ tiêu tuyển sinh 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Thông tin tổng hợp & tham khảo năm 2026</p>
+        <p>Website chính thức: <a href="https://haui.edu.vn" target="_blank">haui.edu.vn</a></p>
+    </footer>
+
+</body>
+</html>
