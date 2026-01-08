@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unity Vina - Dịch vụ Bảo vệ Chuyên nghiệp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9fd 100%);
+      color: #2d3748;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      color: #1a365d;
+      margin-bottom: 12px;
+    }
+
+    .header .subtitle {
+      font-size: 1.25rem;
+      color: #4a5568;
+      font-weight: 400;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #3182ce;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-header {
+      background: linear-gradient(90deg, #2b6cb0, #3182ce);
+      color: white;
+      padding: 20px 30px;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .card-body {
+      padding: 30px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .info-item .icon {
+      font-size: 1.8rem;
+      color: #3182ce;
+      min-width: 40px;
+    }
+
+    .info-item .content h4 {
+      font-size: 1.1rem;
+      color: #2d3748;
+      margin-bottom: 6px;
+    }
+
+    .info-item .content p {
+      color: #4a5568;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-list li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: #edf2f7;
+      border-radius: 50px;
+      color: #2b6cb0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .contact-list li a:hover {
+      background: #bee3f8;
+      transform: translateY(-2px);
+    }
+
+    .highlight {
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2.3rem; }
+      .card-body { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>UNITY VINA</h1>
+      <p class="subtitle">Công ty TNHH Unity Việt Nam - Dịch vụ Bảo vệ Chuyên nghiệp</p>
+      <div class="badge">Uy tín từ sự chuyên nghiệp - Bảo vệ từ trái tim</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Thông tin cơ bản</div>
+      <div class="card-body">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="icon">🏢</div>
+            <div class="content">
+              <h4>Tên công ty</h4>
+              <p>CÔNG TY TNHH UNITY VIỆT NAM</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">📛</div>
+            <div class="content">
+              <h4>Tên giao dịch</h4>
+              <p>UNITY VINA / Unity Việt Nam Security</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">🔢</div>
+            <div class="content">
+              <h4>Mã số thuế</h4>
+              <p class="highlight">0102814946</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">📅</div>
+            <div class="content">
+              <h4>Năm thành lập</h4>
+              <p>Khoảng 2008 – 2009</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">👤</div>
+            <div class="content">
+              <h4>Người đại diện PL</h4>
+              <p>Đào Thị Tuyết Nga</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">🛡️</div>
+            <div class="content">
+              <h4>Ngành nghề chính</h4>
+              <p>Dịch vụ bảo vệ tư nhân</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Địa chỉ & Liên hệ</div>
+      <div class="card-body">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="icon">📍</div>
+            <div class="content">
+              <h4>Trụ sở chính</h4>
+              <p>Số 79 Nguyễn Hy Quang, Phường Ô Chợ Dừa, Quận Đống Đa, Hà Nội</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">📍</div>
+            <div class="content">
+              <h4>Địa điểm khác</h4>
+              <p>Số 7 ngõ 18 Chế Lan Viên, P. Cổ Nhuế 2, Q. Bắc Từ Liêm, Hà Nội<br>Và một số khu vực tại Bắc Giang</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">📞</div>
+            <div class="content">
+              <h4>Hotline</h4>
+              <p>024 3681 2222<br>099.556.7777 (tuyển dụng)</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon">✉️</div>
+            <div class="content">
+              <h4>Email</h4>
+              <p>info@unityvina.com.vn</p>
+            </div>
+          </div>
+        </div>
+
+        <ul class="contact-list">
+          <li><a href="https://unityvina.com.vn/" target="_blank">🌐 Website chính thức</a></li>
+          <li><a href="https://www.facebook.com/unityvina.operation/" target="_blank">📘 Fanpage Operation</a></li>
+          <li><a href="https://www.facebook.com/unityvina.official/" target="_blank">📘 Fanpage Official</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="text-align:center; padding:40px 20px; background:#f0f9ff;">
+      <h2 style="color:#2b6cb0; margin-bottom:16px;">Chúng tôi luôn sẵn sàng phục vụ</h2>
+      <p style="font-size:1.1rem; max-width:700px; margin:0 auto;">
+        Bảo vệ mục tiêu cố định • Bảo vệ tòa nhà • Sự kiện • Vệ sĩ • Áp tải tiền hàng • 
+        Bảo vệ nhà máy • Khu công nghiệp • Miền Bắc Việt Nam
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
