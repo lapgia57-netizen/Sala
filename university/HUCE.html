@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trường Đại học Xây dựng Hà Nội - HUCE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #004d99;
+      --primary-dark: #003366;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+      --dark: #212529;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      margin-bottom: 0.8rem;
+    }
+
+    header .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.7rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      padding: 1.8rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #e6f0ff;
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-right: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    ul {
+      padding-left: 1.4rem;
+    }
+
+    ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 3rem 0 5rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 4rem 0 3rem;
+      }
+      section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Trường Đại học Xây dựng Hà Nội</h1>
+      <p class="subtitle">
+        <strong>HANOI UNIVERSITY OF CIVIL ENGINEERING</strong><br>
+        <span style="opacity:0.85;">(HUCE – Mã trường: XDA)</span> – Địa chỉ đào tạo hàng đầu Việt Nam về Xây dựng & Kiến trúc
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Thông tin cơ bản (cập nhật 2026)</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Tổng quan</h3>
+          <p><strong>Thành lập:</strong> 1966 (từ Khoa Xây dựng – ĐH Bách khoa Hà Nội)</p>
+          <p><strong>Trực thuộc:</strong> Bộ Giáo dục và Đào tạo</p>
+          <p><strong>Địa chỉ:</strong> 55 Giải Phóng, p. Bạch Mai / Đồng Tâm, Q. Hai Bà Trưng, Hà Nội</p>
+        </div>
+
+        <div class="card">
+          <h3>Quy mô & Chất lượng</h3>
+          <p>Sinh viên: <strong class="highlight">~18.000–20.000</strong> (đại học + sau đại học)</p>
+          <p>Xếp hạng: <strong>Đại học nghiên cứu 4 sao</strong> (UPM)</p>
+          <p>Kiểm định: <strong>HCERES</strong> (Châu Âu)</p>
+          <p><strong>Dẫn đầu</strong> Việt Nam về Xây dựng – Kiến trúc – Hạ tầng</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Các ngành đào tạo nổi bật</h2>
+      <p style="margin-bottom:1.5rem;">Thời gian đào tạo chuẩn: <strong>5 năm</strong> (một số ngành 4,5–5 năm)</p>
+
+      <div class="card">
+        <p style="margin-bottom:1rem;"><strong>Ngành hot nhất:</strong></p>
+        <div style="margin: 1rem 0;">
+          <span class="tag">Kỹ thuật Xây dựng</span>
+          <span class="tag">Kiến trúc</span>
+          <span class="tag">Kỹ thuật Công trình Giao thông</span>
+          <span class="tag">Kỹ thuật Công trình Thủy</span>
+        </div>
+
+        <p style="margin:1.2rem 0 0.6rem;">Các ngành khác đáng chú ý:</p>
+        <ul>
+          <li>Kỹ thuật cơ khí xây dựng</li>
+          <li>Quy hoạch vùng và đô thị</li>
+          <li>Kỹ thuật môi trường</li>
+          <li>Kỹ thuật hạ tầng đô thị</li>
+          <li>Kinh tế xây dựng</li>
+          <li>Quản lý xây dựng</li>
+        </ul>
+
+        <p style="margin-top:1.5rem;">
+          <strong>Có nhiều chương trình chất lượng cao:</strong> Anh ngữ, Pháp ngữ, liên kết quốc tế
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Điểm chuẩn tham khảo</h2>
+      <div class="card">
+        <p><strong>Năm 2025:</strong> 20,40 – 27,00 điểm</p>
+        <p>• Ngành hot (Kiến trúc, Kỹ thuật XD): <strong>25–27 điểm</strong></p>
+        <p>• Nhiều ngành khác: <strong>21–23 điểm</strong></p>
+        <p style="margin-top:1.2rem;">
+          <strong>Năm 2026:</strong> Dự kiến công bố tháng 8/2026 – thường tăng nhẹ tùy phổ điểm thi THPT
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tại sao nhiều bạn chọn HUCE?</h2>
+      <div class="grid-2">
+        <div class="card">
+          <ul>
+            <li>Uy tín lâu năm – bằng cấp <strong>rất được trọng dụng</strong> trong ngành</li>
+            <li>Cơ hội thực tập & làm việc tại: Vingroup, Coteccons, Hòa Bình, Vinaconex, tập đoàn quốc tế…</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>Nhiều chương trình tiếng Anh/Pháp, liên kết quốc tế</li>
+            <li>Môi trường năng động, nhiều CLB chuyên ngành & hoạt động đoàn hội</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-note">
+      <p>Lưu ý: Khi nhắc đơn giản "<strong>Đại học Xây dựng</strong>" thì 99% người Việt hiểu là <strong>HUCE – Hà Nội</strong></p>
+      <p style="margin-top:1rem;">Bạn cần thông tin chi tiết hơn về học phí, ký túc xá, chương trình chất lượng cao hay cách tính điểm chuẩn? Hãy hỏi thêm nhé! 🚀</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
