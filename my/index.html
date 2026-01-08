@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khu vực 51 - Area 51</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #1e293b;
+      --accent: #c084fc;
+      --accent-glow: #a78bfa;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0a0e17 0%, #000814 100%);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 20px;
+      background-image: 
+        radial-gradient(circle at 25% 15%, rgba(192, 132, 252, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 85%, rgba(167, 139, 250, 0.06) 0%, transparent 60%);
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto 40px;
+      background: rgba(30, 41, 59, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid rgba(192, 132, 252, 0.18);
+      overflow: hidden;
+      box-shadow: 0 30px 70px -15px rgba(0,0,0,0.7);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12) 0%, transparent 60%);
+      animation: pulse 18s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: 0.6; }
+      50%     { transform: scale(1.4); opacity: 0.9; }
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 8vw, 4.2rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-shadow: 0 6px 20px rgba(0,0,0,0.7), 0 0 30px rgba(192,132,252,0.4);
+      background: linear-gradient(90deg, #fff, #e0d2ff, #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      z-index: 2;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      margin-top: 0.8rem;
+      opacity: 0.9;
+      letter-spacing: 1.5px;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+
+    .content {
+      padding: 2.8rem 2.5rem 3.5rem;
+    }
+
+    h2 {
+      color: var(--accent-glow);
+      font-size: 2.1rem;
+      margin: 2.5rem 0 1.2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 90px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 4px;
+    }
+
+    p {
+      font-size: 1.12rem;
+      margin-bottom: 1.3rem;
+      color: var(--muted);
+    }
+
+    strong {
+      color: #ddd;
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      background: rgba(124, 58, 237, 0.13);
+      border-left: 6px solid var(--accent);
+      padding: 1.8rem;
+      margin: 2rem 0;
+      border-radius: 10px;
+      font-size: 1.15rem;
+      font-style: italic;
+      box-shadow: inset 0 0 15px rgba(124,58,237,0.08);
+    }
+
+    ul {
+      list-style: none;
+      margin: 1.2rem 0 2rem;
+    }
+
+    li {
+      padding: 0.8rem 0 0.8rem 2.2rem;
+      position: relative;
+      font-size: 1.1rem;
+    }
+
+    li::before {
+      content: "🛸";
+      position: absolute;
+      left: 0;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .fun-fact {
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px dashed rgba(167, 139, 250, 0.25);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .conclusion {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 2rem;
+      background: rgba(124, 58, 237, 0.1);
+      border-radius: 16px;
+      border: 2px solid rgba(192, 132, 252, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .content { padding: 2rem 1.6rem; }
+      .header { padding: 3.5rem 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>KHU VỰC 51</h1>
+    <div class="subtitle">Area 51 – Bí ẩn lớn nhất sa mạc Nevada</div>
+  </div>
+
+  <div class="content">
+    <h2>Tên gọi phổ biến trong tiếng Việt</h2>
+    <ul>
+      <li><strong>Khu vực 51</strong> ← chính thức & phổ biến nhất</li>
+      <li><strong>Vùng 51</strong> ← hay gặp trong báo chí, mang tính bí ẩn</li>
+      <li><strong>Khu 51 / Area 51</strong> ← giữ nguyên tên gốc tiếng Anh</li>
+    </ul>
+
+    <h2>Khu vực 51 thực sự là gì?</h2>
+    <p>
+      Đây là <strong>căn cứ quân sự tuyệt mật</strong> của Không quân Hoa Kỳ (USAF), 
+      nằm trong Khu vực Huấn luyện và Thử nghiệm Nevada.
+    </p>
+    <p>Tên chính thức hiện nay:</p>
+    <ul>
+      <li><strong>Homey Airport</strong> (mã: <code>KXTA</code>)</li>
+      <li><strong>Groom Lake</strong> (gần hồ khô Groom Lake)</li>
+    </ul>
+
+    <div class="highlight-box">
+      Chính phủ Mỹ giữ bí mật hàng chục năm, đến <strong>năm 2013</strong> mới chính thức thừa nhận sự tồn tại qua tài liệu giải mật.
+    </div>
+
+    <h2>Tại sao nổi tiếng khắp thế giới?</h2>
+    <p>Lý do chính: hàng loạt <strong>thuyết âm mưu</strong> siêu hấp dẫn</p>
+    <ul>
+      <li>Nơi cất giữ xác người ngoài hành tinh + phi thuyền từ vụ Roswell 1947</li>
+      <li>Nơi Mỹ thực hiện <strong>reverse engineering</strong> công nghệ ngoài hành tinh</li>
+      <li>Nơi thử nghiệm các máy bay tàng hình bí mật: U-2, SR-71, F-117, B-2 Spirit…</li>
+    </ul>
+
+    <div class="fun-fact">
+      <h2 style="margin-top:0; font-size:1.8rem;">Những chi tiết thú vị</h2>
+      <ul>
+        <li>Cấm bay tuyệt đối, bảo vệ cực kỳ nghiêm ngặt</li>
+        <li>Biển cảnh báo: <strong>"Sử dụng vũ khí chết người được phép"</strong></li>
+        <li>Năm 2019: Sự kiện "Storm Area 51" – hàng triệu người đăng ký xâm nhập</li>
+        <li>Kết quả: vài nghìn người đến… nhảy múa theo meme <strong>Naruto run</strong> 🌀</li>
+        <li>Hiện tại: <strong>Không có bằng chứng khoa học</strong> nào về người ngoài hành tinh</li>
+      </ul>
+    </div>
+
+    <div class="conclusion">
+      Tóm lại: Khu vực 51 = <span style="color:var(--accent-glow);">Căn cứ quân sự siêu bí mật</span><br>
+      + <span style="color:var(--accent-glow);">Nhà máy sản sinh thuyết âm mưu đỉnh cao</span> của nhân loại! 👽✈️
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
