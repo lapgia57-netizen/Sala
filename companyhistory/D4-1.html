@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đường D4-1 - Khu công nghiệp Quang Châu, Bắc Giang</title>
+  <style>
+    :root {
+      --primary: #1e40af;
+      --primary-dark: #1e3a8a;
+      --light-bg: #f8fafc;
+      --text: #1f2937;
+      --gray: #4b5563;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--light-bg);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0 30px;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: white;
+      border-radius: 0 0 16px 16px;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    .intro p {
+      margin-bottom: 1.2em;
+      font-size: 1.05rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin: 2rem 0 1rem;
+      font-size: 1.8rem;
+      border-left: 5px solid var(--primary);
+      padding-left: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .caption {
+      padding: 12px;
+      background: white;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--gray);
+    }
+
+    .highlight {
+      background-color: #eff6ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border-left: 5px solid var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--gray);
+      font-size: 0.95rem;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      .gallery { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Đường D4-1</h1>
+      <p>Đường nội bộ quan trọng trong Khu công nghiệp Quang Châu - Bắc Giang</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="intro">
+      <p><strong>Đường D4-1</strong> là một trong những đường nhánh nội bộ quan trọng nằm trong <strong>Khu công nghiệp Quang Châu</strong> (huyện Việt Yên, tỉnh Bắc Giang), kết nối các lô đất nhà máy, kho bãi và hỗ trợ giao thông nội khu hiệu quả.</p>
+      <p>KCN Quang Châu là một trong những khu công nghiệp lớn và phát triển mạnh mẽ nhất miền Bắc, thu hút nhiều tập đoàn lớn từ Đài Loan, Hàn Quốc, Trung Quốc như <strong>Foxconn</strong>, <strong>Hosiden</strong>, <strong>Shunsin</strong>, Luxshare...</p>
+    </div>
+
+    <h2>Vị trí & Đặc điểm nổi bật</h2>
+    <div class="highlight">
+      <ul>
+        <li>Nằm trong phạm vi KCN Quang Châu (gần phường Nếnh, xã Vân Trung, xã Quang Châu cũ)</li>
+        <li>Là đường một chiều (oneway) theo một số dữ liệu bản đồ (Map4D, Google Maps...)</li>
+        <li>Kết nối tốt với các tuyến đường chính nội khu và cầu vượt Quang Châu</li>
+        <li>Hạ tầng giao thông hiện đại, gần QL1A mới, sông Cầu</li>
+        <li>Khoảng cách tới Hà Nội chỉ khoảng <strong>35-40km</strong></li>
+      </ul>
+    </div>
+
+    <h2>Hình ảnh minh họa Khu công nghiệp Quang Châu</h2>
+    <p>Dưới đây là một số hình ảnh tổng quan, đường nội bộ, nhà máy và cầu vượt tại khu vực (tương tự vị trí đường D4-1):</p>
+
+    <div class="gallery">
+      <!-- Tổng quan KCN -->
+      <div class="gallery-item">
+        <img src="https://kland.vn/upload/industrypark/industrial_park_khu-cong-nghiep-quang-chau-tinh-bac-giang_5.jpg" alt="Tổng quan KCN Quang Châu">
+        <div class="caption">Toàn cảnh Khu công nghiệp Quang Châu (aerial view)</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://kland.vn/upload/industrypark/industrial_park_khu-cong-nghiep-quang-chau-tinh-bac-giang_1.jpg" alt="Đường nội bộ KCN Quang Châu">
+        <div class="caption">Hệ thống đường nội bộ hiện đại trong KCN</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://www.ricons.vn/wp-content/uploads/2023/06/z4418254169145_5d3751d68a5ade17cbe59fce0c203863-scaled.jpg" alt="Nhà máy Foxconn">
+        <div class="caption">Nhà máy Foxconn tại KCN Quang Châu</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://tttfic.com/wp-content/uploads/2023/07/quang-chau-industrial-park-bac-giang-tttficgroup-5.jpg" alt="Nhà máy và đường nội khu">
+        <div class="caption">Các nhà máy và đường nội bộ điển hình</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=937128173430605" alt="Cầu vượt Quang Châu">
+        <div class="caption">Cầu vượt kết nối cao tốc - KCN Quang Châu</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://hailongjsc.vn/wp-content/uploads/2023/10/foxconn-3846-1024x576-1.jpg" alt="Foxconn Quang Châu">
+        <div class="caption">Nhà máy Foxconn nhìn từ trên cao</div>
+      </div>
+    </div>
+
+    <h2>Bạn cần thêm thông tin gì?</h2>
+    <p>Nếu bạn đang tìm <strong>đường đi cụ thể</strong>, <strong>địa chỉ nhà máy</strong> nào đó trên đường D4-1, thông tin <strong>tuyển dụng</strong>, hoặc hướng dẫn giao thông chi tiết, cứ cho mình biết thêm nhé!</p>
+
+  </div>
+
+  <footer>
+    <p>Thông tin tham khảo từ các nguồn công khai & hình ảnh minh họa © 2026</p>
+  </footer>
+
+</body>
+</html>
