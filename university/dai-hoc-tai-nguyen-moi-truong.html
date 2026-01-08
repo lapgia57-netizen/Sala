@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hai trường ĐH Tài nguyên và Môi trường Việt Nam 2026</title>
+    <style>
+        :root {
+            --primary: #1e8449;
+            --primary-light: #27ae60;
+            --bg: #f7f9f7;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 2.4rem;
+        }
+
+        .subtitle {
+            color: #636e72;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 28px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 32px rgba(30, 132, 73, 0.18);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 20px 24px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .info-row {
+            margin: 14px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .info-row strong {
+            min-width: 140px;
+            color: var(--primary);
+        }
+
+        .highlight {
+            color: #e67e22;
+            font-weight: 600;
+        }
+
+        .note-box {
+            background: #e8f5e9;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 35px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #95a5a6;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .info-row { flex-direction: column; gap: 4px; }
+            .info-row strong { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Hai trường Đại học Tài nguyên & Môi trường uy tín tại Việt Nam (2026)</h1>
+        <p class="subtitle">Chuyên sâu về tài nguyên thiên nhiên, môi trường và phát triển bền vững</p>
+    </header>
+
+    <div class="grid">
+
+        <!-- HUNRE Hà Nội -->
+        <div class="card">
+            <div class="card-header">
+                <h2>1. ĐH Tài nguyên và Môi trường Hà Nội (HUNRE)</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-row"><strong>Tên tiếng Anh:</strong> Hanoi University of Natural Resources and Environment</div>
+                <div class="info-row"><strong>Website:</strong> <a href="https://hunre.edu.vn/" style="color:var(--primary)">hunre.edu.vn</a></div>
+                <div class="info-row"><strong>Địa chỉ:</strong> 41A Phú Diễn, Bắc Từ Liêm, Hà Nội</div>
+                <div class="info-row"><strong>Năm thành lập:</strong> 2010 (phát triển từ các cơ sở trước đó)</div>
+                <div class="info-row"><strong>Điểm mạnh:</strong></div>
+                <ul style="margin-left:24px; margin-top:8px;">
+                    <li>Trường công lập <span class="highlight">miền Bắc</span> chuyên sâu tài nguyên - môi trường</li>
+                    <li>Mạnh về khí tượng thủy văn, đo đạc bản đồ, GIS, công nghệ thông tin địa không gian</li>
+                    <li>Đào tạo đầy đủ: đại học → thạc sĩ → tiến sĩ</li>
+                    <li>Tuyển sinh toàn quốc, nhiều phương thức</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HCMUNRE TP.HCM -->
+        <div class="card">
+            <div class="card-header">
+                <h2>2. ĐH Tài nguyên và Môi trường TP.HCM (HCMUNRE)</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-row"><strong>Tên tiếng Anh:</strong> Ho Chi Minh City University of Natural Resources and Environment</div>
+                <div class="info-row"><strong>Website:</strong> <a href="http://hcmunre.edu.vn/" style="color:var(--primary)">hcmunre.edu.vn</a></div>
+                <div class="info-row"><strong>Địa chỉ chính:</strong> 236B Lê Văn Sỹ, Q.Tân Bình, TP.HCM<br>
+                    <small>(có thêm cơ sở tại Biên Hòa, Đồng Nai)</small>
+                </div>
+                <div class="info-row"><strong>Lịch sử:</strong> Hơn <span class="highlight">45 năm</span> xây dựng & phát triển</div>
+                <div class="info-row"><strong>Điểm mạnh:</strong></div>
+                <ul style="margin-left:24px; margin-top:8px;">
+                    <li>Trường công lập <span class="highlight">duy nhất</span> khu vực phía Nam chuyên ngành này</li>
+                    <li>Chuyên sâu công nghệ môi trường, quản lý tài nguyên, ứng phó biến đổi khí hậu</li>
+                    <li>Uy tín cao tại miền Nam</li>
+                    <li>Đào tạo đa cấp độ</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="note-box">
+        <strong>Bạn đang phân vân chọn trường nào?</strong><br><br>
+        Hãy cho mình biết thêm thông tin nhé:<br>
+        • Bạn ở miền Bắc hay miền Nam?<br>
+        • Bạn muốn học ngành nào (môi trường, khí tượng, GIS, quản lý tài nguyên…)?<br>
+        • Cần thông tin điểm chuẩn 2025/2026, học phí, phương thức tuyển sinh, hay việc làm sau ra trường?<br><br>
+        Mình sẽ hỗ trợ chi tiết hơn! 🌱
+    </div>
+
+    <footer>
+        Cập nhật tình hình tuyển sinh & thông tin mới nhất năm 2026
+    </footer>
+</div>
+
+</body>
+</html>
