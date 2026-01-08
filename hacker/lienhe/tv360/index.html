@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ngọc Minh Trà Cốt - Glory 🌿</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #f8f5ee;
+      --color-text: #2d1e12;
+      --color-accent: #8b6f47;
+      --color-accent-dark: #5c4830;
+      --color-gold: #d4af37;
+      --color-tea: #a67c52;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .header {
+      background: linear-gradient(to bottom, #1e1308, #3a2414);
+      color: white;
+      padding: 60px 30px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "玉茗茶骨";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18vw;
+      font-weight: 700;
+      color: rgba(255,255,255,0.07);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .title-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+      color: var(--color-gold);
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
+
+    .title-sub {
+      font-size: 1.5rem;
+      font-weight: 300;
+      opacity: 0.9;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+
+    .content {
+      padding: 40px 35px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--color-accent-dark);
+      font-size: 2.1rem;
+      margin: 2.2em 0 0.8em;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    h2::before {
+      content: "🍃";
+      position: absolute;
+      left: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4em;
+    }
+
+    .highlight-text {
+      background: rgba(139,111,71,0.08);
+      border-left: 4px solid var(--color-accent);
+      padding: 18px 24px;
+      margin: 1.8em 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #3f2a1a;
+    }
+
+    .cast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin: 2em 0;
+    }
+
+    .cast-card {
+      text-align: center;
+      padding: 20px;
+      background: rgba(139,111,71,0.04);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(139,111,71,0.12);
+    }
+
+    .cast-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(139,111,71,0.15);
+      background: rgba(139,111,71,0.08);
+    }
+
+    .cast-name {
+      font-weight: 600;
+      color: var(--color-accent-dark);
+      margin-top: 12px;
+      font-size: 1.15rem;
+    }
+
+    .cast-role {
+      color: var(--color-accent);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    .platforms {
+      background: #f9f7f2;
+      padding: 24px;
+      border-radius: 12px;
+      margin: 2em 0;
+      text-align: center;
+    }
+
+    .platforms h3 {
+      color: var(--color-accent-dark);
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+    }
+
+    .platform-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .platform-btn {
+      background: var(--color-accent);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .platform-btn:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .ending-note {
+      text-align: center;
+      margin-top: 3em;
+      padding: 30px;
+      background: linear-gradient(to right, #8b6f47, #a67c52);
+      color: white;
+      border-radius: 12px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 640px) {
+      .title-main { font-size: 2.8rem; }
+      .content { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="title-sub">玉茗茶骨</div>
+    <h1 class="title-main">NGỌC MINH TRÀ CỐT</h1>
+    <div style="font-size:1.3rem; opacity:0.9; margin-top:12px;">Glory • Cổ trang • Trà đạo • Quyền mưu • Tình yêu</div>
+  </div>
+
+  <div class="content">
+
+    <p style="font-size:1.3rem; font-weight:500; color:var(--color-accent-dark); text-align:center; margin-bottom:2em;">
+      Bộ phim cổ trang Hoa ngữ đang "GÂY BÃO" nhất đầu năm 2026 🌿☕
+    </p>
+
+    <h2>Nội dung chính (không spoil nặng)</h2>
+    <p>
+      Lấy bối cảnh thời cổ đại, xoay quanh gia tộc nhà họ Vinh – dòng họ danh giá chuyên kinh doanh và chế tác <strong>trà thượng hạng</strong>.
+    </p>
+    <p class="highlight-text">
+      Nữ chính <strong>Vinh Thiện Bảo</strong> (Cổ Lực Na Trát) – trưởng nữ thông minh, sắc sảo, mạnh mẽ, phải đối mặt với cuộc đấu đá quyền lực khốc liệt trong gia tộc và thương trường.<br><br>
+      Nam chính <strong>Lục Giang Lai</strong> (Hầu Minh Hạo) – trạng nguyên trẻ tài hoa bị hãm hại, mất trí nhớ, trở thành kẻ chăn ngựa... rồi dần cuốn vào mối tình đầy drama, đấu trí, lật kèo với nữ chính.
+    </p>
+
+    <h2>Dàn cast đẹp "điên đảo"</h2>
+    <div class="cast-grid">
+      <div class="cast-card">
+        <div class="cast-name">Cổ Lực Na Trát</div>
+        <div class="cast-role">Vinh Thiện Bảo</div>
+        <p style="margin-top:8px; font-size:0.95rem;">Đứng yên thôi cũng thành tranh thủy mặc</p>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-name">Hầu Minh Hạo</div>
+        <div class="cast-role">Lục Giang Lai</div>
+        <p style="margin-top:8px; font-size:0.95rem;">Trà xanh đậm vị + visual đỉnh cao</p>
+      </div>
+
+      <div class="cast-card">
+        <div class="cast-name">Dàn nam phụ</div>
+        <div class="cast-role">Mỹ nam hội tụ</div>
+        <p style="margin-top:8px; font-size:0.95rem;">Ai cũng bất ổn, ai cũng có drama riêng</p>
+      </div>
+    </div>
+
+    <h2>Review nhanh từ cộng đồng</h2>
+    <ul style="padding-left:24px; margin:1.4em 0;">
+      <li>Nhịp phim cực nhanh, tập nào cũng có plot twist</li>
+      <li>Đấu trí thương trường cực cuốn</li>
+      <li>Visual đẹp xuất thần: bối cảnh, phục trang, diễn xuất</li>
+      <li>Có tranh cãi về "nữ quyền ảo" và một số tình tiết</li>
+      <li>Fan Cổ Lực Na Trát & Hầu Minh Hạo thì mê đắm luôn!</li>
+    </ul>
+
+    <div class="platforms">
+      <h3>Xem ở đâu?</h3>
+      <div class="platform-list">
+        <a href="#" class="platform-btn">iQIYI</a>
+        <a href="#" class="platform-btn">MangoTV</a>
+        <a href="#" class="platform-btn">Tvhay</a>
+        <a href="#" class="platform-btn">Motchill</a>
+      </div>
+      <p style="margin-top:16px; font-size:0.95rem; opacity:0.9;">
+        Hiện tại đã lên sóng khoảng 15–17/36 tập (tính đến tháng 01/2026)
+      </p>
+    </div>
+
+    <div class="ending-note">
+      Bạn đang xem tới tập mấy rồi? Hay mới nghe tên thôi? 💬<br>
+      Kể mình nghe với, mình spoil nhẹ cho nha~ ☕🌿
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
