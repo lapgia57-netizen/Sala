@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MIT - Massachusetts Institute of Technology</title>
+  <style>
+    :root {
+      --mit-red: #A31F34;
+      --mit-gray: #333;
+      --light-bg: #f8f9fa;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    header {
+      text-align: center;
+      background: linear-gradient(to right, var(--mit-red), #8B1A2F);
+      color: white;
+      padding: 60px 20px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    .intro {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 20px auto 0;
+    }
+    section {
+      margin: 50px 0;
+    }
+    h2 {
+      color: var(--mit-red);
+      border-bottom: 3px solid var(--mit-red);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .fact-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .fact-card:hover {
+      transform: translateY(-8px);
+    }
+    .fact-card strong {
+      color: var(--mit-red);
+    }
+    /* Carousel cho ảnh */
+    .gallery {
+      margin: 40px 0;
+      overflow: hidden;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.6s ease;
+      width: 300%; /* 3 ảnh */
+    }
+    .carousel-item {
+      width: 33.33%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .caption {
+      text-align: center;
+      margin-top: 12px;
+      font-style: italic;
+      color: #555;
+    }
+    /* Nút điều hướng đơn giản (có thể thêm JS nếu muốn) */
+    .nav-btn {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .nav-btn button {
+      background: var(--mit-red);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      margin: 0 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .nav-btn button:hover {
+      background: #8B1A2F;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      .carousel-item img { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MIT - Massachusetts Institute of Technology</h1>
+    <p class="intro">
+      Trường đại học nghiên cứu tư thục hàng đầu thế giới về khoa học, công nghệ & kỹ thuật<br>
+      Nằm tại Cambridge, Massachusetts – ngay sát Boston, Mỹ
+    </p>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Thông tin nổi bật (cập nhật 2026)</h2>
+      <div class="facts">
+        <div class="fact-card">
+          <p><strong>Thành lập:</strong> Năm 1861</p>
+        </div>
+        <div class="fact-card">
+          <p><strong>Xếp hạng:</strong> Thường xuyên đứng số 1 thế giới theo QS World University Rankings (2025-2026). Theo U.S. News: thường top 2 Mỹ.</p>
+        </div>
+        <div class="fact-card">
+          <p><strong>Sứ mệnh:</strong> "Advance knowledge and educate students in science, technology and other areas of scholarship that will best serve the nation and the world."</p>
+        </div>
+        <div class="fact-card">
+          <p><strong>Số lượng sinh viên:</strong> Khoảng 11.000–12.000 (đại học ~4.300–4.600, rất chọn lọc).</p>
+        </div>
+        <div class="fact-card">
+          <p><strong>Đặc trưng:</strong> Tỷ lệ giảng viên/sinh viên thấp, học "cứng", thiên về thực hành, nghiên cứu, sáng tạo & khởi nghiệp. Cái nôi của nhiều startup tỷ đô (Dropbox, Bose, iRobot...).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <h2>Khuôn viên MIT – Nơi khoa học gặp nghệ thuật</h2>
+      <div class="carousel" id="carousel">
+        <!-- Ảnh 1: Toàn cảnh campus từ trên cao -->
+        <div class="carousel-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/MIT_Main_Campus_aerial.jpg/1280px-MIT_Main_Campus_aerial.jpg" alt="Toàn cảnh campus MIT từ trên cao">
+          <div class="caption">Toàn cảnh campus MIT nhìn từ trên cao, bên sông Charles thơ mộng</div>
+        </div>
+        <!-- Ảnh 2: Great Dome -->
+        <div class="carousel-item">
+          <img src="https://commonedge.org/wp-content/uploads/2025/11/MIT_Building_10_and_the_Great_Dome_Cambridge_MA.jpg" alt="Great Dome - Biểu tượng MIT">
+          <div class="caption">Biểu tượng nổi tiếng: Great Dome (Mái vòm lớn) của tòa nhà 10</div>
+        </div>
+        <!-- Ảnh 3: Không khí sinh viên & hack -->
+        <div class="carousel-item">
+          <img src="https://news.mit.edu/sites/default/files/images/201407/MITnews_Nuvu_06_0.jpg" alt="Không khí sáng tạo tại MIT">
+          <div class="caption">Không khí sinh viên – nơi mọi thứ đều "hack" và sáng tạo không ngừng</div>
+        </div>
+      </div>
+      <div class="nav-btn">
+        <button onclick="prevSlide()">Trước</button>
+        <button onclick="nextSlide()">Tiếp</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Apply du học MIT – Lời khuyên</h2>
+      <p style="font-size: 1.1rem;">
+        Nếu bạn đang cân nhắc apply: <strong>SAT/ACT cao</strong>, GPA gần hoàn hảo, hoạt động ngoại khóa nghiên cứu mạnh + essay cực chất là yêu cầu cơ bản.<br><br>
+        MIT nổi tiếng <strong>"need-blind"</strong> cho sinh viên quốc tế – hỗ trợ tài chính dựa trên nhu cầu, không phân biệt giàu nghèo khi xét tuyển.
+      </p>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2026 - Thông tin về MIT | Được thiết kế đẹp mắt cho người Việt
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const carousel = document.getElementById('carousel');
+
+    function showSlide(index) {
+      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalSlides - 1;
+      currentSlide = index;
+      carousel.style.transform = `translateX(-${currentSlide * 33.33}%)`;
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    // Auto slide (tùy chọn)
+    // setInterval(nextSlide, 5000);
+  </script>
+
+</body>
+</html>
