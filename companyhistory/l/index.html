@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lý Nam Đế - Vị Hoàng đế đầu tiên của nước Vạn Xuân</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #b22222;
+      --primary-dark: #8b1a1a;
+      --text: #2d2d2d;
+      --light-bg: #fdfaf5;
+      --gray: #555;
+      --border: #e0d5c5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 3.2rem;
+      margin-bottom: 0.2em;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .hero {
+      position: relative;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "萬春";
+      font-family: 'Playfair Display', serif;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18rem;
+      color: rgba(178, 34, 34, 0.07);
+      pointer-events: none;
+      user-select: none;
+      z-index: -1;
+    }
+
+    .section {
+      margin-bottom: 50px;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 2.1rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .info-card {
+      background: #fffaf5;
+      padding: 24px;
+      border-radius: 10px;
+      border-left: 5px solid var(--primary);
+    }
+
+    .info-card strong {
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    ul {
+      padding-left: 1.8em;
+      margin: 1em 0;
+    }
+
+    li {
+      margin-bottom: 0.6em;
+    }
+
+    .highlight {
+      background: rgba(178, 34, 34, 0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 30px 0;
+      color: var(--gray);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6rem; }
+      .hero::before { font-size: 12rem; }
+      .section { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Lý Nam Đế</h1>
+      <div class="subtitle">Lý Bí · Vị Hoàng đế đầu tiên của nước Vạn Xuân</div>
+    </header>
+
+    <div class="hero"></div>
+
+    <div class="section">
+      <h2>Thông tin cơ bản</h2>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <strong>Tên húy:</strong><br>Lý Bí (李賁) hoặc Lý Bôn (李賁)
+        </div>
+        <div class="info-card">
+          <strong>Năm sinh – mất:</strong><br>503 – 13 tháng 4 năm 548
+        </div>
+        <div class="info-card">
+          <strong>Triều đại:</strong><br>Nhà Tiền Lý (Early Lý dynasty)
+        </div>
+        <div class="info-card">
+          <strong>Trị vì:</strong><br>544 – 548 (khoảng 4 năm)
+        </div>
+        <div class="info-card">
+          <strong>Quốc hiệu:</strong><br><span class="highlight">Vạn Xuân</span> (萬春)
+        </div>
+        <div class="info-card">
+          <strong>Kinh đô:</strong><br>Ô Diên (khu vực Hà Nội ngày nay)
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Quá trình sự nghiệp và khởi nghĩa</h2>
+      <ul>
+        <li>Xuất thân từ tầng lớp <strong>hào trưởng địa phương</strong>, văn võ song toàn.</li>
+        <li>Từng làm quan nhỏ cho nhà Lương ở chức <strong>Giám quân vùng Cửu Đức</strong>.</li>
+        <li>Năm <strong>541–542</strong>: Phát động khởi nghĩa chống nhà Lương.</li>
+        <li>Nhanh chóng thắng lợi, đánh bại quân Lương và cả quân <strong>Lâm Ấp</strong> (Chiêm Thành) ở phía Nam.</li>
+        <li>Tháng 2 năm <strong>544</strong>: Chính thức lên ngôi Hoàng đế, xưng <strong>Nam Việt Đế</strong> (sau gọi là Lý Nam Đế).</li>
+        <li>Đặt quốc hiệu <strong>Vạn Xuân</strong> – lần đầu tiên trong lịch sử Việt Nam có quốc hiệu riêng do người Việt đặt.</li>
+        <li>Xây dựng bộ máy nhà nước, kinh đô, ban hành chính sách củng cố độc lập.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Kết thúc triều đại</h2>
+      <p>Năm <strong>548</strong>, nhà Lương quay lại tấn công với lực lượng lớn. Lý Nam Đế chiến đấu anh dũng nhưng cuối cùng thất bại. Ông bị thương nặng và qua đời tại <strong>đình Quận Giang</strong> (khu vực Tô Lịch, Hà Nội ngày nay).</p>
+      <p>Sau khi ông mất, triều Tiền Lý được người em/cháu là <strong>Lý Thiên Bảo</strong> và sau đó là <strong>Triệu Quang Phục</strong> (Triệu Việt Vương) kế tục, nhưng cuối cùng bị nhà Tùy đánh bại vào năm <strong>602</strong>.</p>
+    </div>
+
+    <div class="section">
+      <h2>Ý nghĩa lịch sử</h2>
+      <ul>
+        <li>Biểu tượng của <strong>tinh thần độc lập dân tộc</strong>.</li>
+        <li>Vị <strong>Hoàng đế Việt đầu tiên</strong> tự xưng đế được ghi nhận rõ ràng trong sử sách (sau thời Hùng Vương).</li>
+        <li>Quốc hiệu <strong>Vạn Xuân</strong> thể hiện khát vọng trường tồn, độc lập vĩnh cửu của dân tộc.</li>
+        <li>Mở ra trang sử mới: người Việt tự xưng đế, tự đặt tên nước, khẳng định mình là quốc gia độc lập.</li>
+      </ul>
+      <p style="text-align: center; margin-top: 2.5rem; font-size: 1.3rem; font-weight: 600; color: var(--primary);">
+        → Lý Nam Đế – Người đặt nền móng đầu tiên cho nhà nước độc lập Việt Nam thời phong kiến.
+      </p>
+    </div>
+
+    <footer>
+      <p>Trân trọng ghi nhớ công lao của bậc tiền nhân • Việt Nam độc lập, trường tồn</p>
+    </footer>
+  </div>
+
+</body>
+</html>
