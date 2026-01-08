@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vietcombank - Ngân hàng TMCP Ngoại thương Việt Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --vcb-green: #00613C;
+      --vcb-green-dark: #004d2f;
+      --vcb-light: #f8f9fa;
+      --text-dark: #1a1a1a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--vcb-light);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--vcb-green) 0%, var(--vcb-green-dark) 100%);
+      color: white;
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+    }
+    
+    .logo-section {
+      background: white;
+      padding: 40px 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .logo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 25px;
+    }
+    
+    .logo-item img {
+      max-width: 220px;
+      height: auto;
+      transition: transform 0.3s;
+    }
+    
+    .logo-item img:hover {
+      transform: scale(1.08);
+    }
+    
+    section {
+      padding: 60px 0;
+    }
+    
+    h2 {
+      color: var(--vcb-green);
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--vcb-green);
+    }
+    
+    .intro p {
+      font-size: 1.15rem;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    
+    .services {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      margin: 40px 0;
+    }
+    
+    .services ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .services li {
+      background: #f0f7f4;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid var(--vcb-green);
+    }
+    
+    .update {
+      background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #c8e6c9;
+    }
+    
+    footer {
+      background: var(--vcb-green);
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 60px;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Vietcombank</h1>
+      <p>Ngân hàng TMCP Ngoại thương Việt Nam – Joint Stock Commercial Bank for Foreign Trade of Vietnam</p>
+    </div>
+  </header>
+
+  <section class="logo-section">
+    <div class="container">
+      <h2>Logo chính thức</h2>
+      <p>Biểu tượng quen thuộc với màu xanh đặc trưng của Vietcombank</p>
+      
+      <div class="logo-grid">
+        <!-- Chọn 3 logo đẹp nhất và rõ nét -->
+        <div class="logo-item"><img src="https://www.companieshistory.com/wp-content/uploads/2022/03/Joint-Stock-Commercial-Bank-for-Foreign-Trade-of-Vietnam-Vietcombank-logo.jpg" alt="Vietcombank Logo 1"></div>
+        <div class="logo-item"><img src="https://p1.hiclipart.com/preview/260/664/57/logo-text-green-line-vietcombank-symbol-png-clipart.jpg" alt="Vietcombank Logo 2"></div>
+        <div class="logo-item"><img src="https://icon2.cleanpng.com/20180802/epb/9b29b02459add72fc27de571f6d321c5.webp" alt="Vietcombank Logo 3"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container intro">
+    <h2>Giới thiệu</h2>
+    <p>Vietcombank là một trong những ngân hàng lớn nhất và uy tín nhất tại Việt Nam. Đây là ngân hàng thương mại cổ phần hàng đầu, dẫn đầu về vốn hóa thị trường chứng khoán Việt Nam (mã chứng khoán: <strong>VCB</strong> trên sàn HOSE), nổi tiếng với dịch vụ ngoại hối, thanh toán quốc tế và ngân hàng số hiện đại.</p>
+  </section>
+
+  <section class="container">
+    <h2>Lịch sử & Tổng quan</h2>
+    <ul>
+      <li>Thành lập ngày <strong>01/04/1963</strong> (tiền thân là Ngân hàng Ngoại thương Việt Nam, tách ra từ Cục Ngoại hối).</li>
+      <li>Trụ sở chính tại Hà Nội, với mạng lưới rộng khắp cả nước và có chi nhánh/sự hiện diện quốc tế.</li>
+      <li>Được xem là ngân hàng có chất lượng tài sản tốt, lợi nhuận ổn định và thường dẫn đầu hệ thống ngân hàng Việt Nam.</li>
+    </ul>
+  </section>
+
+  <section class="container">
+    <h2>Trụ sở và các công trình nổi bật</h2>
+    <p>Vietcombank có các tòa nhà hiện đại, đặc biệt là <strong>Vietcombank Tower</strong> tại TP. Hồ Chí Minh – một công trình kiến trúc ấn tượng do Pelli Clarke Pelli thiết kế.</p>
+    
+    <div class="gallery">
+      <!-- Chọn các ảnh đẹp nhất của Tower TP.HCM -->
+      <div class="gallery-item"><img src="https://www.usgbc.org/sites/default/files/2024-12/IMG_5758.jpg" alt="Vietcombank Tower TP.HCM"></div>
+      <div class="gallery-item"><img src="https://mediaassets.cbre.com/-/media/project/cbre/dotcom/asiapacific/vietnam-emarald/properties/office-for-lease/ho-chi-minh/district-1/vietcombank-tower/jan-2025/vcb--(1).png?rev=504c91c5ce3a494daf1b316a55ba3402" alt="Vietcombank Tower góc nhìn 1"></div>
+      <div class="gallery-item"><img src="https://mediaassets.cbre.com/-/media/project/cbre/dotcom/asiapacific/vietnam-emarald/properties/office-for-lease/ho-chi-minh/district-1/vietcombank-tower/jan-2025/vcb--(2).png?h=576&w=860&rev=c04cbd01fdec48eb998352cb5007685a" alt="Vietcombank Tower góc nhìn 2"></div>
+      <div class="gallery-item"><img src="https://office.vietnamhouse.jp/upload/images/10014/CIMG7210-28f2a9d22a.jpg" alt="Vietcombank Tower ngoại thất"></div>
+    </div>
+  </section>
+
+  <section class="services container">
+    <h2>Dịch vụ chính</h2>
+    <ul>
+      <li><strong>Ngân hàng cá nhân:</strong> Tài khoản, tiết kiệm, vay, thẻ tín dụng/thẻ ghi nợ (hỗ trợ mạnh các chương trình khuyến mãi như cashback khi dùng thẻ ở Nhật Bản).</li>
+      <li><strong>Ngân hàng số:</strong> Ứng dụng VCB Digibank – rất phổ biến cho chuyển khoản, thanh toán hóa đơn, quản lý tài chính.</li>
+      <li><strong>Doanh nghiệp & ngoại hối:</strong> Dẫn đầu thị phần thanh toán quốc tế.</li>
+    </ul>
+    
+    <p style="margin-top: 30px; text-align: center;">
+      <strong>Website chính thức:</strong> <a href="https://www.vietcombank.com.vn/" target="_blank" style="color: var(--vcb-green); font-weight: bold;">https://www.vietcombank.com.vn/</a> (có phiên bản tiếng Anh)
+    </p>
+  </section>
+
+  <section class="container">
+    <h2>Ứng dụng VCB Digibank</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/6309ea132574943.61abdb312e39f.jpg" alt="VCB Digibank App Interface"></div>
+      <div class="gallery-item"><img src="https://api.vcbs.com.vn/storage/upload/media/digi-web-4-compress.png" alt="VCB Digibank Features"></div>
+    </div>
+  </section>
+
+  <section class="container update">
+    <h2>Tình hình gần đây (tháng 1/2026)</h2>
+    <ul>
+      <li>Cổ phiếu VCB đang hoạt động tốt, có phiên tăng mạnh và được kỳ vọng tích cực trong năm 2026 nhờ chất lượng tài sản cao và triển vọng lợi nhuận.</li>
+      <li>Từ 1/1/2026, Vietcombank áp dụng quy định mới về xác thực danh tính (có thể tạm ngừng một số giao dịch online nếu chưa cập nhật).</li>
+      <li>Ngân hàng cũng vừa nghỉ giao dịch dịp Tết Dương lịch đầu năm.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Nếu bạn cần thông tin cụ thể hơn như tỷ giá ngoại tệ, lãi suất tiết kiệm, tra cứu chi nhánh hoặc hỗ trợ về VCB Digibank, cứ hỏi nhé!</p>
+    </div>
+  </footer>
+
+</body>
+</html>
