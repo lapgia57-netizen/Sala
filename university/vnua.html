@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Học viện Nông nghiệp Việt Nam - VNUA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #1a5c38;
+      --primary-light: #2e8b57;
+      --accent: #e67e22;
+      --light: #f8f9fa;
+      --dark: #2d2d2d;
+      --gray: #6c757d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background-color: var(--light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Hero */
+    header {
+      background: linear-gradient(rgba(26, 92, 56, 0.75), rgba(26, 92, 56, 0.85)),
+                  url('https://images.unsplash.com/photo-1500595046743-ee5a8a800ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 140px 20px 100px;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+    }
+
+    header .subtitle {
+      font-size: 1.4rem;
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+      margin: 0 12px;
+    }
+
+    .btn:hover {
+      background-color: #d35400;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(230,126,34,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Section */
+    section {
+      padding: 90px 0;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    .card-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-content {
+      padding: 28px;
+    }
+
+    .card-content h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.04);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 100px 20px 80px;
+      }
+      header h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header>
+    <div class="container">
+      <h1>Học viện Nông nghiệp Việt Nam</h1>
+      <p class="subtitle">Vietnam National University of Agriculture – VNUA<br>
+      Ngôi trường xanh – đẹp – hiện đại bậc nhất miền Bắc</p>
+      
+      <div>
+        <a href="https://vnua.edu.vn/" target="_blank" class="btn">Website chính thức</a>
+        <a href="https://eng.vnua.edu.vn/" target="_blank" class="btn btn-outline">English Version</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Giới thiệu ngắn -->
+    <section>
+      <h2>Về chúng tôi</h2>
+      <p style="max-width: 880px; margin: 0 auto; text-align: center; font-size: 1.15rem;">
+        Thành lập năm <strong>1956</strong> • Tên cũ: Đại học Nông nghiệp Hà Nội<br>
+        Một trong những trường đại học nông nghiệp lớn và uy tín nhất Việt Nam<br>
+        Tỷ lệ có việc làm sau tốt nghiệp: <strong>≈ 97%</strong>
+      </p>
+    </section>
+
+    <!-- Gallery -->
+    <section style="background: #f0f7f4; margin: 0 -20px;">
+      <div class="container">
+        <h2>Khuôn viên xanh & đẹp nhất Hà Nội</h2>
+        
+        <div class="gallery">
+          <!-- Thay bằng link ảnh thật của bạn -->
+          <div class="gallery-item"><img src="https://vnua.edu.vn/wp-content/uploads/2023/09/1-1.jpg" alt="Cổng trường VNUA"></div>
+          <div class="gallery-item"><img src="https://vnua.edu.vn/wp-content/uploads/2023/09/2-1.jpg" alt="Hồ nước và cây xanh"></div>
+          <div class="gallery-item"><img src="https://vnua.edu.vn/wp-content/uploads/2023/09/3-1.jpg" alt="Khuôn viên học viện"></div>
+          <div class="gallery-item"><img src="https://vnua.edu.vn/wp-content/uploads/2023/09/4-1.jpg" alt="Tòa nhà chính VNUA"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Các khoa chính -->
+    <section>
+      <h2>Các khoa đào tạo chính</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1500595046743-ee5a8a800ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="card-content">
+            <h3>Nông học & Công nghệ sinh học</h3>
+            <p>Đào tạo chuyên sâu về giống cây trồng, công nghệ sinh học nông nghiệp hiện đại.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1500595046743-ee5a8a800ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80&crop=entropy');"></div>
+          <div class="card-content">
+            <h3>Thú y & Chăn nuôi</h3>
+            <p>Chương trình hàng đầu cả nước về thú y và chăn nuôi thông minh.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1500595046743-ee5a8a800ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="card-content">
+            <h3>Công nghệ thực phẩm & Thủy sản</h3>
+            <p>Đào tạo chế biến, bảo quản và công nghệ sau thu hoạch.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1500595046743-ee5a8a800ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="card-content">
+            <h3>Kinh tế - Quản lý & CNTT</h3>
+            <p>Kết hợp nông nghiệp với kinh tế số và chuyển đổi số.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thành tựu gần đây -->
+    <section style="background: var(--primary); color: white;">
+      <div class="container">
+        <h2 style="color: white;">Thành tựu & Hoạt động nổi bật 2025-2026</h2>
+        <ul style="list-style: none; font-size: 1.15rem; max-width: 900px; margin: 40px auto;">
+          <li>→ Chuyển đổi số chăn nuôi thông minh (AI, Big Data)</li>
+          <li>→ Ra mắt hàng trăm sản phẩm khoa học công nghệ tại TECHFEST 2025</li>
+          <li>→ Nhiều mô hình nông nghiệp sinh thái + du lịch thành công</li>
+          <li>→ Hợp tác quốc tế mạnh mẽ với Hàn Quốc, Nhật Bản, New Zealand...</li>
+          <li>→ Cuối 2025: Sáp nhập thêm Trường Cán bộ quản lý Nông nghiệp & PTNT</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 12px;">© 2026 - Học viện Nông nghiệp Việt Nam (VNUA)</p>
+      <p>Trâu Quỳ - Gia Lâm - Hà Nội • Website: <a href="https://vnua.edu.vn/" style="color: #e67e22;">vnua.edu.vn</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
