@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đại học Thanh Hoa - Tsinghua University</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #003087;      /* Màu xanh đậm của Tsinghua */
+      --secondary: #c8102e;    /* Màu đỏ Trung Quốc */
+      --light-bg: #f8f9fa;
+      --dark-text: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.95)), url('https://www.tsinghua.edu.cn/__local/9/A7/E8/B7108B2BA9ACBA0FB50C3B1425F_BE6A191A_5F04D.png') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      color: var(--primary);
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .intro-text {
+      font-size: 1.15rem;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .rankings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .rank-card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .rank-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .rank-card h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .rank-card p {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--secondary);
+    }
+
+    .gallery {
+      margin: 50px 0;
+    }
+
+    .gallery h3 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: var(--primary);
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    .carousel img {
+      width: 420px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      transition: transform 0.4s;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.05);
+    }
+
+    .strengths {
+      background: white;
+      padding: 50px 0;
+      border-radius: 16px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+      margin: 50px 0;
+    }
+
+    .strengths ul {
+      list-style: none;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
+
+    .strengths li {
+      margin: 16px 0;
+      padding-left: 32px;
+      position: relative;
+    }
+
+    .strengths li::before {
+      content: '\f005';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--secondary);
+      position: absolute;
+      left: 0;
+    }
+
+    .cta {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 60px;
+      padding: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 16px;
+    }
+
+    .cta a {
+      color: #ffd700;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.6rem; }
+      .carousel img { width: 340px; height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Đại học Thanh Hoa<br><small>Tsinghua University – 清华大学</small></h1>
+      <p>Ngôi trường số 1 Trung Quốc và một trong những đại học hàng đầu thế giới</p>
+    </div>
+  </header>
+
+  <section class="container">
+    <p class="intro-text">
+      Đại học Thanh Hoa được thành lập năm 1911 tại Bắc Kinh, ban đầu sử dụng khoản tiền bồi thường từ Boxer Indemnity Fund (Mỹ trả lại cho Trung Quốc). Ngày nay, Thanh Hoa là biểu tượng của giáo dục đẳng cấp cao ở Trung Quốc, thường được so sánh với MIT hoặc Stanford về chất lượng kỹ thuật và khoa học.
+    </p>
+
+    <h2>Xếp hạng mới nhất (đầu năm 2026)</h2>
+    <div class="rankings">
+      <div class="rank-card">
+        <h3>Times Higher Education 2026</h3>
+        <p>Xếp hạng 12 thế giới</p>
+        <p style="font-size:1.1rem; color:#555;">Số 1 châu Á</p>
+      </div>
+      <div class="rank-card">
+        <h3>QS World University Rankings 2026</h3>
+        <p>Xếp hạng =17 thế giới</p>
+      </div>
+      <div class="rank-card">
+        <h3>US News Best Global Universities 2025-2026</h3>
+        <p>Xếp hạng 11 thế giới</p>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-style:italic; color:#555;">
+      Đây là trường đại học Trung Quốc có thứ hạng cao nhất thế giới trong hầu hết các bảng xếp hạng uy tín.
+    </p>
+  </section>
+
+  <section class="gallery container">
+    <h2>Khuôn viên đẹp nhất thế giới</h2>
+    <p class="intro-text" style="text-align:center;">Kết hợp hoàn hảo giữa kiến trúc cổ điển Trung Quốc và hiện đại, được xây dựng trên nền cũ của một khu vườn hoàng gia thời nhà Thanh.</p>
+
+    <h3>Cổng chính & Kiến trúc tiêu biểu</h3>
+    <div class="carousel">
+      <img src="https://www.tsinghua.edu.cn/__local/9/A7/E8/B7108B2BA9ACBA0FB50C3B1425F_BE6A191A_5F04D.png" alt="Cổng chính Tsinghua">
+      <img src="https://applyforchina.com/wp-content/uploads/2024/12/698BCFAD2D27D57E9E34FCC5ED2_A965346D_20B5024-1024x683.jpg" alt="Cổng trường Thanh Hoa">
+      <img src="https://applyforchina.com/wp-content/uploads/2024/12/TsinghuaUniversitypic9-1.jpg" alt="Cổng trường đẹp">
+      <img src="https://media-cdn.tripadvisor.com/media/photo-s/12/8c/03/67/the-second-gate-of-tsinghua.jpg" alt="Second Gate Tsinghua">
+    </div>
+
+    <h3>Cảnh quan khuôn viên thơ mộng</h3>
+    <div class="carousel">
+      <img src="https://th-thumbnailer.cdn-si-edu.com/7RBrKR3FE-i7rbQiouYrRTaL9bM=/1000x750/filters:no_upscale()/https%3A%2F%2Ftf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com%2Fc1a16b07031e75bc61efa269fae57bc01f24764f.jpeg" alt="Campus view đẹp">
+      <img src="https://visionsoftravel.org/wp-content/uploads/2014/02/TsinghuaUniversityCampusBeijing51.jpg" alt="Hồ và cây xanh Tsinghua">
+      <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1124132963251030" alt="Khuôn viên xanh mát">
+      <img src="https://wendyweitours.com/wp-content/uploads/2023/03/tsinghua-university_1_orig.jpg" alt="Cảnh quan Thanh Hoa">
+    </div>
+
+    <h3>Thư viện & Không gian học tập</h3>
+    <div class="carousel">
+      <img src="https://images.adsttc.com/media/images/5d7f/70b3/284d/d15e/5d00/027e/newsletter/17%E9%97%A8%E5%8E%85-%E5%AD%98%E5%9C%A8%E5%BB%BA%E7%AD%91%E6%91%84%E5%BD%B1.jpg?1568633002" alt="Thư viện Tsinghua">
+      <img src="https://images.adsttc.com/media/images/5d7f/707c/284d/d15e/5d00/027b/newsletter/13%E4%BA%8C%E5%B1%82%E9%98%85%E8%A7%88%E5%8C%BA-%E5%AD%98%E5%9C%A8%E5%BB%BA%E7%AD%91%E6%91%84%E5%BD%B1.jpg?1568632947" alt="Reading hall">
+      <img src="https://lib.tsinghua.edu.cn/__local/5/9C/A8/71B822DE7758C614D85619279F8_EB102D8A_2F33D.jpeg" alt="Thư viện hiện đại">
+    </div>
+  </section>
+
+  <section class="strengths container">
+    <h2>Các lĩnh vực mạnh nhất</h2>
+    <ul>
+      <li>Kỹ thuật & Công nghệ (thường top 1-3 thế giới)</li>
+      <li>Khoa học Máy tính</li>
+      <li>Kiến trúc</li>
+      <li>Khoa học Vật liệu</li>
+      <li>Kinh tế & Quản trị kinh doanh</li>
+      <li>Nhiều ngành khoa học tự nhiên khác</li>
+    </ul>
+  </section>
+
+  <div class="cta container">
+    Nếu bạn đang quan tâm đến việc apply đại học/thạc sĩ/tiến sĩ tại Thanh Hoa (học bổng CSC, Schwarzman Scholars, chương trình quốc tế bằng tiếng Anh…), hoặc muốn biết về ngành học cụ thể nào đó, cứ hỏi thêm nhé!
+  </div>
+
+</body>
+</html>
