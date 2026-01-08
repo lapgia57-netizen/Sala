@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đại học Ngoại thương - FTU 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #003087;        /* Màu xanh đậm FTU */
+      --primary-light: #0044cc;
+      --secondary: #f5a623;       /* Vàng cam nổi bật */
+      --text: #1a1a1a;
+      --text-light: #4a4a4a;
+      --bg: #f8f9fc;
+      --white: #ffffff;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #0050b3 100%);
+      color: white;
+      padding: 5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.12;
+      z-index: 0;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.92;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .intro-text {
+      font-size: 1.18rem;
+      color: var(--text-light);
+      max-width: 820px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .campuses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .campus-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .campus-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .campus-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.8rem;
+    }
+
+    .card-content h3 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .highlight-box {
+      background: rgba(0, 48, 135, 0.06);
+      border-left: 5px solid var(--primary);
+      padding: 1.6rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      font-size: 1.05rem;
+    }
+
+    .new-programs {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      margin: 3rem 0;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+    }
+
+    .program-tag {
+      background: var(--primary);
+      color: white;
+      padding: 0.7rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .program-tag:hover {
+      background: var(--primary-light);
+      transform: scale(1.05);
+    }
+
+    .cta {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      font-weight: 600;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(245,166,35,0.3);
+    }
+
+    .cta-btn:hover {
+      background: #e08f1e;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(245,166,35,0.4);
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 4rem 0 3.5rem; }
+      h1 { font-size: 2.8rem; }
+      section { padding: 3.5rem 0; }
+      h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Đại học Ngoại thương - FTU</h1>
+      <p class="subtitle">Top đầu Việt Nam về Kinh tế • Thương mại quốc tế • Kinh doanh • Ngoại ngữ</p>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <p class="intro-text">
+        Trường được thành lập năm 1960, là trường đại học công lập trực thuộc Bộ Giáo dục và Đào tạo.<br>
+        FTU nổi tiếng với chất lượng đào tạo cao, môi trường quốc tế hóa mạnh mẽ và tỷ lệ việc làm sau tốt nghiệp cực kỳ ấn tượng.
+      </p>
+
+      <h2>Cơ sở đào tạo</h2>
+
+      <div class="campuses">
+        <div class="campus-card">
+          <img src="https://ftu.edu.vn/wp-content/uploads/2023/09/1-1.jpg" alt="Cơ sở chính Hà Nội">
+          <div class="card-content">
+            <h3>Cơ sở chính - Hà Nội</h3>
+            <p>91 Chùa Láng, Đống Đa<br>Khuôn viên đẹp, truyền thống và uy tín nhất</p>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <img src="https://cs2.ftu.edu.vn/wp-content/uploads/2023/05/cs2-1.jpg" alt="Cơ sở II TP.HCM">
+          <div class="card-content">
+            <h3>Cơ sở II - TP. Hồ Chí Minh</h3>
+            <p>Quận 7<br>Rất được ưa chuộng ở miền Nam, chất lượng tương đương Hà Nội</p>
+          </div>
+        </div>
+
+        <div class="campus-card">
+          <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cơ sở Quảng Ninh">
+          <div class="card-content">
+            <h3>Cơ sở III - Quảng Ninh</h3>
+            <p>Chương trình đặc thù</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Xếp hạng & Điểm mạnh <small>(cập nhật 2025-2026)</small></h2>
+
+      <div class="highlight-box">
+        <strong>QS Asian University Rankings 2026:</strong> ~580 khu vực châu Á<br><br>
+        <strong>Trong nước:</strong> Luôn top 15 trường đại học tốt nhất Việt Nam<br>
+        <strong>Top 1-2</strong> về nhóm ngành Kinh tế - Thương mại quốc tế
+      </div>
+
+      <p style="font-size:1.1rem; margin-top:1.5rem;">
+        <strong>Điểm mạnh nổi bật:</strong> Chương trình dạy bằng tiếng Anh nhiều • Liên kết quốc tế tốt • Giảng viên chất lượng • Cơ hội thực tập & việc làm tại các tập đoàn đa quốc gia, ngân hàng, xuất nhập khẩu…
+      </p>
+    </section>
+
+    <div class="new-programs">
+      <h2>Tuyển sinh 2026 – Tin cực nóng!</h2>
+      <p style="font-size:1.1rem;">
+        FTU mở mới tới <strong>10 ngành</strong> tập trung công nghệ & kinh tế số!
+      </p>
+
+      <div class="program-grid">
+        <div class="program-tag">Trí tuệ nhân tạo (AI)</div>
+        <div class="program-tag">Khoa học dữ liệu</div>
+        <div class="program-tag">Công nghệ tài chính (Fintech)</div>
+        <div class="program-tag">Kinh tế số</div>
+        <div class="program-tag">+ nhiều ngành hot khác</div>
+      </div>
+
+      <p style="margin-top:2rem; font-size:1.1rem;">
+        Tổng cộng: <strong>~28 ngành</strong> với <strong>44 chương trình</strong> (chất lượng cao, tiên tiến, tích hợp quốc tế).<br>
+        Đây là bước chuyển mình mạnh mẽ của FTU để bắt kịp xu hướng 4.0 & kinh tế số.
+      </p>
+    </div>
+
+    <div class="cta">
+      <h2 style="margin-bottom:1.5rem;">Bạn muốn tìm hiểu thêm?</h2>
+      <a href="#" class="cta-btn">Hỏi ngay về ngành hot, điểm chuẩn, Hà Nội vs TP.HCM →</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
