@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Họ Ngô & Họ Thân - Việt Nam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-primary: #8B0000;      /* đỏ son truyền thống */
+      --color-secondary: #4A2C0B;    /* nâu gỗ đậm */
+      --color-accent: #D4A017;       /* vàng đồng */
+      --color-bg: #fdfaf5;
+      --color-text: #2f1e0f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      background: linear-gradient(to bottom, #fdfaf5, #f5efe6);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: var(--color-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .clan-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin: 4rem 0;
+    }
+
+    @media (min-width: 992px) {
+      .clan-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .clan-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .clan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .clan-header {
+      background: var(--color-primary);
+      color: white;
+      padding: 2.2rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .clan-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .clan-header .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .clan-content {
+      padding: 2.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--color-secondary);
+      font-size: 1.6rem;
+      margin: 2rem 0 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 2px;
+      background: var(--color-accent);
+      bottom: -8px;
+      left: 0;
+    }
+
+    .highlight {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    ul {
+      padding-left: 1.8rem;
+      margin: 1rem 0;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 4rem;
+      padding: 2rem 0;
+      font-size: 0.95rem;
+      color: #666;
+      border-top: 1px solid #e0d8c9;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.6rem; }
+      .clan-header h2 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Họ Tộc Việt Nam</h1>
+      <p>Hành trình lịch sử và những đóng góp của hai dòng họ lớn: <span class="highlight">Họ Ngô</span> và <span class="highlight">Họ Thân</span></p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="clan-grid">
+
+      <!-- Họ NGÔ -->
+      <div class="clan-card">
+        <div class="clan-header">
+          <h2>Họ NGÔ</h2>
+          <div class="subtitle">吳 - Thứ 12 về độ phổ biến ở Việt Nam</div>
+        </div>
+        <div class="clan-content">
+          <h3 class="section-title">Nguồn gốc</h3>
+          <p>Thủy tổ: <strong>Ngô Nhật Đại</strong> – hào trưởng vùng Hà Tĩnh, tham gia khởi nghĩa Mai Thúc Loan (722) chống nhà Đường.</p>
+
+          <h3 class="section-title">Nhân vật tiêu biểu</h3>
+          <ul>
+            <li>Ngô Quyền – Người mở ra thời kỳ độc lập tự chủ</li>
+            <li>Ngô Sĩ Liên – Nhà sử học lớn (Đại Việt sử ký toàn thư)</li>
+            <li>Ngô Thị Ngọc Dao – Thái hậu mẹ vua Lê Thánh Tông</li>
+            <li>Ngô Đình Diệm – Tổng thống Việt Nam Cộng hòa</li>
+            <li>Ngô Bảo Châu – Giải Fields Toán học</li>
+            <li>Ngô Thanh Vân, Xuân Diệu, Ngô Thụy Miên...</li>
+          </ul>
+
+          <h3 class="section-title">Phân bố nổi bật</h3>
+          <p>Bắc Ninh (Vọng Nguyệt – khoa bảng), Thừa Thiên Huế, TP.HCM, Thanh Hóa, Quảng Nam...</p>
+        </div>
+      </div>
+
+      <!-- Họ THÂN -->
+      <div class="clan-card">
+        <div class="clan-header">
+          <h2>Họ THÂN</h2>
+          <div class="subtitle">申 - Dòng họ phò mã nhà Lý</div>
+        </div>
+        <div class="clan-content">
+          <h3 class="section-title">Nguồn gốc</h3>
+          <p>Thủy tổ: <strong>Thân Thừa Quý</strong> (Giáp Thừa Quý) – Chúa Động Giáp.<br>
+          Năm 1010, vua <strong>Lý Thái Tổ</strong> đổi họ Giáp → Thân khi gả công chúa.</p>
+
+          <h3 class="section-title">Đặc điểm nổi bật</h3>
+          <p><strong>Ba đời liên tiếp làm phò mã nhà Lý:</strong><br>
+          Thân Thừa Quý → Thân Thiệu Thái → Thân Cảnh Phúc</p>
+
+          <h3 class="section-title">Phân bố nổi bật</h3>
+          <p>Tập trung mạnh ở: Bắc Giang (đất tổ), Lạng Sơn, Hà Nội, Hải Phòng, Thái Nguyên...<br>
+          Có mặt ở hơn 30 tỉnh/thành, hội đồng tộc hoạt động mạnh (hothan.org)</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      Dữ liệu tham khảo từ các phả hệ họ tộc và tư liệu lịch sử Việt Nam<br>
+      Cập nhật giao diện: Tháng 01/2026
+    </div>
+  </div>
+
+</body>
+</html>
