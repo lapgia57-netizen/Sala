@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ví Nóng vs Ví Lạnh - So Sánh 2026</title>
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-dark: #5b21b6;
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --green: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      background: linear-gradient(90deg, #a78bfa, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      margin-bottom: 2.5rem;
+    }
+
+    .comparison-table th, .comparison-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .comparison-table th {
+      background: rgba(124, 58, 237, 0.25);
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .hot { color: var(--yellow); font-weight: 600; }
+    .cold { color: var(--green); font-weight: 600; }
+    .center { text-align: center; }
+
+    .rating {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+    }
+
+    .summary {
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+
+    .analogy {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 1rem 0;
+      color: #ddd;
+    }
+
+    .advice {
+      background: rgba(16, 185, 129, 0.15);
+      border-left: 4px solid var(--green);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .question {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 3rem;
+      color: #c084fc;
+    }
+
+    @media (max-width: 768px) {
+      .comparison-table {
+        font-size: 0.95rem;
+      }
+      .comparison-table th, .comparison-table td {
+        padding: 12px 14px;
+      }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Ví Nóng vs Ví Lạnh 2026</h1>
+  
+  <p class="intro">
+    Sự khác nhau chính giữa ví nóng (Hot Wallet) và ví lạnh (Cold Wallet) nằm ở mức độ kết nối internet, 
+    tính tiện lợi và mức độ bảo mật. Dưới đây là bảng so sánh chi tiết & dễ hiểu nhất (cập nhật 2026).
+  </p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Tiêu chí</th>
+        <th>Ví nóng (Hot Wallet)</th>
+        <th>Ví lạnh (Cold Wallet)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kết nối Internet</td>
+        <td class="hot">Luôn hoặc hầu hết thời gian kết nối</td>
+        <td class="cold">Không kết nối internet (offline)</td>
+      </tr>
+      <tr>
+        <td>Tốc độ giao dịch</td>
+        <td class="hot">Rất nhanh, gần như tức thì</td>
+        <td class="cold">Chậm hơn (phải kết nối tạm thời để ký)</td>
+      </tr>
+      <tr>
+        <td>Tiện lợi / Sử dụng hàng ngày</td>
+        <td class="center rating hot">★★★★★</td>
+        <td class="center rating cold">★★☆☆☆</td>
+      </tr>
+      <tr>
+        <td>Bảo mật</td>
+        <td class="hot">Thấp → Trung bình</td>
+        <td class="cold">Rất cao (an toàn nhất cho lưu trữ dài hạn)</td>
+      </tr>
+      <tr>
+        <td>Rủi ro chính</td>
+        <td>Hack online, phishing, keylogger, sàn phá sản</td>
+        <td>Mất thiết bị + không backup seed phrase</td>
+      </tr>
+      <tr>
+        <td>Phù hợp với</td>
+        <td>Số tiền nhỏ, trade thường xuyên, DeFi, NFT</td>
+        <td>Số tiền lớn, hodl dài hạn</td>
+      </tr>
+      <tr>
+        <td>Chi phí</td>
+        <td>Thường miễn phí hoặc rất rẻ</td>
+        <td>Có chi phí mua thiết bị (1–5 triệu VNĐ)</td>
+      </tr>
+      <tr>
+        <td>Ví dụ điển hình</td>
+        <td>Binance, Bybit, MetaMask, Trust Wallet, Coin98, Phantom, Rabby...</td>
+        <td>Ledger Nano, Trezor, Tangem card, ví giấy</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="summary">
+    <h2>Tóm tắt nhanh - Cách nghĩ phổ biến 2025-2026</h2>
+    <p class="analogy">Ví nóng ≈ Ví tiền trong túi quần</p>
+    <p style="margin: 0.6rem 0; color: var(--text-light);">→ Dùng hàng ngày, tiện nhưng dễ bị giật nếu sơ suất</p>
+    
+    <p class="analogy" style="margin-top: 1.6rem;">Ví lạnh ≈ Két sắt để ở nhà / ngân hàng</p>
+    <p style="color: var(--text-light);">→ An toàn cực cao nhưng mở ra dùng thì hơi mất công</p>
+  </div>
+
+  <div class="advice">
+    <h2>Lời khuyên thực tế năm 2026</h2>
+    <ul>
+      <li>Dưới 5–10 triệu hoặc dùng để trade/giao dịch thường xuyên → <strong>Ví nóng</strong> là đủ (nên chọn non-custodial như MetaMask, Trust Wallet, Rabby... + bật 2FA).</li>
+      <li>Trên 50 triệu trở lên (hoặc bạn "hodl" dài hạn) → <strong>Chuyển phần lớn sang ví lạnh</strong> (Ledger, Trezor hiện vẫn là 2 lựa chọn đáng tin cậy nhất).</li>
+      <li><strong>Chiến lược vàng cho người Việt:</strong><br>70–90% tài sản → Ví lạnh<br>10–30% tài sản → Ví nóng để dùng linh hoạt</li>
+    </ul>
+  </div>
+
+  <p class="question">
+    Bạn đang có bao nhiêu tiền crypto và chủ yếu dùng để trade hay hold lâu dài?<br>
+    Comment để mình gợi ý cụ thể loại ví phù hợp nhất cho bạn nhé! 🚀
+  </p>
+</div>
+
+</body>
+</html>
