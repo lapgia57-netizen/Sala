@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Họ Vi & Họ Dương - Việt Nam</title>
+  <style>
+    :root {
+      --color-vi: #2c7d59;      /* xanh đậm vùng núi */
+      --color-duong: #c62828;   /* đỏ truyền thống */
+      --bg-light: #f8f9fa;
+      --text-dark: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #1a3c34;
+      font-size: 2.4rem;
+    }
+
+    .family-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .family-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .family-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .family-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card-header {
+      padding: 2rem 1.8rem;
+      color: white;
+      position: relative;
+    }
+
+    .card-header h2 {
+      font-size: 2.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-header .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .card-content {
+      padding: 2rem 1.8rem;
+    }
+
+    .section-title {
+      color: var(--color-primary);
+      font-size: 1.35rem;
+      margin: 1.6rem 0 0.9rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0,0,0,0.08);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1.4rem;
+    }
+
+    ul li {
+      margin-bottom: 0.9rem;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "•";
+      color: var(--color-primary);
+      position: absolute;
+      left: -1.2rem;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .highlight {
+      background-color: rgba(0,0,0,0.04);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1.5rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* Màu riêng cho từng họ */
+    .vi .card-header {
+      background: linear-gradient(135deg, #2c7d59 0%, #1e5a40 100%);
+    }
+    .vi .section-title {
+      --color-primary: var(--color-vi);
+    }
+
+    .duong .card-header {
+      background: linear-gradient(135deg, #c62828 0%, #9c1f1f 100%);
+    }
+    .duong .section-title {
+      --color-primary: var(--color-duong);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Hai Dòng Họ Nổi Tiếng Việt Nam</h1>
+
+    <div class="family-grid">
+
+      <!-- Họ Vi -->
+      <div class="family-card vi">
+        <div class="card-header">
+          <h2>Họ Vi 韋</h2>
+          <div class="subtitle">Dòng họ đặc biệt vùng biên giới phía Bắc</div>
+        </div>
+        <div class="card-content">
+          <div class="section-title">Nguồn gốc & Phân bố</div>
+          <ul>
+            <li>Họ <span class="highlight">Vi (韋)</span> phổ biến trong cộng đồng người Tày và một phần người Nùng</li>
+            <li>Tập trung chủ yếu ở: <strong>Lạng Sơn</strong> (đặc biệt huyện Lộc Bình), Bắc Giang, Bắc Kạn, Yên Bái, Nghệ An</li>
+            <li>Các chi nhánh rải rác ở Thái Bình, An Giang, Quảng Ngãi</li>
+          </ul>
+
+          <div class="section-title">Điểm nổi bật lịch sử</div>
+          <ul>
+            <li>Thuộc nhóm <strong>"thất tộc thổ ty"</strong> nổi tiếng xứ Lạng</li>
+            <li>Nhiều đời làm quan trấn giữ biên cương, cao nhất chức <strong>Tổng đốc</strong> (ví dụ: Vi Văn Định)</li>
+            <li><strong>Biệt phủ họ Vi</strong> tại Bản Chu, xã Khuất Xá, huyện Lộc Bình – hiện là di tích lịch sử – văn hóa được bảo tồn</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Họ Dương -->
+      <div class="family-card duong">
+        <div class="card-header">
+          <h2>Họ Dương 楊</h2>
+          <div class="subtitle">Dòng họ cổ xưa, phổ biến khắp Việt Nam</div>
+        </div>
+        <div class="card-content">
+          <div class="section-title">Nguồn gốc & Ý nghĩa</div>
+          <ul>
+            <li>Chữ Hán: <span class="highlight">楊</span> – nghĩa gốc là cây dương liễu</li>
+            <li>Xếp hạng 6 họ phổ biến nhất Trung Quốc</li>
+            <li>Có mặt ở Việt Nam từ rất sớm, liên quan truyền thuyết <strong>Kinh Dương Vương</strong> (2879 TCN)</li>
+            <li>Phát tích chính: vùng <strong>Kinh Bắc</strong> (Bắc Ninh – Bắc Giang)</li>
+          </ul>
+
+          <div class="section-title">Nhân vật nổi bật</div>
+          <ul>
+            <li><strong>Dương Đình Nghệ</strong> (thế kỷ 10) – cha nuôi Ngô Quyền, đánh bại Nam Hán</li>
+            <li><strong>Dương Minh Thắng</strong> (Hậu Lê) – lập ấp Long Vỹ</li>
+            <li>Nhiều danh nhân khoa bảng và chống ngoại xâm qua các triều Lý – Trần – Lê – Nguyễn</li>
+          </ul>
+
+          <div class="section-title">Hiện nay</div>
+          <ul>
+            <li>Có mặt ở <strong>63 tỉnh thành</strong></li>
+            <li>Truyền thống hiếu học, khoa bảng, yêu nước</li>
+            <li>Có nhà thờ họ, hội đồng họ Dương các cấp & cờ dòng họ riêng (nền đỏ, chữ Dương vàng)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      Thiết kế giao diện tham khảo - Dữ liệu tổng hợp từ truyền thống gia phả & lịch sử Việt Nam
+    </footer>
+  </div>
+
+</body>
+</html>
