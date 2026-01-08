@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Công ty TNHH Hạ tầng Viễn thông Miền Bắc (TIN)</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --light: #f8f9fa;
+            --dark: #2d2d2d;
+            --gray: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.35rem;
+            opacity: 0.92;
+            letter-spacing: 0.5px;
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            margin: -40px auto 50px;
+            padding: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 6px;
+            background: linear-gradient(to right, var(--primary), #00aaff);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 0 0 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            background: #f5f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.25s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,102,204,0.12);
+        }
+
+        .info-box strong {
+            color: var(--primary-dark);
+            font-size: 1.18rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, #fff8e1, #fff3e0);
+            border-left: 6px solid #f57c00;
+            padding: 28px;
+            border-radius: 12px;
+            margin: 40px 0;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box strong {
+            color: #e65100;
+        }
+
+        .note {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--gray);
+            font-size: 1.05rem;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .main-card { padding: 30px 20px; margin: -30px auto 40px; }
+            header { padding: 60px 15px 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>CÔNG TY TNHH HẠ TẦNG VIỄN THÔNG MIỀN BẮC</h1>
+        <p class="subtitle">Telecom Infrastructure North Company Limited — TIN</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-card">
+        <h2>Thông tin cơ bản</h2>
+        <div class="info-grid">
+            <div class="info-box">
+                <strong>Ngày thành lập</strong>
+                01/04/2010
+            </div>
+            <div class="info-box">
+                <strong>Mã số thuế</strong>
+                0104547936<br>
+                <small>(một số nguồn cũ ghi 0109104487 do thay đổi đăng ký)</small>
+            </div>
+            <div class="info-box">
+                <strong>Trụ sở chính</strong>
+                Tầng 3, Tòa nhà Detech II, 107 Nguyễn Phong Sắc<br>
+                Phường Dịch Vọng Hậu (hoặc Cầu Giấy), Quận Cầu Giấy, Hà Nội
+            </div>
+        </div>
+
+        <h2>Lĩnh vực hoạt động chính</h2>
+        <p>
+            Là <strong>đối tác độc quyền</strong> của FPT Telecom tại khu vực <strong>Miền Bắc</strong> và <strong>Miền Trung</strong> Việt Nam, chuyên:
+        </p>
+        <ul style="margin: 18px 0 25px 22px; font-size: 1.05rem;">
+            <li>Triển khai, lắp đặt dịch vụ viễn thông (Internet cáp quang, IPTV, voice...)</li>
+            <li>Bảo trì, sửa chữa, vận hành hạ tầng mạng</li>
+            <li>Các dịch vụ kỹ thuật liên quan đến hạ tầng viễn thông</li>
+        </ul>
+        <p>
+            Phủ sóng khoảng <strong>29 tỉnh thành</strong> phía Bắc và một phần miền Trung.
+        </p>
+
+        <div class="highlight-box">
+            <strong>Tóm tắt nhanh:</strong> TIN <u>không phải</u> nhà cung cấp dịch vụ trực tiếp cho khách hàng cuối 
+            (như FPT Telecom, Viettel, VNPT...), mà là <strong>đối tác kỹ thuật độc quyền</strong> hỗ trợ triển khai 
+            & duy trì hạ tầng mạng cho FPT Telecom ở khu vực phía Bắc và Trung.
+        </div>
+
+        <h2>Quy mô & định hướng</h2>
+        <p>
+            Sau hơn 15 năm hoạt động, công ty đã xây dựng đội ngũ lớn (&gt; 3000 nhân sự theo thông tin trước đây), 
+            luôn chú trọng <strong>chất lượng dịch vụ</strong> và <strong>lấy khách hàng làm trung tâm</strong>.
+        </p>
+    </div>
+
+    <div class="note">
+        Nếu bạn cần thông tin tuyển dụng, liên hệ hợp tác, chi nhánh tỉnh nào, việc làm hiện tại... <br>
+        cứ cho mình biết thêm để hỗ trợ nhé!
+    </div>
+</div>
+
+</body>
+</html>
