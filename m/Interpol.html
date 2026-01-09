@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interpol - Tổ chức Cảnh sát Hình sự Quốc tế</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@700&family=Source+Sans+3:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #003087;       /* Màu xanh dương chính thức của Interpol */
+      --primary-dark: #001f5b;
+      --accent: #00a1d6;         /* Xanh cyan nổi bật */
+      --bg: #f5f8fc;
+      --text: #0d1b2a;
+      --light: #e6f0ff;
+      --gray: #4a5568;
+      --border: #cbd5e1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0,48,135,0.12);
+      border: 1px solid var(--border);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 70px 30px 55px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "INTERPOL";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-12deg);
+      font-size: 9rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.08);
+      pointer-events: none;
+      font-family: 'Source Sans 3', sans-serif;
+      letter-spacing: 8px;
+    }
+
+    .title-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.5);
+    }
+
+    .subtitle {
+      font-size: 1.35rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    .content {
+      padding: 45px 40px;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 2.1rem;
+      margin: 50px 0 20px;
+      border-left: 6px solid var(--accent);
+      padding-left: 18px;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      color: #2d3748;
+    }
+
+    .highlight-box {
+      background: var(--light);
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 30px 0;
+      font-size: 1.08rem;
+    }
+
+    .timeline {
+      margin: 40px 0;
+    }
+
+    .year-item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: all 0.2s;
+    }
+
+    .year-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,48,135,0.15);
+      border-color: var(--accent);
+    }
+
+    .year {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .images-note {
+      font-style: italic;
+      color: #4a5568;
+      margin: 15px 0 25px;
+      padding: 12px 18px;
+      background: rgba(0,161,214,0.08);
+      border-radius: 8px;
+      border: 1px dashed var(--accent);
+    }
+
+    .vietnam-section {
+      background: linear-gradient(to right, #f0f7ff, #e6f0ff);
+      padding: 28px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    .conclusion {
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin: 60px 0 40px;
+      line-height: 1.6;
+      padding: 0 30px;
+    }
+
+    .call-to-action {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 680px) {
+      .title-main { font-size: 2.5rem; }
+      .content { padding: 35px 25px; }
+      .header { padding: 55px 25px 45px; }
+      h2 { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1 class="title-main">INTERPOL</h1>
+    <p class="subtitle">Tổ chức Cảnh sát Hình sự Quốc tế – ICPO</p>
+  </div>
+
+  <div class="content">
+    <p class="intro">
+      Interpol là tổ chức liên chính phủ lớn nhất thế giới về hợp tác cảnh sát với <strong>196 quốc gia thành viên</strong>.<br>
+      Trụ sở chính tại <strong>Lyon, Pháp</strong>. Interpol không có quyền lực cảnh sát trực tiếp mà hoạt động như trung tâm kết nối, chia sẻ thông tin và phối hợp chống tội phạm xuyên quốc gia.
+    </p>
+
+    <div class="images-note">
+      Dưới đây là một số hình ảnh về trụ sở Interpol tại Lyon, Pháp:
+    </div>
+
+    <!-- Bạn có thể thay thế bằng thẻ <img> thực tế nếu có link ảnh -->
+    <p style="text-align:center; color:#666; font-style:italic; margin:20px 0;">
+      [Hình ảnh trụ sở Interpol Lyon – nguồn: eduardoperez.de, gettyimages.com, simple.wikipedia.org]
+    </p>
+
+    <h2>Những năm gần đây (2022–2026): Chuyển hướng mạnh sang tội phạm hiện đại</h2>
+
+    <div class="highlight-box">
+      Sau đại dịch COVID-19, Interpol ưu tiên hàng đầu: <strong>tội phạm mạng</strong>, lừa đảo trực tuyến, tài chính kỹ thuật số, scam centres, buôn người liên quan lừa đảo và tội phạm môi trường.
+    </div>
+
+    <div class="timeline">
+      <div class="year-item">
+        <div class="year">2022–2023</div>
+        Phát hành báo cáo tội phạm toàn cầu đầu tiên (IGCTR) • Ra mắt Metaverse đào tạo • Kỷ niệm 100 năm thành lập tại Vienna.
+      </div>
+
+      <div class="year-item">
+        <div class="year">2024</div>
+        Ra mắt Silver Notice (thí điểm) • Chiến dịch lớn châu Phi (Operation Serengeti, Sentinel): hàng nghìn vụ bắt giữ, thu hồi hàng chục triệu USD.
+      </div>
+
+      <div class="year-item">
+        <div class="year">2025</div>
+        Chiến dịch săn lùng truy nã quốc tế: bắt 85 nghi phạm • Đại hội đồng Glasgow thông qua Khung Chiến lược 2026–2030 “Together Against Crime”.
+      </div>
+
+      <div class="year-item">
+        <div class="year">2026</div>
+        Triển khai khung chiến lược mới • Hội nghị chống tội phạm sở hữu trí tuệ tại Bangkok • Tiếp tục chiến dịch chống scam centres và tội phạm mạng.
+      </div>
+    </div>
+
+    <h2>Ví dụ nổi bật: Red Notice – Lệnh truy nã đỏ</h2>
+    <div class="images-note">
+      Dưới đây là hình ảnh minh họa về Red Notice:
+    </div>
+    <p style="text-align:center; color:#666; font-style:italic; margin:20px 0;">
+      [Hình ảnh Red Notice – nguồn: interpol.int]
+    </p>
+
+    <h2>Tình hình tại Việt Nam</h2>
+    <div class="vietnam-section">
+      <ul style="padding-left:25px; font-size:1.05rem;">
+        <li>Việt Nam là thành viên từ năm <strong>1991</strong> (Văn phòng Interpol Việt Nam – Bộ Công an).</li>
+        <li>Năm 2023: Đề nghị Interpol ban hành <strong>382 lệnh truy nã</strong> đối với tội phạm Việt Nam trốn nước ngoài và xác minh <strong>192 đối tượng</strong> nước ngoài.</li>
+        <li>Tham gia tích cực các chiến dịch lớn về tội phạm mạng, ma túy, buôn người.</li>
+        <li>Việt Nam luôn được đánh giá là thành viên có trách nhiệm cao.</li>
+      </ul>
+    </div>
+
+    <div class="conclusion">
+      Trong 4–5 năm qua, Interpol đã hiện đại hóa mạnh mẽ,<br>
+      chuyển trọng tâm từ tội phạm truyền thống sang đối phó với<br>
+      <strong>tội phạm số hóa – toàn cầu hóa – xuyên biên giới</strong>.
+    </div>
+
+    <div class="call-to-action">
+      Nếu bạn muốn tìm hiểu sâu hơn về Red Notice, tội phạm mạng,<br>
+      hoạt động của Interpol tại Việt Nam hay bất kỳ khía cạnh nào khác,<br>
+      hãy hỏi mình nhé!
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
