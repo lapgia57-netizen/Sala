@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gen Z vs Gen G - Phân biệt rõ ràng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2e7d32;     /* Xanh lá chủ đạo cho Gen G */
+      --primary-dark: #1b5e20;
+      --secondary: #0288d1;    /* Xanh dương công nghệ cho Gen Z */
+      --accent: #f9a825;
+      --bg: #f5f9f5;
+      --text: #1a3c34;
+      --light-green: #e8f5e9;
+      --gray: #546e7a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px 15px;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(46,125,50,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(2,136,209,0.07) 0%, transparent 50%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+      border: 1px solid rgba(46,125,50,0.12);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 70%);
+      color: white;
+      padding: 70px 30px 55px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "GEN Z × GEN G";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-12deg);
+      font-size: 7rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.09);
+      pointer-events: none;
+      font-family: 'Playfair Display', serif;
+      white-space: nowrap;
+    }
+
+    .title-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.1rem;
+      margin-bottom: 14px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.94;
+      font-weight: 400;
+    }
+
+    .content {
+      padding: 45px 40px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .gen-card {
+      background: var(--light-green);
+      border-radius: 16px;
+      padding: 30px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gen-card.z {
+      background: #e3f2fd;
+      border-color: var(--secondary);
+    }
+
+    .gen-card.g::before {
+      content: "GEN G";
+      position: absolute;
+      top: -20px;
+      right: -60px;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(46,125,50,0.12);
+      transform: rotate(45deg);
+    }
+
+    .gen-card.z::before {
+      content: "GEN Z";
+      position: absolute;
+      top: -20px;
+      left: -60px;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(2,136,209,0.12);
+      transform: rotate(-45deg);
+    }
+
+    .gen-title {
+      font-size: 2.1rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .gen-card.z .gen-title { color: var(--secondary); }
+    .gen-card.g .gen-title { color: var(--primary); }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 45px 0;
+      font-size: 1.05rem;
+    }
+
+    .comparison-table th, .comparison-table td {
+      padding: 18px 24px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .comparison-table th {
+      background: linear-gradient(90deg, var(--primary), #388e3c);
+      color: white;
+      font-weight: 600;
+    }
+
+    .comparison-table td:nth-child(1) {
+      background: #f9f9f9;
+      font-weight: 600;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .question {
+      text-align: center;
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin: 55px 0 30px;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      padding: 0 20px;
+    }
+
+    .decoration-line {
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      margin: 40px 0;
+    }
+
+    @media (max-width: 768px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+      .title-main { font-size: 2.5rem; }
+      .content { padding: 35px 25px; }
+      .header { padding: 55px 25px 45px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1 class="title-main">GEN Z vs GEN G</h1>
+    <p class="subtitle">Hai khái niệm hot nhất giới trẻ Việt Nam 2026</p>
+  </div>
+
+  <div class="content">
+
+    <div class="two-column">
+      <!-- Gen Z -->
+      <div class="gen-card z">
+        <h2 class="gen-title">GEN Z</h2>
+        <p><strong>Thế hệ sinh ra 1997–2012</strong> (hiện 14–29 tuổi)</p>
+        <ul style="margin:18px 0 0 20px; line-height:1.8;">
+          <li>Sinh ra trong kỷ nguyên smartphone & mạng xã hội</li>
+          <li>Thành thạo TikTok, Instagram, meme, video ngắn</li>
+          <li>Yêu công nghệ, sáng tạo, cá nhân hóa</li>
+          <li>Quan tâm sức khỏe tinh thần, bình đẳng, môi trường</li>
+          <li>Muốn work-life balance, công việc ý nghĩa</li>
+        </ul>
+      </div>
+
+      <!-- Gen G -->
+      <div class="gen-card g">
+        <h2 class="gen-title">GEN G</h2>
+        <p><strong>Green Generation – Thế hệ Sống Xanh</strong></p>
+        <ul style="margin:18px 0 0 20px; line-height:1.8;">
+          <li>Không giới hạn tuổi tác</li>
+          <li>Phong cách sống bền vững, thân thiện môi trường</li>
+          <li>Giảm nhựa, phân loại rác, tiết kiệm điện</li>
+          <li>Dùng sản phẩm xanh, ủng hộ năng lượng tái tạo</li>
+          <li>Bất kỳ ai cũng có thể là Gen G!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decoration-line"></div>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Đặc điểm</th>
+          <th>Gen Z</th>
+          <th>Gen G</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cơ sở phân loại</td>
+          <td>Năm sinh (1997–2012)</td>
+          <td class="highlight">Phong cách sống (sống xanh)</td>
+        </tr>
+        <tr>
+          <td>Độ tuổi (2026)</td>
+          <td>Khoảng 14–29 tuổi</td>
+          <td class="highlight">Không giới hạn</td>
+        </tr>
+        <tr>
+          <td>Đặc trưng chính</td>
+          <td>Công nghệ, sáng tạo, cá nhân hóa</td>
+          <td class="highlight">Bền vững, bảo vệ môi trường</td>
+        </tr>
+        <tr>
+          <td>Ví dụ điển hình</td>
+          <td>TikToker, freelancer, KOL trẻ</td>
+          <td class="highlight">Người dùng túi vải, phân loại rác, trồng cây</td>
+        </tr>
+        <tr>
+          <td>Nguồn gốc</td>
+          <td>Nghiên cứu nhân khẩu học toàn cầu</td>
+          <td class="highlight">Chiến dịch Panasonic Việt Nam</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="text-align:center; font-size:1.18rem; margin:40px 0; color:#444;">
+      <strong>Tóm lại:</strong> Gen Z là <span style="color:var(--secondary)">thế hệ tuổi trẻ công nghệ cao</span>.<br>
+      Gen G là <span class="highlight">ai cũng có thể trở thành</span> nếu chọn sống xanh và bảo vệ Trái Đất.
+    </p>
+
+    <div class="question">
+      Bạn đang là Gen Z, Gen G,<br>hay cả hai luôn? 🌱📱
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
