@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phân tích Awesome-Selfhosted (tháng 1/2026)</title>
+  <style>
+    :root {
+      --primary: #0066cc;
+      --dark: #1a1a1a;
+      --light: #f8f9fa;
+      --gray: #555;
+      --border: #ddd;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--light);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    h1, h2, h3 {
+      color: var(--dark);
+    }
+    h1 {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 12px;
+      margin-bottom: 30px;
+    }
+    h2 {
+      margin-top: 2.5em;
+      color: var(--primary);
+      border-left: 6px solid var(--primary);
+      padding-left: 15px;
+    }
+    h3 {
+      margin-top: 2em;
+      color: #444;
+    }
+    p, li {
+      color: var(--gray);
+    }
+    ul, ol {
+      padding-left: 25px;
+    }
+    strong {
+      color: #000;
+    }
+    .highlight {
+      background-color: #e6f2ff;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid var(--primary);
+      margin: 25px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px 15px;
+      text-align: left;
+    }
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .emoji {
+      font-size: 1.4em;
+    }
+    .footer-note {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      font-style: italic;
+      text-align: center;
+      color: #666;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 20px 15px; }
+      table { font-size: 0.95em; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Phân tích repo: https://github.com/awesome-selfhosted/awesome-selfhosted (tính đến tháng 1/2026)</h1>
+
+<p>Đây là một trong những repository nổi tiếng và quan trọng nhất trong cộng đồng self-hosting / tự host phần mềm mã nguồn mở.</p>
+
+<h2>Tổng quan cơ bản (thống kê gần nhất ~11/01/2026)</h2>
+
+<ul>
+  <li>Stars: ≈ 267.000 – 268.000 (rất cao, nằm trong top các repo awesome-list)</li>
+  <li>Forks: ≈ 12.000 – 12.200</li>
+  <li>Contributors: > 1.230 người</li>
+  <li>Hoạt động: Vẫn rất active — commit mới nhất ngày 11/01/2026 (chủ yếu là bot tự động cập nhật danh sách từ dữ liệu nguồn)</li>
+  <li>License (của danh sách): CC-BY-SA 3.0 (miễn phí sử dụng, chia sẻ, nhưng phải ghi nguồn và giữ nguyên license)</li>
+  <li>Mục đích chính: Danh sách curated (được chọn lọc kỹ) các phần mềm mã nguồn mở hoàn toàn miễn phí (FOSS) có thể tự host trên server cá nhân, VPS, Raspberry Pi, NAS... thay thế các dịch vụ SaaS thương mại (Google, Dropbox, Slack, Trello, v.v.)</li>
+</ul>
+
+<h2>Quy mô danh sách – Khủng khiếp như thế nào?</h2>
+
+<p>Hiện tại repo chứa khoảng 400–600+ phần mềm (tùy cách đếm), phân bổ vào ~90–100 category lớn nhỏ. Một số con số nổi bật (ước lượng từ TOC):</p>
+
+<h3>Category nổi bật</h3>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Số lượng phần mềm ước tính</th>
+    <th>Ví dụ phần mềm hot nhất 2025–2026</th>
+  </tr>
+  <tr>
+    <td>Communication (tổng)</td>
+    <td>~150–180</td>
+    <td>Matrix/Synapse, Mastodon, Element, Jitsi, Zulip</td>
+  </tr>
+  <tr>
+    <td>Photo & Media Management</td>
+    <td>~50–80</td>
+    <td>Immich, Jellyfin, Photoprism, Audiobookshelf</td>
+  </tr>
+  <tr>
+    <td>File Sync & Sharing</td>
+    <td>~30–50</td>
+    <td>Nextcloud, Seafile, Syncthing</td>
+  </tr>
+  <tr>
+    <td>Password Managers</td>
+    <td>~7–10</td>
+    <td>Vaultwarden (Bitwarden RS), Passbolt</td>
+  </tr>
+  <tr>
+    <td>Personal Dashboards / Start Pages</td>
+    <td>~15–25</td>
+    <td>Heimdall, Dashy, Homarr</td>
+  </tr>
+  <tr>
+    <td>Note-taking & Knowledge Base</td>
+    <td>~20–40</td>
+    <td>BookStack, Wiki.js, Trilium, AFFiNE</td>
+  </tr>
+  <tr>
+    <td>Feed Readers (RSS)</td>
+    <td>~20–30</td>
+    <td>FreshRSS, Miniflux</td>
+  </tr>
+  <tr>
+    <td>Monitoring & Status Pages</td>
+    <td>~20–40</td>
+    <td>Uptime Kuma, Prometheus + Grafana, Zabbix</td>
+  </tr>
+  <tr>
+    <td>Automation & Workflow</td>
+    <td>~30–40</td>
+    <td>n8n, Node-RED, Huginn</td>
+  </tr>
+  <tr>
+    <td>Search Engines (Meta)</td>
+    <td>~10–15</td>
+    <td>SearXNG, Whoogle</td>
+  </tr>
+  <tr>
+    <td>Video Surveillance / NVR</td>
+    <td>~6–10</td>
+    <td>Frigate, ZoneMinder, motionEye</td>
+  </tr>
+  <tr>
+    <td>Self-hosting Solutions (dễ cài)</td>
+    <td>~20–30</td>
+    <td>YunoHost, CasaOS, Umbrel, Cosmos</td>
+  </tr>
+</table>
+
+<p>→ Tổng thể là kho báu khổng lồ nếu bạn muốn thay thế gần như toàn bộ dịch vụ đám mây bằng giải pháp tự host.</p>
+
+<h2>Những điểm nổi bật & xu hướng 2025–2026</h2>
+
+<div class="highlight">
+  <ul>
+    <li>Immich đang thống trị mảng ảnh cá nhân (thay Google Photos)</li>
+    <li>Vaultwarden vẫn là lựa chọn số 1 cho password manager</li>
+    <li>Nextcloud + Vault + OnlyOffice/Collabora → bộ văn phòng + lưu trữ hoàn chỉnh</li>
+    <li>SearXNG và LibreY rất được ưa chuộng vì privacy</li>
+    <li>Frigate + Coral TPU đang hot trong mảng camera AI</li>
+    <li>GenAI bắt đầu xuất hiện (AnythingLLM, Perplexica, v.v.)</li>
+    <li>Docker gần như là chuẩn mặc định (hầu hết phần mềm đều có image chính thức)</li>
+  </ul>
+</div>
+
+<h2>Ưu & nhược điểm của repo</h2>
+
+<h3>Ưu điểm</h3>
+<ul>
+  <li>Cực kỳ toàn diện</li>
+  <li>Cập nhật thường xuyên (bot + cộng đồng)</li>
+  <li>Mỗi phần mềm đều ghi rõ: license, ngôn ngữ, công nghệ, demo, Docker hỗ trợ hay không</li>
+  <li>Có đánh dấu <span class="emoji">⚠</span> khi phần mềm có anti-features (phụ thuộc dịch vụ bên thứ ba, không còn active, v.v.)</li>
+</ul>
+
+<h3>Nhược điểm / lưu ý</h3>
+<ul>
+  <li>Danh sách quá dài → dễ bị choáng ngợp</li>
+  <li>Một số phần mềm đã không còn được duy trì (dù vẫn có trong list)</li>
+  <li>Không phải phần mềm nào cũng dễ cài (nhiều dự án yêu cầu kỹ năng sysadmin khá cao)</li>
+  <li>Không có xếp hạng độ "hot" chính thức (phải xem stars riêng của từng repo)</li>
+</ul>
+
+<h2>Gợi ý cách sử dụng hiệu quả nhất (2026)</h2>
+
+<ul>
+  <li>Mới bắt đầu → dùng YunoHost, CasaOS, Cosmos, Umbrel để cài Nextcloud, Vaultwarden, Jellyfin, Immich chỉ bằng vài click</li>
+  <li>Muốn privacy cao → Nextcloud + SearXNG + Vaultwarden + Matrix</li>
+  <li>Muốn media server đẹp → Jellyfin/Immich + Audiobookshelf + *arr suite (Radarr/Sonarr/Prowlarr)</li>
+  <li>Muốn homelab hiện đại → Uptime Kuma + Homepage/Dashy + Traefik/Caddy + Authelia/Authentik</li>
+  <li>Xem nhanh cái gì hot → truy cập <a href="https://awesome-selfhosted.net/" target="_blank">https://awesome-selfhosted.net/</a> (phiên bản HTML đẹp hơn, cập nhật realtime)</li>
+</ul>
+
+<h2>Tóm lại:</h2>
+
+<p>Đây không chỉ là một list, mà là kinh thánh của cộng đồng self-hosting. Nếu bạn nghiêm túc với việc tự host, thì bookmark repo này là bắt buộc.</p>
+
+<p>Bạn đang tìm giải pháp cho nhu cầu cụ thể nào không? Mình có thể gợi ý top 3–5 phần mềm phù hợp nhất trong danh sách này!</p>
+
+<div class="footer-note">
+  Nội dung được trình bày lại dưới dạng HTML đẹp mắt - giữ nguyên 100% văn bản gốc.
+</div>
+
+</div>
+
+</body>
+</html>
