@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-hosting là gì? Tự host để làm chủ dữ liệu của bạn</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+            color: #e0e0e0;
+            background-color: #0f172a;
+        }
+        h1, h2, h3 {
+            color: #a5b4fc;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 0.4em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: #1e293b;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        th {
+            background-color: #1e40af;
+            color: white;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        ul, ol {
+            padding-left: 1.8rem;
+        }
+        li {
+            margin-bottom: 0.6rem;
+        }
+        .highlight {
+            background-color: #1e293b;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #6366f1;
+        }
+        .section {
+            margin: 2.5rem 0;
+        }
+        code {
+            background-color: #1e293b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        .emoji-list li::marker {
+            content: "→ ";
+        }
+        @media (max-width: 600px) {
+            table, th, td {
+                font-size: 0.95rem;
+            }
+            th, td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Self-hosting là gì?</h1>
+    <p class="subtitle">(hay còn gọi là tự host, tự lưu trữ)</p>
+
+    <p>Self-hosting là việc bạn tự chạy và quản lý các dịch vụ, ứng dụng, website, lưu trữ dữ liệu… trên máy chủ do chính bạn kiểm soát, thay vì dùng dịch vụ của các công ty lớn như Google, Dropbox, iCloud, YouTube, Spotify, v.v.</p>
+
+    <p><strong>Nói đơn giản:</strong> thay vì "thuê" dịch vụ của người khác → bạn tự làm "chủ nhà" luôn.</p>
+
+    <div class="section">
+        <h2>So sánh nhanh để dễ hình dung</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tiêu chí</th>
+                    <th>Dùng dịch vụ bên thứ 3 (Cloud)</th>
+                    <th>Self-hosting</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ví dụ</td>
+                    <td>Google Drive, Gmail, Netflix, Spotify</td>
+                    <td>Tự cài Nextcloud, Immich, Jellyfin, Vaultwarden</td>
+                </tr>
+                <tr>
+                    <td>Ai quản lý server</td>
+                    <td>Công ty (Google, Microsoft, Dropbox)</td>
+                    <td>Chính bạn (hoặc thuê VPS nhưng vẫn bạn quản lý)</td>
+                </tr>
+                <tr>
+                    <td>Quyền kiểm soát dữ liệu</td>
+                    <td>Thấp – họ có thể đọc/xem/xóa tài khoản</td>
+                    <td>Cao – dữ liệu nằm trên máy bạn</td>
+                </tr>
+                <tr>
+                    <td>Chi phí dài hạn</td>
+                    <td>Thường đắt dần (subscription)</td>
+                    <td>Ban đầu tốn tiền mua phần cứng/VPS, sau rẻ hơn</td>
+                </tr>
+                <tr>
+                    <td>Độ khó</td>
+                    <td>Dễ, chỉ cần đăng ký</td>
+                    <td>Khó hơn, cần học cài đặt, bảo trì</td>
+                </tr>
+                <tr>
+                    <td>Bảo mật & riêng tư</td>
+                    <td>Phụ thuộc chính sách công ty</td>
+                    <td>Tốt hơn nếu bạn biết cấu hình đúng</td>
+                </tr>
+                <tr>
+                    <td>Nếu công ty "tắt"</td>
+                    <td>Mất hết dữ liệu/dịch vụ</td>
+                    <td>Vẫn chạy bình thường (trừ khi bạn tắt)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Các loại self-hosting phổ biến hiện nay (2026)</h2>
+
+        <ul>
+            <li><strong>Tại nhà (Home server / Homelab)</strong><br>
+                Dùng máy tính cũ, Mini PC, Raspberry Pi, hoặc NAS (Synology, QNAP, tự build)<br>
+                Chạy 24/7 trong nhà<br>
+                Phổ biến nhất với người mới
+            </li>
+            <li><strong>Trên VPS/Cloud server thuê</strong><br>
+                Thuê máy ảo từ Hetzner, Contabo, DigitalOcean, Vultr, Oracle Cloud (free tier)…<br>
+                Bạn vẫn tự cài mọi thứ → vẫn tính là self-hosting<br>
+                Ưu điểm: luôn online, IP công cộng, tốc độ tốt hơn nhà nhiều
+            </li>
+            <li><strong>Hybrid (kết hợp)</strong><br>
+                Lưu trữ dữ liệu nặng ở nhà → truy cập từ xa qua VPN/Cloudflare Tunnel/Tailscale<br>
+                Dùng VPS làm "cửa ngõ" bảo mật
+            </li>
+        </ul>
+    </div>
+
+    <div class="section highlight">
+        <h2>Những thứ người ta hay self-host nhất (2025–2026)</h2>
+        <ul class="emoji-list">
+            <li>Lưu trữ file & ảnh cá nhân → <code>Nextcloud</code>, <code>Immich</code>, <code>PhotoPrism</code></li>
+            <li>Xem phim/series → <code>Jellyfin</code>, <code>Plex</code>, <code>Stremio + Torrent</code></li>
+            <li>Quản lý mật khẩu → <code>Vaultwarden</code> (Bitwarden tự host)</li>
+            <li>Tải phim/nhạc/truyện tự động → <code>*arr suite</code> (Radarr, Sonarr, Prowlarr, Lidarr…)</li>
+            <li>Nhật ký & ghi chú → <code>Obsidian + Syncthing</code> hoặc <code>Logseq + self-host</code></li>
+            <li>Chat riêng tư → <code>Matrix + Element</code>, <code>XMPP</code></li>
+            <li>Git/private code → <code>Forgejo</code>, <code>Gitea</code></li>
+            <li>Trang web/blog cá nhân → <code>WordPress</code>, <code>Ghost</code>, <code>Astro</code>… tự host</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Tóm lại:</h2>
+        <p>Self-hosting = Tự do + Riêng tư + Học hỏi nhiều,<br>
+        đổi lại là tốn thời gian + công sức + đôi khi tốn thêm tiền điện/đồ.</p>
+
+        <p style="font-size: 1.2rem; text-align: center; margin-top: 2.5rem; color: #c084fc;">
+            Bạn có đang tò mò muốn thử self-host cái gì không?<br>
+            (file, ảnh, phim, hay chỉ muốn thử cho vui thôi?)
+        </p>
+    </div>
+
+</body>
+</html>
