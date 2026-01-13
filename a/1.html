@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu về Trung Quốc - Cộng hòa Nhân dân Trung Hoa</title>
+    <meta name="description" content="Thông tin tổng quan về vị trí địa lý, kinh tế, văn hóa và lịch sử của Trung Quốc.">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-red: #B71C1C; /* Màu đỏ trang trí */
+            --primary-dark: #8B0000;
+            --accent-gold: #D4AF37; /* Màu vàng kim loại */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #F9F9F9;
+            --bg-card: #FFFFFF;
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-hover: 0 10px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        h2 { font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; position: relative; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        p { margin-bottom: 1rem; color: var(--text-light); }
+
+        /* Decorative underline for H2 */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- HEADER & HERO --- */
+        header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/seed/china_wall/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- STATS BAR --- */
+        .stats-bar {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 2rem 1rem;
+            margin-top: -3rem; /* Overlap effect */
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* --- GRID CARDS --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-top-color: var(--primary-red);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(183, 28, 28, 0.1);
+            color: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .card h3 {
+            color: var(--text-main);
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .highlight-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .highlight-list li::before {
+            content: '•';
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+            top: 2px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background-color: #FFF8E1; /* Light yellow/gold tint */
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: white;
+            color: var(--primary-red);
+            border: 1px solid var(--primary-red);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .stats-bar {
+                flex-direction: column;
+                gap: 2rem;
+                margin-top: 0;
+                border-radius: 0;
+            }
+            header {
+                height: 50vh;
+            }
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="hero-content">
+            <div class="hero-subtitle">Cộng hòa Nhân dân Trung Hoa</div>
+            <h1>Khám phá Trung Quốc</h1>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">Quốc gia có nền kinh tế lớn thứ hai và dân số đông nhất thế giới.</p>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">1.4 Tỷ</div>
+            <div class="stat-label">Dân số</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">#2</div>
+            <div class="stat-label">Nền kinh tế lớn nhất</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">14</div>
+            <div class="stat-label">Quốc gia giáp ranh</div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Introduction -->
+        <section class="intro-text">
+            <p>
+                Trung Quốc là một quốc gia nằm ở Đông Á với lịch sử lâu đời và nền văn hóa phong phú. Trong vài thập kỷ qua, đất nước này đã có sự phát triển vượt bậc, trở thành "công xưởng sản xuất" của thế giới và một trung tâm công nghệ lớn.
+            </p>
+        </section>
+
+        <!-- Detailed Content Grid -->
+        <h2>Thông tin cơ bản</h2>
+        
+        <div class="info-grid">
+            <!-- Card 1: Vị trí địa lý -->
+            <article class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <h3>1. Vị trí địa lý</h3>
+                <p>Trung Quốc có vị trí chiến lược tại Đông Á với diện tích rộng lớn.</p>
+                <ul class="highlight-list">
+                    <li>Biên giới trên đất liền với 14 quốc gia (Việt Nam, Nga, Ấn Độ, Triều Tiên...).</li>
+                    <li>Giáp các biển: Biển Đông, Biển Hoàng Hải, biển Hoa Đông.</li>
+                </ul>
+            </article>
+
+            <!-- Card 2: Thủ đô & Thành phố -->
+            <article class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+                </div>
+                <h3>2. Thủ đô & Thành phố</h3>
+                <p>Trung Quốc sở hữu nhiều siêu đô thị hiện đại bậc nhất thế giới.</p>
+                <ul class="highlight-list">
+                    <li><strong>Thủ đô:</strong> Bắc Kinh.</li>
+                    <li><strong>Thành phố lớn:</strong> Thượng Hải, Quảng Châu, Thâm Quyến, Trùng Khánh.</li>
+                </ul>
+            </article>
+
+            <!-- Card 3: Chính trị -->
+            <article class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/></svg>
+                </div>
+                <h3>3. Chính trị</h3>
+                <p>Đất nước hoạt động theo thể chế xã hội chủ nghĩa.</p>
+                <ul class="highlight-list">
+                    <li>Nhà nước đơn đảng.</li>
+                    <li>Do Đảng Cộng sản Trung Quốc lãnh đạo.</li>
+                </ul>
+            </article>
+
+            <!-- Card 4: Kinh tế -->
+            <article class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                </div>
+                <h3>4. Kinh tế</h3>
+                <p>Sự tăng trưởng thần tốc với vị thế là công xưởng của thế giới.</p>
+                <ul class="highlight-list">
+                    <li>Đầu tư mạnh vào công nghệ cao và cơ sở hạ tầng.</li>
+                    <li>Phát triển mạnh mẽ về du lịch và sản xuất.</li>
+                </ul>
+            </article>
+
+            <!-- Card 5: Văn hóa -->
+            <article class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>
+                </div>
+                <h3>5. Văn hóa</h3>
+                <p>Nền văn minh hàng ngàn năm với những di sản vô giá.</p>
+                <ul class="highlight-list">
+                    <li><strong>Danh lam thắng cảnh:</strong> Vạn Lý Trường Thành, Cố Cung.</li>
+                    <li><strong>Di sản:</strong> Quân đội đất nung (Terracotta Army).</li>
+                </ul>
+            </article>
+
+            <!-- Card 6: Ngôn ngữ -->
+            <article class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+                </div>
+                <h3>6. Ngôn ngữ</h3>
+                <p>Hệ thống ngôn ngữ và chữ viết đặc trưng, khó nhằn nhưng thú vị.</p>
+                <ul class="highlight-list">
+                    <li><strong>Chính thức:</strong> Tiếng Trung (Tiếng Quan Thoại).</li>
+                    <li><strong>Chữ viết:</strong> Hán tự (Chữ Trung) phổ biến.</li>
+                </ul>
+            </article>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h3>Bạn đang quan tâm đến khía cạnh nào?</h3>
+            <p>Khám phá sâu hơn về những chủ đề bạn yêu thích.</p>
+            <div class="cta-tags">
+                <a href="#" class="tag" onclick="alert('Tính năng đang phát triển!')">🏯 Lịch sử</a>
+                <a href="#" class="tag" onclick="alert('Tính năng đang phát triển!')">🎭 Văn hóa</a>
+                <a href="#" class="tag" onclick="alert('Tính năng đang phát triển!')">💰 Kinh tế</a>
+                <a href="#" class="tag" onclick="alert('Tính năng đang phát triển!')">🤝 Quan hệ quốc tế</a>
+                <a href="#" class="tag" onclick="alert('Tính năng đang phát triển!')">🍜 Ẩm thực</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Thông tin giới thiệu Trung Quốc. Thiết kế UI/UX Demo.</p>
+    </footer>
+
+</body>
+</html>
