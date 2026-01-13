@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tài chính cá nhân - Kiếm 100 triệu dư 10 triệu</title>
+  <style>
+    :root {
+      --primary: #10b981;      /* xanh lá chính */
+      --primary-dark: #059669;
+      --accent: #fef08a;        /* vàng nhạt */
+      --text: #1f2937;
+      --text-light: #4b5563;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --border: #d1d5db;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px 16px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 1.65rem;
+      margin-bottom: 8px;
+    }
+
+    .content {
+      padding: 28px 24px;
+    }
+
+    h2 {
+      color: var(--primary-dark);
+      font-size: 1.45rem;
+      margin: 32px 0 16px;
+      border-left: 5px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    h3 {
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin: 24px 0 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+
+    .highlight {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .list-item {
+      margin-left: 24px;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .list-item::before {
+      content: "•";
+      color: var(--primary);
+      font-size: 1.4rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    .goal-box {
+      background: var(--accent);
+      color: #854d0e;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 24px 0;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .cta p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+
+    @media (max-width: 480px) {
+      .content, .header {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      h1 { font-size: 1.45rem; }
+      h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Kiếm 100 triệu/năm mà chỉ dư 10 triệu?</h1>
+    <p>Không tệ, nhưng vẫn chưa thoải mái cho tương lai</p>
+  </div>
+
+  <div class="content">
+
+    <h2>Tình hình hiện tại của bạn</h2>
+    <p>Câu chuyện này nghe quen lắm: một năm kiếm được <strong>100 triệu đồng</strong>, nhưng đã chi tiêu hết <strong>90 triệu</strong>, chỉ còn dư <strong>10 triệu</strong> thôi.</p>
+    
+    <div class="highlight">
+      <strong>Tóm tắt:</strong><br>
+      • Thu nhập cả năm: 100 triệu (~8,3 triệu/tháng trung bình)<br>
+      • Chi tiêu: 90 triệu (~7,5 triệu/tháng)<br>
+      • Tiết kiệm: 10 triệu/năm (chỉ 10% thu nhập)
+    </div>
+
+    <p>Đây là mức <strong>khá ổn</strong> so với mặt bằng chung ở Việt Nam hiện nay (2026), đặc biệt nếu bạn sống ở thành phố lớn như Hà Nội, TP.HCM, Đà Nẵng – nơi chi phí nhà cửa, ăn uống, đi lại dễ “ăn” hết phần lớn thu nhập. Nhiều người thậm chí kiếm 100–150 triệu/năm mà vẫn “cháy túi” cuối năm, không dư đồng nào.</p>
+
+    <h3>Đánh giá</h3>
+    <p><strong>Tích cực:</strong> Bạn đã tiết kiệm được 10 triệu/năm → con số dương, không âm (không nợ nần, không vay mượn để tiêu). Nhiều người kiếm tương đương hoặc cao hơn mà vẫn “âm” vì vay tiêu dùng, thẻ tín dụng, hoặc chi quá tay.</p>
+    
+    <p><strong>Hạn chế:</strong> Tỷ lệ tiết kiệm chỉ 10% → khá thấp nếu so với mục tiêu tài chính dài hạn (mua nhà, mua xe, nghỉ hưu sớm, đầu tư...). Với lạm phát 4–6%/năm + chi phí sống tăng dần, 10 triệu/năm tích lũy chậm, khó đạt mục tiêu lớn trong 5–10 năm tới.</p>
+
+    <h2>Gợi ý cải thiện (tăng tiết kiệm lên 20–30%)</h2>
+
+    <h3>1. Áp dụng quy tắc 50/30/20 (hoặc biến tấu)</h3>
+    <ul>
+      <li class="list-item"><strong>50%</strong> nhu cầu thiết yếu → cố gắng giữ 4–5 triệu/tháng</li>
+      <li class="list-item"><strong>30%</strong> muốn (ăn ngoài, du lịch, mua sắm, giải trí) → khoảng 2,5 triệu/tháng</li>
+      <li class="list-item"><strong>20%</strong> tiết kiệm/đầu tư → mục tiêu 1,6–2 triệu/tháng (20–24 triệu/năm)</li>
+    </ul>
+
+    <h3>2. Theo dõi chi tiêu chặt chẽ 1–2 tháng đầu</h3>
+    <p>Ghi lại mọi khoản (dùng app Money Lover, Misa, hoặc Excel đơn giản).</p>
+    <p>Thường “lỗ hổng” nằm ở: ăn uống ngoài, cà phê/trà sữa, mua sắm online, Grab/Be, học thêm/con cái, biếu tặng...</p>
+
+    <h3>3. Tăng thu nhập nhẹ (nếu có thể)</h3>
+    <p>Làm thêm freelance, dạy thêm, bán hàng online → tăng 1–3 triệu/tháng là đã khác biệt lớn.</p>
+
+    <h3>4. Đầu tư phần tiết kiệm</h3>
+    <p>Gửi tiết kiệm online 6–7%/năm, hoặc quỹ mở/chứng chỉ quỹ (rủi ro thấp hơn chứng khoán trực tiếp).</p>
+
+    <div class="goal-box">
+      Mục tiêu thực tế<br>
+      • Năm nay: cố gắng dư 15–20 triệu<br>
+      • 5 năm tới: tích lũy 100–150 triệu (làm vốn mua nhà trả góp, đầu tư nhỏ...)
+    </div>
+
+    <h2>Tóm lại</h2>
+    <p>Kiếm 100 triệu/năm mà dư 10 triệu không phải tệ, nhưng cũng chưa “thoải mái” cho tương lai. Quan trọng nhất là kiểm soát chi tiêu và tăng dần tỷ lệ tiết kiệm lên 15–25%.</p>
+
+    <div class="cta">
+      <p>Bạn đang ở mức nào so với mục tiêu cá nhân?<br>Nếu muốn chia sẻ cụ thể hơn (bảng chi tiêu hàng tháng...), mình có thể gợi ý chi tiết hơn nhé!</p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
