@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Load Jok Page • Dark Minimal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #a0a0a0;
+      margin-bottom: 0.5rem;
+    }
+    .url {
+      font-family: ui-monospace, monospace;
+      font-size: 0.95rem;
+      color: #555;
+      word-break: break-all;
+      margin-bottom: 1.5rem;
+    }
+    #content {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 1.8rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      min-height: 300px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    #loading {
+      text-align: center;
+      color: #777;
+      font-style: italic;
+      padding: 3rem 1rem;
+    }
+    #error {
+      color: #ff6b6b;
+      background: #1a0f0f;
+      border: 1px solid #4a1a1a;
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin: 1rem 0;
+    }
+    .btn {
+      background: #1e1e1e;
+      color: #ccc;
+      border: 1px solid #444;
+      padding: 0.6rem 1.3rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #2a2a2a;
+      border-color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Remote Content Loader</h1>
+    <div class="url">https://dark.keancapytuong.xyz/FBI%20WARNING/jok.html</div>
+  </header>
+
+  <div id="loading">Đang tải nội dung...</div>
+  <div id="error" style="display:none;"></div>
+  <div id="content"></div>
+
+  <button class="btn" onclick="loadContent()" style="display:none;" id="reloadBtn">Tải lại</button>
+</div>
+
+<script>
+  const url = "https://dark.keancapytuong.xyz/FBI%20WARNING/jok.html";
+  const contentEl = document.getElementById("content");
+  const loadingEl = document.getElementById("loading");
+  const errorEl   = document.getElementById("error");
+  const reloadBtn = document.getElementById("reloadBtn");
+
+  async function loadContent() {
+    loadingEl.style.display = "block";
+    contentEl.innerHTML = "";
+    errorEl.style.display = "none";
+    reloadBtn.style.display = "none";
+
+    try {
+      // Thử fetch với no-cors → chỉ lấy được nếu server cho phép hoặc trả text
+      const res = await fetch(url, { mode: "no-cors" });
+
+      // no-cors sẽ trả về opaque response → không đọc được body
+      // Nên cách này thường chỉ để test → nếu muốn đọc thật thì cần proxy hoặc server phải bật CORS
+
+      // Cách thay thế: dùng text() nếu bạn có proxy hoặc trang cho phép CORS
+      // const text = await res.text();
+
+      // Hiện tại demo: giả lập thông báo (thay bằng logic thật nếu bạn có proxy)
+      contentEl.innerHTML = 
+        "[Lưu ý]\n" +
+        "Trang gốc hiện không cho phép đọc trực tiếp qua fetch (CORS hoặc 403).\n\n" +
+        "Bạn có thể:\n" +
+        "1. Mở link trực tiếp trong tab mới\n" +
+        "2. Dùng proxy CORS (ví dụ: https://corsproxy.io/? + encodeURIComponent(url))\n" +
+        "3. Copy nội dung thủ công và paste vào đây nếu cần demo";
+
+      // Nếu bạn có proxy, uncomment đoạn này và thay proxyUrl
+      /*
+      const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(url);
+      const proxyRes = await fetch(proxyUrl);
+      if (!proxyRes.ok) throw new Error("Proxy trả về " + proxyRes.status);
+      const text = await proxyRes.text();
+      contentEl.innerHTML = text
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+      */
+
+    } catch (err) {
+      errorEl.textContent = "Không tải được nội dung:\n" + err.message;
+      errorEl.style.display = "block";
+    } finally {
+      loadingEl.style.display = "none";
+      reloadBtn.style.display = "inline-block";
+    }
+  }
+
+  // Tự chạy lần đầu
+  loadContent();
+</script>
+
+</body>
+</html>
