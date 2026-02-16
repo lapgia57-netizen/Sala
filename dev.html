@@ -41,7 +41,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Loading Overlay ── */
     #global-loader {
       position: fixed;
       inset: 0;
@@ -76,7 +75,6 @@
       font-size: 1.2rem;
       color: var(--accent);
       text-shadow: 0 0 10px var(--accent);
-      letter-spacing: 1.5px;
     }
 
     @keyframes spin {
@@ -84,7 +82,6 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* ── Header & Sidebar (giữ nguyên phần lớn) ── */
     .header {
       background: linear-gradient(135deg, #010409, #0a0e14);
       padding: 0.9rem 1.2rem;
@@ -122,7 +119,7 @@
 
     .sidebar {
       position: fixed;
-      inset: 0;
+      inset: 0  auto 0 0;
       width: 320px;
       max-width: 85vw;
       background: var(--surface);
@@ -200,19 +197,85 @@
       padding: clamp(1rem, 4vw, 1.6rem);
       padding-top: clamp(82px, 13vw, 94px);
       background: linear-gradient(to bottom, var(--bg), #0a0e14);
+      display: flex;
+      flex-direction: column;
     }
 
-    #preview-pane {
+    .titles-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .titles-header h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      text-shadow: 0 0 8px var(--accent);
+    }
+
+    .titles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+      flex: 1;
+    }
+
+    .title-card {
       background: var(--glass);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      height: calc(100vh - 110px);
-      min-height: 65vh;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+      border-radius: 12px;
+      padding: 1.3rem;
+      cursor: pointer;
+      transition: all 0.28s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
       position: relative;
+      overflow: hidden;
     }
+
+    .title-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(0,255,234,0.18);
+      border-color: var(--accent);
+    }
+
+    .title-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(0,255,234,0.08));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .title-card:hover::before { opacity: 1; }
+
+    .title-text {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .file-path {
+      font-size: 0.86rem;
+      color: #8b949e;
+      word-break: break-all;
+      opacity: 0.85;
+    }
+
+    .loading-titles, .error-titles {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .error-titles { color: var(--danger); }
 
     .bottom-bar {
       position: fixed;
@@ -231,11 +294,37 @@
     }
 
     .bottom-bar:hover { transform: scale(1.08); }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s;
+      z-index: 800;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface) 25%, #2a2f36 50%, var(--surface) 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+      border-radius: 6px;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
   </style>
 </head>
 <body data-theme="dark">
 
-  <!-- Loading toàn màn hình khi mở trang mới -->
   <div id="global-loader">
     <div class="loader"></div>
     <div class="loader-text">ĐANG MỞ CỬA VŨ TRỤ...</div>
@@ -245,7 +334,7 @@
     <div>
       <h1>SALA <span style="font-size:0.56em; opacity:0.72;">CYBER LOUNGE</span></h1>
       <div class="status-bar">
-        Đang có <span id="online">0</span> netizen đang chill • Auto sync mỗi 2 phút
+        Đang có <span id="online">0</span> netizen • Auto sync mỗi 2 phút
       </div>
     </div>
 
@@ -261,22 +350,23 @@
 
   <div class="sidebar" id="sidebar">
     <div class="search-container">
-      <input type="text" class="search" id="search" placeholder="Tìm nick, file, status..."/>
+      <input type="text" class="search" id="search" placeholder="Tìm nick, file, title..."/>
     </div>
     <div class="tree-container">
-      <div class="tree" id="tree">
-        <div class="loading-skeleton" style="padding:1.5rem;">
-          <div class="skeleton-item"></div>
-          <div class="skeleton-item" style="width:82%"></div>
-        </div>
-      </div>
+      <div class="tree" id="tree"></div>
     </div>
   </div>
 
+  <div class="overlay" id="overlay"></div>
+
   <div class="content">
-    <div id="preview-pane">
-      <div style="height:100%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.3rem;opacity:0.7;">
-        Chọn một file để mở trong tab mới ✨
+    <div class="titles-header">
+      <h2><i class="fas fa-globe" style="margin-right:0.6rem;"></i>Netizen Pages</h2>
+      <span style="font-size:0.9rem; color:#8b949e;">Tự động tải titles</span>
+    </div>
+    <div class="titles-grid" id="titles-grid">
+      <div class="loading-titles">
+        <i class="fas fa-spinner fa-spin" style="margin-right:0.6rem;"></i>Đang quét vũ trụ...
       </div>
     </div>
   </div>
@@ -288,28 +378,21 @@
   <script>
     const owner = "lapgia57-netizen";
     const repo = "Sala";
-    const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
+    const treeApi = `https://api.github.com/repos/${owner}/${repo}/git/trees/main?recursive=1`;
+    const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/main/`;
     const customDomain = "https://portfolio.lck.io.vn/";
 
-    let currentActiveLi = null;
+    let titlesData = [];
 
-    // Loading overlay
-    function showLoader() {
-      document.getElementById("global-loader").classList.remove("hidden");
-    }
-
+    function showLoader() { document.getElementById("global-loader").classList.remove("hidden"); }
     function hideLoader() {
-      setTimeout(() => {
-        document.getElementById("global-loader").classList.add("hidden");
-      }, 600);
+      setTimeout(() => document.getElementById("global-loader").classList.add("hidden"), 600);
     }
 
     // Mobile menu
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
-    const overlay = document.createElement("div");
-    overlay.className = "overlay";
-    document.body.appendChild(overlay);
+    const overlay = document.getElementById("overlay");
 
     function toggleMenu() {
       const isOpen = sidebar.classList.toggle("open");
@@ -320,51 +403,57 @@
     menuToggle.addEventListener("click", toggleMenu);
     overlay.addEventListener("click", toggleMenu);
 
-    // Theme toggle
+    // Theme
     function toggleTheme() {
       const body = document.body;
-      const current = body.getAttribute("data-theme");
-      const next = current === "light" ? "dark" : "light";
+      const cur = body.getAttribute("data-theme") || "dark";
+      const next = cur === "light" ? "dark" : "light";
       body.setAttribute("data-theme", next);
-      document.querySelector(".theme-toggle i").className = 
-        next === "light" ? "fas fa-sun" : "fas fa-moon";
+      document.querySelector(".theme-toggle i").className = next === "light" ? "fas fa-sun" : "fas fa-moon";
     }
 
     async function loadRepo(silent = false) {
       try {
-        const res = await fetch(api);
-        if (!res.ok) throw new Error("Repo not public or rate limit");
-        const data = await res.json();
+        const res = await fetch(treeApi);
+        if (!res.ok) throw new Error(res.status === 403 ? "Rate limit GitHub (60 req/h unauth)" : "Repo lỗi hoặc private");
+        const { tree } = await res.json();
 
-        const onlineFiles = data.tree.filter(f => f.type === "blob" && f.path.startsWith("online/"));
-        const count = onlineFiles.length;
+        // Lọc file HTML, ẩn file đặc biệt
+        const htmlFiles = tree.filter(f => 
+          f.type === "blob" &&
+          f.path.endsWith(".html") &&
+          !["CNAME", "LICENSE", "README.md", "SECURITY.md"].includes(f.path) &&
+          !f.path.startsWith(".") &&
+          !f.path.includes("/.")  // ẩn hidden trong subfolder
+        );
 
+        const count = htmlFiles.length;
         const onlineEl = document.getElementById("online");
         const onlineEl2 = document.getElementById("online2");
 
         if (!silent) {
-          animateCount(onlineEl, parseInt(onlineEl.textContent) || 0, count, 1400);
-          animateCount(onlineEl2, parseInt(onlineEl2.textContent) || 0, count, 1400);
+          animateCount(onlineEl, +onlineEl.textContent || 0, count, 1400);
+          animateCount(onlineEl2, +onlineEl2.textContent || 0, count, 1400);
         } else {
-          onlineEl.textContent = count;
-          onlineEl2.textContent = count;
+          onlineEl.textContent = onlineEl2.textContent = count;
         }
 
-        renderTree(data.tree);
+        renderTree(tree);
+        if (!silent) await loadAllTitles(htmlFiles);
       } catch (e) {
-        document.getElementById("tree").innerHTML = 
-          `<p style="color:#f85149;padding:1.5rem;text-align:center">Không connect được GitHub API<br><small>${e.message}</small></p>`;
+        document.getElementById("tree").innerHTML = `<p style="color:var(--danger);padding:2rem;text-align:center">Lỗi kết nối GitHub<br><small>${e.message}</small></p>`;
+        document.getElementById("titles-grid").innerHTML = `<div class="error-titles">Không tải được danh sách: ${e.message}</div>`;
       }
     }
 
-    function animateCount(el, start, end, duration) {
-      let startTime = null;
-      function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const progress = Math.min((timestamp - startTime) / duration, 1);
-        el.textContent = Math.floor(progress * (end - start) + start);
-        if (progress < 1) requestAnimationFrame(step);
-      }
+    function animateCount(el, from, to, dur) {
+      let start;
+      const step = ts => {
+        if (!start) start = ts;
+        const prog = Math.min((ts - start) / dur, 1);
+        el.textContent = Math.floor(prog * (to - from) + from);
+        if (prog < 1) requestAnimationFrame(step);
+      };
       requestAnimationFrame(step);
     }
 
@@ -372,58 +461,43 @@
       const container = document.getElementById("tree");
       container.innerHTML = "";
 
-      const rootUl = document.createElement("ul");
+      const root = document.createElement("ul");
       const folders = {};
 
-      const blobs = items.filter(item => item.type === "blob");
-
-      blobs.forEach(item => {
+      items.filter(f => f.type === "blob").forEach(item => {
         const parts = item.path.split('/');
-        let currentUl = rootUl;
+        let curUl = root;
 
         for (let i = 0; i < parts.length - 1; i++) {
-          const folderPath = parts.slice(0, i + 1).join('/');
-          if (!folders[folderPath]) {
+          const folder = parts.slice(0, i+1).join('/');
+          if (!folders[folder]) {
             const li = document.createElement("li");
             li.className = "folder";
             li.innerHTML = `<span>${parts[i]}/</span>`;
             const ul = document.createElement("ul");
             ul.style.display = "none";
             li.appendChild(ul);
+            li.onclick = e => { e.stopPropagation(); ul.style.display = ul.style.display === "none" ? "block" : "none"; };
 
-            li.onclick = e => {
-              e.stopPropagation();
-              ul.style.display = ul.style.display === "none" ? "block" : "none";
-            };
+            folders[folder] = { li, ul };
 
-            folders[folderPath] = { li, ul };
-
-            if (i === 0) rootUl.appendChild(li);
-            else folders[parts.slice(0,i).join('/')].ul.appendChild(li);
+            const parent = i === 0 ? root : folders[parts.slice(0,i).join('/')]?.ul;
+            if (parent) parent.appendChild(li);
           }
-          currentUl = folders[folderPath].ul;
+          curUl = folders[folder].ul;
         }
 
-        const fileLi = document.createElement("li");
-        fileLi.className = "file";
-        fileLi.innerHTML = `<span>${parts[parts.length-1]}</span>`;
-        
-        if (item.path.startsWith("online/")) {
-          const badge = document.createElement("span");
-          badge.className = "online-badge";
-          badge.textContent = "ONLINE";
-          fileLi.appendChild(badge);
+        // Chỉ render file .html và không ẩn
+        if (item.path.endsWith(".html") && !["CNAME","LICENSE","SECURITY.md","README.md"].includes(parts[parts.length-1]) && !item.path.startsWith(".")) {
+          const li = document.createElement("li");
+          li.className = "file";
+          li.innerHTML = `<span>${parts[parts.length-1]}</span>`;
+          li.onclick = () => { highlightActive(li); openNewPage(item.path); };
+          curUl.appendChild(li);
         }
-
-        fileLi.onclick = () => {
-          highlightActive(fileLi);
-          openNewPage(item.path);
-        };
-
-        currentUl.appendChild(fileLi);
       });
 
-      container.appendChild(rootUl);
+      container.appendChild(root);
     }
 
     function highlightActive(li) {
@@ -431,42 +505,77 @@
       li.classList.add('active');
     }
 
+    async function loadAllTitles(files) {
+      const grid = document.getElementById("titles-grid");
+      grid.innerHTML = '<div class="loading-titles"><i class="fas fa-spinner fa-spin"></i> Đang extract titles...</div>';
+
+      const promises = files.map(async f => {
+        try {
+          const res = await fetch(`${rawBase}${f.path}`);
+          if (!res.ok) return null;
+          const html = await res.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          const title = doc.querySelector("title")?.textContent?.trim() || f.path.split('/').pop().replace(".html","");
+          return { title, path: f.path };
+        } catch {
+          return null;
+        }
+      });
+
+      const results = (await Promise.all(promises)).filter(Boolean);
+      titlesData = results;
+
+      if (results.length === 0) {
+        grid.innerHTML = '<div class="error-titles">Không tìm thấy file HTML hợp lệ.</div>';
+        return;
+      }
+
+      renderTitles(results);
+    }
+
+    function renderTitles(data) {
+      const grid = document.getElementById("titles-grid");
+      grid.innerHTML = data.map(({title, path}) => `
+        <div class="title-card" onclick="openNewPage('${path}')">
+          <div class="title-text">${title}</div>
+          <div class="file-path">${path}</div>
+        </div>
+      `).join('');
+    }
+
     function openNewPage(path) {
-      const fullUrl = `${customDomain}${path}`;
-      
-      // Hiển thị loading
+      const url = `${customDomain}${path}`;
       showLoader();
-      
-      // Mở tab mới
-      const newWindow = window.open(fullUrl, '_blank');
-      
-      // Nếu bị chặn popup → fallback mở trong cùng tab sau 2.5s
-      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-        setTimeout(() => {
-          window.location.href = fullUrl;
-        }, 2500);
+      const win = window.open(url, '_blank');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        setTimeout(() => location.href = url, 2500);
       } else {
-        // Ẩn loading sau khoảng 1.5s (cho cảm giác mượt)
         setTimeout(hideLoader, 1500);
       }
     }
 
-    // Search
+    // Search lọc cả tree + titles
     document.getElementById("search").addEventListener("input", e => {
       const term = e.target.value.toLowerCase().trim();
+
+      // Lọc tree
       document.querySelectorAll(".tree li").forEach(li => {
-        const text = li.textContent.toLowerCase();
-        li.style.display = text.includes(term) || term === "" ? "" : "none";
+        li.style.display = li.textContent.toLowerCase().includes(term) || !term ? "" : "none";
       });
+
+      // Lọc titles grid
+      if (titlesData.length) {
+        const filtered = titlesData.filter(t => 
+          t.title.toLowerCase().includes(term) || t.path.toLowerCase().includes(term)
+        );
+        renderTitles(filtered);
+      }
     });
 
-    // Khởi tạo
-    window.addEventListener("load", () => {
-      hideLoader(); // ẩn loading ban đầu
-    });
-
+    window.addEventListener("load", hideLoader);
     loadRepo();
-    setInterval(() => loadRepo(true), 120000);
+    setInterval(() => loadRepo(true), 120000); // silent update count & tree, không reload titles
   </script>
 </body>
 </html>
