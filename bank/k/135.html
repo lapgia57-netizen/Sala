@@ -3,133 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gộp nhiều file TXT thành 1 file</title>
+  <title>Gộp file TXT - Nâng cao</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f8f9fa;
-    }
-    h1 { color: #2c3e50; text-align: center; }
-    .container {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    input, button, textarea {
-      display: block;
-      width: 100%;
-      margin: 15px 0;
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #3498db;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover { background: #2980b9; }
-    #status {
-      color: #27ae60;
-      font-weight: bold;
-      min-height: 24px;
-    }
-    #preview {
-      max-height: 300px;
-      overflow-y: auto;
-      background: #f1f1f1;
-      padding: 15px;
-      border-radius: 6px;
-      white-space: pre-wrap;
-      font-family: 'Consolas', monospace;
-    }
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: #f9fafb; }
+    h1 { color: #1e40af; text-align: center; }
+    .container { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    input, button, select, textarea { width: 100%; margin: 12px 0; padding: 12px; font-size: 1rem; border-radius: 8px; border: 1px solid #d1d5db; box-sizing: border-box; }
+    button { background: #2563eb; color: white; border: none; font-weight: 600; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    #status { min-height: 1.5rem; font-weight: 600; margin: 8px 0; }
+    #preview { max-height: 380px; overflow-y: auto; background: #f3f4f6; padding: 16px; border-radius: 8px; white-space: pre-wrap; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.95rem; line-height: 1.45; }
+    .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 20px 0; }
+    .option-item { display: flex; align-items: center; gap: 8px; }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Gộp nhiều file .txt thành 1 file duy nhất</h1>
-  
+  <h1>Gộp nhiều file .txt thành một file</h1>
+
   <input type="file" id="filesInput" multiple accept=".txt,text/plain" />
-  
-  <button onclick="mergeFiles()">Gộp và Tải file về</button>
-  
+
+  <div class="options">
+    <div class="option-item">
+      <input type="checkbox" id="addHeader" checked />
+      <label for="addHeader">Thêm tiêu đề tên file</label>
+    </div>
+    <div class="option-item">
+      <input type="checkbox" id="sortFiles" checked />
+      <label for="sortFiles">Sắp xếp theo tên file</label>
+    </div>
+    <div class="option-item">
+      <input type="checkbox" id="skipEmpty" checked />
+      <label for="skipEmpty">Bỏ qua file rỗng</label>
+    </div>
+    <div class="option-item">
+      <input type="checkbox" id="autoDownload" checked />
+      <label for="autoDownload">Tự động tải về</label>
+    </div>
+  </div>
+
+  <select id="separator">
+    <option value="\n\n">Dòng trống ×2 (mặc định)</option>
+    <option value="\n---\n">--- (dòng gạch ngang)</option>
+    <option value="\n==========\n">==========</option>
+    <option value="">Không phân cách</option>
+  </select>
+
+  <button onclick="mergeFiles()">Gộp file</button>
+
   <div id="status"></div>
-  
-  <h3 style="margin-top: 30px;">Xem trước nội dung đã gộp (tối đa 2000 ký tự đầu)</h3>
+
+  <h3>Xem trước nội dung đã gộp (tối đa 3000 ký tự)</h3>
   <div id="preview">Chưa có dữ liệu...</div>
+
+  <button onclick="copyToClipboard()" style="margin-top:16px; background:#10b981;">Sao chép toàn bộ nội dung</button>
 </div>
 
 <script>
-// Thêm tên file trước nội dung mỗi file để dễ phân biệt
-function mergeFiles() {
+async function mergeFiles() {
   const input = document.getElementById('filesInput');
   const status = document.getElementById('status');
   const preview = document.getElementById('preview');
-  
-  if (!input.files || input.files.length === 0) {
-    status.textContent = "Vui lòng chọn ít nhất 1 file .txt!";
-    status.style.color = "red";
+
+  if (!input.files?.length) {
+    status.textContent = "→ Vui lòng chọn ít nhất 1 file .txt";
+    status.style.color = "#dc2626";
     return;
   }
 
-  status.textContent = `Đang đọc ${input.files.length} file...`;
-  status.style.color = "#3498db";
+  status.textContent = `Đang xử lý ${input.files.length} file...`;
+  status.style.color = "#2563eb";
 
-  const promises = [];
-  
-  for (const file of input.files) {
-    promises.push(
-      new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          // Thêm header tên file để phân biệt
-          const header = `\n\n===== ${file.name} =====\n`;
-          resolve(header + e.target.result);
-        };
-        reader.readAsText(file);
-      })
-    );
-  }
+  try {
+    let filesArray = Array.from(input.files);
 
-  Promise.all(promises)
-    .then(results => {
-      const combined = results.join('\n');
-      
-      // Xem trước (giới hạn ký tự để không lag trình duyệt)
-      preview.textContent = combined.length > 2000 
-        ? combined.slice(0, 2000) + "\n\n... (đã cắt bớt để xem trước)"
-        : combined || "(không có nội dung)";
-      
-      // Tạo file tải về
-      const blob = new Blob([combined], { type: 'text/plain;charset=utf-8' });
+    // Sắp xếp file theo tên nếu được chọn
+    if (document.getElementById('sortFiles').checked) {
+      filesArray.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    const results = [];
+
+    for (const file of filesArray) {
+      const text = await file.text();
+
+      // Bỏ qua file rỗng nếu chọn
+      if (document.getElementById('skipEmpty').checked && !text.trim()) {
+        continue;
+      }
+
+      let part = '';
+
+      // Thêm header nếu được chọn
+      if (document.getElementById('addHeader').checked) {
+        part += `\n===== ${file.name} =====\n`;
+      }
+
+      part += text;
+
+      results.push(part);
+    }
+
+    const separator = document.getElementById('separator').value;
+    const finalContent = results.join(separator || '\n');
+
+    // Xem trước
+    preview.textContent = finalContent.length > 3000 
+      ? finalContent.slice(0, 3000) + "\n\n… (đã cắt bớt để xem trước)"
+      : finalContent || "(không có nội dung sau khi lọc)";
+
+    status.textContent = `Đã gộp thành công ${results.length} file (tổng ${finalContent.length.toLocaleString()} ký tự)`;
+    status.style.color = "#16a34a";
+
+    // Tự động tải nếu được chọn
+    if (document.getElementById('autoDownload').checked && finalContent.trim()) {
+      const blob = new Blob([finalContent], { type: 'text/plain;charset=utf-8' });
       const url = URL.createObjectURL(blob);
-      
       const a = document.createElement('a');
       a.href = url;
-      a.download = `gop_${input.files.length}_file_${new Date().toISOString().slice(0,10)}.txt`;
+      a.download = `gop_${results.length}_file_${new Date().toISOString().slice(0,10)}.txt`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
+    }
 
-      status.textContent = `Đã gộp và bắt đầu tải ${input.files.length} file thành công!`;
-      status.style.color = "#27ae60";
-    })
-    .catch(err => {
-      console.error(err);
-      status.textContent = "Có lỗi khi đọc file. Vui lòng thử lại.";
-      status.style.color = "red";
-    });
+  } catch (err) {
+    console.error(err);
+    status.textContent = "× Có lỗi: " + (err.message || "không xác định");
+    status.style.color = "#dc2626";
+  }
+}
+
+function copyToClipboard() {
+  const preview = document.getElementById('preview');
+  const text = preview.textContent;
+  if (!text || text.includes("Chưa có dữ liệu") || text.includes("… (đã cắt bớt")) {
+    alert("Chưa có nội dung để copy hoặc nội dung chỉ là bản xem trước bị cắt.");
+    return;
+  }
+  navigator.clipboard.writeText(text.replace("… (đã cắt bớt để xem trước)", ""))
+    .then(() => alert("Đã copy nội dung xem trước vào clipboard!"))
+    .catch(() => alert("Không thể copy – thử copy thủ công nhé."));
 }
 </script>
-
 </body>
 </html>
