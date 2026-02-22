@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gộp nhiều file TXT thành 1 file</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f8f9fa;
+    }
+    h1 { color: #2c3e50; text-align: center; }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    input, button, textarea {
+      display: block;
+      width: 100%;
+      margin: 15px 0;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover { background: #2980b9; }
+    #status {
+      color: #27ae60;
+      font-weight: bold;
+      min-height: 24px;
+    }
+    #preview {
+      max-height: 300px;
+      overflow-y: auto;
+      background: #f1f1f1;
+      padding: 15px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      font-family: 'Consolas', monospace;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Gộp nhiều file .txt thành 1 file duy nhất</h1>
+  
+  <input type="file" id="filesInput" multiple accept=".txt,text/plain" />
+  
+  <button onclick="mergeFiles()">Gộp và Tải file về</button>
+  
+  <div id="status"></div>
+  
+  <h3 style="margin-top: 30px;">Xem trước nội dung đã gộp (tối đa 2000 ký tự đầu)</h3>
+  <div id="preview">Chưa có dữ liệu...</div>
+</div>
+
+<script>
+// Thêm tên file trước nội dung mỗi file để dễ phân biệt
+function mergeFiles() {
+  const input = document.getElementById('filesInput');
+  const status = document.getElementById('status');
+  const preview = document.getElementById('preview');
+  
+  if (!input.files || input.files.length === 0) {
+    status.textContent = "Vui lòng chọn ít nhất 1 file .txt!";
+    status.style.color = "red";
+    return;
+  }
+
+  status.textContent = `Đang đọc ${input.files.length} file...`;
+  status.style.color = "#3498db";
+
+  const promises = [];
+  
+  for (const file of input.files) {
+    promises.push(
+      new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          // Thêm header tên file để phân biệt
+          const header = `\n\n===== ${file.name} =====\n`;
+          resolve(header + e.target.result);
+        };
+        reader.readAsText(file);
+      })
+    );
+  }
+
+  Promise.all(promises)
+    .then(results => {
+      const combined = results.join('\n');
+      
+      // Xem trước (giới hạn ký tự để không lag trình duyệt)
+      preview.textContent = combined.length > 2000 
+        ? combined.slice(0, 2000) + "\n\n... (đã cắt bớt để xem trước)"
+        : combined || "(không có nội dung)";
+      
+      // Tạo file tải về
+      const blob = new Blob([combined], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `gop_${input.files.length}_file_${new Date().toISOString().slice(0,10)}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      status.textContent = `Đã gộp và bắt đầu tải ${input.files.length} file thành công!`;
+      status.style.color = "#27ae60";
+    })
+    .catch(err => {
+      console.error(err);
+      status.textContent = "Có lỗi khi đọc file. Vui lòng thử lại.";
+      status.style.color = "red";
+    });
+}
+</script>
+
+</body>
+</html>
