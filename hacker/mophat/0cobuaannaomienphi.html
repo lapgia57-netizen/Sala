@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Thực Đơn Kỷ Niệm · Món Đã Từng Ăn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f5efe9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px 12px 40px;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 32px 32px 28px 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.03);
+            overflow: hidden;
+            padding: 24px 20px 32px;
+            border: 1px solid #f0e4d5;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #2e241e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        h1 span {
+            background: #e7d9cf;
+            padding: 4px 14px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #4f3f35;
+            white-space: nowrap;
+        }
+
+        .subhead {
+            color: #9b8b80;
+            font-weight: 400;
+            font-size: 0.98rem;
+            margin-top: -4px;
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #decbbd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .counter-badge {
+            background: #b7a291;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* form thêm món */
+        .add-section {
+            background: #faf5f0;
+            border-radius: 28px;
+            padding: 18px 16px;
+            margin-bottom: 32px;
+            border: 1px solid #eadbcb;
+            box-shadow: inset 0 1px 4px #fff9f2, 0 6px 10px rgba(160, 120, 90, 0.06);
+        }
+
+        .input-row {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .input-field {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 60px;
+            padding: 0 18px;
+            border: 1px solid #dccfc3;
+            transition: 0.15s;
+        }
+        .input-field:focus-within {
+            border-color: #bb8f6e;
+            box-shadow: 0 0 0 3px rgba(187, 143, 110, 0.2);
+        }
+
+        .input-field i {
+            font-style: normal;
+            color: #ab8b72;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .input-field input {
+            border: none;
+            padding: 14px 0;
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+            background: transparent;
+            color: #2a201a;
+        }
+
+        .input-field input::placeholder {
+            color: #c7b5a5;
+            font-weight: 300;
+        }
+
+        .btn-add {
+            background: #2e241e;
+            color: white;
+            border: none;
+            padding: 16px 18px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #4f3f35;
+            width: 100%;
+            margin-top: 6px;
+            box-shadow: 0 10px 14px -8px #ad927f;
+        }
+
+        .btn-add:active {
+            background: #4f3f35;
+            transform: scale(0.98);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* danh sách món ăn */
+        .menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .food-item {
+            background: white;
+            border-radius: 60px;
+            padding: 10px 18px 10px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #e2d2c2;
+            box-shadow: 0 4px 12px rgba(158, 128, 102, 0.08);
+            transition: 0.2s;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .food-item:active {
+            background: #fcf8f4;
+            border-color: #c9b09b;
+        }
+
+        .food-info {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .food-name {
+            font-size: 1.16rem;
+            font-weight: 550;
+            color: #32281f;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .food-price {
+            font-size: 0.95rem;
+            color: #927b68;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .food-price::before {
+            content: '💵';
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-right: 2px;
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            line-height: 1;
+            cursor: pointer;
+            color: #b7947c;
+            padding: 8px 6px;
+            transition: 0.15s;
+            border-radius: 40px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .delete-btn:hover {
+            background: #f5e5da;
+            color: #b1572e;
+        }
+        .delete-btn:active {
+            background: #e7cfbf;
+            transform: scale(0.95);
+        }
+
+        /* empty state */
+        .empty-state {
+            text-align: center;
+            padding: 36px 20px;
+            background: #fcf7f2;
+            border-radius: 48px;
+            color: #b5a190;
+            border: 1px dashed #dacbbc;
+            margin: 16px 0 20px;
+        }
+        .empty-state p {
+            font-size: 1.1rem;
+        }
+
+        /* loading */
+        .loading-dots {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            color: #b59d8a;
+            padding: 30px;
+            font-style: italic;
+        }
+
+        /* footer */
+        .footer-note {
+            color: #b8a48f;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 24px;
+            border-top: 1px solid #e7d8cb;
+            padding-top: 22px;
+        }
+        .footer-note a {
+            color: #7a604b;
+            text-decoration: none;
+            border-bottom: 1px dotted;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>
+        🍜 Món đã từng ăn
+        <span>và giá</span>
+    </h1>
+    <div class="subhead">
+        <span>📋 danh sách hồi ức</span>
+        <span class="counter-badge" id="itemCount">0 món</span>
+    </div>
+
+    <!-- form nhập liệu -->
+    <div class="add-section">
+        <div class="input-row">
+            <div class="input-field">
+                <i>🍽️</i>
+                <input type="text" id="foodNameInput" placeholder="Tên món (ví dụ: Phở bò)" autocomplete="off">
+            </div>
+            <div class="input-field">
+                <i>💰</i>
+                <input type="text" id="foodPriceInput" placeholder="Giá (VNĐ hoặc tùy ý)" autocomplete="off">
+            </div>
+        </div>
+        <button class="btn-add" id="addBtn">
+            <span>+</span> Thêm vào kỷ niệm
+        </button>
+    </div>
+
+    <!-- khu vực danh sách -->
+    <ul class="menu-list" id="foodList">
+        <!-- dữ liệu sẽ được render bằng javascript -->
+    </ul>
+
+    <!-- trạng thái rỗng / loading (ẩn hiện bằng js) -->
+    <div id="emptyPlaceholder" class="empty-state" style="display: none;">
+        <p>🧂 Chưa có món nào</p>
+        <small style="color:#cbb7a6;">Hãy thêm một món bạn đã từng ăn nhé</small>
+    </div>
+
+    <div class="footer-note">
+        🔗 đồng bộ Firebase · <a href="#" id="resetDemoLink" style="pointer-events: auto;">làm mới</a>
+    </div>
+</div>
+
+<script>
+    // Cấu hình Firebase Realtime Database (URL bạn cung cấp)
+    const FIREBASE_URL = 'https://bankvanhungbian-default-rtdb.asia-southeast1.firebasedatabase.app/';
+    const DATA_ENDPOINT = FIREBASE_URL + 'foods.json';  // node "foods" chứa danh sách món
+
+    // Hàm gọi API – lấy dữ liệu
+    async function fetchFoods() {
+        try {
+            const response = await fetch(DATA_ENDPOINT);
+            if (!response.ok) throw new Error('Không thể lấy dữ liệu');
+            const data = await response.json();
+            return data; // có thể là object dạng key: {name, price} hoặc null/ []
+        } catch (error) {
+            console.warn('Lỗi fetch:', error);
+            return null; // lỗi mạng hoặc db rỗng
+        }
+    }
+
+    // Hàm ghi đè toàn bộ danh sách lên Firebase (dùng PUT)
+    async function saveFoods(foodsArray) {
+        try {
+            // Firebase Realtime Database sẽ lưu dạng object với key tự sinh nếu dùng POST
+            // Nhưng để dễ quản lý (cập nhật/xoá), chúng ta dùng PUT với một mảng.
+            // Tuy nhiên firebase không thích mảng thuần? Thực tế vẫn chấp nhận, nhưng khi đọc lại sẽ là object với key là index.
+            // Để giữ cấu trúc ổn định: chúng ta dùng object dạng { id0: {name, price}, id1: ... } do firebase tạo.
+            // Cách tối ưu: dùng PUT với object có key là id (timestamp) -> tránh mảng bị lỗi.
+            // Nhưng để đơn giản, demo này dùng mảng và dùng PUT. 
+            // Firebase sẽ lưu mảng thành object với key là 0,1,2,... và khi get về .json() nó trả về mảng (nếu key là số liên tiếp).
+            // Điều này ổn với mảng ít thay đổi.
+            const response = await fetch(DATA_ENDPOINT, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(foodsArray)
+            });
+            if (!response.ok) throw new Error('Lưu thất bại');
+            return true;
+        } catch (error) {
+            console.error('Lỗi save:', error);
+            alert('Không thể đồng bộ lên Firebase. Kiểm tra kết nối.');
+            return false;
+        }
+    }
+
+    // Render danh sách từ mảng foods
+    function renderList(foodsArray) {
+        const listEl = document.getElementById('foodList');
+        const emptyEl = document.getElementById('emptyPlaceholder');
+        const countSpan = document.getElementById('itemCount');
+
+        if (!foodsArray || foodsArray.length === 0) {
+            listEl.innerHTML = '';  // xóa hết item
+            emptyEl.style.display = 'block';
+            countSpan.innerText = '0 món';
+            return;
+        }
+
+        // sắp xếp mới nhất lên đầu (dựa trên thứ tự mảng, giả sử thêm cuối -> mới nhất ở cuối, ta reverse để lên đầu)
+        // nhưng ở đây mình để nguyên thứ tự thêm (cũ trên, mới dưới). Có thể đảo để dễ nhìn.
+        // tuỳ thích, tôi sẽ để mới nhất ở trên cùng.
+        const reversed = [...foodsArray].reverse();
+
+        let htmlStr = '';
+        reversed.forEach((item, index) => {
+            // index gốc trong mảng gốc = foodsArray.length - 1 - index (nếu cần xoá)
+            // nhưng khi xoá cần xoá đúng item gốc, ta dùng originalIndex.
+            const originalIndex = foodsArray.length - 1 - index; // vì reversed nên vị trí gốc
+            const foodName = item?.name || 'không tên';
+            const foodPrice = item?.price || '?';
+
+            htmlStr += `
+                <li class="food-item" data-original-index="${originalIndex}">
+                    <div class="food-info">
+                        <span class="food-name">${escapeHtml(foodName)}</span>
+                        <span class="food-price">${escapeHtml(foodPrice)}</span>
+                    </div>
+                    <button class="delete-btn" data-index="${originalIndex}" aria-label="Xóa món">✕</button>
+                </li>
+            `;
+        });
+
+        listEl.innerHTML = htmlStr;
+        emptyEl.style.display = 'none';
+        countSpan.innerText = foodsArray.length + ' món';
+
+        // gắn sự kiện xoá cho các nút
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                const index = btn.getAttribute('data-index');
+                if (index !== null) {
+                    await deleteFoodItem(parseInt(index));
+                }
+            });
+        });
+    }
+
+    // Helper escape nhẹ để tránh XSS cơ bản
+    function escapeHtml(unsafe) {
+        if (!unsafe) return unsafe;
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    // Xoá một món theo index (trong mảng foods hiện tại)
+    async function deleteFoodItem(indexToDelete) {
+        const currentFoods = window.foodsCache || [];
+        if (indexToDelete < 0 || indexToDelete >= currentFoods.length) return;
+
+        // xoá phần tử
+        const newFoods = currentFoods.filter((_, idx) => idx !== indexToDelete);
+
+        // lưu lên firebase
+        const success = await saveFoods(newFoods);
+        if (success) {
+            window.foodsCache = newFoods;
+            renderList(newFoods);
+        } else {
+            alert('Xoá không thành công, vui lòng thử lại');
+        }
+    }
+
+    // Thêm món mới
+    async function addFoodItem(name, price) {
+        if (!name.trim()) {
+            alert('Vui lòng nhập tên món');
+            return false;
+        }
+        if (!price.trim()) {
+            alert('Vui lòng nhập giá');
+            return false;
+        }
+
+        const currentFoods = window.foodsCache || [];
+        const newItem = { name: name.trim(), price: price.trim() };
+        const updatedFoods = [...currentFoods, newItem];  // thêm vào cuối
+
+        const success = await saveFoods(updatedFoods);
+        if (success) {
+            window.foodsCache = updatedFoods;
+            renderList(updatedFoods);
+            // clear input
+            document.getElementById('foodNameInput').value = '';
+            document.getElementById('foodPriceInput').value = '';
+        } else {
+            alert('Thêm món thất bại, kiểm tra lại');
+        }
+    }
+
+    // khởi tạo và load dữ liệu
+    async function loadInitialData() {
+        // hiển thị trạng thái chờ
+        document.getElementById('foodList').innerHTML = '<div class="loading-dots">đang tải kỷ niệm...</div>';
+        document.getElementById('emptyPlaceholder').style.display = 'none';
+
+        const data = await fetchFoods();
+
+        // Nếu data là object (do firebase lưu key dạng số) -> chuyển về mảng.
+        let foodsArray = [];
+        if (data) {
+            if (Array.isArray(data)) {
+                foodsArray = data;
+            } else if (typeof data === 'object' && data !== null) {
+                // trường hợp firebase trả về object với key là 0,1,2... ta gom lại
+                foodsArray = Object.keys(data)
+                    .sort((a, b) => Number(a) - Number(b))  // sắp theo key số
+                    .map(key => data[key]);
+            }
+            // nếu data null hoặc rỗng -> foodsArray = []
+        }
+
+        // lọc bỏ những item null (nếu có)
+        foodsArray = foodsArray.filter(item => item && typeof item === 'object');
+
+        window.foodsCache = foodsArray;
+        renderList(foodsArray);
+    }
+
+    // Sự kiện nút thêm
+    document.getElementById('addBtn').addEventListener('click', () => {
+        const nameInput = document.getElementById('foodNameInput');
+        const priceInput = document.getElementById('foodPriceInput');
+        addFoodItem(nameInput.value, priceInput.value);
+    });
+
+    // cho phép nhấn Enter để thêm (tiện lợi trên mobile)
+    document.getElementById('foodPriceInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('addBtn').click();
+        }
+    });
+    document.getElementById('foodNameInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('foodPriceInput').focus();
+        }
+    });
+
+    // reset / làm mới (tải lại từ đầu)
+    document.getElementById('resetDemoLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        loadInitialData();
+    });
+
+    // Bắt đầu
+    loadInitialData();
+
+    // Optional: thêm hiệu ứng hoặc xử lý focus
+    window.addEventListener('load', function() {
+        // di động nhẹ nhàng
+    });
+</script>
+</body>
+</html>
