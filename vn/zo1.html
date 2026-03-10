@@ -1,0 +1,294 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Ghi chép ca trực bảo vệ</title>  
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>  
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>  
+  
+  <style>  
+    :root {  
+      --primary: #2c7be5;  
+      --success: #28a745;  
+      --danger: #dc3545;  
+      --light: #f8f9fa;  
+      --dark: #343a40;  
+    }  
+    body {  
+      font-family: system-ui, -apple-system, sans-serif;  
+      background: #f0f2f5;  
+      margin: 0;  
+      padding: 16px;  
+      color: #333;  
+    }  
+    .container {  
+      max-width: 900px;  
+      margin: 0 auto;  
+    }  
+    h1, h2 {  
+      text-align: center;  
+      color: var(--dark);  
+    }  
+    .card {  
+      background: white;  
+      border-radius: 12px;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);  
+      padding: 20px;  
+      margin: 20px 0;  
+    }  
+    .form-grid {  
+      display: grid;  
+      gap: 16px;  
+    }  
+    @media (min-width: 600px) {  
+      .form-grid {  
+        grid-template-columns: 1fr 1fr;  
+      }  
+      .form-grid.full { grid-column: 1 / -1; }  
+    }  
+    label {  
+      font-weight: 600;  
+      display: block;  
+      margin-bottom: 6px;  
+      color: #555;  
+    }  
+    input, select, textarea {  
+      width: 100%;  
+      padding: 10px 12px;  
+      border: 1px solid #ced4da;  
+      border-radius: 6px;  
+      font-size: 16px;  
+      box-sizing: border-box;  
+    }  
+    textarea { min-height: 90px; resize: vertical; }  
+    button {  
+      background: var(--primary);  
+      color: white;  
+      border: none;  
+      padding: 12px 24px;  
+      border-radius: 6px;  
+      font-size: 16px;  
+      cursor: pointer;  
+      font-weight: 600;  
+      transition: 0.2s;  
+    }  
+    button:hover { background: #1a6cd6; }  
+    button.success { background: var(--success); }  
+    button.success:hover { background: #218838; }  
+    .message { text-align: center; margin: 12px 0; font-weight: 500; }  
+    .success { color: var(--success); }  
+    .error   { color: var(--danger); }  
+  
+    table {  
+      width: 100%;  
+      border-collapse: collapse;  
+      margin-top: 16px;  
+      font-size: 15px;  
+    }  
+    th, td {  
+      padding: 12px;  
+      text-align: left;  
+      border-bottom: 1px solid #dee2e6;  
+    }  
+    th {  
+      background: #e9ecef;  
+      font-weight: 600;  
+    }  
+    tr:hover { background: #f1f3f5; }  
+    .time-col { white-space: nowrap; min-width: 140px; }  
+    .note-col { white-space: pre-wrap; }  
+  
+    @media (max-width: 600px) {  
+      table, thead, tbody, th, td, tr { display: block; }  
+      thead tr { position: absolute; top: -9999px; left: -9999px; }  
+      tr { margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; }  
+      td {  
+        border: none;  
+        border-bottom: 1px solid #eee;  
+        position: relative;  
+        padding-left: 50%;  
+      }  
+      td:before {  
+        position: absolute;  
+        top: 12px;  
+        left: 12px;  
+        width: 45%;  
+        padding-right: 10px;  
+        white-space: nowrap;  
+        font-weight: bold;  
+        content: attr(data-label);  
+      }  
+    }  
+  </style>  
+</head>  
+<body>  
+  
+<div class="container">  
+  
+  <h1>Ghi chép tình hình ca trực bảo vệ</h1>  
+  
+  <!-- FORM NHẬP -->  
+  <div class="card">  
+    <h2>Nhập thông tin ca trực</h2>  
+    <form id="formCaTruc">  
+      <div class="form-grid">  
+        <div>  
+          <label>Ngày</label>  
+          <input type="date" id="ngay" required value="">  
+        </div>  
+        <div>  
+          <label>Ca trực</label>  
+          <select id="ca" required>  
+            <option value="">Chọn ca...</option>  
+            <option value="Sáng">Sáng (6h-14h)</option>  
+            <option value="Chiều">Chiều (14h-22h)</option>  
+            <option value="Đêm">Đêm (22h-6h)</option>  
+          </select>  
+        </div>  
+        <div>  
+          <label>Người trực</label>  
+          <input type="text" id="nguoiTruc" placeholder="VD: Anh A + Chị B" required>  
+        </div>  
+        <div class="full">  
+          <label>Tình hình chung</label>  
+          <textarea id="tinhHinh" placeholder="Tuần tra, sự cố, khách ra vào..." required></textarea>  
+        </div>  
+        <div class="full">  
+          <label>Sự cố / Ghi chú đặc biệt (nếu có)</label>  
+          <textarea id="suCo" placeholder="Không có / Mất điện 30 phút / Khách lạ..."></textarea>  
+        </div>  
+      </div>  
+  
+      <div style="text-align:center; margin-top:24px;">  
+        <button type="submit" class="success">Lưu ca trực</button>  
+      </div>  
+    </form>  
+  
+    <div id="msg" class="message"></div>  
+  </div>  
+  
+  <!-- DASHBOARD -->  
+  <div class="card">  
+    <h2>Danh sách ca trực (Dashboard)</h2>  
+    <div style="overflow-x:auto;">  
+      <table id="tableCaTruc">  
+        <thead>  
+          <tr>  
+            <th>Ngày</th>  
+            <th>Ca</th>  
+            <th>Người trực</th>  
+            <th>Tình hình</th>  
+            <th>Sự cố</th>  
+            <th>Thời gian lưu</th>  
+          </tr>  
+        </thead>  
+        <tbody id="tbody"></tbody>  
+      </table>  
+    </div>  
+  </div>  
+  
+</div>  
+  
+<script>  
+// ====================== CONFIG FIREBASE ======================  
+const firebaseConfig = {  
+  databaseURL: "https://bigdata-c9bd2-default-rtdb.firebaseio.com/",  
+  // Nếu bạn dùng Authentication thì thêm apiKey, authDomain, projectId,...  
+  // Hiện tại chỉ dùng Realtime Database nên chỉ cần databaseURL là đủ (với rules phù hợp)  
+};  
+  
+firebase.initializeApp(firebaseConfig);  
+const db = firebase.database();  
+const ref = db.ref("ca-truc");  
+  
+// ====================== FORM SUBMIT ======================  
+document.getElementById("formCaTruc").addEventListener("submit", (e) => {  
+  e.preventDefault();  
+  
+  const ngay      = document.getElementById("ngay").value;  
+  const ca        = document.getElementById("ca").value;  
+  const nguoiTruc = document.getElementById("nguoiTruc").value.trim();  
+  const tinhHinh  = document.getElementById("tinhHinh").value.trim();  
+  const suCo      = document.getElementById("suCo").value.trim();  
+  
+  if (!ngay || !ca || !nguoiTruc || !tinhHinh) {  
+    showMessage("Vui lòng điền đầy đủ thông tin bắt buộc!", "error");  
+    return;  
+  }  
+  
+  const thoiGian = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Ho_Chi_Minh" })  
+                              .replace(" ", " ");  
+  
+  const data = {  
+    ngay,  
+    ca,  
+    nguoiTruc,  
+    tinhHinh,  
+    suCo: suCo || "Không có",  
+    thoiGian  
+  };  
+  
+  ref.push(data)  
+    .then(() => {  
+      showMessage("Đã lưu ca trực thành công!", "success");  
+      e.target.reset();  
+      // Đặt lại ngày về hôm nay  
+      document.getElementById("ngay").value = new Date().toISOString().slice(0,10);  
+    })  
+    .catch(err => {  
+      showMessage("Lỗi khi lưu: " + err.message, "error");  
+      console.error(err);  
+    });  
+});  
+  
+// ====================== REALTIME LISTEN & RENDER TABLE ======================  
+const tbody = document.getElementById("tbody");  
+  
+ref.orderByChild("ngay").on("value", (snapshot) => {  
+  tbody.innerHTML = "";  
+  const data = snapshot.val();  
+  
+  if (!data) {  
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:#777;">Chưa có ca trực nào được ghi nhận.</td></tr>';  
+    return;  
+  }  
+  
+  // Chuyển object → array và sắp xếp ngược (mới nhất lên đầu)  
+  const items = Object.entries(data)  
+                      .map(([id, item]) => ({ id, ...item }))  
+                      .sort((a,b) => (b.ngay + b.thoiGian).localeCompare(a.ngay + a.thoiGian));  
+  
+  items.forEach(item => {  
+    const tr = document.createElement("tr");  
+    tr.innerHTML = `  
+      <td data-label="Ngày">${item.ngay || ""}</td>  
+      <td data-label="Ca">${item.ca || ""}</td>  
+      <td data-label="Người trực">${item.nguoiTruc || ""}</td>  
+      <td data-label="Tình hình" class="note-col">${item.tinhHinh || ""}</td>  
+      <td data-label="Sự cố" class="note-col">${item.suCo || "Không có"}</td>  
+      <td data-label="Thời gian lưu" class="time-col">${item.thoiGian || ""}</td>  
+    `;  
+    tbody.appendChild(tr);  
+  });  
+}, (err) => {  
+  console.error("Lỗi đọc dữ liệu:", err);  
+  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:red;">Không thể đọc dữ liệu. Kiểm tra rules hoặc kết nối.</td></tr>';  
+});  
+  
+// ====================== HELPER ======================  
+function showMessage(text, type = "success") {  
+  const msg = document.getElementById("msg");  
+  msg.textContent = text;  
+  msg.className = "message " + type;  
+  setTimeout(() => { msg.textContent = ""; msg.className = "message"; }, 5000);  
+}  
+  
+// Set ngày mặc định là hôm nay  
+document.getElementById("ngay").value = new Date().toISOString().slice(0,10);  
+</script>  
+  
+</body>  
+</html>  
+  
+ 
